@@ -1,0 +1,44 @@
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/
+*.swp
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# Node.js
+node_modules/
+.pnpm-store/
+coverage/
+
+# Data artifacts and private media
+**/assets/raw/
+**/assets/processed/
+**/assets/knowledge_sources/
+**/assets/video_sources/
+*.sql
+*.sqlite
+*.sqlite3
+
+# Logs and temporary files
+*.log
+tmp/
+.tmp/
