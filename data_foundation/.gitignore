@@ -1,0 +1,15 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+assets/raw/
+assets/processed/
+assets/knowledge_sources/
+assets/video_sources/
+assets/permissions/
+assets/indexes/
+reports/private/

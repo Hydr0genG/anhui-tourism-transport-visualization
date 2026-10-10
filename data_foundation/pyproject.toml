@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anhui-data-foundation"
+version = "0.1.0"
+description = "安徽文旅交通客流平台的数据基础包"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "SQLAlchemy>=2.0,<2.1",
+  "alembic>=1.14,<2",
+  "PyMySQL>=1.1,<3",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+data-foundation = "data_foundation.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["data_foundation*"]
+
+[tool.setuptools.package-data]
+data_foundation = ["defaults/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

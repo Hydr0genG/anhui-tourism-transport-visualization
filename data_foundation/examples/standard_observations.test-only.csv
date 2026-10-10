@@ -1,0 +1,2 @@
+entity_id,metric_code,period_start,period_end,grain,original_value,original_unit,standard_value,standard_unit,conversion_factor,source_locator,methodology_version,published_at,quality_status
+00000000-0000-0000-0000-000000000101,scenic_visits,2026-01-01,2026-01-31,month,12.5,万人次,125000,人次,10000,测试表第2行,test-method-v1,2026-02-10T09:00:00+08:00,verified
