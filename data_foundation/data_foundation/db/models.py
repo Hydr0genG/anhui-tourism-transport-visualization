@@ -10,7 +10,6 @@ from sqlalchemy import (
     Boolean,
     CheckConstraint,
     Date,
-    DateTime,
     ForeignKey,
     Index,
     Integer,
@@ -22,7 +21,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import Mapped, mapped_column
 
-from .base import Base, CreatedMixin, IdMixin, MutableMixin, utcnow_naive
+from .base import PRECISE_DATETIME, Base, CreatedMixin, IdMixin, MutableMixin, utcnow_naive
 
 
 ID = String(36)
@@ -67,7 +66,7 @@ class Metric(Base):
     aggregation_rule: Mapped[str] = mapped_column(CODE, nullable=False)
     comparability_note: Mapped[str] = mapped_column(Text, nullable=False)
     dictionary_version: Mapped[str] = mapped_column(String(32), nullable=False)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow_naive, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, default=utcnow_naive, nullable=False)
 
 
 class Source(MutableMixin, Base):
@@ -80,13 +79,13 @@ class Source(MutableMixin, Base):
     verification_status: Mapped[str] = mapped_column(CODE, nullable=False)
     coverage_start: Mapped[date | None] = mapped_column(Date)
     coverage_end: Mapped[date | None] = mapped_column(Date)
-    published_at: Mapped[datetime | None] = mapped_column(DateTime)
-    retrieved_at: Mapped[datetime | None] = mapped_column(DateTime)
+    published_at: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
+    retrieved_at: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
     update_frequency: Mapped[str] = mapped_column(CODE, nullable=False)
     adapter_key: Mapped[str] = mapped_column(String(64), nullable=False)
     adapter_config: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict, nullable=False)
     enabled: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
-    last_checked_at: Mapped[datetime | None] = mapped_column(DateTime)
+    last_checked_at: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
     __table_args__ = (Index("ix_sources_enabled_last_checked", "enabled", "last_checked_at"),)
 
 
@@ -100,9 +99,9 @@ class Job(IdMixin, CreatedMixin, Base):
     requested_by: Mapped[str | None] = mapped_column(ForeignKey("users.id"))
     reason: Mapped[str] = mapped_column(Text, nullable=False)
     attempt_count: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
-    available_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
-    started_at: Mapped[datetime | None] = mapped_column(DateTime)
-    finished_at: Mapped[datetime | None] = mapped_column(DateTime)
+    available_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
+    started_at: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
+    finished_at: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
     processed_count: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     imported_count: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     result_refs: Mapped[dict[str, Any] | None] = mapped_column(JSON)
@@ -120,8 +119,8 @@ class SessionRecord(CreatedMixin, Base):
     __tablename__ = "sessions"
     id_hash: Mapped[str] = mapped_column(HASH, primary_key=True)
     user_id: Mapped[str] = mapped_column(ForeignKey("users.id"), nullable=False)
-    expires_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
-    revoked_at: Mapped[datetime | None] = mapped_column(DateTime)
+    expires_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
+    revoked_at: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
     __table_args__ = (Index("ix_sessions_user_expires", "user_id", "expires_at"),)
 
 
@@ -131,10 +130,10 @@ class JobAttempt(IdMixin, CreatedMixin, Base):
     attempt_no: Mapped[int] = mapped_column(Integer, nullable=False)
     worker_id: Mapped[str] = mapped_column(String(100), nullable=False)
     lease_token: Mapped[str] = mapped_column(ID, unique=True, nullable=False)
-    lease_expires_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
-    heartbeat_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
-    started_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
-    finished_at: Mapped[datetime | None] = mapped_column(DateTime)
+    lease_expires_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
+    heartbeat_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
+    started_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
+    finished_at: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
     outcome: Mapped[str | None] = mapped_column(CODE)
     error_summary: Mapped[str | None] = mapped_column(Text)
     __table_args__ = (
@@ -148,8 +147,8 @@ class SourceAsset(IdMixin, CreatedMixin, Base):
     source_id: Mapped[str] = mapped_column(ForeignKey("sources.id"), nullable=False)
     url: Mapped[str] = mapped_column(Text, nullable=False)
     title: Mapped[str] = mapped_column(String(300), nullable=False)
-    published_at: Mapped[datetime | None] = mapped_column(DateTime)
-    retrieved_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
+    published_at: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
+    retrieved_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
     relative_path: Mapped[str] = mapped_column(String(500), nullable=False)
     sha256: Mapped[str] = mapped_column(HASH, nullable=False)
     media_type: Mapped[str] = mapped_column(String(100), nullable=False)
@@ -173,8 +172,8 @@ class IngestionRun(IdMixin, CreatedMixin, Base):
     parser_version: Mapped[str] = mapped_column(String(64), nullable=False)
     normalizer_version: Mapped[str] = mapped_column(String(64), nullable=False)
     quality_rule_version: Mapped[str] = mapped_column(String(64), nullable=False)
-    started_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
-    finished_at: Mapped[datetime | None] = mapped_column(DateTime)
+    started_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
+    finished_at: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
     processed_count: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     imported_count: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     revised_count: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
@@ -207,8 +206,8 @@ class Observation(MutableMixin, Base):
     asset_id: Mapped[str] = mapped_column(ForeignKey("source_assets.id"), nullable=False)
     ingestion_run_id: Mapped[str] = mapped_column(ForeignKey("ingestion_runs.id"), nullable=False)
     source_locator: Mapped[str] = mapped_column(String(500), nullable=False)
-    published_at: Mapped[datetime | None] = mapped_column(DateTime)
-    ingested_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
+    published_at: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
+    ingested_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
     quality_status: Mapped[str] = mapped_column(CODE, nullable=False)
     methodology_version: Mapped[str] = mapped_column(String(64), nullable=False)
     value_kind: Mapped[str] = mapped_column(CODE, default="observed", nullable=False)
@@ -231,7 +230,7 @@ class ObservationRevision(IdMixin, CreatedMixin, Base):
     snapshot: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False)
     superseded_by_run_id: Mapped[str] = mapped_column(ForeignKey("ingestion_runs.id"), nullable=False)
     change_reason: Mapped[str] = mapped_column(Text, nullable=False)
-    changed_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
+    changed_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
     __table_args__ = (UniqueConstraint("observation_id", "version", name="observation_version"),)
 
 
@@ -261,7 +260,7 @@ class QualityIssue(MutableMixin, Base):
     raw_payload: Mapped[dict[str, Any] | None] = mapped_column(JSON)
     message: Mapped[str] = mapped_column(Text, nullable=False)
     status: Mapped[str] = mapped_column(CODE, default="open", nullable=False)
-    resolved_at: Mapped[datetime | None] = mapped_column(DateTime)
+    resolved_at: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
     resolution_note: Mapped[str | None] = mapped_column(Text)
     __table_args__ = (Index("ix_quality_issues_run_status", "run_id", "status"),)
 
@@ -294,10 +293,10 @@ class Event(MutableMixin, Base):
     severity: Mapped[str] = mapped_column(CODE, nullable=False)
     region_code: Mapped[str] = mapped_column(String(12), nullable=False)
     status: Mapped[str] = mapped_column(CODE, nullable=False)
-    starts_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
-    ends_at: Mapped[datetime | None] = mapped_column(DateTime)
-    published_at: Mapped[datetime | None] = mapped_column(DateTime)
-    last_verified_at: Mapped[datetime | None] = mapped_column(DateTime)
+    starts_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
+    ends_at: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
+    published_at: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
+    last_verified_at: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
     source_id: Mapped[str] = mapped_column(ForeignKey("sources.id"), nullable=False)
     asset_id: Mapped[str] = mapped_column(ForeignKey("source_assets.id"), nullable=False)
     operator_note: Mapped[str | None] = mapped_column(Text)
@@ -321,7 +320,7 @@ class EventHistory(IdMixin, CreatedMixin, Base):
     snapshot: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False)
     change_note: Mapped[str] = mapped_column(Text, nullable=False)
     operator_user_id: Mapped[str | None] = mapped_column(ForeignKey("users.id"))
-    changed_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
+    changed_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
     __table_args__ = (UniqueConstraint("event_id", "version", name="event_version"),)
 
 
@@ -332,9 +331,9 @@ class KnowledgeDocument(MutableMixin, Base):
     title: Mapped[str] = mapped_column(String(300), nullable=False)
     publisher: Mapped[str] = mapped_column(String(200), nullable=False)
     source_url: Mapped[str] = mapped_column(Text, nullable=False)
-    published_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
-    valid_from: Mapped[datetime | None] = mapped_column(DateTime)
-    valid_until: Mapped[datetime | None] = mapped_column(DateTime)
+    published_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
+    valid_from: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
+    valid_until: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
     permission_note: Mapped[str] = mapped_column(Text, nullable=False)
     document_version: Mapped[str] = mapped_column(String(64), nullable=False)
     index_status: Mapped[str] = mapped_column(CODE, default="pending", nullable=False)
@@ -386,8 +385,8 @@ class PermissionRecord(MutableMixin, Base):
     evidence_path: Mapped[str] = mapped_column(String(500), nullable=False)
     evidence_sha256: Mapped[str] = mapped_column(HASH, nullable=False)
     allowed_uses: Mapped[list[str]] = mapped_column(JSON, nullable=False)
-    valid_from: Mapped[datetime] = mapped_column(DateTime, nullable=False)
-    valid_until: Mapped[datetime | None] = mapped_column(DateTime)
+    valid_from: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
+    valid_until: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
     playback_allowed: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     status: Mapped[str] = mapped_column(CODE, nullable=False)
 
@@ -399,8 +398,8 @@ class Video(MutableMixin, Base):
     scenic_id: Mapped[str] = mapped_column(ForeignKey("entities.id"), nullable=False)
     camera_id: Mapped[str] = mapped_column(ForeignKey("entities.id"), nullable=False)
     permission_record_id: Mapped[str] = mapped_column(ForeignKey("permission_records.id"), nullable=False)
-    recorded_start_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
-    recorded_end_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
+    recorded_start_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
+    recorded_end_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
     status: Mapped[str] = mapped_column(CODE, default="uploaded", nullable=False)
     camera_location_note: Mapped[str | None] = mapped_column(Text)
     __table_args__ = (
@@ -435,8 +434,8 @@ class VideoAnalysis(IdMixin, CreatedMixin, Base):
 class CameraCount(IdMixin, CreatedMixin, Base):
     __tablename__ = "camera_counts"
     analysis_id: Mapped[str] = mapped_column(ForeignKey("video_analyses.id"), nullable=False)
-    window_start: Mapped[datetime] = mapped_column(DateTime, nullable=False)
-    window_end: Mapped[datetime] = mapped_column(DateTime, nullable=False)
+    window_start: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
+    window_end: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
     entries: Mapped[int] = mapped_column(Integer, nullable=False)
     exits: Mapped[int] = mapped_column(Integer, nullable=False)
     quality_status: Mapped[str] = mapped_column(CODE, nullable=False)
@@ -455,8 +454,8 @@ class ManualAnnotation(IdMixin, CreatedMixin, Base):
     camera_id: Mapped[str] = mapped_column(ForeignKey("entities.id"), nullable=False)
     sample_key: Mapped[str] = mapped_column(String(100), nullable=False)
     version: Mapped[int] = mapped_column(Integer, nullable=False)
-    window_start: Mapped[datetime] = mapped_column(DateTime, nullable=False)
-    window_end: Mapped[datetime] = mapped_column(DateTime, nullable=False)
+    window_start: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
+    window_end: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
     entries: Mapped[int] = mapped_column(Integer, nullable=False)
     exits: Mapped[int] = mapped_column(Integer, nullable=False)
     annotator: Mapped[str] = mapped_column(String(100), nullable=False)
@@ -510,7 +509,7 @@ class ForecastPoint(IdMixin, CreatedMixin, Base):
 class ShortForecastRun(IdMixin, CreatedMixin, Base):
     __tablename__ = "short_forecast_runs"
     analysis_id: Mapped[str] = mapped_column(ForeignKey("video_analyses.id"), nullable=False)
-    cutoff_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
+    cutoff_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
     direction: Mapped[str] = mapped_column(CODE, nullable=False)
     horizon_minutes: Mapped[int] = mapped_column(SmallInteger, nullable=False)
     step_minutes: Mapped[int] = mapped_column(SmallInteger, nullable=False)
@@ -530,8 +529,8 @@ class ShortForecastRun(IdMixin, CreatedMixin, Base):
 class ShortForecastPoint(IdMixin, CreatedMixin, Base):
     __tablename__ = "short_forecast_points"
     run_id: Mapped[str] = mapped_column(ForeignKey("short_forecast_runs.id"), nullable=False)
-    window_start: Mapped[datetime] = mapped_column(DateTime, nullable=False)
-    window_end: Mapped[datetime] = mapped_column(DateTime, nullable=False)
+    window_start: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
+    window_end: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
     value: Mapped[Decimal] = mapped_column(MONEY, nullable=False)
     lower_bound: Mapped[Decimal | None] = mapped_column(MONEY)
     upper_bound: Mapped[Decimal | None] = mapped_column(MONEY)

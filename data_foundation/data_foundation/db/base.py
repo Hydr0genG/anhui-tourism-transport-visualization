@@ -4,7 +4,12 @@ from datetime import datetime, timezone
 from uuid import uuid4
 
 from sqlalchemy import DateTime, MetaData, String
+from sqlalchemy.dialects.mysql import DATETIME
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+
+
+# UTC values remain timezone-naive in storage; MySQL preserves all six fractional digits.
+PRECISE_DATETIME = DateTime().with_variant(DATETIME(fsp=6), "mysql", "mariadb")
 
 
 NAMING_CONVENTION = {
@@ -33,11 +38,11 @@ class IdMixin:
 
 
 class CreatedMixin:
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow_naive, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, default=utcnow_naive, nullable=False)
 
 
 class MutableMixin(IdMixin, CreatedMixin):
     updated_at: Mapped[datetime] = mapped_column(
-        DateTime, default=utcnow_naive, onupdate=utcnow_naive, nullable=False
+        PRECISE_DATETIME, default=utcnow_naive, onupdate=utcnow_naive, nullable=False
     )
     row_version: Mapped[int] = mapped_column(default=1, nullable=False)

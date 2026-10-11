@@ -1,0 +1,78 @@
+{
+  "report_version": "de-handoff/1",
+  "generated_at": "2026-10-11T09:15:47.817453+00:00",
+  "package_version": "0.1.1",
+  "part": "d",
+  "scope": "synthetic_storage_only",
+  "checks": [
+    {
+      "name": "migration",
+      "status": "passed",
+      "note": "五段迁移和连接检查通过，30 张业务表"
+    },
+    {
+      "name": "precision-job",
+      "status": "passed",
+      "note": "700000 微秒入队后原值读回，同一时刻领取成功"
+    },
+    {
+      "name": "precision-lease",
+      "status": "passed",
+      "note": "租约到期前一微秒有效，到期时失效"
+    },
+    {
+      "name": "precision-session",
+      "status": "passed",
+      "note": "会话到期时间保留微秒，边界有效性正确"
+    },
+    {
+      "name": "fixture",
+      "status": "passed",
+      "note": "仅创建合成来源、景区和摄像头，文件摘要来自实际测试文件"
+    },
+    {
+      "name": "D-auth",
+      "status": "passed",
+      "note": "用户查询、会话保存/到期/撤销通过；未验证密码算法或 HTTP 登录"
+    },
+    {
+      "name": "D-readonly",
+      "status": "passed",
+      "note": "只读工作单元拒绝受约束写入"
+    },
+    {
+      "name": "D-transaction",
+      "status": "passed",
+      "note": "异常回滚和五指标查询通过"
+    },
+    {
+      "name": "D-dry-run",
+      "status": "passed",
+      "note": "记录检查批次，预计新增 1，实际观测仍为 0"
+    },
+    {
+      "name": "D-series",
+      "status": "passed",
+      "note": "首次新增 1、重复跳过 1，三个月缺 2 期，来源可追溯"
+    },
+    {
+      "name": "D-revision",
+      "status": "passed",
+      "note": "修订 1 条，查询版本为 2；旧快照由原有自动化测试检查"
+    },
+    {
+      "name": "D-metric-tool",
+      "status": "passed",
+      "note": "不支持粒度及白名单拒绝通过；尚未调用 E 的问答函数"
+    },
+    {
+      "name": "D-history-save",
+      "status": "passed",
+      "note": "历史预测不足状态保存通过；未验证预测算法或 run 读取"
+    }
+  ],
+  "database_dialect": "mysql",
+  "migration_head": "0005",
+  "status": "passed",
+  "check_count": 13
+}

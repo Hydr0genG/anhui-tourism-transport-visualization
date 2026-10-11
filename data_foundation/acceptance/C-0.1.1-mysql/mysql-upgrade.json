@@ -1,0 +1,12 @@
+{
+  "mysql_version": "8.4.11",
+  "package_version": "0.1.1",
+  "migration_head": "0005",
+  "upgrade_existing_0004": "passed",
+  "datetime_columns": 77,
+  "all_fsp": 6,
+  "old_row_preserved": true,
+  "old_rounding_reproduced": true,
+  "new_microseconds_preserved": true,
+  "scope": "synthetic_storage_only"
+}

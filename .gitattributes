@@ -1,0 +1,2 @@
+# Normalize Windows acceptance reports in Git while retaining their local originals.
+data_foundation/acceptance/D-2026-10-11/*.json text eol=lf
