@@ -1,0 +1,18 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /Users/Admin/Documents/ChatGPT/文旅与交通客可视化平台/.tmp/c017/installed-handoff
+collected 188 items
+
+tests/test_analysis_reads.py ..................................          [ 18%]
+tests/test_core.py ..                                                    [ 19%]
+tests/test_datetime_precision.py ...                                     [ 20%]
+tests/test_dependencies.py ...                                           [ 22%]
+tests/test_job_claim_filters.py .............................            [ 37%]
+tests/test_job_recovery.py ....................................          [ 56%]
+tests/test_migrations.py .                                               [ 57%]
+tests/test_public_supplement.py ........                                 [ 61%]
+tests/test_real_dataset.py .........                                     [ 66%]
+tests/test_worker_lifecycle.py ......................................... [ 88%]
+......................                                                   [100%]
+
+============================= 188 passed in 10.34s =============================

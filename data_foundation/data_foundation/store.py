@@ -31,9 +31,16 @@ class DataStore:
         if database_url.startswith("sqlite"):
             @event.listens_for(self.engine, "connect")
             def _sqlite_foreign_keys(dbapi_connection, _connection_record) -> None:  # type: ignore[no-untyped-def]
+                # SQLite legacy mode does not start a transaction for SAVEPOINT.
+                # Let SQLAlchemy explicitly begin so nested batch rollback remains
+                # subordinate to the caller's outer transaction.
+                dbapi_connection.isolation_level = None
                 cursor = dbapi_connection.cursor()
                 cursor.execute("PRAGMA foreign_keys=ON")
                 cursor.close()
+            @event.listens_for(self.engine, "begin")
+            def _sqlite_begin(connection) -> None:  # type: ignore[no-untyped-def]
+                connection.exec_driver_sql("BEGIN")
         self._sessions = sessionmaker(self.engine, expire_on_commit=False)
 
     @contextmanager

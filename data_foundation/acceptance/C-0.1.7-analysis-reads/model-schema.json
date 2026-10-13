@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "dialect": "mysql",
+  "migration_head": "0006",
+  "alembic_check": "No new upgrade operations detected.",
+  "schema_evidence_version": "0.1.6 (unchanged models/migrations in 0.1.7)",
+  "scope": "isolated_upgrade_test_database"
+}

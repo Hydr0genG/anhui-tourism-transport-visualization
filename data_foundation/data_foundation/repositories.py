@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any, Iterable
 from uuid import uuid4
 
-from sqlalchemy import LargeBinary, and_, cast, func, or_, select
+from sqlalchemy import LargeBinary, and_, cast, func, or_, select, tuple_
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
@@ -1266,17 +1266,157 @@ class VideoRepository(Repository):
         self.session.flush()
         return public_columns(analysis)
 
-    def query_counts(self, video_id: str, analysis_id: str) -> dict[str, Any]:
+    def write_manual_annotations(self, annotations: list[dict[str, Any]], *,
+                                 now: datetime | None = None) -> dict[str, int]:
+        self.require_write()
+        if not isinstance(annotations, list) or len(annotations) > 1000:
+            raise InvalidArgument("单批人工标注必须是最多1000条的列表")
+        current = utc_aware(utc_naive(now)) if now is not None else datetime.now(timezone.utc)
+        fields = {"video_id", "camera_id", "sample_key", "version", "window_start", "window_end",
+                  "entries", "exits", "annotator", "direction_note", "review_status"}
+        normalized = []
+        for item in annotations:
+            if not isinstance(item, dict) or set(item) != fields:
+                raise InvalidArgument("人工标注字段缺失或包含未知字段")
+            values = dict(item)
+            for key, limit in (("video_id",36),("camera_id",36),("sample_key",100),("annotator",100),("direction_note",2000)):
+                if not isinstance(values[key], str) or not values[key].strip() or len(values[key]) > limit:
+                    raise InvalidArgument("人工标注字符串字段无效", field=key)
+            for key in ("entries", "exits", "version"):
+                JobRepository.validate_count(values[key], key, positive=(key=="version"))
+            if not isinstance(values["review_status"],str) or values["review_status"] not in {"pending_review", "verified", "rejected"}:
+                raise InvalidArgument("人工标注review_status无效")
+            values["window_start"], values["window_end"] = utc_naive(values["window_start"]), utc_naive(values["window_end"])
+            if values["window_end"] <= values["window_start"]:
+                raise InvalidArgument("人工标注时间窗顺序无效")
+            normalized.append(values)
+        inserted = skipped = 0
+        # 先按视频ID锁定，避免多录像标注批次逆序加锁。
+        videos = {key:self.locked(Video,key,"录像") for key in sorted({x["video_id"] for x in normalized})}
+        for video in videos.values():
+            self._permission(video,"analysis",current,lock=True)
+        for item in normalized:
+            video = videos[item["video_id"]]
+            if (item["camera_id"] != video.camera_id or item["window_start"] < video.recorded_start_at
+                    or item["window_end"] > video.recorded_end_at):
+                raise InvalidArgument("人工标注摄像头或时间范围与录像不符")
+        # 冲突时只回滚本批标注，调用方之前的独立修改仍由外层事务控制。
+        with self.session.begin_nested():
+            for item in normalized:
+                existing = self.session.scalar(select(ManualAnnotation).where(
+                    ManualAnnotation.video_id == item["video_id"], ManualAnnotation.sample_key == item["sample_key"],
+                    ManualAnnotation.version == item["version"]
+                ).with_for_update().execution_options(populate_existing=True))
+                if existing:
+                    if any(getattr(existing,key) != value for key,value in item.items()):
+                        raise Conflict("同版本标注内容不一致；修订必须新版本")
+                    skipped += 1
+                    continue
+                latest_row = self.session.scalar(select(ManualAnnotation).where(
+                    ManualAnnotation.video_id == item["video_id"], ManualAnnotation.sample_key == item["sample_key"]
+                ).order_by(ManualAnnotation.version.desc()).with_for_update().limit(1)
+                    .execution_options(populate_existing=True))
+                if latest_row is not None and latest_row.sample_key != item["sample_key"]:
+                    raise Conflict("样本键与已有记录的大小写或尾部空格不同")
+                latest = latest_row.version if latest_row else 0
+                if item["version"] != latest+1:
+                    raise Conflict("人工标注版本必须从1开始连续递增", latest_version=latest)
+                self.session.add(ManualAnnotation(**item))
+                self.session.flush()
+                inserted += 1
+        return {"inserted":inserted,"skipped":skipped}
+
+    def list_manual_annotations(self, video_id: str, *, review_status: str | None = None,
+                                latest_only: bool = True, page: Page = Page()) -> dict[str, Any]:
+        self.get_or_404(Video,video_id,"录像")
+        if not isinstance(latest_only,bool):
+            raise InvalidArgument("latest_only必须是bool")
+        conditions = [ManualAnnotation.video_id == video_id]
+        if review_status is not None:
+            if not isinstance(review_status,str) or review_status not in {"pending_review","verified","rejected"}:
+                raise InvalidArgument("review_status无效")
+            conditions.append(ManualAnnotation.review_status == review_status)
+        if latest_only:
+            latest = select(ManualAnnotation.sample_key,func.max(ManualAnnotation.version).label("version")).where(
+                ManualAnnotation.video_id == video_id).group_by(ManualAnnotation.sample_key).subquery()
+            conditions.append(tuple_(ManualAnnotation.sample_key,ManualAnnotation.version).in_(select(latest.c.sample_key,latest.c.version)))
+        total = self.session.scalar(select(func.count()).select_from(ManualAnnotation).where(*conditions)) or 0
+        rows = self.session.scalars(select(ManualAnnotation).where(*conditions)
+            .order_by(ManualAnnotation.window_start,ManualAnnotation.sample_key,ManualAnnotation.version.desc())
+            .offset((page.page-1)*page.page_size).limit(page.page_size)).all()
+        return {"items":[public_columns(row) for row in rows],"page":page.page,"page_size":page.page_size,"total":total}
+
+    def query_counts(self, video_id: str, analysis_id: str, *, start: datetime | None = None,
+                     end: datetime | None = None, interval_minutes: int | None = None) -> dict[str, Any]:
         analysis = self.get_or_404(VideoAnalysis, analysis_id, "录像分析")
         if analysis.video_id != video_id:
             raise NotFound("该录像没有指定分析")
         if analysis.status != "succeeded":
             raise AnalysisNotReady("录像分析尚未完成")
-        rows = self.session.scalars(select(CameraCount).where(CameraCount.analysis_id == analysis_id).order_by(CameraCount.window_start)).all()
-        return {"analysis": public_columns(analysis), "points": [public_columns(x) for x in rows]}
+        video = self.get_or_404(Video,video_id,"录像")
+        left = utc_naive(start) if start is not None else video.recorded_start_at
+        right = utc_naive(end) if end is not None else video.recorded_end_at
+        if right <= left and start is not None and end is not None:
+            raise InvalidArgument("计数查询end必须晚于start")
+        native = timedelta(minutes=analysis.interval_minutes)
+        if interval_minutes is not None:
+            JobRepository.validate_count(interval_minutes,"interval_minutes",positive=True)
+            if interval_minutes > 1440 or interval_minutes % analysis.interval_minutes:
+                raise InvalidArgument("聚合间隔必须是原始间隔的整数倍")
+        filtered = start is not None or end is not None or interval_minutes is not None
+        left,right = max(left,video.recorded_start_at),min(right,video.recorded_end_at)
+        if filtered and (right-left)/native > 20000:
+            raise QueryLimitExceeded("单次计数查询最多覆盖20000个原始时间窗")
+        rows = self.session.scalars(select(CameraCount).where(CameraCount.analysis_id == analysis_id,
+            CameraCount.window_start >= left, CameraCount.window_end <= right)
+            .order_by(CameraCount.window_start,CameraCount.id)).all() if right > left else []
+        result = {"analysis": public_columns(analysis), "points": [public_columns(x) for x in rows]}
+        if interval_minutes is None:
+            return result
+        step = timedelta(minutes=interval_minutes)
+        # 对齐录像起点；不拆分输入窗，不将不足一个聚合窗的边界计为完整。
+        offset = max(timedelta(),left-video.recorded_start_at)
+        index = offset // step + bool(offset % step)
+        cursor = video.recorded_start_at + index*step
+        first_window_start = cursor
+        points,missing = [],[]
+        native_points = {(row.window_start,row.window_end):row for row in rows}
+        expected = interval_minutes//analysis.interval_minutes
+        while cursor+step <= right:
+            windows = [native_points.get((cursor+i*native,cursor+(i+1)*native)) for i in range(expected)]
+            if any(row is None for row in windows):
+                missing.append({"window_start":utc_aware(cursor),"window_end":utc_aware(cursor+step),
+                    "expected_windows":expected,"available_windows":sum(row is not None for row in windows)})
+            else:
+                statuses = {row.quality_status for row in windows}
+                quality = "verified" if statuses == {"verified"} else ("rejected" if "rejected" in statuses else "pending_review")
+                points.append({"window_start":utc_aware(cursor),"window_end":utc_aware(cursor+step),
+                    "entries":sum(row.entries for row in windows),"exits":sum(row.exits for row in windows),
+                    "quality_status":quality,"source_window_count":expected})
+            cursor += step
+        result["points"] = points
+        result["aggregation"] = {"interval_minutes":interval_minutes,"native_interval_minutes":analysis.interval_minutes,
+            "alignment":"recorded_start_at","missing_windows":missing,
+            "incomplete_boundary_omitted":right > left and (first_window_start > left or cursor < right),
+            "source_window_count":len(rows),"complete_window_count":len(points),"expected_window_count":len(points)+len(missing),
+            "ignored_non_native_windows":sum((row.window_end-row.window_start != native
+                or (row.window_start-video.recorded_start_at)%native != timedelta()) for row in rows)}
+        return result
 
 
 class ForecastRepository(Repository):
+    def get_history_forecast(self, run_id: str) -> dict[str, Any]:
+        run = self.get_or_404(ForecastRun,run_id,"历史预测运行")
+        rows = self.session.scalars(select(ForecastPoint).where(ForecastPoint.run_id==run_id)
+            .order_by(ForecastPoint.period_start,ForecastPoint.period_end,ForecastPoint.id)).all()
+        return {"run":public_columns(run),"points":[public_columns(row) for row in rows]}
+
+    def get_short_forecast(self, run_id: str) -> dict[str, Any]:
+        run = self.get_or_404(ShortForecastRun,run_id,"短时预测运行")
+        rows = self.session.scalars(select(ShortForecastPoint).where(ShortForecastPoint.run_id==run_id)
+            .order_by(ShortForecastPoint.window_start,ShortForecastPoint.window_end,ShortForecastPoint.id)).all()
+        return {"run":public_columns(run),"points":[public_columns(row) for row in rows]}
+
     def save_history_forecast(self, data: dict[str, Any], points: list[dict[str, Any]]) -> dict[str, Any]:
         self.require_write()
         status, horizon = data["status"], data["horizon"]

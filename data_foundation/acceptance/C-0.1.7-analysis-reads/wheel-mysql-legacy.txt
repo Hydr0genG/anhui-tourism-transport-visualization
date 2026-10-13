@@ -1,0 +1,118 @@
+{
+  "report_version": "de-handoff/1",
+  "generated_at": "2026-10-13T16:43:16.432187+00:00",
+  "package_version": "0.1.7",
+  "part": "all",
+  "scope": "synthetic_storage_only",
+  "checks": [
+    {
+      "name": "migration",
+      "status": "passed",
+      "note": "六段迁移和连接检查通过，31 张业务表"
+    },
+    {
+      "name": "precision-job",
+      "status": "passed",
+      "note": "700000 微秒入队后原值读回，同一时刻领取成功"
+    },
+    {
+      "name": "precision-lease",
+      "status": "passed",
+      "note": "租约到期前一微秒有效，到期时失效"
+    },
+    {
+      "name": "precision-session",
+      "status": "passed",
+      "note": "会话到期时间保留微秒，边界有效性正确"
+    },
+    {
+      "name": "fixture",
+      "status": "passed",
+      "note": "仅创建合成来源、景区和摄像头，文件摘要来自实际测试文件"
+    },
+    {
+      "name": "D-auth",
+      "status": "passed",
+      "note": "用户查询、会话保存/到期/撤销通过；未验证密码算法或 HTTP 登录"
+    },
+    {
+      "name": "D-readonly",
+      "status": "passed",
+      "note": "只读工作单元拒绝受约束写入"
+    },
+    {
+      "name": "D-transaction",
+      "status": "passed",
+      "note": "异常回滚和五指标查询通过"
+    },
+    {
+      "name": "D-dry-run",
+      "status": "passed",
+      "note": "记录检查批次，预计新增 1，实际观测仍为 0"
+    },
+    {
+      "name": "D-series",
+      "status": "passed",
+      "note": "首次新增 1、重复跳过 1，三个月缺 2 期，来源可追溯"
+    },
+    {
+      "name": "D-revision",
+      "status": "passed",
+      "note": "修订 1 条，查询版本为 2；旧快照由原有自动化测试检查"
+    },
+    {
+      "name": "D-metric-tool",
+      "status": "passed",
+      "note": "不支持粒度及白名单拒绝通过；尚未调用 E 的问答函数"
+    },
+    {
+      "name": "D-history-save",
+      "status": "passed",
+      "note": "历史预测不足状态保存通过；未验证预测算法或 run 读取"
+    },
+    {
+      "name": "E-chunks",
+      "status": "passed",
+      "note": "初始未就绪、两片段写入和重复跳过通过"
+    },
+    {
+      "name": "E-chunk-conflict",
+      "status": "passed",
+      "note": "同序号不同文本被拒绝，原片段保持可用"
+    },
+    {
+      "name": "E-index-publish",
+      "status": "passed",
+      "note": "实际 activate_index 与 complete_job 同事务发布并读回"
+    },
+    {
+      "name": "E-video-create",
+      "status": "passed",
+      "note": "合成授权/视频/分析登记及作业、配置幂等通过；禁止回放"
+    },
+    {
+      "name": "E-counts",
+      "status": "passed",
+      "note": "未成功时不可对外查询；两窗口写入、重传及冲突拒绝通过"
+    },
+    {
+      "name": "E-analysis-publish",
+      "status": "passed",
+      "note": "complete_analysis 与 complete_job 同事务发布；无真实计数质量结论"
+    },
+    {
+      "name": "E-short-save",
+      "status": "passed",
+      "note": "短时预测不足状态可保存，输入越过 cutoff_at 被拒绝"
+    },
+    {
+      "name": "E-job-fail",
+      "status": "passed",
+      "note": "完成后租约不可续期、作业失败可读回；过期恢复另行验收，手动重试未实现"
+    }
+  ],
+  "database_dialect": "mysql",
+  "migration_head": "0006",
+  "status": "passed",
+  "check_count": 21
+}
