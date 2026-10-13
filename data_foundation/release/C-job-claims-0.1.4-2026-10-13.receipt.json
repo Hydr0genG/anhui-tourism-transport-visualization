@@ -1,0 +1,28 @@
+{
+  "archive": "C-job-claims-0.1.4-2026-10-13.zip",
+  "byte_size": 13463666,
+  "sha256": "6abaa497d35f5929c58cfee41a37b96c5d0bde1173c18d833d05d355f2ef7019",
+  "file_count": 482,
+  "wheel_sha256": "124c99b1517f83a19b688ad4fb8101667ce35d23bbea794028cd48811a9effc0",
+  "contents_manifest_sha256": "680c4c65e0510b5b050862abb98ed60adec51b4b0e37a55fa82301aa522224c2",
+  "zip_crc_and_all_files_verified": true,
+  "wheel_source_matches": true,
+  "installed_wheel_filter_tests_passed": 29,
+  "pytest_passed": 55,
+  "mysql_claim_checks_passed": 5,
+  "mysql_legacy_checks_passed": 21,
+  "sqlite_legacy_checks_passed": 21,
+  "unpacked_dataset_validation": {
+    "dataset_id": "anhui-public-supplement-2026-10-12",
+    "status": "validated",
+    "asset_count": 106,
+    "holiday_count": 26,
+    "event_count": 1,
+    "observation_count": 83,
+    "supplementary_fact_count": 17,
+    "document_count": 16
+  },
+  "validation_mysql_shutdown": true,
+  "production_database_verified": false,
+  "DE_receiving_acceptance": "pending"
+}

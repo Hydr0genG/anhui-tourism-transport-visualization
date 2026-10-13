@@ -10,7 +10,7 @@ from decimal import Decimal
 from typing import Any, Iterable
 from uuid import uuid4
 
-from sqlalchemy import and_, func, or_, select
+from sqlalchemy import LargeBinary, and_, cast, func, or_, select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
@@ -548,11 +548,23 @@ class JobRepository(Repository):
         self.session.flush()
         return public_columns(job)
 
-    def claim_job(self, worker_id: str, now: datetime, lease_seconds: int = 120) -> dict[str, Any] | None:
+    def claim_job(
+        self, worker_id: str, now: datetime, lease_seconds: int = 120, *,
+        job_type: str | None = None, job_id: str | None = None,
+    ) -> dict[str, Any] | None:
+        """领取一个到期排队任务；筛选精确匹配，无匹配时不回退。"""
         self.require_write()
+        filters = []
+        for name, value, column in (("job_type", job_type, Job.type), ("job_id", job_id, Job.id)):
+            if value is not None:
+                if not isinstance(value, str) or not value.strip():
+                    raise InvalidArgument("任务筛选参数必须是非空字符串", field=name)
+                # 普通等值保留索引候选查询；二进制复核避免 MySQL 排序规则
+                # 将大小写或尾部空格不同的筛选值视为同一字符串。
+                filters.extend((column == value, cast(column, LargeBinary) == value.encode("utf-8")))
         now_db = utc_naive(now)
         job = self.session.scalar(
-            select(Job).where(Job.status == "queued", Job.available_at <= now_db)
+            select(Job).where(Job.status == "queued", Job.available_at <= now_db, *filters)
             .order_by(Job.created_at, Job.id).with_for_update(skip_locked=True).limit(1)
         )
         if job is None:

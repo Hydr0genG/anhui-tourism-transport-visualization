@@ -1,0 +1,37 @@
+{
+  "package_version": "0.1.4",
+  "status": "passed",
+  "scope": "isolated_mysql_synthetic_claim_transactions",
+  "database_version": "8.4.11",
+  "migration_head": "0005",
+  "checks": [
+    {
+      "name": "same_job_claimed_once_and_locked_id_has_no_fallback",
+      "status": "passed",
+      "two_distinct_connections": true,
+      "skip_elapsed_seconds": 0.0006
+    },
+    {
+      "name": "type_filter_skips_locked_matching_job",
+      "status": "passed"
+    },
+    {
+      "name": "rollback_removes_attempt_and_allows_fresh_claim",
+      "status": "passed"
+    },
+    {
+      "name": "intersection_mismatch_has_no_side_effects",
+      "status": "passed"
+    },
+    {
+      "name": "case_and_trailing_spaces_match_exactly",
+      "status": "passed"
+    }
+  ],
+  "check_count": 5,
+  "limitations": [
+    "沿用现有索引及排序，MySQL领取查询可能锁多个扫描候选行；本报告不证明每次只锁一行，也不证明高并发吞吐。"
+  ],
+  "verified_at": "2026-10-13T14:17:56.461112+00:00",
+  "production_database_verified": false
+}
