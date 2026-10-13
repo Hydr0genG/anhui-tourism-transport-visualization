@@ -1,0 +1,55 @@
+{
+  "version": "v0.1.0",
+  "metrics": [
+    {
+      "code": "scenic_visits",
+      "display_name": "景区接待人次",
+      "definition": "统计周期内景区接待游客的累计人次，以发布来源口径为准。",
+      "unit": "人次",
+      "supported_entity_types": ["scenic"],
+      "aggregation_rule": "complete_non_overlapping_periods_only",
+      "comparability_note": "不同景区和时期须核对统计范围；不得与交通客流直接相加。",
+      "dictionary_version": "v0.1.0"
+    },
+    {
+      "code": "rail_departures",
+      "display_name": "铁路发送人次",
+      "definition": "统计周期内铁路站发送旅客人次。",
+      "unit": "人次",
+      "supported_entity_types": ["rail_station"],
+      "aggregation_rule": "complete_non_overlapping_periods_only",
+      "comparability_note": "发送量不是到达量或双向吞吐量。",
+      "dictionary_version": "v0.1.0"
+    },
+    {
+      "code": "airport_throughput",
+      "display_name": "机场旅客吞吐量",
+      "definition": "统计周期内机场进出港旅客吞吐人次。",
+      "unit": "人次",
+      "supported_entity_types": ["airport"],
+      "aggregation_rule": "complete_non_overlapping_periods_only",
+      "comparability_note": "机场吞吐量不能与铁路发送量直接相加。",
+      "dictionary_version": "v0.1.0"
+    },
+    {
+      "code": "camera_entries",
+      "display_name": "入口估计进入人次",
+      "definition": "授权录像中指定入口经检测、跟踪和越线计数得到的估计进入人次。",
+      "unit": "人次",
+      "supported_entity_types": ["camera"],
+      "aggregation_rule": "same_analysis_complete_windows_only",
+      "comparability_note": "仅表示指定入口估计通行次数，不是全景区在园人数。",
+      "dictionary_version": "v0.1.0"
+    },
+    {
+      "code": "camera_exits",
+      "display_name": "入口估计离开人次",
+      "definition": "授权录像中指定入口经检测、跟踪和越线计数得到的估计离开人次。",
+      "unit": "人次",
+      "supported_entity_types": ["camera"],
+      "aggregation_rule": "same_analysis_complete_windows_only",
+      "comparability_note": "仅表示指定入口估计通行次数，不是全景区在园人数。",
+      "dictionary_version": "v0.1.0"
+    }
+  ]
+}

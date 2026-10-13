@@ -1,0 +1,538 @@
+{
+  "schema_version": "v1",
+  "note": "全国通用，地区000000；2024除夕鼓励休息不计入统一窗口。中秋国庆合并发布只登记一次。year按安排年度而非跨年元旦开始年。",
+  "holidays": [
+    {
+      "id": "c15ac642-98a0-54e9-8036-abe8d0bca0e7",
+      "name": "2023年元旦",
+      "kind": "new_year",
+      "year": 2023,
+      "start_date": "2022-12-31",
+      "end_date": "2023-01-02",
+      "days_count": 3,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "6c924f36-74a8-56f5-93eb-573fa7cd9d34",
+      "asset_key": "holiday-2023",
+      "raw_excerpt": "一、元旦：2022年12月31日至2023年1月2日放假调休，共3天。",
+      "source_locator": "放假调休条款：元旦",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "new_year"
+      ]
+    },
+    {
+      "id": "1cf6556c-9a09-5d28-94a4-1f3bad825789",
+      "name": "2023年春节",
+      "kind": "spring_festival",
+      "year": 2023,
+      "start_date": "2023-01-21",
+      "end_date": "2023-01-27",
+      "days_count": 7,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "6c924f36-74a8-56f5-93eb-573fa7cd9d34",
+      "asset_key": "holiday-2023",
+      "raw_excerpt": "二、春节：1月21日至27日放假调休，共7天。1月28日（星期六）、1月29日（星期日）上班。",
+      "source_locator": "放假调休条款：春节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "spring_festival"
+      ]
+    },
+    {
+      "id": "4faff03e-f281-5467-ae7c-56b22f6cfdf1",
+      "name": "2023年清明节",
+      "kind": "qingming",
+      "year": 2023,
+      "start_date": "2023-04-05",
+      "end_date": "2023-04-05",
+      "days_count": 1,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "6c924f36-74a8-56f5-93eb-573fa7cd9d34",
+      "asset_key": "holiday-2023",
+      "raw_excerpt": "三、清明节：4月5日放假，共1天。",
+      "source_locator": "放假调休条款：清明节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "qingming"
+      ]
+    },
+    {
+      "id": "9f3994b0-fbd8-5146-bf71-3c8eadc8023e",
+      "name": "2023年劳动节",
+      "kind": "may_day",
+      "year": 2023,
+      "start_date": "2023-04-29",
+      "end_date": "2023-05-03",
+      "days_count": 5,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "6c924f36-74a8-56f5-93eb-573fa7cd9d34",
+      "asset_key": "holiday-2023",
+      "raw_excerpt": "四、劳动节：4月29日至5月3日放假调休，共5天。4月23日（星期日）、5月6日（星期六）上班。",
+      "source_locator": "放假调休条款：劳动节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "may_day"
+      ]
+    },
+    {
+      "id": "61de8661-9822-580d-a5b2-1b44afc703c8",
+      "name": "2023年端午节",
+      "kind": "dragon_boat",
+      "year": 2023,
+      "start_date": "2023-06-22",
+      "end_date": "2023-06-24",
+      "days_count": 3,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "6c924f36-74a8-56f5-93eb-573fa7cd9d34",
+      "asset_key": "holiday-2023",
+      "raw_excerpt": "五、端午节：6月22日至24日放假调休，共3天。6月25日（星期日）上班。",
+      "source_locator": "放假调休条款：端午节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "dragon_boat"
+      ]
+    },
+    {
+      "id": "0aeadade-602a-56d9-a3b3-4050b75f94bd",
+      "name": "2023年中秋节、国庆节",
+      "kind": "national_day",
+      "year": 2023,
+      "start_date": "2023-09-29",
+      "end_date": "2023-10-06",
+      "days_count": 8,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "6c924f36-74a8-56f5-93eb-573fa7cd9d34",
+      "asset_key": "holiday-2023",
+      "raw_excerpt": "六、中秋节、国庆节：9月29日至10月6日放假调休，共8天。10月7日（星期六）、10月8日（星期日）上班。",
+      "source_locator": "放假调休条款：中秋节、国庆节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "mid_autumn",
+        "national_day"
+      ]
+    },
+    {
+      "id": "833d6946-1c0d-52e6-9430-3fdb686bc8ee",
+      "name": "2024年元旦",
+      "kind": "new_year",
+      "year": 2024,
+      "start_date": "2023-12-30",
+      "end_date": "2024-01-01",
+      "days_count": 3,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "d2d38e8b-2552-5ae0-ad6e-db2ebbfdd969",
+      "asset_key": "holiday-2024",
+      "raw_excerpt": "一、元旦：1月1日放假，与周末连休。",
+      "source_locator": "放假调休条款：元旦",
+      "normalization_note": "按原文‘与周末连休’纳入紧邻周六、周日；非增加法定节日天数。",
+      "components": [
+        "new_year"
+      ]
+    },
+    {
+      "id": "df58e571-22b9-5613-9b02-d032a201e956",
+      "name": "2024年春节",
+      "kind": "spring_festival",
+      "year": 2024,
+      "start_date": "2024-02-10",
+      "end_date": "2024-02-17",
+      "days_count": 8,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "d2d38e8b-2552-5ae0-ad6e-db2ebbfdd969",
+      "asset_key": "holiday-2024",
+      "raw_excerpt": "二、春节：2月10日至17日放假调休，共8天。2月4日（星期日）、2月18日（星期日）上班。鼓励各单位结合带薪年休假等制度落实，安排职工在除夕（2月9日）休息。",
+      "source_locator": "放假调休条款：春节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "spring_festival"
+      ]
+    },
+    {
+      "id": "ce5bdb91-6b1b-5ad4-ba61-386ac1d29c8b",
+      "name": "2024年清明节",
+      "kind": "qingming",
+      "year": 2024,
+      "start_date": "2024-04-04",
+      "end_date": "2024-04-06",
+      "days_count": 3,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "d2d38e8b-2552-5ae0-ad6e-db2ebbfdd969",
+      "asset_key": "holiday-2024",
+      "raw_excerpt": "三、清明节：4月4日至6日放假调休，共3天。4月7日（星期日）上班。",
+      "source_locator": "放假调休条款：清明节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "qingming"
+      ]
+    },
+    {
+      "id": "e152544c-6483-5cb0-8d29-aeea9e3b3ee5",
+      "name": "2024年劳动节",
+      "kind": "may_day",
+      "year": 2024,
+      "start_date": "2024-05-01",
+      "end_date": "2024-05-05",
+      "days_count": 5,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "d2d38e8b-2552-5ae0-ad6e-db2ebbfdd969",
+      "asset_key": "holiday-2024",
+      "raw_excerpt": "四、劳动节：5月1日至5日放假调休，共5天。4月28日（星期日）、5月11日（星期六）上班。",
+      "source_locator": "放假调休条款：劳动节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "may_day"
+      ]
+    },
+    {
+      "id": "05887011-43b7-5ffd-a8de-27539b64efa3",
+      "name": "2024年端午节",
+      "kind": "dragon_boat",
+      "year": 2024,
+      "start_date": "2024-06-08",
+      "end_date": "2024-06-10",
+      "days_count": 3,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "d2d38e8b-2552-5ae0-ad6e-db2ebbfdd969",
+      "asset_key": "holiday-2024",
+      "raw_excerpt": "五、端午节：6月10日放假，与周末连休。",
+      "source_locator": "放假调休条款：端午节",
+      "normalization_note": "按原文‘与周末连休’纳入紧邻周六、周日；非增加法定节日天数。",
+      "components": [
+        "dragon_boat"
+      ]
+    },
+    {
+      "id": "d4c4f87a-6865-5303-9a0c-546d7164530b",
+      "name": "2024年中秋节",
+      "kind": "mid_autumn",
+      "year": 2024,
+      "start_date": "2024-09-15",
+      "end_date": "2024-09-17",
+      "days_count": 3,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "d2d38e8b-2552-5ae0-ad6e-db2ebbfdd969",
+      "asset_key": "holiday-2024",
+      "raw_excerpt": "六、中秋节：9月15日至17日放假调休，共3天。9月14日（星期六）上班。",
+      "source_locator": "放假调休条款：中秋节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "mid_autumn"
+      ]
+    },
+    {
+      "id": "43fda3a8-290a-5f00-b2f4-9a95e4be8484",
+      "name": "2024年国庆节",
+      "kind": "national_day",
+      "year": 2024,
+      "start_date": "2024-10-01",
+      "end_date": "2024-10-07",
+      "days_count": 7,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "d2d38e8b-2552-5ae0-ad6e-db2ebbfdd969",
+      "asset_key": "holiday-2024",
+      "raw_excerpt": "七、国庆节：10月1日至7日放假调休，共7天。9月29日（星期日）、10月12日（星期六）上班。",
+      "source_locator": "放假调休条款：国庆节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "national_day"
+      ]
+    },
+    {
+      "id": "897ded8e-9ed3-5409-9051-77795551fcaf",
+      "name": "2025年元旦",
+      "kind": "new_year",
+      "year": 2025,
+      "start_date": "2025-01-01",
+      "end_date": "2025-01-01",
+      "days_count": 1,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "474ca1af-2702-55c8-8662-0f74ac2cf70e",
+      "asset_key": "holiday-2025",
+      "raw_excerpt": "一、元旦：1月1日（周三）放假1天，不调休。",
+      "source_locator": "放假调休条款：元旦",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "new_year"
+      ]
+    },
+    {
+      "id": "40fa37e6-d986-5582-bb36-3b44f489509b",
+      "name": "2025年春节",
+      "kind": "spring_festival",
+      "year": 2025,
+      "start_date": "2025-01-28",
+      "end_date": "2025-02-04",
+      "days_count": 8,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "474ca1af-2702-55c8-8662-0f74ac2cf70e",
+      "asset_key": "holiday-2025",
+      "raw_excerpt": "二、春节：1月28日（农历除夕、周二）至2月4日（农历正月初",
+      "source_locator": "放假调休条款：春节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "spring_festival"
+      ]
+    },
+    {
+      "id": "4f27df7b-fc70-55ff-b379-50445b461b16",
+      "name": "2025年清明节",
+      "kind": "qingming",
+      "year": 2025,
+      "start_date": "2025-04-04",
+      "end_date": "2025-04-06",
+      "days_count": 3,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "474ca1af-2702-55c8-8662-0f74ac2cf70e",
+      "asset_key": "holiday-2025",
+      "raw_excerpt": "三、清明节：4月4日（周五）至6日（周日）放假，共3天。",
+      "source_locator": "放假调休条款：清明节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "qingming"
+      ]
+    },
+    {
+      "id": "e7fdef76-41e3-5ef1-b889-301a1761e310",
+      "name": "2025年劳动节",
+      "kind": "may_day",
+      "year": 2025,
+      "start_date": "2025-05-01",
+      "end_date": "2025-05-05",
+      "days_count": 5,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "474ca1af-2702-55c8-8662-0f74ac2cf70e",
+      "asset_key": "holiday-2025",
+      "raw_excerpt": "四、劳动节：5月1日（周四）至5日（周一）放假调休，共5天。4月27日（周日）上班。",
+      "source_locator": "放假调休条款：劳动节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "may_day"
+      ]
+    },
+    {
+      "id": "2d456542-a404-5182-927c-348f77763a36",
+      "name": "2025年端午节",
+      "kind": "dragon_boat",
+      "year": 2025,
+      "start_date": "2025-05-31",
+      "end_date": "2025-06-02",
+      "days_count": 3,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "474ca1af-2702-55c8-8662-0f74ac2cf70e",
+      "asset_key": "holiday-2025",
+      "raw_excerpt": "五、端午节：5月31日（周六）至6月2日（周一）放假，共3天。",
+      "source_locator": "放假调休条款：端午节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "dragon_boat"
+      ]
+    },
+    {
+      "id": "6dfb99ee-304d-5c5f-b0d3-daef52d23084",
+      "name": "2025年国庆节、中秋节",
+      "kind": "national_day",
+      "year": 2025,
+      "start_date": "2025-10-01",
+      "end_date": "2025-10-08",
+      "days_count": 8,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "474ca1af-2702-55c8-8662-0f74ac2cf70e",
+      "asset_key": "holiday-2025",
+      "raw_excerpt": "六、国庆节、中秋节：10月1日（周三）至8日（周三）放假调休，共8天。9月28日（周日）、10月11日（周六）上班。",
+      "source_locator": "放假调休条款：国庆节、中秋节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "mid_autumn",
+        "national_day"
+      ]
+    },
+    {
+      "id": "8c062429-c2a9-56b9-9096-f828d6c22542",
+      "name": "2026年元旦",
+      "kind": "new_year",
+      "year": 2026,
+      "start_date": "2026-01-01",
+      "end_date": "2026-01-03",
+      "days_count": 3,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "ac3be639-f4dd-565e-b0e1-93eacb8dbbb3",
+      "asset_key": "holiday-2026",
+      "raw_excerpt": "一、元旦：1月1日（周四）至3日（周六）放假调休，共3天。1月4日（周日）上班。",
+      "source_locator": "放假调休条款：元旦",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "new_year"
+      ]
+    },
+    {
+      "id": "d7f97759-5010-5733-80df-3734b8073b85",
+      "name": "2026年春节",
+      "kind": "spring_festival",
+      "year": 2026,
+      "start_date": "2026-02-15",
+      "end_date": "2026-02-23",
+      "days_count": 9,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "ac3be639-f4dd-565e-b0e1-93eacb8dbbb3",
+      "asset_key": "holiday-2026",
+      "raw_excerpt": "二、春节：2月15日（农历腊月二十八、周日）至23日（农历正月初",
+      "source_locator": "放假调休条款：春节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "spring_festival"
+      ]
+    },
+    {
+      "id": "dfc64517-1f21-5f3d-9c30-2d2e8461f7f1",
+      "name": "2026年清明节",
+      "kind": "qingming",
+      "year": 2026,
+      "start_date": "2026-04-04",
+      "end_date": "2026-04-06",
+      "days_count": 3,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "ac3be639-f4dd-565e-b0e1-93eacb8dbbb3",
+      "asset_key": "holiday-2026",
+      "raw_excerpt": "三、清明节：4月4日（周六）至6日（周一）放假，共3天。",
+      "source_locator": "放假调休条款：清明节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "qingming"
+      ]
+    },
+    {
+      "id": "3f7e9299-dcd5-51a9-956f-5bf7c6f0fe39",
+      "name": "2026年劳动节",
+      "kind": "may_day",
+      "year": 2026,
+      "start_date": "2026-05-01",
+      "end_date": "2026-05-05",
+      "days_count": 5,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "ac3be639-f4dd-565e-b0e1-93eacb8dbbb3",
+      "asset_key": "holiday-2026",
+      "raw_excerpt": "四、劳动节：5月1日（周五）至5日（周二）放假调休，共5天。5月9日（周六）上班。",
+      "source_locator": "放假调休条款：劳动节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "may_day"
+      ]
+    },
+    {
+      "id": "1ab236f6-d7a6-5f1a-81ba-2cc2fcd3ec0b",
+      "name": "2026年端午节",
+      "kind": "dragon_boat",
+      "year": 2026,
+      "start_date": "2026-06-19",
+      "end_date": "2026-06-21",
+      "days_count": 3,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "ac3be639-f4dd-565e-b0e1-93eacb8dbbb3",
+      "asset_key": "holiday-2026",
+      "raw_excerpt": "五、端午节：6月19日（周五）至21日（周日）放假，共3天。",
+      "source_locator": "放假调休条款：端午节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "dragon_boat"
+      ]
+    },
+    {
+      "id": "368a61da-6e4b-5cce-9233-6f4d287b94e8",
+      "name": "2026年中秋节",
+      "kind": "mid_autumn",
+      "year": 2026,
+      "start_date": "2026-09-25",
+      "end_date": "2026-09-27",
+      "days_count": 3,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "ac3be639-f4dd-565e-b0e1-93eacb8dbbb3",
+      "asset_key": "holiday-2026",
+      "raw_excerpt": "六、中秋节：9月25日（周五）至27日（周日）放假，共3天。",
+      "source_locator": "放假调休条款：中秋节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "mid_autumn"
+      ]
+    },
+    {
+      "id": "54bfe960-3ebb-5430-a1c4-ab2ec74e9fe9",
+      "name": "2026年国庆节",
+      "kind": "national_day",
+      "year": 2026,
+      "start_date": "2026-10-01",
+      "end_date": "2026-10-07",
+      "days_count": 7,
+      "region_code": "000000",
+      "scope_key": "CN:national_general_public",
+      "definition_source_id": "ac3be639-f4dd-565e-b0e1-93eacb8dbbb3",
+      "asset_key": "holiday-2026",
+      "raw_excerpt": "七、国庆节：10月1日（周四）至7日（周三）放假调休，共7天。9月20日（周日）、10月10日（周六）上班。",
+      "source_locator": "放假调休条款：国庆节",
+      "normalization_note": "按原文放假调休起止日期；含首尾。",
+      "components": [
+        "national_day"
+      ]
+    }
+  ],
+  "adjusted_workdays": {
+    "2023": [
+      "2023-01-28",
+      "2023-01-29",
+      "2023-04-23",
+      "2023-05-06",
+      "2023-06-25",
+      "2023-10-07",
+      "2023-10-08"
+    ],
+    "2024": [
+      "2024-02-04",
+      "2024-02-18",
+      "2024-04-07",
+      "2024-04-28",
+      "2024-05-11",
+      "2024-09-14",
+      "2024-09-29",
+      "2024-10-12"
+    ],
+    "2025": [
+      "2025-01-26",
+      "2025-02-08",
+      "2025-04-27",
+      "2025-09-28",
+      "2025-10-11"
+    ],
+    "2026": [
+      "2026-01-04",
+      "2026-02-14",
+      "2026-02-28",
+      "2026-05-09",
+      "2026-09-20",
+      "2026-10-10"
+    ]
+  }
+}

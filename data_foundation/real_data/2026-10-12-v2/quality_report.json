@@ -1,0 +1,35 @@
+{
+  "dataset_id": "anhui-public-supplement-2026-10-12",
+  "as_of": "2026-10-12",
+  "counts": {
+    "assets": 106,
+    "server_originals": 101,
+    "browser_text_snapshots": 5,
+    "observations": 83,
+    "supplementary_facts": 17,
+    "holiday_windows": 26,
+    "historical_official_events": 1,
+    "knowledge_documents": 16
+  },
+  "supplementary_facts_added": 4,
+  "airport_months_each": 41,
+  "airport_longest_contiguous_months": 11,
+  "scenic_verified_main_months": 0,
+  "rail_verified_months": 0,
+  "current_official_events": 0,
+  "remaining_gaps": [
+    "两机场2023、2024、2025年12月单月原始实绩（不得年减累计替代）",
+    "黄山主景区同口径连续月报；新增两个月公布数值仍需主景区范围确认",
+    "黄山北站连续发送月报与完整假期实绩",
+    "省内其他景区、车站的实体与实绩",
+    "各学校适用寒暑假校历",
+    "授权入口录像、权限凭证、摄像头位置、越线配置和人工进出标注",
+    "可复现预测训练/回测；知识文档E侧索引；目标业务库实际导入"
+  ],
+  "sufficiency": {
+    "history_display": "机场真实数据可展示，月份缺口须保留；景区和铁路仅支持已有原周期事实展示。",
+    "holiday_compare": "全国假期窗口已可用，完整同口径客流仍不足。",
+    "official_notice_qa": "新增公告可作历史问答素材，尚未建立E索引；提示中的天气不可作当前预报。",
+    "forecast": "尚不满足连续24—36个月历史序列目标，也不具备短时计数输入。"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "dataset_id": "anhui-real-2026-10-12",
+  "verified_at": "2026-10-12T08:38:29.083891+00:00",
+  "environment": "isolated_validation_database",
+  "dialect": "mysql",
+  "database_version": "8.4.11",
+  "migration_head": "0005",
+  "schema_table_count": 30,
+  "first_import": {
+    "processed": 83,
+    "imported": 83,
+    "revised": 0,
+    "skipped": 0,
+    "quarantined": 0
+  },
+  "second_import": {
+    "processed": 83,
+    "imported": 0,
+    "revised": 0,
+    "skipped": 83,
+    "quarantined": 0
+  },
+  "documents_first": {
+    "inserted": 6,
+    "skipped": 0
+  },
+  "documents_second": {
+    "inserted": 0,
+    "skipped": 6
+  },
+  "document_count": 6,
+  "source_audits": [
+    {
+      "entity_name": "合肥新桥机场",
+      "period_start": "2025-01-01",
+      "standard_value": "1111644.0000",
+      "unit": "人次",
+      "original_value": "1111644",
+      "original_unit": "人",
+      "raw_excerpt": "合肥/新桥 11 1111644 15.8 12 10089.6 -21.9 10 8811 6.3",
+      "provenance": {
+        "source_id": "fe47bf03-2cd2-5c89-a944-4cbcf5d38cd7",
+        "asset_id": "d079f442-c59f-4301-8f6a-2a9f6cd63fdf",
+        "source_url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/",
+        "asset_url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202502/P020250224343413036795.pdf",
+        "source_locator": "2025年1月华东机场吞吐量排名.pdf；PDF第1页；HFE对应机场行；旅客吞吐量/本期完成；抽取文本第20行",
+        "run_id": "346e3ad1-1748-45b2-9131-a73f5d34be3c"
+      },
+      "sha256": "c7302d6b9c545c971d194f84e2d7d063b7e7d7c4bcb0decb5dd607e589846fd5",
+      "stored_raw_sha256_verified": true
+    },
+    {
+      "entity_name": "黄山屯溪机场",
+      "period_start": "2025-01-01",
+      "standard_value": "25397.0000",
+      "unit": "人次",
+      "original_value": "25397",
+      "original_unit": "人",
+      "raw_excerpt": "黄山/屯溪 44 25397 7.4 33 102.2 101.1 37 561 55.8",
+      "provenance": {
+        "source_id": "fe47bf03-2cd2-5c89-a944-4cbcf5d38cd7",
+        "asset_id": "d079f442-c59f-4301-8f6a-2a9f6cd63fdf",
+        "source_url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/",
+        "asset_url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202502/P020250224343413036795.pdf",
+        "source_locator": "2025年1月华东机场吞吐量排名.pdf；PDF第1页；TXN对应机场行；旅客吞吐量/本期完成；抽取文本第54行",
+        "run_id": "346e3ad1-1748-45b2-9131-a73f5d34be3c"
+      },
+      "sha256": "c7302d6b9c545c971d194f84e2d7d063b7e7d7c4bcb0decb5dd607e589846fd5",
+      "stored_raw_sha256_verified": true
+    },
+    {
+      "entity_name": "合肥新桥机场",
+      "period_start": "2026-08-01",
+      "standard_value": "1292985.0000",
+      "unit": "人次",
+      "original_value": "1292985",
+      "original_unit": "人",
+      "raw_excerpt": "合肥/新桥 11 1292985 -0.9 8595372 -2.1 11 10290.1 -25.9 79173.7 -2.8 10 9404 -1.7 65505 -2.4",
+      "provenance": {
+        "source_id": "fe47bf03-2cd2-5c89-a944-4cbcf5d38cd7",
+        "asset_id": "33d0dc37-9b56-4e83-8624-23eb38a3f61e",
+        "source_url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/",
+        "asset_url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202609/P020260924526836562690.pdf",
+        "source_locator": "2026年8月华东机场吞吐量排名.pdf；PDF第1页；HFE对应机场行；旅客吞吐量/本期完成；抽取文本第18行",
+        "run_id": "e6652b09-0516-4647-8f76-28dbc4f6112c"
+      },
+      "sha256": "c42dfb4232510256775629ba67ae2c0188902eade69be1586b2515707edd1063",
+      "stored_raw_sha256_verified": true
+    },
+    {
+      "entity_name": "黄山屯溪机场",
+      "period_start": "2026-08-01",
+      "standard_value": "35324.0000",
+      "unit": "人次",
+      "original_value": "35324",
+      "original_unit": "人",
+      "raw_excerpt": "黄山/屯溪 48 35324 32.2 236161 12.0 33 221.0 402.1 977.5 101.7 49 230 -47.4 3169 -59.2",
+      "provenance": {
+        "source_id": "fe47bf03-2cd2-5c89-a944-4cbcf5d38cd7",
+        "asset_id": "33d0dc37-9b56-4e83-8624-23eb38a3f61e",
+        "source_url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/",
+        "asset_url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202609/P020260924526836562690.pdf",
+        "source_locator": "2026年8月华东机场吞吐量排名.pdf；PDF第1页；TXN对应机场行；旅客吞吐量/本期完成；抽取文本第56行",
+        "run_id": "e6652b09-0516-4647-8f76-28dbc4f6112c"
+      },
+      "sha256": "c42dfb4232510256775629ba67ae2c0188902eade69be1586b2515707edd1063",
+      "stored_raw_sha256_verified": true
+    },
+    {
+      "entity_name": "黄山北站",
+      "period_start": "2025-04-06",
+      "standard_value": "47200.0000",
+      "unit": "人次",
+      "original_value": "4.72",
+      "original_unit": "万人次",
+      "raw_excerpt": "均发送旅客增至1.46万人次的同时，年发送、到达旅客首次突破1000万人次。今年上半年，日均发送旅客数量再创新高。“目前单日发送旅客最多的是4月6日，为4.72万人次。”程哲说。\n  多方合力布局“高铁+文",
+      "provenance": {
+        "source_id": "264e6f29-8b65-5d0e-b285-10411b6b6073",
+        "asset_id": "a60b8c8c-80d6-46be-96c2-2a92e45d8d8a",
+        "source_url": "https://szb.ahnews.com.cn/szb/content/202507/21/c1096188.html",
+        "asset_url": "https://szb.ahnews.com.cn/szb/content/202507/21/c1096188.html",
+        "source_locator": "正文十年筑就米字高铁网雏形章节；站方受访者说明2025年4月6日单日发送量",
+        "run_id": "b1ac7e2a-9afb-4984-bdaa-36c04979b11a"
+      },
+      "sha256": "4abde2424b1ec9b96c2f556fded4d499dac7d7b5e9311e2ff22e86a37c8cebed",
+      "stored_raw_sha256_verified": true
+    }
+  ],
+  "unsupported_rail_month_rejected": true,
+  "result": "passed",
+  "production_database_verified": false,
+  "remaining": [
+    "机场连续12个月验收未通过：2023—2025年12月单月值未取得",
+    "景区与铁路连续月报未取得",
+    "两份指定政府运营公告原件未取得",
+    "E知识索引、D正式库HTTP与Worker尚未联调"
+  ]
+}

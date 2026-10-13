@@ -1,0 +1,12 @@
+{
+  "archive": "C-real-data-0.1.2-2026-10-12.zip",
+  "byte_size": 6334113,
+  "sha256": "4c8d116243ac8271c6ca281b1536c229a86011e4c208d2152aaa0de8d2a23e74",
+  "file_count": 246,
+  "wheel_sha256": "861c4eae9a6bd9c76dc176bdf0d90a6b4fc62d6649c17371c3b58ea0e14f9ca8",
+  "wheel_source_matches": true,
+  "zip_crc_and_original_hashes_verified": true,
+  "installed_wheel_offline_validation": "passed",
+  "unpacked_archive_offline_validation": "passed",
+  "validation_mysql_shutdown": true
+}

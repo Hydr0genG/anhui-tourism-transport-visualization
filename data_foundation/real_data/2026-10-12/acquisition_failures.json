@@ -1,0 +1,12 @@
+[
+  {
+    "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+    "key": "huangshan-2025-spring-notice",
+    "reason": "curl: (22) The requested URL returned error: 412"
+  },
+  {
+    "url": "https://www.huangshan.gov.cn/zwgk/public/6615714/12043498.html",
+    "key": "huangshan-2026-may-notice",
+    "reason": "curl: (22) The requested URL returned error: 405"
+  }
+]

@@ -513,6 +513,7 @@ class ObservationRepository(Repository):
         points = []
         for row in selected:
             source = self.session.get(Source, row.source_id)
+            asset = self.session.get(SourceAsset, row.asset_id)
             points.append({
                 "id": row.id, "version": row.row_version, "metric": row.metric_code,
                 "value": row.value, "unit": row.unit, "period_start": row.period_start,
@@ -521,6 +522,7 @@ class ObservationRepository(Repository):
                 "quality_status": row.quality_status,
                 "provenance": {"source_id": row.source_id, "asset_id": row.asset_id,
                                "source_url": source.url if source else None,
+                               "asset_url": asset.url if asset else None,
                                "source_locator": row.source_locator, "run_id": row.ingestion_run_id},
             })
         coverage = Decimal(len(periods) - len(missing)) / Decimal(len(periods)) if periods else Decimal("0")
@@ -747,6 +749,28 @@ class EventRepository(Repository):
 
 
 class KnowledgeRepository(Repository):
+    def get_document(self, document_id: str) -> dict[str, Any]:
+        document = self.get_or_404(KnowledgeDocument, document_id, "知识文档")
+        result = public_columns(document)
+        result["entity_ids"] = sorted(self.session.scalars(select(DocumentEntity.entity_id).where(
+            DocumentEntity.document_id == document_id
+        )).all())
+        return result
+
+    def list_documents(self, *, entity_id: str | None = None, page: Page = Page()) -> dict[str, Any]:
+        conditions = []
+        if entity_id is not None:
+            self.get_or_404(Entity, entity_id, "实体")
+            conditions.append(KnowledgeDocument.id.in_(select(DocumentEntity.document_id).where(
+                DocumentEntity.entity_id == entity_id
+            )))
+        total = self.session.scalar(select(func.count()).select_from(KnowledgeDocument).where(*conditions)) or 0
+        rows = self.session.scalars(select(KnowledgeDocument).where(*conditions).order_by(
+            KnowledgeDocument.published_at.desc(), KnowledgeDocument.id
+        ).offset((page.page - 1) * page.page_size).limit(page.page_size)).all()
+        return {"items": [self.get_document(row.id) for row in rows],
+                "page": page.page, "page_size": page.page_size, "total": total}
+
     def register_document(self, data: dict[str, Any], entity_ids: Iterable[str] = ()) -> dict[str, Any]:
         self.require_write()
         asset = self.get_or_404(SourceAsset, data["asset_id"], "原件")

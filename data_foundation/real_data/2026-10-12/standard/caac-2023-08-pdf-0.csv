@@ -1,0 +1,3 @@
+entity_id,metric_code,period_start,period_end,grain,original_value,original_unit,standard_value,standard_unit,conversion_factor,source_locator,methodology_version,published_at,quality_status
+28380b0b-e209-5ced-8d09-58854248f26e,airport_throughput,2023-08-01,2023-08-31,month,1252512,人,1252512,人次,1,2023年8月华东机场吞吐量排名.pdf；PDF第1页；HFE对应机场行；旅客吞吐量/本期完成；抽取文本第17行,official-published-period-v1,2023-09-27T10:04:00+08:00,verified
+082b4d94-80a2-5aca-ba48-e2a27f453f2e,airport_throughput,2023-08-01,2023-08-31,month,67744,人,67744,人次,1,2023年8月华东机场吞吐量排名.pdf；PDF第1页；TXN对应机场行；旅客吞吐量/本期完成；抽取文本第51行,official-published-period-v1,2023-09-27T10:04:00+08:00,verified

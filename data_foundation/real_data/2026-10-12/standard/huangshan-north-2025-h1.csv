@@ -1,0 +1,2 @@
+entity_id,metric_code,period_start,period_end,grain,original_value,original_unit,standard_value,standard_unit,conversion_factor,source_locator,methodology_version,published_at,quality_status
+729b6d56-6e7b-54d9-a6c8-5cb3afd12ea8,rail_departures,2025-04-06,2025-04-06,day,4.72,万人次,47200.00,人次,10000,正文十年筑就米字高铁网雏形章节；站方受访者说明2025年4月6日单日发送量,official-published-period-v1,2025-07-21T00:00:00+08:00,verified

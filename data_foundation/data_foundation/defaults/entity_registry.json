@@ -1,5 +1,34 @@
 {
-  "version": "v0.1.0",
-  "note": "尚未核验首批试点对象，因此第一版不预置猜测性实体。",
-  "entities": []
+  "version": "v0.1.1",
+  "note": "2026-10-12真实资料核验台账；来源均未启用自动更新。原件、缺期与使用条件见real_data/2026-10-12。",
+  "entities": [
+    {
+      "id": "3e24e4db-d0db-5392-b4a6-bf636442d761",
+      "name": "黄山风景区主景区",
+      "type": "scenic",
+      "region_code": "341000",
+      "location_note": "按黄山市级登记；仅进山游客/主景区，不含全域接待量和索道运输量"
+    },
+    {
+      "id": "729b6d56-6e7b-54d9-a6c8-5cb3afd12ea8",
+      "name": "黄山北站",
+      "type": "rail_station",
+      "region_code": "341000",
+      "location_note": "按黄山市级登记；铁路发送量，与黄山站、全市高铁站总量及到发总量分开"
+    },
+    {
+      "id": "082b4d94-80a2-5aca-ba48-e2a27f453f2e",
+      "name": "黄山屯溪机场",
+      "type": "airport",
+      "region_code": "341000",
+      "location_note": "按黄山市级登记；民航局原表名称：黄山/屯溪"
+    },
+    {
+      "id": "28380b0b-e209-5ced-8d09-58854248f26e",
+      "name": "合肥新桥机场",
+      "type": "airport",
+      "region_code": "340100",
+      "location_note": "按合肥市级登记；民航局原表名称：合肥/新桥"
+    }
+  ]
 }

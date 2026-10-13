@@ -1,0 +1,16 @@
+{
+  "installed_wheel": true,
+  "version": "0.1.3",
+  "validation": {
+    "dataset_id": "anhui-public-supplement-2026-10-12",
+    "status": "validated",
+    "asset_count": 106,
+    "holiday_count": 26,
+    "event_count": 1,
+    "observation_count": 83,
+    "supplementary_fact_count": 17,
+    "document_count": 16
+  },
+  "bytecode_in_wheel": false,
+  "source_matches": true
+}

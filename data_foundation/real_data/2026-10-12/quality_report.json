@@ -1,0 +1,202 @@
+{
+  "schema_version": "v1",
+  "status": "partial_coverage",
+  "target_start": "2023-01-01",
+  "target_end": "2026-08-31",
+  "observation_count": 83,
+  "supplementary_fact_count": 13,
+  "document_count": 6,
+  "coverage": [
+    {
+      "entity_id": "3e24e4db-d0db-5392-b4a6-bf636442d761",
+      "name": "黄山风景区主景区",
+      "expected_months": 44,
+      "verified_months": 0,
+      "coverage_ratio": "0",
+      "missing_months": [
+        "2023-01",
+        "2023-02",
+        "2023-03",
+        "2023-04",
+        "2023-05",
+        "2023-06",
+        "2023-07",
+        "2023-08",
+        "2023-09",
+        "2023-10",
+        "2023-11",
+        "2023-12",
+        "2024-01",
+        "2024-02",
+        "2024-03",
+        "2024-04",
+        "2024-05",
+        "2024-06",
+        "2024-07",
+        "2024-08",
+        "2024-09",
+        "2024-10",
+        "2024-11",
+        "2024-12",
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12",
+        "2026-01",
+        "2026-02",
+        "2026-03",
+        "2026-04",
+        "2026-05",
+        "2026-06",
+        "2026-07",
+        "2026-08"
+      ],
+      "longest_consecutive_months": 0,
+      "continuous_12_months_acceptance": false,
+      "available_grains": [],
+      "supplementary_grains": [
+        "quarter",
+        "year"
+      ],
+      "forecast_readiness": "由D按样本量、缺期与回测要求判断；本批不承诺可预测"
+    },
+    {
+      "entity_id": "729b6d56-6e7b-54d9-a6c8-5cb3afd12ea8",
+      "name": "黄山北站",
+      "expected_months": 44,
+      "verified_months": 0,
+      "coverage_ratio": "0",
+      "missing_months": [
+        "2023-01",
+        "2023-02",
+        "2023-03",
+        "2023-04",
+        "2023-05",
+        "2023-06",
+        "2023-07",
+        "2023-08",
+        "2023-09",
+        "2023-10",
+        "2023-11",
+        "2023-12",
+        "2024-01",
+        "2024-02",
+        "2024-03",
+        "2024-04",
+        "2024-05",
+        "2024-06",
+        "2024-07",
+        "2024-08",
+        "2024-09",
+        "2024-10",
+        "2024-11",
+        "2024-12",
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12",
+        "2026-01",
+        "2026-02",
+        "2026-03",
+        "2026-04",
+        "2026-05",
+        "2026-06",
+        "2026-07",
+        "2026-08"
+      ],
+      "longest_consecutive_months": 0,
+      "continuous_12_months_acceptance": false,
+      "available_grains": [
+        "day"
+      ],
+      "supplementary_grains": [
+        "half_year"
+      ],
+      "forecast_readiness": "由D按样本量、缺期与回测要求判断；本批不承诺可预测"
+    },
+    {
+      "entity_id": "082b4d94-80a2-5aca-ba48-e2a27f453f2e",
+      "name": "黄山屯溪机场",
+      "expected_months": 44,
+      "verified_months": 41,
+      "coverage_ratio": "0.9318181818181818181818181818",
+      "missing_months": [
+        "2023-12",
+        "2024-12",
+        "2025-12"
+      ],
+      "longest_consecutive_months": 11,
+      "continuous_12_months_acceptance": false,
+      "available_grains": [
+        "month"
+      ],
+      "supplementary_grains": [
+        "year"
+      ],
+      "forecast_readiness": "由D按样本量、缺期与回测要求判断；本批不承诺可预测"
+    },
+    {
+      "entity_id": "28380b0b-e209-5ced-8d09-58854248f26e",
+      "name": "合肥新桥机场",
+      "expected_months": 44,
+      "verified_months": 41,
+      "coverage_ratio": "0.9318181818181818181818181818",
+      "missing_months": [
+        "2023-12",
+        "2024-12",
+        "2025-12"
+      ],
+      "longest_consecutive_months": 11,
+      "continuous_12_months_acceptance": false,
+      "available_grains": [
+        "month"
+      ],
+      "supplementary_grains": [
+        "year"
+      ],
+      "forecast_readiness": "由D按样本量、缺期与回测要求判断；本批不承诺可预测"
+    }
+  ],
+  "warnings": [],
+  "resolved_warnings": [
+    {
+      "asset_key": "caac-2024-01-pdf-0",
+      "corroborating_asset_key": "caac-2024-02-pdf-0",
+      "reason": "附件标签年份2022与2024网页不符；两机场1月原件值+2月明确单月值均与2月明确累计列一致。保留原件值，未用差分生成月度值。"
+    }
+  ],
+  "acquisition_failures": [
+    {
+      "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+      "key": "huangshan-2025-spring-notice",
+      "reason": "curl: (22) The requested URL returned error: 412"
+    },
+    {
+      "url": "https://www.huangshan.gov.cn/zwgk/public/6615714/12043498.html",
+      "key": "huangshan-2026-may-notice",
+      "reason": "curl: (22) The requested URL returned error: 405"
+    }
+  ],
+  "notes": [
+    "不从累计值差分，不把年度/季度/半年值拆成月份，不插值补齐。",
+    "铁路数据来自安徽日报的站方采访报道；尚无铁路原始月度统计表。",
+    "许可未明示；来源未开启自动更新。",
+    "景区和铁路月报缺口保留，三类月度数据完整验收未通过。"
+  ]
+}

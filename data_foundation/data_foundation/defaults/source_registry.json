@@ -1,5 +1,132 @@
 {
-  "version": "v0.1.0",
-  "note": "尚未完成具体来源核验，因此第一版不预置来源。",
-  "sources": []
+  "version": "v0.1.1",
+  "note": "2026-10-12真实资料核验台账；来源均未启用自动更新。原件、缺期与使用条件见real_data/2026-10-12。",
+  "sources": [
+    {
+      "id": "fe47bf03-2cd2-5c89-a944-4cbcf5d38cd7",
+      "publisher": "中国民用航空华东地区管理局",
+      "title": "华东地区机场月度运输生产统计",
+      "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/",
+      "usage_note": "公开发布资料，用于本项目历史统计核验及带出处引用；原站未明确专项开放许可，全文对外再发布条件未核实。",
+      "update_frequency": "monthly",
+      "native_grain": "month",
+      "verification_status": "verified",
+      "enabled": false,
+      "adapter_key": "standard_csv",
+      "adapter_config": {
+        "acquisition": "explicit_source_plan",
+        "licence_status": "not_stated"
+      },
+      "coverage_start": "2023-01-01",
+      "coverage_end": "2026-08-31"
+    },
+    {
+      "id": "63e641e3-a964-591d-8a09-6eb6d9dd8986",
+      "publisher": "黄山旅游发展股份有限公司",
+      "title": "2024年年度报告摘要",
+      "url": "https://static.cninfo.com.cn/finalpage/2025-04-19/1223151679.PDF",
+      "usage_note": "公开发布资料，用于本项目历史统计核验及带出处引用；原站未明确专项开放许可，全文对外再发布条件未核实。",
+      "update_frequency": "irregular",
+      "native_grain": null,
+      "verification_status": "verified",
+      "enabled": false,
+      "adapter_key": "standard_csv",
+      "adapter_config": {
+        "acquisition": "explicit_source_plan",
+        "licence_status": "not_stated"
+      },
+      "coverage_start": "2023-01-01",
+      "coverage_end": "2024-12-31"
+    },
+    {
+      "id": "fba90e23-e200-5930-8a86-1b13130f4667",
+      "publisher": "黄山旅游发展股份有限公司",
+      "title": "2025年第一季度报告",
+      "url": "https://static.cninfo.com.cn/finalpage/2025-04-30/1223418970.PDF",
+      "usage_note": "公开发布资料，用于本项目历史统计核验及带出处引用；原站未明确专项开放许可，全文对外再发布条件未核实。",
+      "update_frequency": "irregular",
+      "native_grain": null,
+      "verification_status": "verified",
+      "enabled": false,
+      "adapter_key": "standard_csv",
+      "adapter_config": {
+        "acquisition": "explicit_source_plan",
+        "licence_status": "not_stated"
+      },
+      "coverage_start": "2024-01-01",
+      "coverage_end": "2025-03-31"
+    },
+    {
+      "id": "9144cb69-e404-5f03-84d0-6d5d976926de",
+      "publisher": "黄山旅游发展股份有限公司",
+      "title": "2025年年度报告",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-04-18/1225118314.PDF",
+      "usage_note": "公开发布资料，用于本项目历史统计核验及带出处引用；原站未明确专项开放许可，全文对外再发布条件未核实。",
+      "update_frequency": "irregular",
+      "native_grain": null,
+      "verification_status": "verified",
+      "enabled": false,
+      "adapter_key": "standard_csv",
+      "adapter_config": {
+        "acquisition": "explicit_source_plan",
+        "licence_status": "not_stated"
+      },
+      "coverage_start": "2024-01-01",
+      "coverage_end": "2025-12-31"
+    },
+    {
+      "id": "264e6f29-8b65-5d0e-b285-10411b6b6073",
+      "publisher": "安徽日报",
+      "title": "轨道上的文旅协奏曲",
+      "url": "https://szb.ahnews.com.cn/szb/content/202507/21/c1096188.html",
+      "usage_note": "公开发布资料，用于本项目历史统计核验及带出处引用；原站未明确专项开放许可，全文对外再发布条件未核实。",
+      "update_frequency": "irregular",
+      "native_grain": null,
+      "verification_status": "verified",
+      "enabled": false,
+      "adapter_key": "standard_csv",
+      "adapter_config": {
+        "acquisition": "explicit_source_plan",
+        "licence_status": "not_stated"
+      },
+      "coverage_start": "2025-01-01",
+      "coverage_end": "2025-06-30"
+    },
+    {
+      "id": "33436315-50aa-5025-b5b4-2b74dd2f7d6b",
+      "publisher": "黄山风景区管理委员会",
+      "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+      "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+      "usage_note": "公开发布资料，用于本项目历史统计核验及带出处引用；原站未明确专项开放许可，全文对外再发布条件未核实。",
+      "update_frequency": "irregular",
+      "native_grain": null,
+      "verification_status": "pending_review",
+      "enabled": false,
+      "adapter_key": "standard_csv",
+      "adapter_config": {
+        "acquisition": "explicit_source_plan",
+        "licence_status": "not_stated"
+      },
+      "coverage_start": null,
+      "coverage_end": null
+    },
+    {
+      "id": "acb3a52e-d198-595d-9288-e4c89e3b3462",
+      "publisher": "黄山市文化和旅游局",
+      "title": "五一假期出游温馨提示",
+      "url": "https://www.huangshan.gov.cn/zwgk/public/6615714/12043498.html",
+      "usage_note": "公开发布资料，用于本项目历史统计核验及带出处引用；原站未明确专项开放许可，全文对外再发布条件未核实。",
+      "update_frequency": "irregular",
+      "native_grain": null,
+      "verification_status": "pending_review",
+      "enabled": false,
+      "adapter_key": "standard_csv",
+      "adapter_config": {
+        "acquisition": "explicit_source_plan",
+        "licence_status": "not_stated"
+      },
+      "coverage_start": null,
+      "coverage_end": null
+    }
+  ]
 }

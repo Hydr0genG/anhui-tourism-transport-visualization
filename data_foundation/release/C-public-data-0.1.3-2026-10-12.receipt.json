@@ -1,0 +1,27 @@
+{
+  "archive": "C-public-data-0.1.3-2026-10-12.zip",
+  "byte_size": 13299892,
+  "sha256": "a4ea28fefeb82ed16c3e982e6a539985a9219c529bedab2274c1395e04f52d9f",
+  "file_count": 474,
+  "wheel_sha256": "c5c6f7aadd7880eead324509059806948346c2ee9050ab0c2a72bf4156abfd10",
+  "wheel_source_matches": true,
+  "zip_crc_and_all_files_verified": true,
+  "installed_wheel_offline_validation": "passed",
+  "unpacked_archive_offline_validation": {
+    "dataset_id": "anhui-public-supplement-2026-10-12",
+    "status": "validated",
+    "asset_count": 106,
+    "holiday_count": 26,
+    "event_count": 1,
+    "observation_count": 83,
+    "supplementary_fact_count": 17,
+    "document_count": 16
+  },
+  "pytest_passed": 26,
+  "legacy_synthetic_storage_checks_passed": 21,
+  "mysql_result": "passed",
+  "sqlite_result": "passed",
+  "validation_mysql_shutdown": true,
+  "production_database_verified": false,
+  "E_index_status": "pending"
+}

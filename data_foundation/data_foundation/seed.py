@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+from datetime import date
+from decimal import Decimal
 from pathlib import Path
 from typing import Any
 
@@ -29,11 +31,19 @@ def seed_catalog(store: DataStore, asset_dir: str | Path | None = None) -> dict[
         for item in entities_doc["entities"]:
             if uow.session.get(Entity, item["id"]):
                 continue
-            uow.catalog.create_entity(EntityCreate(**item))
+            values = dict(item)
+            for key in ("longitude", "latitude"):
+                if values.get(key) is not None:
+                    values[key] = Decimal(str(values[key]))
+            uow.catalog.create_entity(EntityCreate(**values))
             counts["entities"] += 1
         for item in sources_doc["sources"]:
             if uow.session.get(Source, item["id"]):
                 continue
-            uow.provenance.register_source(SourceCreate(**item))
+            values = dict(item)
+            for key in ("coverage_start", "coverage_end"):
+                if isinstance(values.get(key), str):
+                    values[key] = date.fromisoformat(values[key])
+            uow.provenance.register_source(SourceCreate(**values))
             counts["sources"] += 1
     return counts
