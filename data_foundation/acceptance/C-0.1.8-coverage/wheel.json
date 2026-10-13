@@ -1,0 +1,11 @@
+{
+  "package_version": "0.1.8",
+  "migration_head": "0006",
+  "wheel_source_matches": true,
+  "installed_module_verified": "/private/tmp/c018-installed/data_foundation/__init__.py",
+  "installed_cases_passed": 210,
+  "installed_mysql_coverage_checks": 6,
+  "installed_mysql_legacy_checks": 21,
+  "installed_sqlite_legacy_checks": 21,
+  "production_database_verified": false
+}

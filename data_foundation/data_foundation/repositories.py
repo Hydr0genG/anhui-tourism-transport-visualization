@@ -248,10 +248,17 @@ class CatalogRepository(Repository):
         for row in rows:
             item = public_columns(row)
             capabilities = self.session.execute(
-                select(Observation.metric_code, Observation.grain).where(Observation.entity_id == row.id).distinct()
+                select(Observation.metric_code, Observation.grain).where(Observation.entity_id == row.id,
+                    Observation.quality_status == "verified").distinct()
             ).all()
             item["available_metrics"] = sorted({x[0] for x in capabilities})
             item["available_grains"] = sorted({x[1] for x in capabilities})
+            declared = self.session.execute(select(SeriesPolicy.metric_code,SeriesPolicy.grain)
+                .where(SeriesPolicy.entity_id == row.id).distinct()).all()
+            known = self.session.execute(select(Observation.metric_code,Observation.grain)
+                .where(Observation.entity_id == row.id).distinct()).all()
+            item["supported_metrics"] = sorted({x[0] for x in [*known,*declared]})
+            item["supported_grains"] = sorted({x[1] for x in [*known,*declared]})
             items.append(item)
         return {"items": items, "page": page.page, "page_size": page.page_size, "total": total}
 
@@ -349,6 +356,65 @@ def _complete_periods(start: date, end: date, grain: str) -> tuple[list[tuple[da
 
 
 class ObservationRepository(Repository):
+    def set_series_policy(self, *, entity_id: str, metric_code: str, grain: str,
+                          valid_from: date, valid_until: date, source_id: str,
+                          reason: str, policy_version: str) -> dict[str, Any]:
+        self.require_write()
+        if not isinstance(grain,str) or grain not in ALLOWED_GRAINS:
+            raise InvalidArgument("来源策略grain无效")
+        if (not isinstance(valid_from,date) or isinstance(valid_from,datetime)
+                or not isinstance(valid_until,date) or isinstance(valid_until,datetime) or valid_until<valid_from):
+            raise InvalidArgument("来源策略必须使用有序date区间")
+        if (not isinstance(reason,str) or not reason.strip() or len(reason)>2000
+                or not isinstance(policy_version,str) or not policy_version.strip() or len(policy_version)>32):
+            raise InvalidArgument("来源策略须有非空原因和不超过32字符的版本")
+        entity = self.locked(Entity,entity_id,"实体")
+        metric = self.get_or_404(Metric,metric_code,"指标")
+        if entity.type not in metric.supported_entity_types:
+            raise MetricEntityMismatch("指标不适用于该实体")
+        source = self.locked(Source,source_id,"来源")
+        if source.native_grain != grain or source.verification_status != "verified":
+            raise InvalidArgument("策略只能指向已核验且原生粒度一致的来源")
+        values = dict(entity_id=entity_id,metric_code=metric_code,grain=grain,valid_from=valid_from,
+            valid_until=valid_until,source_id=source_id,reason=reason,policy_version=policy_version)
+        existing = self.session.scalars(select(SeriesPolicy).where(SeriesPolicy.entity_id==entity_id,
+            SeriesPolicy.metric_code==metric_code,SeriesPolicy.grain==grain,
+            SeriesPolicy.valid_from<=valid_until,SeriesPolicy.valid_until>=valid_from)
+            .with_for_update().execution_options(populate_existing=True)).all()
+        if existing:
+            if len(existing)==1 and all(getattr(existing[0],key)==value for key,value in values.items()):
+                return public_columns(existing[0])
+            raise Conflict("来源策略有效期重叠；旧策略不自动覆盖")
+        policy = SeriesPolicy(**values)
+        self.session.add(policy)
+        self.session.flush()
+        return public_columns(policy)
+
+    def _point(self, row: Observation) -> dict[str, Any]:
+        source = self.session.get(Source,row.source_id)
+        asset = self.session.get(SourceAsset,row.asset_id)
+        return {"id":row.id,"version":row.row_version,"metric":row.metric_code,"value":row.value,"unit":row.unit,
+            "period_start":row.period_start,"period_end":row.period_end,"grain":row.grain,"source_ids":[row.source_id],
+            "published_at":utc_aware(row.published_at),"ingested_at":utc_aware(row.ingested_at),"quality_status":row.quality_status,
+            "methodology_version":row.methodology_version,
+            "provenance":{"source_id":row.source_id,"asset_id":row.asset_id,"source_url":source.url if source else None,
+                "asset_url":asset.url if asset else None,"source_locator":row.source_locator,"run_id":row.ingestion_run_id}}
+
+    @staticmethod
+    def _choose(candidates: list[Observation], policies: list[SeriesPolicy], period: tuple[date,date],
+                diagnostics: list[dict[str,Any]]) -> Observation | None:
+        matching = [p for p in policies if p.valid_from<=period[0] and p.valid_until>=period[1]]
+        if len(matching)==1:
+            selected = next((row for row in candidates if row.source_id==matching[0].source_id),None)
+            if selected is None:
+                diagnostics.append({"code":"preferred_source_missing","start":period[0],"end":period[1]})
+            return selected
+        if not matching and len(candidates)==1:
+            return candidates[0]
+        if candidates or matching:
+            diagnostics.append({"code":"source_conflict","start":period[0],"end":period[1]})
+        return None
+
     def start_run(
         self, *, source_id: str, asset_id: str | None, dry_run: bool, reason: str,
         parser_version: str = "standard_csv/1", normalizer_version: str = "core/1",
@@ -469,6 +535,9 @@ class ObservationRepository(Repository):
         return public_columns(run)
 
     def query_series(self, query: SeriesQuery) -> dict[str, Any]:
+        if (not isinstance(query.start,date) or isinstance(query.start,datetime)
+                or not isinstance(query.end,date) or isinstance(query.end,datetime)):
+            raise InvalidArgument("普通时序边界必须是date")
         if query.quality not in {"verified", "all"}:
             raise InvalidArgument("quality 只能是 verified 或 all")
         if query.end < query.start or (query.end - query.start).days > 366 * 20:
@@ -498,8 +567,19 @@ class ObservationRepository(Repository):
             SeriesPolicy.valid_from <= query.end,
             SeriesPolicy.valid_until >= query.start,
         )).all()
-        if not rows and not policies and other_grains and query.grain not in other_grains:
-            raise UnsupportedGrain("该序列不支持请求粒度", supported=sorted(other_grains))
+        declared_grains = set(self.session.scalars(select(SeriesPolicy.grain).where(
+            SeriesPolicy.entity_id==query.entity_id,SeriesPolicy.metric_code==query.metric).distinct()).all())
+        supported = other_grains | declared_grains
+        if not rows and supported and query.grain not in supported:
+            raise UnsupportedGrain("该序列不支持请求粒度", supported=sorted(supported))
+        period_keys = set(periods)
+        valid_rows = []
+        for row in rows:
+            if (row.period_start,row.period_end) in period_keys:
+                valid_rows.append(row)
+            else:
+                diagnostics.append({"code":"noncanonical_period_excluded","observation_id":row.id})
+        rows = valid_rows
         selected: list[Observation] = []
         grouped: dict[tuple[date, date], list[Observation]] = defaultdict(list)
         for row in rows:
@@ -508,33 +588,20 @@ class ObservationRepository(Repository):
             selected = rows
         else:
             for period, candidates in grouped.items():
-                if len(candidates) == 1:
-                    selected.append(candidates[0])
-                    continue
-                matching = [p for p in policies if p.valid_from <= period[0] and p.valid_until >= period[1]]
-                if len(matching) == 1:
-                    chosen = next((x for x in candidates if x.source_id == matching[0].source_id), None)
-                    if chosen:
-                        selected.append(chosen)
-                        continue
-                diagnostics.append({"code": "source_conflict", "start": period[0], "end": period[1]})
-        selected_keys = {(x.period_start, x.period_end) for x in selected if x.quality_status == "verified"}
+                chosen = self._choose(candidates,policies,period,diagnostics)
+                if chosen is not None:
+                    selected.append(chosen)
+        if query.quality == "all":
+            selected_keys = set()
+            for period,candidates in grouped.items():
+                verified = [row for row in candidates if row.quality_status=="verified"]
+                chosen = self._choose(verified,policies,period,diagnostics)
+                if chosen is not None:
+                    selected_keys.add(period)
+        else:
+            selected_keys = {(x.period_start, x.period_end) for x in selected}
         missing = [{"period_start": a, "period_end": b} for a, b in periods if (a, b) not in selected_keys]
-        points = []
-        for row in selected:
-            source = self.session.get(Source, row.source_id)
-            asset = self.session.get(SourceAsset, row.asset_id)
-            points.append({
-                "id": row.id, "version": row.row_version, "metric": row.metric_code,
-                "value": row.value, "unit": row.unit, "period_start": row.period_start,
-                "period_end": row.period_end, "grain": row.grain, "source_ids": [row.source_id],
-                "published_at": utc_aware(row.published_at), "ingested_at": utc_aware(row.ingested_at),
-                "quality_status": row.quality_status,
-                "provenance": {"source_id": row.source_id, "asset_id": row.asset_id,
-                               "source_url": source.url if source else None,
-                               "asset_url": asset.url if asset else None,
-                               "source_locator": row.source_locator, "run_id": row.ingestion_run_id},
-            })
+        points = [self._point(row) for row in selected]
         coverage = Decimal(len(periods) - len(missing)) / Decimal(len(periods)) if periods else Decimal("0")
         return {
             "entity": {"id": entity.id, "name": entity.name, "type": entity.type},
@@ -543,6 +610,107 @@ class ObservationRepository(Repository):
             "diagnostics": diagnostics,
             "selection_policy_version": policies[0].policy_version if len(policies) == 1 else None,
         }
+
+    def get_coverage(self, query: SeriesQuery) -> dict[str, Any]:
+        if query.quality != "verified":
+            raise InvalidArgument("覆盖报告仅使用核验且完成来源选择的观测")
+        series = self.query_series(query)
+        periods,_ = _complete_periods(query.start,query.end,query.grain)
+        points = {(row["period_start"],row["period_end"]):row for row in series["points"]}
+        segments,gaps,breaks = [],[],[]
+        current = None
+        previous = None
+        comparable = longest_comparable = 0
+        for period in periods:
+            point = points.get(period)
+            target = segments if point else gaps
+            kind = bool(point)
+            if current is None or current[0] != kind:
+                block = {"period_start":period[0],"period_end":period[1],"period_count":1}
+                target.append(block)
+                current = (kind,block)
+            else:
+                current[1]["period_end"],current[1]["period_count"] = period[1],current[1]["period_count"]+1
+            if point:
+                identity = (point["unit"],point["methodology_version"],tuple(point["source_ids"]))
+                if previous is not None and identity != previous[0]:
+                    breaks.append({"period_start":period[0],"previous_period_end":previous[1],
+                        "previous_methodology_version":previous[0][1],"methodology_version":identity[1],
+                        "source_ids":point["source_ids"]})
+                comparable = comparable+1 if previous is not None and identity==previous[0] and comparable else 1
+                longest_comparable = max(longest_comparable,comparable)
+                previous = (identity,period[1])
+            else:
+                comparable = 0
+        valid = list(points.values())
+        return {"entity":series["entity"],"metric":series["metric"],"grain":query.grain,
+            "expected_period_count":len(periods),"available_period_count":len(points),"coverage_ratio":series["coverage_ratio"],
+            "missing_periods":series["missing_periods"],"contiguous_segments":segments,"missing_segments":gaps,
+            "longest_contiguous_period_count":max((row["period_count"] for row in segments),default=0),
+            "longest_comparable_period_count":longest_comparable,"max_gap_period_count":max((row["period_count"] for row in gaps),default=0),
+            "methodology_breaks":breaks,"latest_published_at":max((p["published_at"] for p in valid if p["published_at"]),default=None),
+            "latest_ingested_at":max((p["ingested_at"] for p in valid if p["ingested_at"]),default=None),"diagnostics":series["diagnostics"]}
+
+    def get_latest_verified(self, entity_id: str, metric: str, grain: str, as_of: date) -> dict[str, Any] | None:
+        if not isinstance(as_of,date) or isinstance(as_of,datetime):
+            raise InvalidArgument("as_of必须是统计周期截止date")
+        self.query_series(SeriesQuery(entity_id,metric,grain,as_of,as_of))
+        periods = self.session.execute(select(Observation.period_start,Observation.period_end).where(
+            Observation.entity_id==entity_id,Observation.metric_code==metric,Observation.grain==grain,
+            Observation.quality_status=="verified",Observation.period_end<=as_of).distinct()
+            .order_by(Observation.period_end.desc(),Observation.period_start.desc()).limit(10001)).all()
+        if len(periods)>10000:
+            raise QueryLimitExceeded("最近核验查询最多检查10000个周期")
+        for start,end in periods:
+            series = self.query_series(SeriesQuery(entity_id,metric,grain,start,end))
+            if series["points"]:
+                return series["points"][-1]
+        return None
+
+    def query_holiday_values(self, entity_id: str, metric: str, holiday_id: str) -> dict[str, Any]:
+        holiday = self.get_or_404(Holiday,holiday_id,"假期")
+        entity = self.get_or_404(Entity,entity_id,"实体")
+        definition = self.get_or_404(Metric,metric,"指标")
+        if entity.type not in definition.supported_entity_types:
+            raise MetricEntityMismatch("指标不适用于该实体")
+        region = holiday.region_code
+        if len(region)==6 and region.endswith("0000"):
+            region = region[:2]
+        elif len(region)==6 and region.endswith("00"):
+            region = region[:4]
+        if holiday.region_code!="000000" and not entity.region_code.startswith(region):
+            raise InvalidArgument("假期地区不覆盖该实体")
+        if holiday.days_count>366:
+            raise QueryLimitExceeded("假期证据最多覆盖366天")
+        diagnostics = []
+        exact = self.session.scalars(select(Observation).where(Observation.entity_id==entity_id,
+            Observation.metric_code==metric,Observation.grain=="holiday",Observation.quality_status=="verified",
+            Observation.period_start==holiday.start_date,Observation.period_end==holiday.end_date)).all()
+        policies = self.session.scalars(select(SeriesPolicy).where(SeriesPolicy.entity_id==entity_id,
+            SeriesPolicy.metric_code==metric,SeriesPolicy.grain=="holiday")).all()
+        selected = self._choose(exact,policies,(holiday.start_date,holiday.end_date),diagnostics)
+        try:
+            daily = self.query_series(SeriesQuery(entity_id,metric,"day",holiday.start_date,holiday.end_date))
+            day_supported = True
+        except UnsupportedGrain:
+            daily = {"points":[],"diagnostics":[{"code":"daily_grain_unsupported"}]}
+            day_supported = False
+        diagnostics.extend(daily["diagnostics"])
+        dates = {point["period_start"] for point in daily["points"]}
+        missing = [holiday.start_date+timedelta(days=i) for i in range(holiday.days_count)
+            if holiday.start_date+timedelta(days=i) not in dates]
+        comparable = len({(p["unit"],p["methodology_version"]) for p in daily["points"]})<=1
+        complete = not missing and comparable
+        daily_sum = sum((point["value"] for point in daily["points"]),Decimal("0")) if complete else None
+        if not comparable:
+            diagnostics.append({"code":"daily_methodology_break"})
+        if selected and daily_sum is not None and selected.value!=daily_sum:
+            diagnostics.append({"code":"holiday_total_daily_sum_mismatch"})
+        return {"entity":public_columns(entity),"metric":public_columns(definition),"holiday":public_columns(holiday),
+            "exact_total":self._point(selected) if selected else None,"daily_points":daily["points"],
+            "daily_sum":daily_sum,"daily_average":(selected.value/Decimal(holiday.days_count)) if selected else None,
+            "day_index_supported":complete,"daily_grain_supported":day_supported,"missing_days":missing,"diagnostics":diagnostics,
+            "scope_key":holiday.scope_key,"scope_confirmation_required":holiday.scope_key!="CN:national_general_public"}
 
 
 class JobRepository(Repository):

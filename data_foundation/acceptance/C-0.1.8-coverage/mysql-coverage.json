@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "package_version": "0.1.8",
+  "migration_head": "0006",
+  "mysql_version": "8.4.11",
+  "check_count": 6,
+  "checks": [
+    {
+      "name": "identical_concurrent_source_policies_reuse_one_record",
+      "status": "passed"
+    },
+    {
+      "name": "source_policy_overlap_is_rechecked_after_old_snapshot_and_lock_wait",
+      "status": "passed"
+    },
+    {
+      "name": "real_airport_missing_decembers_remain_missing",
+      "status": "passed",
+      "entity_name": "黄山屯溪机场",
+      "expected": 44,
+      "available": 41,
+      "longest_contiguous": 11,
+      "max_gap": 1
+    },
+    {
+      "name": "real_airport_missing_decembers_remain_missing",
+      "status": "passed",
+      "entity_name": "合肥新桥机场",
+      "expected": 44,
+      "available": 41,
+      "longest_contiguous": 11,
+      "max_gap": 1
+    },
+    {
+      "name": "real_monthly_data_not_split_into_holiday_day_values",
+      "status": "passed"
+    },
+    {
+      "name": "existing_real_snapshot_stays_idempotent_after_policy_and_coverage_queries",
+      "status": "passed"
+    }
+  ],
+  "real_observations": 83,
+  "scope": "isolated_storage_and_existing_public_snapshot",
+  "production_database_verified": false,
+  "verified_at": "2026-10-13T16:57:41.880461+00:00"
+}

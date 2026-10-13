@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "package_version": "0.1.8",
+  "migration_head": "0006",
+  "mysql_version": "8.4.11",
+  "check_count": 8,
+  "checks": [
+    {
+      "name": "concurrent_admin_retries_produce_one_requeue_and_audit",
+      "status": "passed"
+    },
+    {
+      "name": "progress_rechecks_cached_state_after_waiting_for_job_lock",
+      "status": "passed"
+    },
+    {
+      "name": "same_document_version_has_one_owner_across_jobs",
+      "status": "passed"
+    },
+    {
+      "name": "stale_business_failure_rejected_after_manual_retry_and_reclaim",
+      "status": "passed"
+    },
+    {
+      "name": "business_failure_job_failure_and_retry_audit_roll_back_atomically",
+      "status": "passed"
+    },
+    {
+      "name": "current_read_after_stale_snapshot_chunk_duplicate",
+      "status": "passed"
+    },
+    {
+      "name": "current_read_after_stale_snapshot_chunk_count",
+      "status": "passed"
+    },
+    {
+      "name": "current_read_after_stale_snapshot_count_overlap",
+      "status": "passed"
+    }
+  ],
+  "verified_at": "2026-10-13T16:57:49.647654+00:00",
+  "scope": "synthetic_storage_competition_only",
+  "production_database_verified": false
+}
