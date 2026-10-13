@@ -7,6 +7,7 @@ from collections import defaultdict
 from dataclasses import asdict
 from datetime import date, datetime, timedelta, timezone
 from decimal import Decimal
+from pathlib import Path
 from typing import Any, Iterable
 from uuid import uuid4
 
@@ -39,6 +40,7 @@ from .db.models import (
     IngestionRun,
     Job,
     JobAttempt,
+    JobRetry,
     KnowledgeChunk,
     KnowledgeDocument,
     KnowledgeIndex,
@@ -80,7 +82,7 @@ ALLOWED_QUALITY = {"verified", "pending_review", "rejected"}
 
 
 def utc_naive(value: datetime) -> datetime:
-    if value.tzinfo is None or value.utcoffset() is None:
+    if not isinstance(value, datetime) or value.tzinfo is None or value.utcoffset() is None:
         raise InvalidArgument("时间必须带时区", field="datetime")
     return value.astimezone(timezone.utc).replace(tzinfo=None)
 
@@ -113,9 +115,17 @@ def public_columns(model: Any, *, exclude: set[str] | None = None) -> dict[str, 
 
 
 class Repository:
-    def __init__(self, session: Session, writable: bool) -> None:
+    def __init__(self, session: Session, writable: bool, data_root: Path | None = None) -> None:
         self.session = session
         self.writable = writable
+        self.data_root = data_root
+
+    def locked(self, model: type[Any], key: str, label: str) -> Any:
+        value = self.session.scalar(select(model).where(model.id == key)
+            .with_for_update().execution_options(populate_existing=True))
+        if value is None:
+            raise NotFound(f"{label}不存在", id=key)
+        return value
 
     def require_write(self) -> None:
         if not self.writable:
@@ -536,6 +546,11 @@ class ObservationRepository(Repository):
 
 
 class JobRepository(Repository):
+    @staticmethod
+    def validate_count(value: int, name: str, *, positive: bool = False) -> None:
+        if isinstance(value, bool) or not isinstance(value, int) or value < (1 if positive else 0):
+            raise InvalidArgument("计数必须是正整数" if positive else "计数必须是非负整数", field=name)
+
     def enqueue_or_get(self, data: JobCreate, now: datetime) -> dict[str, Any]:
         self.require_write()
         existing = self.session.scalar(select(Job).where(Job.type == data.type, Job.idempotency_key == data.idempotency_key))
@@ -554,6 +569,9 @@ class JobRepository(Repository):
     ) -> dict[str, Any] | None:
         """领取一个到期排队任务；筛选精确匹配，无匹配时不回退。"""
         self.require_write()
+        self.validate_count(lease_seconds, "lease_seconds", positive=True)
+        if not isinstance(worker_id, str) or not worker_id.strip() or len(worker_id) > 100:
+            raise InvalidArgument("worker_id 必须是长度不超过100的非空字符串")
         filters = []
         for name, value, column in (("job_type", job_type, Job.type), ("job_id", job_id, Job.id)):
             if value is not None:
@@ -566,6 +584,7 @@ class JobRepository(Repository):
         job = self.session.scalar(
             select(Job).where(Job.status == "queued", Job.available_at <= now_db, *filters)
             .order_by(Job.created_at, Job.id).with_for_update(skip_locked=True).limit(1)
+            .execution_options(populate_existing=True)
         )
         if job is None:
             return None
@@ -648,6 +667,7 @@ class JobRepository(Repository):
 
     def heartbeat(self, lease: JobLease, now: datetime, lease_seconds: int = 120) -> datetime:
         self.require_write()
+        self.validate_count(lease_seconds, "lease_seconds", positive=True)
         attempt = self.ensure_lease(lease, now)
         now_db = utc_naive(now)
         attempt.heartbeat_at = now_db
@@ -655,10 +675,55 @@ class JobRepository(Repository):
         self.session.flush()
         return utc_aware(attempt.lease_expires_at)  # type: ignore[return-value]
 
+    def update_progress(self, lease: JobLease, processed_count: int, imported_count: int,
+                        now: datetime | None = None) -> dict[str, Any]:
+        self.require_write()
+        self.validate_count(processed_count, "processed_count")
+        self.validate_count(imported_count, "imported_count")
+        if imported_count > processed_count:
+            raise InvalidArgument("imported_count 不能超过 processed_count")
+        self.ensure_lease(lease, now)
+        # ensure_lease 返回 Attempt；Job 若离开 identity map，普通 get 会重新
+        # 读取 MySQL 的旧事务快照。写入必须继续使用 locking current read。
+        job = self.locked(Job, lease.job_id, "任务")
+        if processed_count < job.processed_count or imported_count < job.imported_count:
+            raise Conflict("同一尝试的进度不能倒退")
+        job.processed_count, job.imported_count = processed_count, imported_count
+        self.session.flush()
+        return self.get_job(job.id)
+
+    def retry_failed(self, job_id: str, reason: str, operator_id: str,
+                     now: datetime) -> dict[str, Any]:
+        self.require_write()
+        now_db = utc_naive(now)
+        if not isinstance(reason, str) or not reason.strip() or len(reason) > 2000:
+            raise InvalidArgument("重试原因必须是1到2000字符的非空字符串")
+        if not isinstance(operator_id, str) or not operator_id.strip():
+            raise InvalidArgument("必须提供管理员 operator_id")
+        job = self.locked(Job, job_id, "任务")
+        operator = self.locked(User, operator_id, "操作者")
+        if operator.role != "admin" or operator.status != "active":
+            raise InvalidPermission("只有有效管理员可以手动重试")
+        if job.status != "failed":
+            raise Conflict("只有 failed 任务可手动重试", status=job.status)
+        attempt = self.session.scalar(select(JobAttempt).where(
+            JobAttempt.job_id == job.id, JobAttempt.attempt_no == job.attempt_count
+        ).with_for_update().execution_options(populate_existing=True))
+        if attempt and (attempt.finished_at is None or attempt.outcome is None):
+            raise Conflict("当前尝试尚未结束，不能重试")
+        self.session.add(JobRetry(job_id=job.id, attempt_count=job.attempt_count,
+            operator_id=operator_id, reason=reason.strip(), requested_at=now_db))
+        job.status, job.available_at = "queued", now_db
+        job.started_at = job.finished_at = None
+        job.processed_count = job.imported_count = 0
+        job.result_refs = job.error_summary = None
+        self.session.flush()
+        return self.get_job(job.id)
+
     def complete_job(self, lease: JobLease, result_refs: dict[str, Any], now: datetime) -> dict[str, Any]:
         self.require_write()
         attempt = self.ensure_lease(lease, now)
-        job = self.get_or_404(Job, lease.job_id, "任务")
+        job = self.locked(Job, lease.job_id, "任务")
         now_db = utc_naive(now)
         attempt.finished_at, attempt.outcome = now_db, "succeeded"
         job.status, job.finished_at, job.result_refs = "succeeded", now_db, result_refs
@@ -668,7 +733,7 @@ class JobRepository(Repository):
     def fail_job(self, lease: JobLease, error_summary: str, now: datetime) -> dict[str, Any]:
         self.require_write()
         attempt = self.ensure_lease(lease, now)
-        job = self.get_or_404(Job, lease.job_id, "任务")
+        job = self.locked(Job, lease.job_id, "任务")
         now_db = utc_naive(now)
         attempt.finished_at, attempt.outcome, attempt.error_summary = now_db, "failed", error_summary[:2000]
         job.status, job.finished_at, job.error_summary = "failed", now_db, error_summary[:2000]
@@ -676,7 +741,11 @@ class JobRepository(Repository):
         return public_columns(job)
 
     def get_job(self, job_id: str) -> dict[str, Any]:
-        return public_columns(self.get_or_404(Job, job_id, "任务"), exclude={"payload"})
+        result = public_columns(self.get_or_404(Job, job_id, "任务"), exclude={"payload"})
+        retries = self.session.scalars(select(JobRetry).where(JobRetry.job_id == job_id)
+            .order_by(JobRetry.requested_at, JobRetry.id)).all()
+        result["retry_history"] = [public_columns(row) for row in retries]
+        return result
 
 
 class HolidayRepository(Repository):
@@ -815,6 +884,17 @@ class EventRepository(Repository):
 
 
 class KnowledgeRepository(Repository):
+    def _owned_index(self, index_id: str, lease: JobLease) -> tuple[KnowledgeDocument, KnowledgeIndex]:
+        JobRepository(self.session, True).ensure_lease(lease)
+        existing = self.get_or_404(KnowledgeIndex, index_id, "索引")
+        if existing.job_id != lease.job_id:
+            raise LeaseLost("任务与知识索引不匹配")
+        document = self.locked(KnowledgeDocument, existing.document_id, "知识文档")
+        index = self.locked(KnowledgeIndex, index_id, "索引")
+        if index.job_id != lease.job_id:
+            raise LeaseLost("任务与知识索引不匹配")
+        return document, index
+
     def get_document(self, document_id: str) -> dict[str, Any]:
         document = self.get_or_404(KnowledgeDocument, document_id, "知识文档")
         result = public_columns(document)
@@ -861,11 +941,23 @@ class KnowledgeRepository(Repository):
     ) -> dict[str, Any]:
         self.require_write()
         JobRepository(self.session, True).ensure_lease(lease)
-        self.get_or_404(KnowledgeDocument, document_id, "知识文档")
+        if job_id != lease.job_id:
+            raise LeaseLost("任务与知识索引不匹配")
+        document = self.locked(KnowledgeDocument, document_id, "知识文档")
         existing = self.session.scalar(select(KnowledgeIndex).where(
             KnowledgeIndex.document_id == document_id, KnowledgeIndex.version == version
-        ))
+        ).with_for_update().execution_options(populate_existing=True))
         if existing:
+            if existing.job_id != job_id:
+                raise LeaseLost("索引版本属于其他任务")
+            if existing.parser_version != parser_version or existing.embedding_model_version != embedding_model_version:
+                raise Conflict("重试不能更改索引解析或模型版本")
+            if existing.status not in {"building", "failed"}:
+                raise Conflict("已发布索引不能重新构建")
+            existing.status, existing.error_summary = "building", None
+            if document.active_index_version is None:
+                document.index_status = "building"
+            self.session.flush()
             return public_columns(existing)
         index = KnowledgeIndex(
             document_id=document_id, version=version, job_id=job_id, status="building",
@@ -873,13 +965,14 @@ class KnowledgeRepository(Repository):
             chunk_count=0,
         )
         self.session.add(index)
+        if document.active_index_version is None:
+            document.index_status = "building"
         self.session.flush()
         return public_columns(index)
 
     def write_chunks(self, index_id: str, chunks: list[dict[str, Any]], lease: JobLease) -> dict[str, int]:
         self.require_write()
-        JobRepository(self.session, True).ensure_lease(lease)
-        index = self.get_or_404(KnowledgeIndex, index_id, "索引")
+        _, index = self._owned_index(index_id, lease)
         if index.status != "building" or len(chunks) > 1000:
             raise Conflict("索引状态不允许写入或单批片段过多")
         inserted = skipped = 0
@@ -887,7 +980,7 @@ class KnowledgeRepository(Repository):
             text_hash = hashlib.sha256(data["text"].encode("utf-8")).hexdigest()
             existing = self.session.scalar(select(KnowledgeChunk).where(
                 KnowledgeChunk.index_id == index_id, KnowledgeChunk.chunk_no == data["chunk_no"]
-            ))
+            ).with_for_update().execution_options(populate_existing=True))
             if existing:
                 if existing.text_sha256 != text_hash or existing.locator != data["locator"]:
                     raise Conflict("同一片段序号内容不一致", chunk_no=data["chunk_no"])
@@ -907,13 +1000,17 @@ class KnowledgeRepository(Repository):
     ) -> dict[str, Any]:
         self.require_write()
         JobRepository(self.session, True).ensure_lease(lease)
-        document = self.get_or_404(KnowledgeDocument, document_id, "知识文档")
         index = self.session.scalar(select(KnowledgeIndex).where(
             KnowledgeIndex.document_id == document_id, KnowledgeIndex.version == version
         ))
         if index is None:
             raise NotFound("索引版本不存在")
-        actual = self.session.scalar(select(func.count()).select_from(KnowledgeChunk).where(KnowledgeChunk.index_id == index.id)) or 0
+        document, index = self._owned_index(index.id, lease)
+        if index.status != "building":
+            raise Conflict("只有 building 索引可以发布")
+        JobRepository.validate_count(expected_chunk_count, "expected_chunk_count")
+        actual = len(self.session.scalars(select(KnowledgeChunk.id).where(
+            KnowledgeChunk.index_id == index.id).with_for_update()).all())
         if actual != expected_chunk_count:
             raise Conflict("片段数量与预期不一致", actual=actual, expected=expected_chunk_count)
         index.status, index.chunk_count = "ready", actual
@@ -922,6 +1019,19 @@ class KnowledgeRepository(Repository):
         document.row_version += 1
         self.session.flush()
         return public_columns(document)
+
+    def fail_index(self, index_id: str, error_summary: str, lease: JobLease) -> dict[str, Any]:
+        self.require_write()
+        if not isinstance(error_summary, str) or not error_summary.strip():
+            raise InvalidArgument("必须提供索引错误摘要")
+        document, index = self._owned_index(index_id, lease)
+        if index.status not in {"building", "failed"}:
+            raise Conflict("已发布索引不能标为失败")
+        index.status, index.error_summary = "failed", error_summary[:2000]
+        if document.active_index_version is None:
+            document.index_status = "failed"
+        self.session.flush()
+        return public_columns(index)
 
     def get_chunks(self, document_id: str, version: str | None = None) -> dict[str, Any]:
         document = self.get_or_404(KnowledgeDocument, document_id, "知识文档")
@@ -939,6 +1049,116 @@ class KnowledgeRepository(Repository):
 
 
 class VideoRepository(Repository):
+    def _permission(self, video: Video, use: str, now: datetime | None = None,
+                    *, lock: bool = False) -> PermissionRecord:
+        permission = (self.locked(PermissionRecord, video.permission_record_id, "授权") if lock
+                      else self.get_or_404(PermissionRecord, video.permission_record_id, "授权"))
+        current = utc_naive(now) if now is not None else utcnow_naive()
+        if (permission.source_id != video.source_id or permission.status != "approved"
+                or use not in permission.allowed_uses or permission.valid_from > current
+                or (permission.valid_until is not None and permission.valid_until <= current)
+                or (use == "replay" and not permission.playback_allowed)):
+            raise InvalidPermission("录像授权已失效或不允许该用途", use=use)
+        return permission
+
+    def _owned_analysis(self, analysis_id: str, lease: JobLease,
+                        now: datetime | None = None) -> tuple[VideoAnalysis, Video]:
+        JobRepository(self.session, True).ensure_lease(lease, now)
+        analysis = self.get_or_404(VideoAnalysis, analysis_id, "录像分析")
+        if analysis.job_id != lease.job_id:
+            raise LeaseLost("任务与录像分析不匹配")
+        video = self.locked(Video, analysis.video_id, "录像")
+        analysis = self.locked(VideoAnalysis, analysis_id, "录像分析")
+        if analysis.job_id != lease.job_id:
+            raise LeaseLost("任务与录像分析不匹配")
+        return analysis, video
+
+    def get_permission(self, permission_id: str) -> dict[str, Any]:
+        return public_columns(self.get_or_404(PermissionRecord, permission_id, "授权"), exclude={"evidence_path"})
+
+    def get_video(self, video_id: str) -> dict[str, Any]:
+        video = self.get_or_404(Video, video_id, "录像")
+        result = public_columns(video)
+        analyses = self.session.scalars(select(VideoAnalysis).where(VideoAnalysis.video_id == video.id)
+            .order_by(VideoAnalysis.created_at, VideoAnalysis.id)).all()
+        result["analyses"] = [public_columns(row) for row in analyses]
+        return result
+
+    def list_videos(self, *, scenic_id: str | None = None, camera_id: str | None = None,
+                    status: str | None = None, page: Page = Page()) -> dict[str, Any]:
+        conditions = []
+        for name, value, column, expected_type in (
+            ("scenic_id", scenic_id, Video.scenic_id, "scenic"),
+            ("camera_id", camera_id, Video.camera_id, "camera"),
+        ):
+            if value is not None:
+                entity = self.get_or_404(Entity, value, name)
+                if entity.type != expected_type:
+                    raise InvalidArgument("录像筛选实体类型错误", field=name)
+                conditions.append(column == value)
+        if status is not None:
+            if status not in {"uploaded", "processing", "ready", "failed"}:
+                raise InvalidArgument("录像 status 无效")
+            conditions.append(Video.status == status)
+        total = self.session.scalar(select(func.count()).select_from(Video).where(*conditions)) or 0
+        rows = self.session.scalars(select(Video).where(*conditions)
+            .order_by(Video.recorded_start_at.desc(), Video.id)
+            .offset((page.page - 1) * page.page_size).limit(page.page_size)).all()
+        return {"items": [self.get_video(row.id) for row in rows], "page": page.page,
+                "page_size": page.page_size, "total": total}
+
+    def get_playback_ref(self, video_id: str, now: datetime) -> dict[str, Any]:
+        """仅给 D 内部文件响应使用；D 在每次请求时核验用户权限。"""
+        video = self.get_or_404(Video, video_id, "录像")
+        self._permission(video, "replay", now)
+        asset = self.get_or_404(SourceAsset, video.asset_id, "原件")
+        if self.data_root is None:
+            raise InvalidArgument("回放必须配置 DATA_ROOT")
+        root = self.data_root.resolve()
+        relative = Path(asset.relative_path)
+        path = (root / relative).resolve()
+        if relative.is_absolute() or not path.is_relative_to(root):
+            raise InvalidArgument("回放路径超出 DATA_ROOT")
+        if not path.is_file():
+            raise NotFound("录像文件未在 DATA_ROOT 留存")
+        digest = hashlib.sha256()
+        with path.open("rb") as stream:
+            while chunk := stream.read(1024 * 1024):
+                digest.update(chunk)
+        if digest.hexdigest() != asset.sha256 or path.stat().st_size != asset.byte_size:
+            raise Conflict("回放文件与登记摘要或大小不一致")
+        return {"video_id": video.id, "asset_id": asset.id, "path": str(path),
+                "sha256": asset.sha256, "byte_size": asset.byte_size, "media_type": asset.media_type}
+
+    def begin_analysis(self, analysis_id: str, lease: JobLease,
+                       now: datetime | None = None) -> dict[str, Any]:
+        self.require_write()
+        analysis, video = self._owned_analysis(analysis_id, lease, now)
+        self._permission(video, "analysis", now, lock=True)
+        if analysis.status not in {"queued", "running", "failed"}:
+            raise Conflict("已完成分析不能重新开始")
+        analysis.status, analysis.error_summary = "running", None
+        if video.status != "ready":
+            video.status = "processing"
+        self.session.flush()
+        return public_columns(analysis)
+
+    def fail_analysis(self, analysis_id: str, error_summary: str,
+                      lease: JobLease) -> dict[str, Any]:
+        self.require_write()
+        if not isinstance(error_summary, str) or not error_summary.strip():
+            raise InvalidArgument("必须提供分析错误摘要")
+        analysis, video = self._owned_analysis(analysis_id, lease)
+        if analysis.status not in {"queued", "running", "failed"}:
+            raise Conflict("已完成分析不能标为失败")
+        analysis.status, analysis.error_summary = "failed", error_summary[:2000]
+        ready = self.session.scalar(select(VideoAnalysis.id).where(
+            VideoAnalysis.video_id == video.id, VideoAnalysis.status == "succeeded").with_for_update())
+        if not ready:
+            video.status = "failed"
+        self.session.flush()
+        return public_columns(analysis)
+
     def register_permission(self, data: dict[str, Any]) -> dict[str, Any]:
         self.require_write()
         self.get_or_404(Source, data["source_id"], "来源")
@@ -974,13 +1194,18 @@ class VideoRepository(Repository):
 
     def create_analysis(self, video_id: str, job_id: str, config: dict[str, Any]) -> dict[str, Any]:
         self.require_write()
-        self.get_or_404(Video, video_id, "录像")
+        job = self.locked(Job, job_id, "任务")
+        if job.status not in {"queued", "running"}:
+            raise Conflict("任务状态不允许创建分析")
+        self.locked(Video, video_id, "录像")
         normalized = dict(config)
         config_hash = sha256_json(normalized)
         existing = self.session.scalar(select(VideoAnalysis).where(
             VideoAnalysis.video_id == video_id, VideoAnalysis.config_sha256 == config_hash
-        ))
+        ).with_for_update().execution_options(populate_existing=True))
         if existing:
+            if existing.job_id != job_id:
+                raise Conflict("相同配置的分析属于其他任务", analysis_id=existing.id)
             return public_columns(existing)
         analysis = VideoAnalysis(
             video_id=video_id, job_id=job_id, config_sha256=config_hash, status="queued", **normalized
@@ -991,20 +1216,23 @@ class VideoRepository(Repository):
 
     def write_counts(self, analysis_id: str, points: list[CountInput], lease: JobLease) -> dict[str, int]:
         self.require_write()
-        JobRepository(self.session, True).ensure_lease(lease)
-        analysis = self.get_or_404(VideoAnalysis, analysis_id, "录像分析")
-        video = self.get_or_404(Video, analysis.video_id, "录像")
-        if analysis.job_id != lease.job_id or len(points) > 1000:
-            raise LeaseLost("任务与分析不匹配或单批过大")
+        analysis, video = self._owned_analysis(analysis_id, lease)
+        self._permission(video, "analysis", lock=True)
+        if len(points) > 1000:
+            raise InvalidArgument("单批计数最多1000个窗口")
+        if analysis.status not in {"queued", "running"}:
+            raise Conflict("分析状态不允许写入；失败分析需先 begin_analysis")
         inserted = skipped = 0
         for point in points:
+            JobRepository.validate_count(point.entries, "entries")
+            JobRepository.validate_count(point.exits, "exits")
             start, end = utc_naive(point.window_start), utc_naive(point.window_end)
             if start < video.recorded_start_at or end > video.recorded_end_at or end <= start or point.entries < 0 or point.exits < 0:
                 raise InvalidArgument("计数窗口或数值无效")
             overlap = self.session.scalar(select(CameraCount).where(
                 CameraCount.analysis_id == analysis_id,
                 CameraCount.window_start < end, CameraCount.window_end > start,
-            ))
+            ).with_for_update().execution_options(populate_existing=True))
             if overlap:
                 if overlap.window_start == start and overlap.window_end == end and overlap.entries == point.entries and overlap.exits == point.exits and overlap.quality_status == point.quality_status:
                     skipped += 1
@@ -1016,18 +1244,23 @@ class VideoRepository(Repository):
             ))
             inserted += 1
         analysis.status = "running"
+        if video.status != "ready":
+            video.status = "processing"
         self.session.flush()
         return {"inserted": inserted, "skipped": skipped}
 
     def complete_analysis(self, analysis_id: str, expected_window_count: int, lease: JobLease, manual_validation: dict[str, Any] | None = None) -> dict[str, Any]:
         self.require_write()
-        JobRepository(self.session, True).ensure_lease(lease)
-        analysis = self.get_or_404(VideoAnalysis, analysis_id, "录像分析")
-        actual = self.session.scalar(select(func.count()).select_from(CameraCount).where(CameraCount.analysis_id == analysis_id)) or 0
+        JobRepository.validate_count(expected_window_count, "expected_window_count")
+        analysis, video = self._owned_analysis(analysis_id, lease)
+        self._permission(video, "analysis", lock=True)
+        if analysis.status not in {"queued", "running"}:
+            raise Conflict("只有未结束分析可以完成")
+        actual = len(self.session.scalars(select(CameraCount.id).where(
+            CameraCount.analysis_id == analysis_id).with_for_update()).all())
         if actual != expected_window_count:
             raise Conflict("计数窗口数量不符合预期", actual=actual, expected=expected_window_count)
         analysis.status, analysis.manual_validation = "succeeded", manual_validation
-        video = self.session.get(Video, analysis.video_id)
         if video:
             video.status = "ready"
         self.session.flush()
@@ -1089,7 +1322,7 @@ class ForecastRepository(Repository):
 
 
 class UnitOfWork:
-    def __init__(self, session: Session, writable: bool) -> None:
+    def __init__(self, session: Session, writable: bool, data_root: Path | None = None) -> None:
         self.session = session
         self.auth = AuthRepository(session, writable)
         self.catalog = CatalogRepository(session, writable)
@@ -1098,6 +1331,6 @@ class UnitOfWork:
         self.jobs = JobRepository(session, writable)
         self.holidays = HolidayRepository(session, writable)
         self.events = EventRepository(session, writable)
-        self.knowledge = KnowledgeRepository(session, writable)
-        self.video = VideoRepository(session, writable)
+        self.knowledge = KnowledgeRepository(session, writable, data_root)
+        self.video = VideoRepository(session, writable, data_root)
         self.forecasts = ForecastRepository(session, writable)

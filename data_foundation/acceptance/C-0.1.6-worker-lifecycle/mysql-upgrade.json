@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "from_package": "0.1.5",
+  "to_package": "0.1.6",
+  "from_migration": "0005",
+  "migration_head": "0006",
+  "old_tables_unchanged": 30,
+  "old_rows_unchanged": 44,
+  "business_tables": 31,
+  "datetime_columns": 79,
+  "all_fsp": 6,
+  "scope": "isolated_synthetic_database_only"
+}

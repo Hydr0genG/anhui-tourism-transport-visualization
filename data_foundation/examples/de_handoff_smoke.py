@@ -432,10 +432,10 @@ def run_suite(database_url: str, data_root: Path, part: str, sqlite: bool) -> di
         report["database_dialect"] = store.doctor()["dialect"]
         with store.engine.connect() as connection:
             report["migration_head"] = MigrationContext.configure(connection).get_current_revision()
-        require(report["migration_head"] == "0005", "迁移实际 head 应为 0005")
+        require(report["migration_head"] == "0006", "迁移实际 head 应为 0006")
         tables = set(inspect(store.engine).get_table_names())
-        require(len(tables - {"alembic_version"}) == 30, "应建立 30 张业务表")
-        passed("migration", "五段迁移和连接检查通过，30 张业务表")
+        require(len(tables - {"alembic_version"}) == 31, "应建立 31 张业务表")
+        passed("migration", "六段迁移和连接检查通过，31 张业务表")
         datetime_precision_checks(store, passed)
         ids = make_fixture(store)
         passed("fixture", "仅创建合成来源、景区和摄像头，文件摘要来自实际测试文件")

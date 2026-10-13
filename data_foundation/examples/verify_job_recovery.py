@@ -180,7 +180,7 @@ def verify(database_url: str) -> dict:
             assert future.result(timeout=5) == "lease_lost"
         state(lease,"queued","expired")
         with store.read() as uow:
-            assert uow.knowledge.get_document(document_id)["index_status"] == "pending"
+            assert uow.knowledge.get_document(document_id)["index_status"] == "building"
             assert uow.session.scalar(select(func.count()).select_from(KnowledgeChunk).where(KnowledgeChunk.index_id==index_id)) == 1
         with store.write() as uow:
             for operation in (lambda:uow.jobs.heartbeat(lease,due),lambda:uow.jobs.complete_job(lease,{},due),lambda:uow.jobs.fail_job(lease,"old",due)):
@@ -208,7 +208,7 @@ def verify(database_url: str) -> dict:
         state(lease,"failed","expired")
         passed("recovery_rollback_attempt_cap_and_repeat_are_consistent")
         return {"package_version":__version__,"status":"passed","scope":"isolated_mysql_synthetic_recovery_competition",
-            "database_version":version,"migration_head":"0005","checks":checks,"check_count":len(checks),
+            "database_version":version,"migration_head":"0006","checks":checks,"check_count":len(checks),
             "verified_at":datetime.now(timezone.utc).isoformat(),"production_database_verified":False,
             "limitations":["虚拟时间验证操作校验时刻及事务顺序，不承诺提交瞬间重新检查实时时钟。",
                 "现有队列索引及锁范围限制保留；未验证高并发吞吐或D/E业务重试幂等。"]}

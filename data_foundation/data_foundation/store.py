@@ -40,7 +40,7 @@ class DataStore:
     def read(self) -> Iterator[UnitOfWork]:
         with self._sessions() as session:
             try:
-                yield UnitOfWork(session, False)
+                yield UnitOfWork(session, False, self.data_root)
             finally:
                 session.rollback()
 
@@ -48,7 +48,7 @@ class DataStore:
     def write(self) -> Iterator[UnitOfWork]:
         with self._sessions() as session:
             try:
-                yield UnitOfWork(session, True)
+                yield UnitOfWork(session, True, self.data_root)
                 session.commit()
             except Exception:
                 session.rollback()

@@ -142,6 +142,19 @@ class JobAttempt(IdMixin, CreatedMixin, Base):
     )
 
 
+class JobRetry(IdMixin, CreatedMixin, Base):
+    __tablename__ = "job_retries"
+    job_id: Mapped[str] = mapped_column(ForeignKey("jobs.id"), nullable=False)
+    attempt_count: Mapped[int] = mapped_column(Integer, nullable=False)
+    operator_id: Mapped[str] = mapped_column(ForeignKey("users.id"), nullable=False)
+    reason: Mapped[str] = mapped_column(Text, nullable=False)
+    requested_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
+    __table_args__ = (
+        Index("ix_job_retries_job_time", "job_id", "requested_at"),
+        CheckConstraint("attempt_count >= 0", name="retry_attempt_count_nonnegative"),
+    )
+
+
 class SourceAsset(IdMixin, CreatedMixin, Base):
     __tablename__ = "source_assets"
     source_id: Mapped[str] = mapped_column(ForeignKey("sources.id"), nullable=False)
@@ -425,6 +438,7 @@ class VideoAnalysis(IdMixin, CreatedMixin, Base):
     config_sha256: Mapped[str] = mapped_column(HASH, nullable=False)
     status: Mapped[str] = mapped_column(CODE, nullable=False)
     manual_validation: Mapped[dict[str, Any] | None] = mapped_column(JSON)
+    error_summary: Mapped[str | None] = mapped_column(Text)
     __table_args__ = (
         UniqueConstraint("video_id", "config_sha256", name="video_analysis_config"),
         CheckConstraint("interval_minutes IN (1, 5, 15)", name="interval_allowed"),

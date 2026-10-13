@@ -1,8 +1,8 @@
 # C 部分：数据基础模块
 
-当前状态：**v0.1.5 已完成过期任务恢复和租约写路径锁保护；91项pytest、MySQL恢复竞争6项、领取回归5项、MySQL/SQLite旧调用各21项通过。**仍为30张表、迁移0005、字典0.1.0。G08的进度/手动重试及G09完整业务归属仍缺；D/E本版接收、正式Worker与页面链路待验收。
+> 当前：C v0.1.6 / 迁移0006，31张表。进度、管理员审计重试、索引/分析失败与归属、视频读取/授权回放引用完成；154项SQLite、63项MySQL及8项生命周期竞争通过。真实资料沿用0.1.3，D/E正式接收、Worker/HTTP和算法效果待回传。更新日期：2026-10-14。 先读[新版调用与迁移说明](./16-任务生命周期与016交接.md)。
 
-先读[0.1.5恢复接口、样例与事务边界](./15-过期任务恢复与015交接.md)和[更新公告](../更新公告-v0.1.5.md)。真实资料保留[0.1.3完整快照](./real_data/2026-10-12-v2/README.md)及[覆盖报告](./real_data/2026-10-12-v2/quality_report.md)：数量及连续月报/录像缺口未变。
+先读[0.1.6生命周期、样例与迁移说明](./16-任务生命周期与016交接.md)和[更新公告](../更新公告-v0.1.6.md)。真实资料保留[0.1.3完整快照](./real_data/2026-10-12-v2/README.md)及[覆盖报告](./real_data/2026-10-12-v2/quality_report.md)：数量及连续月报/录像缺口未变。
 
 ## 从哪里开始读
 
@@ -73,9 +73,9 @@ E 的数值问答通过 D 注入的查询工具访问 C。C 不直接面向浏�
 ```bash
 # 以下命令均从项目根目录执行
 # 推荐直接安装交付 wheel；文件名以 release/ 中实际文件为准
-python -m pip install ./data_foundation/release/anhui_data_foundation-0.1.5-py3-none-any.whl
+python -m pip install ./data_foundation/release/anhui_data_foundation-0.1.6-py3-none-any.whl
 
-# 在项目根目录运行五段迁移
+# 在项目根目录运行迁移至0006
 python -m alembic -c data_foundation/alembic.ini upgrade head
 
 # 检查连接，写入五个指标及已核验的目录台账
