@@ -379,7 +379,7 @@ def e_video(store: DataStore, ids: dict[str, str], passed: Callable[..., None]) 
         writer.jobs.fail_job(failed_lease, "合成失败：未调用模型", utc_now())
     with store.read() as reader:
         require(reader.jobs.get_job(failed["id"])["status"] == "failed", "作业失败应可读回")
-    passed("E-job-fail", "完成后租约不可续期、作业失败可读回；未实现自动恢复/重试")
+    passed("E-job-fail", "完成后租约不可续期、作业失败可读回；过期恢复另行验收，手动重试未实现")
 
 
 def datetime_precision_checks(store: DataStore, passed: Callable[[str, str], None]) -> None:

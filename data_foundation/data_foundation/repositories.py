@@ -581,16 +581,70 @@ class JobRepository(Repository):
         return {"job": public_columns(job), "lease": asdict(JobLease(job.id, job.attempt_count, token))}
 
     def ensure_lease(self, lease: JobLease, now: datetime | None = None) -> JobAttempt:
-        attempt = self.session.scalar(select(JobAttempt).where(
+        # 所有租约写入先锁 Job，再锁当前尝试；事务提交/回滚前持锁。
+        # populate_existing 防止同一 Session 的旧对象绕过恢复或续约结果。
+        job_query = select(Job).where(Job.id == lease.job_id).execution_options(populate_existing=True)
+        if self.writable:
+            job_query = job_query.with_for_update()
+        job = self.session.scalar(job_query)
+        if not job or job.id != lease.job_id or job.status != "running" or job.attempt_count != lease.attempt_no:
+            raise LeaseLost("任务租约已失效", job_id=lease.job_id)
+        attempt_query = select(JobAttempt).where(
             JobAttempt.job_id == lease.job_id,
             JobAttempt.attempt_no == lease.attempt_no,
-            JobAttempt.lease_token == lease.lease_token,
-        ))
-        job = self.session.get(Job, lease.job_id)
-        now_db = utc_naive(now) if now else utcnow_naive()
-        if not attempt or not job or job.status != "running" or attempt.finished_at is not None or attempt.lease_expires_at <= now_db:
+        ).execution_options(populate_existing=True)
+        if self.writable:
+            attempt_query = attempt_query.with_for_update()
+        attempt = self.session.scalar(attempt_query)
+        # 默认实时时钟在获得锁后读取，避免等待期间到期仍被接受。
+        now_db = utc_naive(now) if now is not None else utcnow_naive()
+        if (not attempt or attempt.lease_token != lease.lease_token or attempt.finished_at is not None
+                or attempt.outcome is not None or attempt.lease_expires_at <= now_db):
             raise LeaseLost("任务租约已失效", job_id=lease.job_id)
         return attempt
+
+    def recover_expired(
+        self, now: datetime, max_attempts: int = 3, *, batch_size: int = 100,
+    ) -> dict[str, int]:
+        """恢复当前到期运行尝试；调用方控制事务与调度，不创建新尝试。"""
+        self.require_write()
+        if not isinstance(now, datetime):
+            raise InvalidArgument("now 必须是带时区的时间", field="now")
+        now_db = utc_naive(now)
+        for name, value in (("max_attempts", max_attempts), ("batch_size", batch_size)):
+            if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+                raise InvalidArgument("恢复数量参数必须是正整数", field=name)
+        # 候选读取不加锁；逐个主键锁定后复核，避免连接查询改变锁顺序。
+        candidates = self.session.scalars(select(Job.id).join(JobAttempt, and_(
+            JobAttempt.job_id == Job.id, JobAttempt.attempt_no == Job.attempt_count,
+        )).where(
+            Job.status == "running", JobAttempt.finished_at.is_(None), JobAttempt.outcome.is_(None),
+            JobAttempt.lease_expires_at <= now_db,
+        ).order_by(Job.id).limit(batch_size)).all()
+        counts = {"requeued": 0, "failed": 0}
+        for job_id in candidates:
+            job = self.session.scalar(select(Job).where(Job.id == job_id)
+                .with_for_update(skip_locked=True).execution_options(populate_existing=True))
+            if not job or job.status != "running":
+                continue
+            attempt = self.session.scalar(select(JobAttempt).where(
+                JobAttempt.job_id == job.id, JobAttempt.attempt_no == job.attempt_count,
+            ).with_for_update(skip_locked=True).execution_options(populate_existing=True))
+            if (not attempt or attempt.finished_at is not None or attempt.outcome is not None
+                    or attempt.lease_expires_at > now_db):
+                continue
+            attempt.finished_at, attempt.outcome, attempt.error_summary = now_db, "expired", "lease_expired"
+            if job.attempt_count < max_attempts:
+                job.status, job.available_at = "queued", now_db
+                job.started_at = job.finished_at = None
+                job.processed_count = job.imported_count = 0
+                job.result_refs = job.error_summary = None
+                counts["requeued"] += 1
+            else:
+                job.status, job.finished_at, job.error_summary = "failed", now_db, "lease_expired"
+                counts["failed"] += 1
+        self.session.flush()
+        return counts
 
     def heartbeat(self, lease: JobLease, now: datetime, lease_seconds: int = 120) -> datetime:
         self.require_write()

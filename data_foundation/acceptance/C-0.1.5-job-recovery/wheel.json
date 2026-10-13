@@ -1,0 +1,19 @@
+{
+  "package_version": "0.1.5",
+  "status": "passed",
+  "source_matches": true,
+  "bytecode_excluded": true,
+  "installed_recovery_and_claim_cases": 65,
+  "mysql_recovery_checks": 6,
+  "mysql_and_sqlite_legacy_checks_each": 21,
+  "existing_dataset_validation": {
+    "dataset_id": "anhui-public-supplement-2026-10-12",
+    "status": "validated",
+    "asset_count": 106,
+    "holiday_count": 26,
+    "event_count": 1,
+    "observation_count": 83,
+    "supplementary_fact_count": 17,
+    "document_count": 16
+  }
+}
