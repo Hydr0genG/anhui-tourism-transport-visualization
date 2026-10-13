@@ -3,10 +3,11 @@ from __future__ import annotations
 import calendar
 import hashlib
 import json
+import re
 from collections import defaultdict
 from dataclasses import asdict
 from datetime import date, datetime, timedelta, timezone
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any, Iterable
 from uuid import uuid4
@@ -455,20 +456,67 @@ class ObservationRepository(Repository):
         change_reason: str = "来源重新发布了同周期数据",
     ) -> tuple[str, dict[str, Any] | None]:
         self.require_write()
-        if data.grain not in ALLOWED_GRAINS or data.quality_status not in ALLOWED_QUALITY:
+        if (not isinstance(data.grain,str) or not isinstance(data.quality_status,str)
+                or data.grain not in ALLOWED_GRAINS or data.quality_status not in ALLOWED_QUALITY):
             raise InvalidArgument("粒度或质量状态无效")
-        if data.value < 0 or data.period_end < data.period_start:
+        if (not isinstance(data.period_start,date) or isinstance(data.period_start,datetime)
+                or not isinstance(data.period_end,date) or isinstance(data.period_end,datetime)
+                or data.period_end<data.period_start):
+            raise InvalidArgument("观测周期须为有序date")
+        if data.grain != "holiday":
+            days = (data.period_end-data.period_start).days
+            complete = ((data.grain=="day" and days==0)
+                or (data.grain=="week" and days==6 and data.period_start.weekday()==0)
+                or (data.grain=="month" and data.period_start.day==1
+                    and data.period_end==date(data.period_start.year,data.period_start.month,
+                        calendar.monthrange(data.period_start.year,data.period_start.month)[1])))
+            if not complete:
+                raise InvalidArgument("观测必须覆盖一个完整自然日/周/月")
+        for key,value in (("value",data.value),("conversion_factor",data.conversion_factor)):
+            if not isinstance(value,Decimal) or not value.is_finite():
+                raise InvalidArgument("数值和换算因子须为有限Decimal",field=key)
+        if data.value<0 or data.value>Decimal("9999999999999999.9999") or data.conversion_factor<=0:
             raise InvalidArgument("数值或统计周期无效")
+        try:
+            if data.value.quantize(Decimal("0.0001"))!=data.value:
+                raise InvalidArgument("标准值最多4位小数，不允许数据库隐式舍入")
+            if (not isinstance(data.original_value,str) or not re.fullmatch(r"[+]?\d+(?:\.\d+)?",data.original_value)
+                    or len(data.original_value)>100):
+                raise InvalidArgument("原始值须为明确非负十进制字符串")
+            original = Decimal(data.original_value)
+            if not original.is_finite() or original*data.conversion_factor!=data.value:
+                raise InvalidArgument("原始值乘换算因子必须精确等于标准值")
+        except InvalidOperation as exc:
+            raise InvalidArgument("数值精度无效") from exc
+        for key,limit in (("source_locator",500),("methodology_version",64),("original_unit",24),("unit",24)):
+            value=getattr(data,key)
+            if not isinstance(value,str) or not value.strip() or len(value)>limit:
+                raise InvalidArgument("观测描述字段无效",field=key)
+        if data.published_at is not None:
+            utc_naive(data.published_at)
+        if not isinstance(change_reason,str) or not change_reason.strip() or len(change_reason)>2000:
+            raise InvalidArgument("修订说明必须非空且不超过2000字符")
         entity = self.get_or_404(Entity, data.entity_id, "实体")
         metric = self.get_or_404(Metric, data.metric_code, "指标")
         if entity.type not in metric.supported_entity_types:
             raise MetricEntityMismatch("指标不适用于该实体", entity_type=entity.type, metric=data.metric_code)
         if data.unit != metric.unit:
             raise InvalidArgument("标准单位与指标字典不一致", expected=metric.unit, actual=data.unit)
+        factors = {"人":Decimal(1),"人次":Decimal(1),"万人":Decimal(10000),"万人次":Decimal(10000)}
+        expected = factors.get(data.original_unit) if metric.unit=="人次" else (Decimal(1) if data.original_unit==metric.unit else None)
+        if expected is None or data.conversion_factor!=expected:
+            raise InvalidArgument("原始单位与标准单位换算关系不支持")
+        # 同来源的插入、查重、修订和历史记录串行化；再锁批次及观测。
+        # 不锁实体，避免与来源选择策略的Entity→Source锁顺序形成环。
+        source = self.locked(Source,data.source_id,"来源")
+        if source.native_grain is not None and source.native_grain!=data.grain:
+            raise InvalidArgument("观测粒度与已声明来源原生粒度不一致")
         asset = self.get_or_404(SourceAsset, data.asset_id, "原件")
-        run = self.get_or_404(IngestionRun, run_id, "导入批次")
+        run = self.locked(IngestionRun, run_id, "导入批次")
         if asset.source_id != data.source_id or run.source_id != data.source_id or run.asset_id != data.asset_id:
             raise InvalidArgument("观测、来源、原件和批次不一致")
+        if run.status != "running":
+            raise Conflict("已结束导入批次不能继续写入")
         existing = self.session.scalar(select(Observation).where(
             Observation.entity_id == data.entity_id,
             Observation.metric_code == data.metric_code,
@@ -476,7 +524,7 @@ class ObservationRepository(Repository):
             Observation.period_end == data.period_end,
             Observation.grain == data.grain,
             Observation.source_id == data.source_id,
-        ))
+        ).with_for_update().execution_options(populate_existing=True))
         business = asdict(data)
         comparable = {
             "value", "unit", "original_value", "original_unit", "conversion_factor", "asset_id",

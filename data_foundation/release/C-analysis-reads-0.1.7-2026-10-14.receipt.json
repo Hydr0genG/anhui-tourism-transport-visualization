@@ -36,6 +36,6 @@
     "supplementary_fact_count": 17,
     "document_count": 16
   },
-  "validation_mysql_shutdown": false,
+  "validation_mysql_shutdown": true,
   "DE_receiving_acceptance": "pending"
 }

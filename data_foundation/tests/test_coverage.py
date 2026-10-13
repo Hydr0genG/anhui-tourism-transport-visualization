@@ -86,7 +86,11 @@ def test_declared_support_without_observations_is_empty_not_unsupported(store):
 
 def test_pending_and_noncanonical_months_do_not_count_as_available(store):
     add_point(store,date(2026,1,1),quality='pending_review')
-    add_point(store,date(2026,2,2),date(2026,2,28))
+    legacy = add_point(store,date(2026,2,1),date(2026,2,28))
+    # 模拟0005/0006既有非标准周期；新版写入本身已拒绝这种新输入。
+    from data_foundation.db.models import Observation
+    with store.write() as uow:
+        uow.session.get(Observation,legacy["id"]).period_start=date(2026,2,2)
     with store.read() as uow:
         result=uow.observations.get_coverage(SeriesQuery(SCENIC_ID,'scenic_visits','month',date(2026,1,1),date(2026,2,28)))
         assert result['available_period_count']==0

@@ -1,0 +1,9 @@
+{
+  "python": "3.12.14",
+  "sqlalchemy": "2.0.54",
+  "mysql": "8.4.11",
+  "temporary_mysql": "shutdown_verified",
+  "access": "local_socket_only_network_disabled",
+  "scope": "isolated_test_databases_and_existing_public_snapshot",
+  "production_database_accessed": false
+}
