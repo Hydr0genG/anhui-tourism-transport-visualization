@@ -33,6 +33,15 @@ JUnit 必须包含原生 persist_file 重命名、目录拒绝、激活/读取�
 
 Windows首轮 [38594880762](https://github.com/Hydr0genG/anhui-tourism-transport-visualization/actions/runs/38594880762) 已实际运行：wheel摘要及安装通过，但测试尚未开始即因Git自动CRLF转换摘要清单而失败，见 `windows-first-failure.json`。本机以 `git -c core.autocrlf=true cat-file --filters` 重现清单摘要从原 `a554...` 变为 `8004...`；新增release清单/回执/ZIP/wheel的 `-text` 规则后，同样模拟转换仍得到原摘要。没有规范化后再哈希、没有修改原包或放松校验。需重跑Windows再记录最终结果，不把第一轮失败改写成通过。
 
+重跑实际结果已取得并保留原始artifact，包含JUnit、pytest日志、安装来源及receiving.json：
+
+| 运行 | 原生环境 | 实际结果 | 原始回执 |
+|---|---|---|---|
+| [38595621767](https://github.com/Hydr0genG/anhui-tourism-transport-visualization/actions/runs/38595621767) | Windows2022 / Python3.13.16 | 310通过、1个FIFO跳过、0失败；3项文件样例通过 | windows-run-2/receiving.json |
+| [38597078623](https://github.com/Hydr0genG/anhui-tourism-transport-visualization/actions/runs/38597078623) | Windows2022 / Python3.13.13（E原失败解释器） | 310通过、1个FIFO跳过、0失败；3项文件样例通过 | windows-run-3/receiving.json |
+
+原始artifact分别为 `windows-run-2-artifact.zip` / `windows-run-3-artifact.zip`，SHA256分别 `5c5c904400fde82fe38800cd07f6f7e28db5f42da933cc8346febb88ed6e9bd7` / `bb5a34fb4eec12ebc36f994e42972d5dc51887e52e0a2e86e6570218e7cbe545`；均已核对GitHub公布的artifact摘要并检查原始JUnit共311个用例。原正式C包SHA256未变。
+
 正式接收仍分别保持：`Windows_official_C_receiving=pending`、`formal_DE_knowledge_chain=pending`。工具输出明确 MySQL、E JSON 片段绑定、HTTP/Worker重启未验证。即使 Windows CI 通过，也需要 E 使用同一正式包与真实 E0.5.1 产物接收后回传。
 
 2026-10-15 核查 E [默认分支](https://github.com/w3022843643/shumei_intelligent_analysis) 仍为 `1e5ab6501f681d518479487ad31b93993c0e1fe4`，pyproject 版本 0.5.0；`intelligent_analysis/knowledge/artifacts.py` 返回404，分支列表只有main，GitHub Release列表为空。尚未取得E0.5.1正式包/样本、D仓库地址或新的Windows接收回执，不据此恢复爬虫第二步。

@@ -1,0 +1,1 @@
+{"version": "0.2.0a2", "distribution_version": "0.2.0a2", "module_origin": "C:\\hostedtoolcache\\windows\\Python\\3.13.13\\x64\\Lib\\site-packages\\data_foundation\\__init__.py"}
