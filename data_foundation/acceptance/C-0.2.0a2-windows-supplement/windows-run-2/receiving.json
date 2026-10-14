@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "scope": "supplementary_installed_C_sqlite_storage_regression",
+  "package_version": "0.2.0a2",
+  "source_commit": "06d192f068817aa9ffd24ad988e92d9737592aff",
+  "platform": "Windows-2022Server-10.0.20348-SP0",
+  "python_version": "3.13.16",
+  "windows_native_run": true,
+  "suite": "all",
+  "delivery_sha256": {
+    "anhui_data_foundation-0.2.0a2-py3-none-any.whl": "4cf48f5c8c4303e2cb73a4169d62dd6111dba03df266256eced48ec565590fbe",
+    "C-index-artifacts-0.2.0a2-2026-10-14.zip": "7fcbbc0031a13520b5d02aa9ebc8f9066d7b5a237609b0b2c6b0a87a96e54ad5",
+    "C-index-artifacts-0.2.0a2-2026-10-14.contents.json": "a554fd38650cf8942958cc1224b2c278c5746306e9ddc4759e07e34d8ff93b0d"
+  },
+  "Windows_official_C_receiving": "pending",
+  "formal_DE_knowledge_chain": "pending",
+  "MySQL_verified_in_this_run": false,
+  "E_JSON_binding_verified": false,
+  "HTTP_and_worker_restart_verified": false,
+  "crawler_step2": "paused",
+  "github_run_id": "38595621767",
+  "github_sha": "eecb093a8004bab00f3ace1681d1832a92a9f2ae",
+  "verified_at": "2026-10-14T16:10:00.030849+00:00",
+  "installed_package": {
+    "version": "0.2.0a2",
+    "distribution_version": "0.2.0a2",
+    "module_origin": "C:\\hostedtoolcache\\windows\\Python\\3.13.16\\x64\\Lib\\site-packages\\data_foundation\\__init__.py",
+    "source_files_verified": 17
+  },
+  "regression": {
+    "total": 311,
+    "passed": 310,
+    "skipped": [
+      {
+        "name": "test_file_failure_does_not_publish[fifo]",
+        "reason": "平台不提供 os.mkfifo；Windows 另测目录拒绝及原生重命名落盘"
+      }
+    ],
+    "failed": []
+  },
+  "smoke": {
+    "status": "passed",
+    "package_version": "0.2.0a2",
+    "checks": [
+      "actual_file_publish_and_job_complete",
+      "internal_read_rehash",
+      "corrupted_file_rejected"
+    ],
+    "scope": "synthetic_sqlite_single_file_storage",
+    "DE_receiving_acceptance": "pending",
+    "vector_format_verified": false,
+    "verified_at": "2026-10-14T16:12:05.143260+00:00"
+  },
+  "dependencies": {
+    "SQLAlchemy": "2.0.54",
+    "alembic": "1.20.0",
+    "PyMySQL": "1.2.3",
+    "pytest": "9.1.1"
+  }
+}

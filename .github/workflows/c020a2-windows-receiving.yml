@@ -30,7 +30,8 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.13"
+          # Match the interpreter in E's reported Windows failure environment.
+          python-version: "3.13.13"
       - name: Verify immutable release digest before installation
         shell: pwsh
         run: |
