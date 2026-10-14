@@ -1,0 +1,25 @@
+{
+  "status": "failed",
+  "scope": "supplementary_installed_C_sqlite_storage_regression",
+  "package_version": "0.2.0a2",
+  "source_commit": "06d192f068817aa9ffd24ad988e92d9737592aff",
+  "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+  "python_version": "3.13.16",
+  "windows_native_run": false,
+  "suite": "files",
+  "delivery_sha256": {
+    "anhui_data_foundation-0.2.0a2-py3-none-any.whl": "4cf48f5c8c4303e2cb73a4169d62dd6111dba03df266256eced48ec565590fbe",
+    "C-index-artifacts-0.2.0a2-2026-10-14.zip": "7fcbbc0031a13520b5d02aa9ebc8f9066d7b5a237609b0b2c6b0a87a96e54ad5",
+    "C-index-artifacts-0.2.0a2-2026-10-14.contents.json": "a554fd38650cf8942958cc1224b2c278c5746306e9ddc4759e07e34d8ff93b0d"
+  },
+  "Windows_official_C_receiving": "pending",
+  "formal_DE_knowledge_chain": "pending",
+  "MySQL_verified_in_this_run": false,
+  "E_JSON_binding_verified": false,
+  "HTTP_and_worker_restart_verified": false,
+  "crawler_step2": "paused",
+  "github_run_id": null,
+  "github_sha": null,
+  "verified_at": "2026-10-14T15:57:21.060725+00:00",
+  "error": "Installed C package could not be imported"
+}

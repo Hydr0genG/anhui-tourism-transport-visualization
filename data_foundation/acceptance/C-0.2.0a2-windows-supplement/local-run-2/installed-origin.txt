@@ -1,0 +1,1 @@
+{"version": "0.2.0a2", "distribution_version": "0.2.0a2", "module_origin": "/Users/Admin/Documents/ChatGPT/\u6587\u65c5\u4e0e\u4ea4\u901a\u5ba2\u53ef\u89c6\u5316\u5e73\u53f0/.tmp/c020a2-ci-local/runtime/lib/python3.13/site-packages/data_foundation/__init__.py"}

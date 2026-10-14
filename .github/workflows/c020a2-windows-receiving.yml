@@ -1,0 +1,59 @@
+name: C 0.2.0a2 Windows wheel regression
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/c020a2-windows-receiving.yml
+      - data_foundation/examples/verify_c020a2_receiving.py
+      - data_foundation/release/anhui_data_foundation-0.2.0a2-py3-none-any.whl
+      - data_foundation/release/C-index-artifacts-0.2.0a2-2026-10-14.*
+
+permissions:
+  contents: read
+
+concurrency:
+  group: c020a2-windows-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  official-wheel:
+    runs-on: windows-2022
+    timeout-minutes: 15
+    env:
+      PYTHONUTF8: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Verify immutable release digest before installation
+        shell: pwsh
+        run: |
+          $wheel = "data_foundation/release/anhui_data_foundation-0.2.0a2-py3-none-any.whl"
+          $actual = (Get-FileHash $wheel -Algorithm SHA256).Hash.ToLowerInvariant()
+          if ($actual -ne "4cf48f5c8c4303e2cb73a4169d62dd6111dba03df266256eced48ec565590fbe") {
+            throw "Formal C wheel SHA256 mismatch"
+          }
+          python -m pip install "${wheel}[dev,data]"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Native Windows installed-wheel storage regression
+        shell: pwsh
+        run: |
+          python -X utf8 data_foundation/examples/verify_c020a2_receiving.py `
+            --delivery-root data_foundation `
+            --work-dir "$env:RUNNER_TEMP/c020a2-receiving" `
+            --report-dir "$env:GITHUB_WORKSPACE/c020a2-windows-result" `
+            --suite all --require-windows
+          exit $LASTEXITCODE
+      - name: Save results including failures and FIFO skip reason
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: c020a2-windows-storage-supplement
+          path: c020a2-windows-result/
+          if-no-files-found: error
+          retention-days: 14

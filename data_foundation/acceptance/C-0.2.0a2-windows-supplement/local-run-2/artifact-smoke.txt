@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/Admin/Documents/ChatGPT/文旅与交通客可视化平台/.tmp/c020a2-ci-local/harness-2/examples/index_artifact_smoke.py", line 11, in <module>
+    from worker_lifecycle_fixture import make_fixture
+ModuleNotFoundError: No module named 'worker_lifecycle_fixture'
