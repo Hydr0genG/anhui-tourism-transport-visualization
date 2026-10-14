@@ -162,7 +162,7 @@ def verify(url, data_root):
                             return uow.knowledge.write_chunks(f["index"]["id"],[{**f["chunk"],"chunk_no":1}],f["knowledge_lease"])
                         try:
                             if operation == "chunk_count":
-                                uow.knowledge.activate_index(document_id=f["document"]["id"],version="test",artifact_path="test-only",artifact_sha256="a"*64,expected_chunk_count=1,lease=f["knowledge_lease"])
+                                uow.knowledge.activate_index(document_id=f["document"]["id"],version="test",artifact_path=f["artifact"]["relative_path"],artifact_sha256=f["artifact"]["sha256"],expected_chunk_count=1,lease=f["knowledge_lease"])
                             else:
                                 point = CountInput(f["point"].window_start,f["video"]["recorded_end_at"],11,3)
                                 uow.video.write_counts(f["analysis"]["id"],[point],f["video_lease"])

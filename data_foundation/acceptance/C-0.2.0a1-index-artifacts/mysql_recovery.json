@@ -1,0 +1,40 @@
+{
+  "package_version": "0.2.0a1",
+  "status": "passed",
+  "scope": "isolated_mysql_synthetic_recovery_competition",
+  "database_version": "8.4.11",
+  "migration_head": "0006",
+  "checks": [
+    {
+      "name": "two_recoverers_do_not_duplicate_attempt_or_requeue",
+      "status": "passed"
+    },
+    {
+      "name": "locked_job_is_skipped_and_recovered_after_unlock",
+      "status": "passed"
+    },
+    {
+      "name": "heartbeat_commits_between_candidate_read_and_lock_recheck",
+      "status": "passed"
+    },
+    {
+      "name": "publisher_lock_prevents_requeue_and_commits_atomically",
+      "status": "passed"
+    },
+    {
+      "name": "recovery_wins_stale_cached_publisher_waits_then_is_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "recovery_rollback_attempt_cap_and_repeat_are_consistent",
+      "status": "passed"
+    }
+  ],
+  "check_count": 6,
+  "verified_at": "2026-10-14T02:06:01.229189+00:00",
+  "production_database_verified": false,
+  "limitations": [
+    "虚拟时间验证操作校验时刻及事务顺序，不承诺提交瞬间重新检查实时时钟。",
+    "现有队列索引及锁范围限制保留；未验证高并发吞吐或D/E业务重试幂等。"
+  ]
+}

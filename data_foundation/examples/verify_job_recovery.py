@@ -15,6 +15,8 @@ import sys
 from threading import Event
 from time import monotonic
 from uuid import uuid4
+from io import BytesIO
+from tempfile import TemporaryDirectory
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from sqlalchemy import create_engine, event, func, inspect, select, text
@@ -37,7 +39,8 @@ def verify(database_url: str) -> dict:
     finally:
         engine.dispose()
     migrate(database_url)
-    store = create_store(database_url)
+    files = TemporaryDirectory(prefix="c-recovery-artifacts-")
+    store = create_store(database_url, data_root=files.name)
     checks = []
     # 默认无 now 的业务租约检查使用实时时钟；虚拟开始时间在未来，
     # 从而在测试期间不会因执行耗时随机越过期限。
@@ -73,8 +76,8 @@ def verify(database_url: str) -> dict:
         return document["id"],index["id"]
 
     def publish(uow, document_id, lease):
-        uow.knowledge.activate_index(document_id=document_id,version="test",artifact_path="test-only",
-            artifact_sha256="a"*64,expected_chunk_count=1,lease=lease)
+        uow.knowledge.activate_index(document_id=document_id,version="test",artifact_path=artifact["relative_path"],
+            artifact_sha256=artifact["sha256"],expected_chunk_count=1,lease=lease)
 
     def passed(name, **details):
         checks.append({"name":name,"status":"passed",**details})
@@ -87,6 +90,7 @@ def verify(database_url: str) -> dict:
                 verification_status="verified"))["id"]
         with store.read() as uow:
             version = uow.session.scalar(text("SELECT VERSION()"))
+        artifact = store.persist_file(source_id=source_id, original_name="test-index.bin", stream=BytesIO(b"synthetic-recovery-index"))
         lease = running()
         with store.write() as first:
             first_id = connection(first)
@@ -214,6 +218,7 @@ def verify(database_url: str) -> dict:
                 "现有队列索引及锁范围限制保留；未验证高并发吞吐或D/E业务重试幂等。"]}
     finally:
         store.dispose()
+        files.cleanup()
 
 
 if __name__ == "__main__":

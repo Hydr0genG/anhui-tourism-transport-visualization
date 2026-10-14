@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "package_version": "0.2.0a1",
+  "migration_head": "0006",
+  "business_tables": 31,
+  "schema_and_migrations_unchanged_from_committed_019": true,
+  "sqlite_tests": 296,
+  "mysql_new_cases": 54,
+  "mysql_artifact_competition": 6,
+  "installed_tests": 296,
+  "installed_mysql_artifact_competition": 6,
+  "installed_mysql_storage_checks": 21,
+  "installed_sqlite_storage_checks": 21,
+  "zip_extracted_wheel_tests": 296,
+  "zip_sqlite_storage_checks": 21,
+  "wheel_source_matches": true,
+  "production_database_verified": false,
+  "DE_receiving_acceptance": "pending",
+  "E_vector_format_and_chunk_binding": "pending",
+  "G18": "not_implemented_in_this_release",
+  "verified_at": "2026-10-14T02:15:56.613168+00:00"
+}

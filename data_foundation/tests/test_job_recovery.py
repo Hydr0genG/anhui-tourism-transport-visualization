@@ -176,7 +176,10 @@ def test_lease_check_refreshes_cached_attempt_and_checks_current_attempt(store):
             uow.jobs.ensure_lease(lease, expiry-timedelta(microseconds=1))
 
 
-def test_business_writes_reject_old_lease_and_keep_committed_chunks(store, monkeypatch):
+def test_business_writes_reject_old_lease_and_keep_committed_chunks(store, monkeypatch, tmp_path):
+    from io import BytesIO
+    store.data_root = tmp_path
+    artifact = store.persist_file(source_id=SOURCE_ID, original_name="index-test.bin", stream=BytesIO(b"recovery-test-index"))
     start, lease, expiry = running(store)
     asset = register_asset(store)
     with store.write() as uow:
@@ -194,12 +197,12 @@ def test_business_writes_reject_old_lease_and_keep_committed_chunks(store, monke
         for operation in (
             lambda: uow.knowledge.begin_index(document_id=doc["id"],version="new",job_id=lease.job_id,parser_version="test",embedding_model_version="test",lease=lease),
             lambda: uow.knowledge.write_chunks(index["id"],[{"chunk_no":1,"text":"旧执行者","locator":{}}],lease),
-            lambda: uow.knowledge.activate_index(document_id=doc["id"],version="v1",artifact_path="test",artifact_sha256="a"*64,expected_chunk_count=1,lease=lease),
+            lambda: uow.knowledge.activate_index(document_id=doc["id"],version="v1",artifact_path=artifact["relative_path"],artifact_sha256=artifact["sha256"],expected_chunk_count=1,lease=lease),
         ):
             with pytest.raises(LeaseLost):operation()
         assert uow.session.scalar(select(func.count()).select_from(KnowledgeChunk)) == 1
         uow.knowledge.write_chunks(index["id"],[{"chunk_no":1,"text":"新执行者","locator":{}}],new)
-        uow.knowledge.activate_index(document_id=doc["id"],version="v1",artifact_path="test",artifact_sha256="a"*64,expected_chunk_count=2,lease=new)
+        uow.knowledge.activate_index(document_id=doc["id"],version="v1",artifact_path=artifact["relative_path"],artifact_sha256=artifact["sha256"],expected_chunk_count=2,lease=new)
         uow.jobs.complete_job(new,{"document_id":doc["id"]},expiry)
     with store.read() as uow:
         assert len(uow.knowledge.get_chunks(doc["id"])["items"]) == 2

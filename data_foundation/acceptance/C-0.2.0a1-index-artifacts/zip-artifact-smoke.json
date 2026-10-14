@@ -1,0 +1,1 @@
+{"status": "passed", "package_version": "0.2.0a1", "checks": ["actual_file_publish_and_job_complete", "internal_read_rehash", "corrupted_file_rejected"], "scope": "synthetic_sqlite_single_file_storage", "DE_receiving_acceptance": "pending", "vector_format_verified": false, "verified_at": "2026-10-14T02:14:52.941085+00:00"}

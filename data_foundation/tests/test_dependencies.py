@@ -16,7 +16,9 @@ def _claim(uow, job_type: str, key: str, now: datetime):
     return JobLease(**claimed["lease"])
 
 
-def test_knowledge_chunks_can_be_published_atomically(store):
+def test_knowledge_chunks_can_be_published_atomically(store, tmp_path):
+    store.data_root = tmp_path
+    artifact = store.persist_file(source_id=SOURCE_ID, original_name="index-test.bin", stream=BytesIO(b"test-only-index"))
     now = datetime.now(timezone.utc)
     asset_id = register_asset(store, sha="d" * 64, suffix="knowledge")
     with store.write() as uow:
@@ -36,8 +38,8 @@ def test_knowledge_chunks_can_be_published_atomically(store):
         ], lease)
         assert result == {"inserted": 1, "skipped": 0}
         uow.knowledge.activate_index(
-            document_id=document["id"], version="idx-v1", artifact_path="indexes/test",
-            artifact_sha256="e" * 64, expected_chunk_count=1, lease=lease,
+            document_id=document["id"], version="idx-v1", artifact_path=artifact["relative_path"],
+            artifact_sha256=artifact["sha256"], expected_chunk_count=1, lease=lease,
         )
         uow.jobs.complete_job(lease, {"document_id": document["id"]}, now + timedelta(seconds=1))
     with store.read() as uow:

@@ -145,7 +145,7 @@ def test_foreign_current_lease_cannot_write_business(fx, method):
         with pytest.raises(LeaseLost):
             if method == "begin": uow.knowledge.begin_index(document_id=f["document"]["id"], version="other", job_id=f["knowledge_lease"].job_id, parser_version="p", embedding_model_version="m", lease=foreign)
             if method == "write": uow.knowledge.write_chunks(f["index"]["id"], [], foreign)
-            if method == "activate": uow.knowledge.activate_index(document_id=f["document"]["id"], version="test", artifact_path="test", artifact_sha256="a"*64, expected_chunk_count=1, lease=foreign)
+            if method == "activate": uow.knowledge.activate_index(document_id=f["document"]["id"], version="test", artifact_path=f["artifact"]["relative_path"], artifact_sha256=f["artifact"]["sha256"], expected_chunk_count=1, lease=foreign)
             if method == "fail": uow.knowledge.fail_index(f["index"]["id"], "x", foreign)
             if method == "video_begin": uow.video.begin_analysis(f["analysis"]["id"], foreign)
             if method == "video_write": uow.video.write_counts(f["analysis"]["id"], [f["point"]], foreign)
@@ -167,7 +167,7 @@ def test_knowledge_failed_retry_retains_chunks_and_publishes_atomically(fx):
         assert uow.knowledge.write_chunks(same["id"], [f["chunk"]], lease) == {"inserted":0,"skipped":1}
         with pytest.raises(Conflict):
             uow.knowledge.write_chunks(same["id"], [{**f["chunk"], "text":"different"}], lease)
-        uow.knowledge.activate_index(document_id=f["document"]["id"], version="test", artifact_path="synthetic", artifact_sha256="a"*64, expected_chunk_count=1, lease=lease)
+        uow.knowledge.activate_index(document_id=f["document"]["id"], version="test", artifact_path=f["artifact"]["relative_path"], artifact_sha256=f["artifact"]["sha256"], expected_chunk_count=1, lease=lease)
         uow.jobs.complete_job(lease, {"document_id": f["document"]["id"]}, f["start"])
     with store.read() as uow:
         assert uow.knowledge.get_chunks(f["document"]["id"])["status"] == "ready"
@@ -177,7 +177,7 @@ def test_knowledge_failed_retry_retains_chunks_and_publishes_atomically(fx):
 def test_index_failure_preserves_previous_active_version(fx):
     store, f = fx
     with store.write() as uow:
-        uow.knowledge.activate_index(document_id=f["document"]["id"], version="test", artifact_path="test", artifact_sha256="a"*64, expected_chunk_count=1, lease=f["knowledge_lease"])
+        uow.knowledge.activate_index(document_id=f["document"]["id"], version="test", artifact_path=f["artifact"]["relative_path"], artifact_sha256=f["artifact"]["sha256"], expected_chunk_count=1, lease=f["knowledge_lease"])
         index = uow.knowledge.begin_index(document_id=f["document"]["id"], version="next", job_id=f["foreign_lease"].job_id, parser_version="p", embedding_model_version="m", lease=f["foreign_lease"])
         uow.knowledge.fail_index(index["id"], "new version failed", f["foreign_lease"])
         assert uow.knowledge.get_document(f["document"]["id"])["active_index_version"] == "test"

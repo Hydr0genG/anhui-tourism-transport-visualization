@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "package_version": "0.2.0a1",
+  "migration_head": "0006",
+  "mysql_version": "8.4.11",
+  "check_count": 5,
+  "checks": [
+    {
+      "name": "same_source_concurrent_insert_and_duplicate_produce_one_observation",
+      "status": "passed"
+    },
+    {
+      "name": "cached_concurrent_revisions_preserve_both_history_versions",
+      "status": "passed"
+    },
+    {
+      "name": "failed_revision_transaction_rolls_back_value_and_history",
+      "status": "passed"
+    },
+    {
+      "name": "dry_run_revision_does_not_change_value_version_or_history",
+      "status": "passed"
+    },
+    {
+      "name": "strict_validation_keeps_all_83_real_observations_and_repeat_import",
+      "status": "passed"
+    }
+  ],
+  "verified_at": "2026-10-14T02:06:07.568742+00:00",
+  "scope": "isolated_synthetic_concurrency_and_existing_public_snapshot",
+  "production_database_verified": false
+}

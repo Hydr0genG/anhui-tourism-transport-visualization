@@ -12,6 +12,8 @@ def make_fixture(store):
     source_id, scenic_id, camera_id = (str(uuid4()) for _ in range(3))
     media = b"synthetic-video-content-not-playable"
     persisted = store.persist_file(source_id=source_id, original_name="test.mp4", stream=BytesIO(media))
+    artifact = store.persist_file(source_id=source_id, original_name="index-test.bin",
+        stream=BytesIO(b"synthetic-index-not-a-real-vector-model"))
     with store.write() as uow:
         uow.provenance.register_source(SourceCreate(source_id, "合成验收", "仅合成测试资料", "https://example.invalid/lifecycle", "不是真实数据", "irregular"))
         uow.catalog.create_entity(EntityCreate(scenic_id, "合成景区", "scenic", "340000"))
@@ -44,5 +46,5 @@ def make_fixture(store):
     return {"now": now, "start": start, "knowledge_lease": knowledge_lease, "video_lease": video_lease,
         "foreign_lease": foreign_lease, "admin": admin, "viewer": viewer, "document": document, "index": index,
         "chunk": chunk, "permission": permission, "video": video, "analysis": analysis, "asset": asset,
-        "scenic_id": scenic_id, "camera_id": camera_id, "config": config,
+        "scenic_id": scenic_id, "camera_id": camera_id, "config": config, "artifact": artifact,
         "point": CountInput(now, now+timedelta(minutes=5), 10, 3)}

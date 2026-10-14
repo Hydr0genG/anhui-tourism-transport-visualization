@@ -31,6 +31,7 @@ from .contracts import (
     UserCreate,
 )
 from .db.base import utcnow_naive
+from .artifacts import verify_artifact
 from .db.models import (
     CameraCount,
     DocumentEntity,
@@ -1213,28 +1214,56 @@ class KnowledgeRepository(Repository):
     def activate_index(
         self, *, document_id: str, version: str, artifact_path: str,
         artifact_sha256: str, expected_chunk_count: int, lease: JobLease,
+        expected_artifact_byte_size: int | None = None,
     ) -> dict[str, Any]:
         self.require_write()
-        JobRepository(self.session, True).ensure_lease(lease)
+        # Hash before taking publication locks. The locked current reads below
+        # recheck ownership/state/lease, and file identity is checked after locks.
+        JobRepository(self.session, False).ensure_lease(lease)
+        JobRepository.validate_count(expected_chunk_count, "expected_chunk_count")
         index = self.session.scalar(select(KnowledgeIndex).where(
             KnowledgeIndex.document_id == document_id, KnowledgeIndex.version == version
         ))
         if index is None:
             raise NotFound("索引版本不存在")
+        if index.job_id != lease.job_id:
+            raise LeaseLost("索引不属于当前任务")
+        artifact = verify_artifact(self.data_root, artifact_path, artifact_sha256, expected_artifact_byte_size)
         document, index = self._owned_index(index.id, lease)
         if index.status != "building":
             raise Conflict("只有 building 索引可以发布")
-        JobRepository.validate_count(expected_chunk_count, "expected_chunk_count")
         actual = len(self.session.scalars(select(KnowledgeChunk.id).where(
             KnowledgeChunk.index_id == index.id).with_for_update()).all())
         if actual != expected_chunk_count:
             raise Conflict("片段数量与预期不一致", actual=actual, expected=expected_chunk_count)
+        artifact.ensure_unchanged(self.data_root)
+        # A lease may expire while hashing or waiting for a publication lock.
+        JobRepository(self.session, True).ensure_lease(lease)
         index.status, index.chunk_count = "ready", actual
         index.artifact_path, index.artifact_sha256 = artifact_path, artifact_sha256
         document.active_index_version, document.index_status = version, "ready"
         document.row_version += 1
         self.session.flush()
         return public_columns(document)
+
+    def get_index_artifact_ref(self, document_id: str, version: str | None = None) -> dict[str, Any]:
+        """Internal single-file reference, freshly verified before E loads it."""
+        document = self.get_or_404(KnowledgeDocument, document_id, "知识文档")
+        target = version or document.active_index_version
+        if not target:
+            return {"status": "index_not_ready"}
+        index = self.session.scalar(select(KnowledgeIndex).where(
+            KnowledgeIndex.document_id == document_id, KnowledgeIndex.version == target,
+            KnowledgeIndex.status == "ready",
+        ))
+        if index is None:
+            return {"status": "index_not_ready"}
+        artifact = verify_artifact(self.data_root, index.artifact_path, index.artifact_sha256)
+        return {"status": "ready", "document_id": document_id, "index_id": index.id,
+                "version": target, "parser_version": index.parser_version,
+                "embedding_model_version": index.embedding_model_version,
+                "relative_path": artifact.relative_path, "sha256": artifact.sha256,
+                "byte_size": artifact.byte_size}
 
     def fail_index(self, index_id: str, error_summary: str, lease: JobLease) -> dict[str, Any]:
         self.require_write()
