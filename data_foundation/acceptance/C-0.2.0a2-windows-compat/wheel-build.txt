@@ -1,0 +1,9 @@
+Processing ./data_foundation
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: anhui-data-foundation
+  Building wheel for anhui-data-foundation (pyproject.toml): started
+  Building wheel for anhui-data-foundation (pyproject.toml): finished with status 'done'
+  Created wheel for anhui-data-foundation: filename=anhui_data_foundation-0.2.0a2-py3-none-any.whl size=54137 sha256=4cf48f5c8c4303e2cb73a4169d62dd6111dba03df266256eced48ec565590fbe
+  Stored in directory: /private/var/folders/ky/_2rm3w416yjg3r2930g9zbkr0000gp/T/pip-ephem-wheel-cache-b4x1ojai/wheels/43/1d/87/de472760e4a17545cc0cee21de106718091e131aa8769aff5f
+Successfully built anhui-data-foundation

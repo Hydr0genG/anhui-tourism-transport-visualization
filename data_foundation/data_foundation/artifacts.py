@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from contextlib import contextmanager
 import hashlib
 import os
 from pathlib import Path, PurePosixPath
@@ -43,6 +44,37 @@ def _path(data_root: Path | None, relative_path: str) -> Path:
     return path
 
 
+@contextmanager
+def _open_artifact(path: Path):
+    """Classify directories portably; fingerprints always come from fstat."""
+    descriptor = None
+    try:
+        # Windows may report PermissionError when opening a directory. This
+        # metadata check is only for error classification, never the fingerprint.
+        if path.is_dir():
+            raise InvalidArgument("索引产物必须为普通文件")
+        # NONBLOCK avoids hanging on FIFOs; callers reject non-regular fstat.
+        descriptor = os.open(path, os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
+                             | getattr(os, "O_NONBLOCK", 0))
+        yield descriptor
+    except FileNotFoundError as exc:
+        raise NotFound("索引产物不存在") from exc
+    except IsADirectoryError as exc:
+        raise InvalidArgument("索引产物必须为普通文件") from exc
+    except OSError as exc:
+        # Also cover a file-to-directory replacement between is_dir and open.
+        try:
+            directory = path.is_dir()
+        except OSError:
+            directory = False
+        if directory:
+            raise InvalidArgument("索引产物必须为普通文件") from exc
+        raise Conflict("索引产物无法读取") from exc
+    finally:
+        if descriptor is not None:
+            os.close(descriptor)
+
+
 @dataclass(frozen=True)
 class VerifiedArtifact:
     relative_path: str
@@ -53,12 +85,8 @@ class VerifiedArtifact:
     def ensure_unchanged(self, data_root: Path | None) -> None:
         """Cheap post-lock check, not a filesystem/database atomicity guarantee."""
         path = _path(data_root, self.relative_path)
-        try:
-            current = path.stat()
-        except FileNotFoundError as exc:
-            raise NotFound("索引产物不存在") from exc
-        except OSError as exc:
-            raise Conflict("索引产物无法读取") from exc
+        with _open_artifact(path) as descriptor:
+            current = os.fstat(descriptor)
         if not stat.S_ISREG(current.st_mode) or _fingerprint(current) != self.fingerprint:
             raise Conflict("索引产物在校验后发生变化")
 
@@ -72,10 +100,9 @@ def verify_artifact(
     if expected_byte_size is not None and (type(expected_byte_size) is not int or expected_byte_size < 0):
         raise InvalidArgument("索引产物预期大小必须为非负整数")
     path = _path(data_root, relative_path)
-    try:
-        # NONBLOCK avoids hanging on FIFOs; fstat then rejects non-regular files.
-        descriptor = os.open(path, os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0) | getattr(os, "O_NONBLOCK", 0))
-        with os.fdopen(descriptor, "rb") as stream:
+    with _open_artifact(path) as descriptor:
+        # The outer context owns the descriptor, including fdopen failure paths.
+        with os.fdopen(descriptor, "rb", closefd=False) as stream:
             before = os.fstat(stream.fileno())
             if not stat.S_ISREG(before.st_mode):
                 raise InvalidArgument("索引产物必须为普通文件")
@@ -87,12 +114,6 @@ def verify_artifact(
                 digest.update(chunk)
                 size += len(chunk)
             after = os.fstat(stream.fileno())
-    except FileNotFoundError as exc:
-        raise NotFound("索引产物不存在") from exc
-    except IsADirectoryError as exc:
-        raise InvalidArgument("索引产物必须为普通文件") from exc
-    except OSError as exc:
-        raise Conflict("索引产物无法读取") from exc
     if _fingerprint(before) != _fingerprint(after) or size != after.st_size:
         raise Conflict("索引产物在读取时发生变化")
     if digest.hexdigest() != sha256:

@@ -1,0 +1,7 @@
+{
+  "status": "shutdown_requested",
+  "mysql_version": "8.4.11",
+  "scope": "only_this_turn_temporary_mysql_instance",
+  "deleted_databases_or_files": false,
+  "verified_at": "2026-10-14T14:21:19.890632+00:00"
+}

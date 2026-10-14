@@ -55,4 +55,4 @@ __all__ = [
     "create_store",
 ]
 
-__version__ = "0.2.0a1"
+__version__ = "0.2.0a2"

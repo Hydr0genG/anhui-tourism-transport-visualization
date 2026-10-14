@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "package_version": "0.2.0a2",
+  "migration_head": "0006",
+  "mysql_version": "8.4.11",
+  "checks": [
+    {
+      "name": "file_change_while_waiting_for_job_lock_aborts_publication",
+      "status": "passed"
+    },
+    {
+      "name": "recovery_during_hash_rejects_stale_cached_publisher_new_lease_succeeds",
+      "status": "passed"
+    },
+    {
+      "name": "publisher_locks_prevent_requeue_and_commit_index_and_job_together",
+      "status": "passed"
+    },
+    {
+      "name": "two_publishers_only_one_commits_after_current_lease_recheck",
+      "status": "passed"
+    },
+    {
+      "name": "outer_rollback_keeps_index_and_job_unpublished_then_retry_succeeds",
+      "status": "passed"
+    },
+    {
+      "name": "read_rehash_rejects_corruption_without_deleting_committed_results",
+      "status": "passed"
+    }
+  ],
+  "check_count": 6,
+  "scope": "isolated_mysql_synthetic_single_file_integrity",
+  "verified_at": "2026-10-14T14:16:42.465580+00:00",
+  "DE_receiving_acceptance": "pending",
+  "limitations": [
+    "Not E vector-format or chunk-to-vector semantic validation",
+    "No atomic filesystem/database commit or production throughput claim",
+    "File may change after the last check; callers must manage immutable files and recheck before loading"
+  ]
+}

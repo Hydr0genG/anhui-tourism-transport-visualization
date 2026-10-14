@@ -1,0 +1,23 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /private/tmp/c020a2-wheel-handoff-p2vffj7y
+collected 311 items
+
+tests/test_analysis_reads.py ..................................          [ 10%]
+tests/test_artifact_windows_compat.py ...............                    [ 15%]
+tests/test_core.py ..                                                    [ 16%]
+tests/test_coverage.py ......................                            [ 23%]
+tests/test_datetime_precision.py ...                                     [ 24%]
+tests/test_dependencies.py ...                                           [ 25%]
+tests/test_index_artifacts.py .......................................... [ 38%]
+............                                                             [ 42%]
+tests/test_job_claim_filters.py .............................            [ 52%]
+tests/test_job_recovery.py ....................................          [ 63%]
+tests/test_migrations.py .                                               [ 63%]
+tests/test_observation_quality.py ................................       [ 74%]
+tests/test_public_supplement.py ........                                 [ 76%]
+tests/test_real_dataset.py .........                                     [ 79%]
+tests/test_worker_lifecycle.py ......................................... [ 92%]
+......................                                                   [100%]
+
+============================= 311 passed in 8.91s ==============================

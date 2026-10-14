@@ -1,4 +1,4 @@
-"""0.2.0a1: independent MySQL single-file publication races; synthetic index bytes."""
+"""Independent MySQL single-file publication races; synthetic index bytes."""
 from __future__ import annotations
 import argparse
 from concurrent.futures import ThreadPoolExecutor

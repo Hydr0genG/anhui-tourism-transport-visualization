@@ -108,6 +108,8 @@ def test_file_failure_does_not_publish(fx, tmp_path, failure):
     elif failure == 'size':
         options['expected_artifact_byte_size'] = f['artifact']['byte_size'] + 1
     elif failure == 'fifo':
+        if not hasattr(os, 'mkfifo'):
+            pytest.skip('平台不提供 os.mkfifo；Windows 另测目录拒绝及原生重命名落盘')
         path.unlink(); os.mkfifo(path); expected = InvalidArgument
     elif failure in {'link_inside', 'link_outside'}:
         target = (store.data_root / 'another.bin') if failure == 'link_inside' else tmp_path / 'outside.bin'

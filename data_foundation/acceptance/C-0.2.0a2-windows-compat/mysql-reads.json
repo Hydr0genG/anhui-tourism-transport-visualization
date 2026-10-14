@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "package_version": "0.2.0a2",
+  "migration_head": "0006",
+  "mysql_version": "8.4.11",
+  "check_count": 6,
+  "checks": [
+    {
+      "name": "two_annotators_same_version_content_insert_once",
+      "status": "passed"
+    },
+    {
+      "name": "conflicting_revision_serializes_and_latest_filter_does_not_resurrect_old_review",
+      "status": "passed"
+    },
+    {
+      "name": "annotation_versions_use_current_read_after_stale_snapshot",
+      "status": "passed"
+    },
+    {
+      "name": "batch_conflict_rollback_retains_preexisting_annotations",
+      "status": "passed"
+    },
+    {
+      "name": "outer_transaction_rollback_does_not_commit_savepoint_annotations",
+      "status": "passed"
+    },
+    {
+      "name": "aggregation_omits_incomplete_window_instead_of_filling_zero",
+      "status": "passed"
+    }
+  ],
+  "verified_at": "2026-10-14T14:08:53.108319+00:00",
+  "scope": "isolated_synthetic_storage_only",
+  "production_database_verified": false
+}
