@@ -4,3 +4,10 @@ data_foundation/acceptance/D-2026-10-11/*.json text eol=lf
 # Source snapshots, extracted text, CSVs and manifests are checked by SHA-256.
 # Preserve their exact bytes on every platform, including Windows checkouts.
 data_foundation/real_data/** -text
+
+# Published release digests refer to exact bytes. Windows CRLF checkout must not
+# change immutable manifests/receipts or binary delivery files.
+data_foundation/release/*.contents.json -text
+data_foundation/release/*.receipt.json -text
+data_foundation/release/*.whl -text
+data_foundation/release/*.zip -text

@@ -5,6 +5,7 @@
 ## 本地实际结果
 
 - 新增接收工具的 26 项单元测试通过，见 `receiving-tool-tests.txt`。
+- 当前源码全量337项（原311项+接收工具26项）通过，见 `source-full-regression.txt`；原固定ZIP仍使用311项，不改旧报告计数。
 - macOS / Python 3.13.16 从正式 wheel 安装，17 个包内 Python/JSON 文件逐字节匹配；固定 ZIP 摘要和逐文件清单匹配。
 - 仅从已校验 ZIP 复制外部测试和材料，不复制 C 包源码；69 项文件规则和 3 项原生发布/复验样例通过，见 `local-run-3/receiving.json`。
 - 本地独立虚拟环境通过专用 .pth 复用已有开发环境的第三方依赖；C 本体独立安装且完整字节比对。Windows CI 会直接安装正式 wheel 的 dev/data 依赖，不复用本地 .pth。
@@ -30,7 +31,7 @@ JUnit 必须包含原生 persist_file 重命名、目录拒绝、激活/读取�
 
 ## 状态边界
 
-Windows CI 状态以实际 Actions 运行和结果 artifact 为准，结果另行记录；本文件创建时尚未取得 Windows CI 结果。
+Windows首轮 [38594880762](https://github.com/Hydr0genG/anhui-tourism-transport-visualization/actions/runs/38594880762) 已实际运行：wheel摘要及安装通过，但测试尚未开始即因Git自动CRLF转换摘要清单而失败，见 `windows-first-failure.json`。本机以 `git -c core.autocrlf=true cat-file --filters` 重现清单摘要从原 `a554...` 变为 `8004...`；新增release清单/回执/ZIP/wheel的 `-text` 规则后，同样模拟转换仍得到原摘要。没有规范化后再哈希、没有修改原包或放松校验。需重跑Windows再记录最终结果，不把第一轮失败改写成通过。
 
 正式接收仍分别保持：`Windows_official_C_receiving=pending`、`formal_DE_knowledge_chain=pending`。工具输出明确 MySQL、E JSON 片段绑定、HTTP/Worker重启未验证。即使 Windows CI 通过，也需要 E 使用同一正式包与真实 E0.5.1 产物接收后回传。
 

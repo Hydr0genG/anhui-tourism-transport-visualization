@@ -5,6 +5,7 @@ on:
   push:
     branches: [main]
     paths:
+      - .gitattributes
       - .github/workflows/c020a2-windows-receiving.yml
       - data_foundation/examples/verify_c020a2_receiving.py
       - data_foundation/release/anhui_data_foundation-0.2.0a2-py3-none-any.whl
