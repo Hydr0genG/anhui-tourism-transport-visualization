@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "c_version": "0.2.0a2",
+  "windows": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.13",
+  "installed_official_wheel": true,
+  "source_package_excluded": true,
+  "module_origin_relative_to_e": "artifacts/c-0.2.0a2/runtime/data_foundation/__init__.py",
+  "counts": {
+    "tests": 311,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "passed": 310
+  },
+  "skip_reasons": [
+    "平台不提供 os.mkfifo；Windows 另测目录拒绝及原生重命名落盘"
+  ],
+  "mysql_verified": false
+}

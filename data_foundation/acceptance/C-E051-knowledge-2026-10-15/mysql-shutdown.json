@@ -1,0 +1,8 @@
+{
+  "status": "shutdown_requested",
+  "mysql_version": "8.4.11",
+  "scope": "only_this_turn_temporary_unix_socket_instance",
+  "network_listener_enabled": false,
+  "schemas_and_files_deleted": false,
+  "verified_at": "2026-10-15T04:43:12.890292+00:00"
+}

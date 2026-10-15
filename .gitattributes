@@ -11,3 +11,7 @@ data_foundation/release/*.contents.json -text
 data_foundation/release/*.receipt.json -text
 data_foundation/release/*.whl -text
 data_foundation/release/*.zip -text
+
+# Received E Windows receipts and actual JSON fixtures retain upstream bytes.
+data_foundation/acceptance/C-E051-knowledge-2026-10-15/upstream/** -text
+data_foundation/acceptance/C-E051-knowledge-2026-10-15/*.xml -text

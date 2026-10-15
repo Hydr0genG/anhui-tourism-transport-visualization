@@ -1,0 +1,27 @@
+{
+  "version": "0.5.1",
+  "wheel": "shumei_intelligent_analysis-0.5.1-py3-none-any.whl",
+  "wheel_sha256": "5950917b15ba9de3dc474720508bb2bbfbf194e8144b5ed83c2e0cd17b6d9c97",
+  "archive": "E-visible-people-0.5.1-2026-10-15.zip",
+  "archive_sha256": "1c9e77bf48de3972e88fdf58ff8d2090cbd78c18f655e33babe8b6115bab73e2",
+  "wheel_matches_source": true,
+  "zip_crc_verified": true,
+  "installed_E_wheel_restart_verified": true,
+  "tests_passed": 69,
+  "tests_skipped": 0,
+  "real_knowledge_documents": 16,
+  "c_version": "0.2.0a2",
+  "c020_official_windows_status": "passed",
+  "c020_official_windows_test_counts": {
+    "tests": 311,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "passed": 310
+  },
+  "c020_knowledge_status": "passed",
+  "d_sqlite_bridge_http_status": "passed",
+  "formal_DE_mysql_verified": false,
+  "real_video_accuracy_verified": false,
+  "production_http_verified": false
+}

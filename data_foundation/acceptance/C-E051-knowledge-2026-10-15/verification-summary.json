@@ -1,0 +1,83 @@
+{
+  "status": "passed",
+  "checked_at": "2026-10-15T04:48:33.120422+00:00",
+  "acceptance_tool_sha256": "dd14e6a3b86b7c3fedbe34c477a3afd969e56f7b4e816628a6ca0acacbea8080",
+  "formal_DE_knowledge_chain": "pending",
+  "source_and_release_boundaries_verified": true,
+  "installed_packages_rechecked_after_all_tests": {
+    "C": {
+      "version": "0.2.0a2",
+      "origin": "isolated_site_packages",
+      "files_matching_wheel": 17,
+      "all_checked_files_match": true
+    },
+    "E": {
+      "version": "0.5.1",
+      "origin": "isolated_site_packages",
+      "files_matching_wheel": 30,
+      "all_checked_files_match": true
+    }
+  },
+  "test_runs": {
+    "c-source-tests.xml": {
+      "tests": 355,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 1
+    },
+    "c-source-tests-complete.xml": {
+      "tests": 356,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "e051-knowledge-tests.xml": {
+      "tests": 31,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "mysql_runs": [
+    {
+      "report": "mysql-notice.json",
+      "passed_checks": 17
+    },
+    {
+      "report": "mysql-notice-run-2.json",
+      "passed_checks": 17
+    }
+  ],
+  "raw_junit_sha256": {
+    "c-source-tests.xml": "db9d7c814fc6cdddb9660a054d3afc20107b5b0d7962bc7d4d1d293971e311c9",
+    "c-source-tests-complete.xml": "5f2427794c44e55a58bf34d6b7cb8a69ff20d47a3cc6b11333ebf88ff2163378",
+    "e051-knowledge-tests.xml": "db1d995db055d573dc2249096c64599709665132b1f996e591dd077b206bc852"
+  },
+  "source_test_total_includes_new_receiving_guards": 19,
+  "failed_invocations_retained_or_described": [
+    {
+      "kind": "old_development_environment_collection",
+      "collection_errors": 6,
+      "counted_as_pass": false
+    },
+    {
+      "kind": "old_environment_missing_data_extras",
+      "report": "c-source-tests.xml",
+      "counted_as_full_pass": false
+    },
+    {
+      "kind": "sandbox_mysql_init_start_and_socket_denied",
+      "resolved_with_tool_authorization": true,
+      "counted_as_acceptance": false
+    }
+  ],
+  "D_and_E_source_unchanged": {
+    "D": true,
+    "E": true
+  },
+  "upstream_inventory_verified_files": 12,
+  "D_code_excerpts_verified": true,
+  "local_document_links_verified": 58,
+  "temporary_mysql_shutdown_confirmed": true,
+  "databases_or_files_deleted": false
+}

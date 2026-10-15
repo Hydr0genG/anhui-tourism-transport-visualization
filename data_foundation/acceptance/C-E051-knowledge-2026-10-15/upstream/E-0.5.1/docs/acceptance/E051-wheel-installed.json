@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "documents": 16,
+  "e_version": "0.5.1",
+  "e_module_origin": "artifacts/e-wheel-runtime-22cdd67f/intelligent_analysis/__init__.py",
+  "c_module_origin": "artifacts/c-0.2.0a2/runtime/data_foundation/__init__.py",
+  "installed_official_E_wheel": true,
+  "installed_official_C_wheel": true,
+  "source_package_excluded": true,
+  "new_process_reads_committed_C_store": true,
+  "wheel_sha256": "5950917b15ba9de3dc474720508bb2bbfbf194e8144b5ed83c2e0cd17b6d9c97",
+  "formal_DE_mysql_verified": false
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "document_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+  "document_version": "sha256:29aa803a0fa3e009feed5ce3aa07330e",
+  "index_version": "e051-index-1",
+  "parser_version": "text-parser-0.5.0",
+  "embedding_model_version": "keyword-tfidf-0.5.0",
+  "sha256": "d33e04e176a39ed186c7cfe13b331bd00de95ddb3bec748413e744da0ff61a9d",
+  "byte_size": 3638,
+  "chunk_count": 3,
+  "vector_format": null,
+  "format": "UTF-8 JSON keyword index; no embedding vectors",
+  "real_historical_document": true
+}

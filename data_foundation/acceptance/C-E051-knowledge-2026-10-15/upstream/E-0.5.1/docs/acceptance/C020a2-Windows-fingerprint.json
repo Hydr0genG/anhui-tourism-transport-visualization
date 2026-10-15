@@ -1,0 +1,32 @@
+{
+  "platform": "win32",
+  "python": "3.13.13",
+  "c_version": "0.2.0a2",
+  "fingerprint": {
+    "st_dev": {
+      "fstat": 8548482654360842138,
+      "stat": 8548482654360842138
+    },
+    "st_ino": {
+      "fstat": 562949954378706,
+      "stat": 562949954378706
+    },
+    "st_size": {
+      "fstat": 36,
+      "stat": 36
+    },
+    "st_mtime_ns": {
+      "fstat": 1792022572677761300,
+      "stat": 1792022572677761300
+    },
+    "st_ctime_ns": {
+      "fstat": 1792022572684769300,
+      "stat": 1792022572636727600
+    }
+  },
+  "synthetic_probe": true,
+  "stream_read_delay_seconds": 0.02,
+  "c_source_modified": false,
+  "native_persist_file_verified": true,
+  "status": "passed"
+}

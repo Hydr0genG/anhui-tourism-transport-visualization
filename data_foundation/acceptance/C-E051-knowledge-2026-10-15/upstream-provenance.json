@@ -1,0 +1,89 @@
+{
+  "captured_at": "2026-10-15T04:46:17.436304+00:00",
+  "E_repository": "https://github.com/w3022843643/shumei_intelligent_analysis",
+  "E_release_commit": "ffc0807b798959563f31256172d20438ee187f98",
+  "E_version_received": "0.5.1",
+  "E_main_reviewed_but_not_installed": "65f6f94e5d4ba919d78adc50a92c6c4adfc490d4",
+  "artifact_source": "immutable_release_ZIP_and_release_commit",
+  "upstream_reports_reexecuted_by_C": false,
+  "scope": "upstream_E_Windows_receipt; distinct from local_MySQL_and_formal_D_HTTP",
+  "upstream_receipt_consistency": {
+    "real_documents": 16,
+    "chunks": 655,
+    "official_C_unmodified": true
+  },
+  "files": [
+    {
+      "path": "upstream/E-0.5.1/docs/acceptance/C020a2-receipt.json",
+      "sha256": "3deab78782fb48df87dcc85922e0c6d57623b924ae909f69e5423275169ef587",
+      "byte_size": 590,
+      "source": "fixed_E051_ZIP_member:docs/acceptance/C020a2-receipt.json"
+    },
+    {
+      "path": "upstream/E-0.5.1/docs/acceptance/C020a2-Windows-fingerprint.json",
+      "sha256": "a9b0a911985cc660e117db092ebd6ebb3ae033bb087d135ed154282b4a0d9439",
+      "byte_size": 718,
+      "source": "fixed_E051_ZIP_member:docs/acceptance/C020a2-Windows-fingerprint.json"
+    },
+    {
+      "path": "upstream/E-0.5.1/docs/acceptance/C020a2-Windows-regression.json",
+      "sha256": "db00471c2cd107c45c98af0afcfb67f7aae327c6fc71c6a918f94cf58e3b0443",
+      "byte_size": 543,
+      "source": "fixed_E051_ZIP_member:docs/acceptance/C020a2-Windows-regression.json"
+    },
+    {
+      "path": "upstream/E-0.5.1/docs/acceptance/C020a2-knowledge.json",
+      "sha256": "d0065ded088ff4333f0e6824c3e2cfbff6f6b7e507149b4ec71b5899b362954d",
+      "byte_size": 22300,
+      "source": "fixed_E051_ZIP_member:docs/acceptance/C020a2-knowledge.json"
+    },
+    {
+      "path": "upstream/E-0.5.1/docs/acceptance/E051-tests.json",
+      "sha256": "1ff1893b734930163f284f15ba07c978a36d45096b28107fd74a4c4caf6da45c",
+      "byte_size": 87,
+      "source": "fixed_E051_ZIP_member:docs/acceptance/E051-tests.json"
+    },
+    {
+      "path": "upstream/E-0.5.1/docs/acceptance/E051-wheel-installed.json",
+      "sha256": "bad4ce5a85d3c739153fd8f7143e0bf3c86c0298218e766f941c051884ed0cc9",
+      "byte_size": 532,
+      "source": "fixed_E051_ZIP_member:docs/acceptance/E051-wheel-installed.json"
+    },
+    {
+      "path": "upstream/E-0.5.1/docs/acceptance/D-E051-bridge.json",
+      "sha256": "f14ad40e9b7a040c34aeb8a2898bae6121b9bdda9dbdfb6847f655dda3dec0bb",
+      "byte_size": 6306,
+      "source": "fixed_E051_ZIP_member:docs/acceptance/D-E051-bridge.json"
+    },
+    {
+      "path": "upstream/E-0.5.1/docs/fixtures/C020a2-historical-notice/index.json",
+      "sha256": "d33e04e176a39ed186c7cfe13b331bd00de95ddb3bec748413e744da0ff61a9d",
+      "byte_size": 3638,
+      "source": "fixed_E051_ZIP_member:docs/fixtures/C020a2-historical-notice/index.json"
+    },
+    {
+      "path": "upstream/E-0.5.1/docs/fixtures/C020a2-historical-notice/manifest.json",
+      "sha256": "6c8d5cc576864e999225ad39f9a0a530254450d369d86d27ff49a9e66c933cc7",
+      "byte_size": 532,
+      "source": "fixed_E051_ZIP_member:docs/fixtures/C020a2-historical-notice/manifest.json"
+    },
+    {
+      "path": "upstream/E-0.5.1/docs/E051正式交付与CD回执.md",
+      "sha256": "0f2b5dd1bf04381fc83293c51bbeec3d5c66f3496c8fe67e3d48e5ded2637736",
+      "byte_size": 5585,
+      "source": "fixed_E051_ZIP_member:docs/E051正式交付与CD回执.md"
+    },
+    {
+      "path": "upstream/E-0.5.1/docs/D升级E051对接清单-2026-10-15.md",
+      "sha256": "d4b20852e2c08a3890d4fdddcae34c09252ad46fdbd3381a5a07a8d65de5e02b",
+      "byte_size": 5472,
+      "source": "fixed_E051_ZIP_member:docs/D升级E051对接清单-2026-10-15.md"
+    },
+    {
+      "path": "upstream/E-0.5.1/release/E-visible-people-0.5.1-2026-10-15.receipt.json",
+      "sha256": "589aa754971ce9d05cfa7d220b867673d288937423a8b939694707dc008bb6a1",
+      "byte_size": 902,
+      "source": "E_release_commit:ffc0807b798959563f31256172d20438ee187f98:release/E-visible-people-0.5.1-2026-10-15.receipt.json"
+    }
+  ]
+}

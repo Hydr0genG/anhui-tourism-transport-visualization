@@ -1,0 +1,1378 @@
+{
+  "scope": "C_E_official_wheels_one_real_notice_isolated_mysql",
+  "formal_DE_knowledge_chain": "pending_D_adaptation_and_HTTP_receipt",
+  "D_runtime_executed": false,
+  "HTTP_executed": false,
+  "Windows_executed_here": false,
+  "E_release_commit": "ffc0807b798959563f31256172d20438ee187f98",
+  "D_review_commit": "0cefaf3cf50b4829928c868ce94e84753827fb40",
+  "packages": {
+    "C": {
+      "version": "0.2.0a2",
+      "origin": "isolated_site_packages",
+      "files_matching_wheel": 17,
+      "all_checked_files_match": true
+    },
+    "E": {
+      "version": "0.5.1",
+      "origin": "isolated_site_packages",
+      "files_matching_wheel": 30,
+      "all_checked_files_match": true
+    }
+  },
+  "package_sha256": {
+    "c_wheel": "4cf48f5c8c4303e2cb73a4169d62dd6111dba03df266256eced48ec565590fbe",
+    "c_zip": "7fcbbc0031a13520b5d02aa9ebc8f9066d7b5a237609b0b2c6b0a87a96e54ad5",
+    "e_wheel": "5950917b15ba9de3dc474720508bb2bbfbf194e8144b5ed83c2e0cd17b6d9c97",
+    "e_zip": "1c9e77bf48de3972e88fdf58ff8d2090cbd78c18f655e33babe8b6115bab73e2"
+  },
+  "python": "3.13.16",
+  "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+  "document_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+  "document_version": "sha256:29aa803a0fa3e009feed5ce3aa07330e",
+  "checks": [
+    {
+      "name": "real_C_mysql_job_native_persist_batch_chunks_atomic_publication",
+      "status": "passed"
+    },
+    {
+      "name": "historical_and_current_answers_keep_C_citations_publication_date_and_warning",
+      "status": "passed"
+    },
+    {
+      "name": "new_E_process_reopens_mysql_and_verified_citation",
+      "status": "passed",
+      "parent_pid": 51812,
+      "child_pid": 51821
+    },
+    {
+      "name": "active_artifact_corruption_rejected_without_old_memory",
+      "status": "passed"
+    },
+    {
+      "name": "missing_active_artifact_rejected_without_old_memory",
+      "status": "passed"
+    },
+    {
+      "name": "wrong_new_digest_preserves_old_active_and_uncompleted_job",
+      "status": "passed",
+      "state": {
+        "active_version": "ce051-acceptance-1",
+        "job_status": "running",
+        "index_status": "building"
+      }
+    },
+    {
+      "name": "activate_index_exception_rolls_back_entire_final_transaction",
+      "status": "passed",
+      "state": {
+        "active_version": "ce051-acceptance-1",
+        "job_status": "running",
+        "index_status": "building"
+      }
+    },
+    {
+      "name": "complete_job_exception_rolls_back_entire_final_transaction",
+      "status": "passed",
+      "state": {
+        "active_version": "ce051-acceptance-1",
+        "job_status": "running",
+        "index_status": "building"
+      }
+    },
+    {
+      "name": "heartbeat_in_independent_short_transaction",
+      "status": "passed"
+    },
+    {
+      "name": "old_lease_cannot_publish_after_real_C_recovery",
+      "status": "passed",
+      "old_attempt": 1,
+      "new_attempt": 2
+    },
+    {
+      "name": "new_lease_reuses_index_skips_same_chunks_and_publishes",
+      "status": "passed",
+      "replay": {
+        "inserted": 0,
+        "skipped": 3
+      }
+    },
+    {
+      "name": "correct_SHA_but_text_mismatch_rejected_by_E",
+      "status": "passed"
+    },
+    {
+      "name": "correct_SHA_but_locator_mismatch_rejected_by_E",
+      "status": "passed"
+    },
+    {
+      "name": "correct_SHA_but_document_version_mismatch_rejected_by_E",
+      "status": "passed"
+    },
+    {
+      "name": "correct_SHA_but_index_version_mismatch_rejected_by_E",
+      "status": "passed"
+    },
+    {
+      "name": "snapshot_loader_and_index_path_are_mutually_exclusive",
+      "status": "passed"
+    },
+    {
+      "name": "actual_E_release_index_json_and_manifest_match_MySQL_chunks",
+      "status": "passed"
+    }
+  ],
+  "transaction_trace": [
+    {
+      "tx": 1,
+      "event": "enter",
+      "label": "register_source_entities"
+    },
+    {
+      "tx": 1,
+      "event": "commit",
+      "label": "register_source_entities"
+    },
+    {
+      "tx": 3,
+      "event": "enter",
+      "label": "register_original_document"
+    },
+    {
+      "tx": 3,
+      "event": "commit",
+      "label": "register_original_document"
+    },
+    {
+      "tx": 5,
+      "event": "enter",
+      "label": "enqueue:ce051-acceptance-1"
+    },
+    {
+      "tx": 5,
+      "event": "commit",
+      "label": "enqueue:ce051-acceptance-1"
+    },
+    {
+      "tx": 7,
+      "event": "enter",
+      "label": "claim:ce051-acceptance-1"
+    },
+    {
+      "tx": 7,
+      "event": "commit",
+      "label": "claim:ce051-acceptance-1"
+    },
+    {
+      "event": "E_build_outside_transaction",
+      "version": "ce051-acceptance-1"
+    },
+    {
+      "event": "native_persist_file_outside_transaction",
+      "version": "ce051-acceptance-1",
+      "sha256": "138d47a653a9cd07b0909a835a75f57be896c151826fc3c77ee67df9185db1eb",
+      "byte_size": 3538
+    },
+    {
+      "tx": 11,
+      "event": "enter",
+      "label": "begin:ce051-acceptance-1"
+    },
+    {
+      "tx": 11,
+      "event": "commit",
+      "label": "begin:ce051-acceptance-1"
+    },
+    {
+      "tx": 13,
+      "event": "enter",
+      "label": "chunks:ce051-acceptance-1"
+    },
+    {
+      "tx": 13,
+      "event": "commit",
+      "label": "chunks:ce051-acceptance-1"
+    },
+    {
+      "tx": 15,
+      "event": "enter",
+      "label": "chunks:ce051-acceptance-1"
+    },
+    {
+      "tx": 15,
+      "event": "commit",
+      "label": "chunks:ce051-acceptance-1"
+    },
+    {
+      "tx": 17,
+      "event": "enter",
+      "label": "activate_and_complete:ce051-acceptance-1"
+    },
+    {
+      "tx": 17,
+      "event": "activate_index",
+      "version": "ce051-acceptance-1"
+    },
+    {
+      "tx": 17,
+      "event": "complete_job",
+      "version": "ce051-acceptance-1"
+    },
+    {
+      "tx": 17,
+      "event": "commit",
+      "label": "activate_and_complete:ce051-acceptance-1"
+    },
+    {
+      "tx": 21,
+      "event": "enter",
+      "label": "enqueue:ce051-failure-and-retry"
+    },
+    {
+      "tx": 21,
+      "event": "commit",
+      "label": "enqueue:ce051-failure-and-retry"
+    },
+    {
+      "tx": 23,
+      "event": "enter",
+      "label": "claim:ce051-failure-and-retry"
+    },
+    {
+      "tx": 23,
+      "event": "commit",
+      "label": "claim:ce051-failure-and-retry"
+    },
+    {
+      "event": "E_build_outside_transaction",
+      "version": "ce051-failure-and-retry"
+    },
+    {
+      "event": "native_persist_file_outside_transaction",
+      "version": "ce051-failure-and-retry",
+      "sha256": "2b43fc7062bd610ef8132f9c5377cfaab79e6a9f795c8cf2390011a6e7b779f5",
+      "byte_size": 3543
+    },
+    {
+      "tx": 27,
+      "event": "enter",
+      "label": "begin:ce051-failure-and-retry"
+    },
+    {
+      "tx": 27,
+      "event": "commit",
+      "label": "begin:ce051-failure-and-retry"
+    },
+    {
+      "tx": 29,
+      "event": "enter",
+      "label": "chunks:ce051-failure-and-retry"
+    },
+    {
+      "tx": 29,
+      "event": "commit",
+      "label": "chunks:ce051-failure-and-retry"
+    },
+    {
+      "tx": 31,
+      "event": "enter",
+      "label": "chunks:ce051-failure-and-retry"
+    },
+    {
+      "tx": 31,
+      "event": "commit",
+      "label": "chunks:ce051-failure-and-retry"
+    },
+    {
+      "tx": 33,
+      "event": "enter",
+      "label": "activate_and_complete:ce051-failure-and-retry"
+    },
+    {
+      "tx": 33,
+      "event": "rollback",
+      "label": "activate_and_complete:ce051-failure-and-retry"
+    },
+    {
+      "tx": 35,
+      "event": "enter",
+      "label": "activate_and_complete:ce051-failure-and-retry"
+    },
+    {
+      "tx": 35,
+      "event": "rollback",
+      "label": "activate_and_complete:ce051-failure-and-retry"
+    },
+    {
+      "tx": 37,
+      "event": "enter",
+      "label": "activate_and_complete:ce051-failure-and-retry"
+    },
+    {
+      "tx": 37,
+      "event": "activate_index",
+      "version": "ce051-failure-and-retry"
+    },
+    {
+      "tx": 37,
+      "event": "rollback",
+      "label": "activate_and_complete:ce051-failure-and-retry"
+    },
+    {
+      "tx": 40,
+      "event": "enter",
+      "label": "heartbeat"
+    },
+    {
+      "tx": 40,
+      "event": "commit",
+      "label": "heartbeat"
+    },
+    {
+      "tx": 42,
+      "event": "enter",
+      "label": "isolated_expiry_injection"
+    },
+    {
+      "tx": 42,
+      "event": "commit",
+      "label": "isolated_expiry_injection"
+    },
+    {
+      "tx": 44,
+      "event": "enter",
+      "label": "recover_expired"
+    },
+    {
+      "tx": 44,
+      "event": "commit",
+      "label": "recover_expired"
+    },
+    {
+      "tx": 46,
+      "event": "enter",
+      "label": "reclaim"
+    },
+    {
+      "tx": 46,
+      "event": "commit",
+      "label": "reclaim"
+    },
+    {
+      "tx": 48,
+      "event": "enter",
+      "label": "activate_and_complete:ce051-failure-and-retry"
+    },
+    {
+      "tx": 48,
+      "event": "rollback",
+      "label": "activate_and_complete:ce051-failure-and-retry"
+    },
+    {
+      "tx": 50,
+      "event": "enter",
+      "label": "retry_begin_same_index"
+    },
+    {
+      "tx": 50,
+      "event": "commit",
+      "label": "retry_begin_same_index"
+    },
+    {
+      "tx": 52,
+      "event": "enter",
+      "label": "retry_same_chunks"
+    },
+    {
+      "tx": 52,
+      "event": "commit",
+      "label": "retry_same_chunks"
+    },
+    {
+      "tx": 54,
+      "event": "enter",
+      "label": "activate_and_complete:ce051-failure-and-retry"
+    },
+    {
+      "tx": 54,
+      "event": "activate_index",
+      "version": "ce051-failure-and-retry"
+    },
+    {
+      "tx": 54,
+      "event": "complete_job",
+      "version": "ce051-failure-and-retry"
+    },
+    {
+      "tx": 54,
+      "event": "commit",
+      "label": "activate_and_complete:ce051-failure-and-retry"
+    },
+    {
+      "tx": 58,
+      "event": "enter",
+      "label": "enqueue:ce051-mismatch-text"
+    },
+    {
+      "tx": 58,
+      "event": "commit",
+      "label": "enqueue:ce051-mismatch-text"
+    },
+    {
+      "tx": 60,
+      "event": "enter",
+      "label": "claim:ce051-mismatch-text"
+    },
+    {
+      "tx": 60,
+      "event": "commit",
+      "label": "claim:ce051-mismatch-text"
+    },
+    {
+      "event": "E_build_outside_transaction",
+      "version": "ce051-mismatch-text"
+    },
+    {
+      "event": "native_persist_file_outside_transaction",
+      "version": "ce051-mismatch-text",
+      "sha256": "1d804f57dbd1ce93dc0cbe2e26a41eaffbd7f124ba704bdeec741ee014de942c",
+      "byte_size": 3568
+    },
+    {
+      "tx": 64,
+      "event": "enter",
+      "label": "begin:ce051-mismatch-text"
+    },
+    {
+      "tx": 64,
+      "event": "commit",
+      "label": "begin:ce051-mismatch-text"
+    },
+    {
+      "tx": 66,
+      "event": "enter",
+      "label": "chunks:ce051-mismatch-text"
+    },
+    {
+      "tx": 66,
+      "event": "commit",
+      "label": "chunks:ce051-mismatch-text"
+    },
+    {
+      "tx": 68,
+      "event": "enter",
+      "label": "chunks:ce051-mismatch-text"
+    },
+    {
+      "tx": 68,
+      "event": "commit",
+      "label": "chunks:ce051-mismatch-text"
+    },
+    {
+      "tx": 70,
+      "event": "enter",
+      "label": "activate_and_complete:ce051-mismatch-text"
+    },
+    {
+      "tx": 70,
+      "event": "activate_index",
+      "version": "ce051-mismatch-text"
+    },
+    {
+      "tx": 70,
+      "event": "complete_job",
+      "version": "ce051-mismatch-text"
+    },
+    {
+      "tx": 70,
+      "event": "commit",
+      "label": "activate_and_complete:ce051-mismatch-text"
+    },
+    {
+      "tx": 74,
+      "event": "enter",
+      "label": "enqueue:ce051-restored-after-text"
+    },
+    {
+      "tx": 74,
+      "event": "commit",
+      "label": "enqueue:ce051-restored-after-text"
+    },
+    {
+      "tx": 76,
+      "event": "enter",
+      "label": "claim:ce051-restored-after-text"
+    },
+    {
+      "tx": 76,
+      "event": "commit",
+      "label": "claim:ce051-restored-after-text"
+    },
+    {
+      "event": "E_build_outside_transaction",
+      "version": "ce051-restored-after-text"
+    },
+    {
+      "event": "native_persist_file_outside_transaction",
+      "version": "ce051-restored-after-text",
+      "sha256": "3daf8c54ff7ec3a55ebbba54781192f4fe0c0b981ed221cafebefc5d4eff599e",
+      "byte_size": 3545
+    },
+    {
+      "tx": 80,
+      "event": "enter",
+      "label": "begin:ce051-restored-after-text"
+    },
+    {
+      "tx": 80,
+      "event": "commit",
+      "label": "begin:ce051-restored-after-text"
+    },
+    {
+      "tx": 82,
+      "event": "enter",
+      "label": "chunks:ce051-restored-after-text"
+    },
+    {
+      "tx": 82,
+      "event": "commit",
+      "label": "chunks:ce051-restored-after-text"
+    },
+    {
+      "tx": 84,
+      "event": "enter",
+      "label": "chunks:ce051-restored-after-text"
+    },
+    {
+      "tx": 84,
+      "event": "commit",
+      "label": "chunks:ce051-restored-after-text"
+    },
+    {
+      "tx": 86,
+      "event": "enter",
+      "label": "activate_and_complete:ce051-restored-after-text"
+    },
+    {
+      "tx": 86,
+      "event": "activate_index",
+      "version": "ce051-restored-after-text"
+    },
+    {
+      "tx": 86,
+      "event": "complete_job",
+      "version": "ce051-restored-after-text"
+    },
+    {
+      "tx": 86,
+      "event": "commit",
+      "label": "activate_and_complete:ce051-restored-after-text"
+    },
+    {
+      "tx": 90,
+      "event": "enter",
+      "label": "enqueue:ce051-mismatch-locator"
+    },
+    {
+      "tx": 90,
+      "event": "commit",
+      "label": "enqueue:ce051-mismatch-locator"
+    },
+    {
+      "tx": 92,
+      "event": "enter",
+      "label": "claim:ce051-mismatch-locator"
+    },
+    {
+      "tx": 92,
+      "event": "commit",
+      "label": "claim:ce051-mismatch-locator"
+    },
+    {
+      "event": "E_build_outside_transaction",
+      "version": "ce051-mismatch-locator"
+    },
+    {
+      "event": "native_persist_file_outside_transaction",
+      "version": "ce051-mismatch-locator",
+      "sha256": "ba5314a2e250102519c15b810968823bf067f176215a51d7947b190c933d48a9",
+      "byte_size": 3526
+    },
+    {
+      "tx": 96,
+      "event": "enter",
+      "label": "begin:ce051-mismatch-locator"
+    },
+    {
+      "tx": 96,
+      "event": "commit",
+      "label": "begin:ce051-mismatch-locator"
+    },
+    {
+      "tx": 98,
+      "event": "enter",
+      "label": "chunks:ce051-mismatch-locator"
+    },
+    {
+      "tx": 98,
+      "event": "commit",
+      "label": "chunks:ce051-mismatch-locator"
+    },
+    {
+      "tx": 100,
+      "event": "enter",
+      "label": "chunks:ce051-mismatch-locator"
+    },
+    {
+      "tx": 100,
+      "event": "commit",
+      "label": "chunks:ce051-mismatch-locator"
+    },
+    {
+      "tx": 102,
+      "event": "enter",
+      "label": "activate_and_complete:ce051-mismatch-locator"
+    },
+    {
+      "tx": 102,
+      "event": "activate_index",
+      "version": "ce051-mismatch-locator"
+    },
+    {
+      "tx": 102,
+      "event": "complete_job",
+      "version": "ce051-mismatch-locator"
+    },
+    {
+      "tx": 102,
+      "event": "commit",
+      "label": "activate_and_complete:ce051-mismatch-locator"
+    },
+    {
+      "tx": 106,
+      "event": "enter",
+      "label": "enqueue:ce051-restored-after-locator"
+    },
+    {
+      "tx": 106,
+      "event": "commit",
+      "label": "enqueue:ce051-restored-after-locator"
+    },
+    {
+      "tx": 108,
+      "event": "enter",
+      "label": "claim:ce051-restored-after-locator"
+    },
+    {
+      "tx": 108,
+      "event": "commit",
+      "label": "claim:ce051-restored-after-locator"
+    },
+    {
+      "event": "E_build_outside_transaction",
+      "version": "ce051-restored-after-locator"
+    },
+    {
+      "event": "native_persist_file_outside_transaction",
+      "version": "ce051-restored-after-locator",
+      "sha256": "38a861f3bc53dfc2b2388af6331e6077a79d5353b737522386ed6b8b9ee8fee0",
+      "byte_size": 3548
+    },
+    {
+      "tx": 112,
+      "event": "enter",
+      "label": "begin:ce051-restored-after-locator"
+    },
+    {
+      "tx": 112,
+      "event": "commit",
+      "label": "begin:ce051-restored-after-locator"
+    },
+    {
+      "tx": 114,
+      "event": "enter",
+      "label": "chunks:ce051-restored-after-locator"
+    },
+    {
+      "tx": 114,
+      "event": "commit",
+      "label": "chunks:ce051-restored-after-locator"
+    },
+    {
+      "tx": 116,
+      "event": "enter",
+      "label": "chunks:ce051-restored-after-locator"
+    },
+    {
+      "tx": 116,
+      "event": "commit",
+      "label": "chunks:ce051-restored-after-locator"
+    },
+    {
+      "tx": 118,
+      "event": "enter",
+      "label": "activate_and_complete:ce051-restored-after-locator"
+    },
+    {
+      "tx": 118,
+      "event": "activate_index",
+      "version": "ce051-restored-after-locator"
+    },
+    {
+      "tx": 118,
+      "event": "complete_job",
+      "version": "ce051-restored-after-locator"
+    },
+    {
+      "tx": 118,
+      "event": "commit",
+      "label": "activate_and_complete:ce051-restored-after-locator"
+    },
+    {
+      "tx": 122,
+      "event": "enter",
+      "label": "enqueue:ce051-mismatch-document_version"
+    },
+    {
+      "tx": 122,
+      "event": "commit",
+      "label": "enqueue:ce051-mismatch-document_version"
+    },
+    {
+      "tx": 124,
+      "event": "enter",
+      "label": "claim:ce051-mismatch-document_version"
+    },
+    {
+      "tx": 124,
+      "event": "commit",
+      "label": "claim:ce051-mismatch-document_version"
+    },
+    {
+      "event": "E_build_outside_transaction",
+      "version": "ce051-mismatch-document_version"
+    },
+    {
+      "event": "native_persist_file_outside_transaction",
+      "version": "ce051-mismatch-document_version",
+      "sha256": "37e534fc9cec5950cb1a2730c801838a5af81a56c5611fa11271b9cd3cafa098",
+      "byte_size": 3534
+    },
+    {
+      "tx": 128,
+      "event": "enter",
+      "label": "begin:ce051-mismatch-document_version"
+    },
+    {
+      "tx": 128,
+      "event": "commit",
+      "label": "begin:ce051-mismatch-document_version"
+    },
+    {
+      "tx": 130,
+      "event": "enter",
+      "label": "chunks:ce051-mismatch-document_version"
+    },
+    {
+      "tx": 130,
+      "event": "commit",
+      "label": "chunks:ce051-mismatch-document_version"
+    },
+    {
+      "tx": 132,
+      "event": "enter",
+      "label": "chunks:ce051-mismatch-document_version"
+    },
+    {
+      "tx": 132,
+      "event": "commit",
+      "label": "chunks:ce051-mismatch-document_version"
+    },
+    {
+      "tx": 134,
+      "event": "enter",
+      "label": "activate_and_complete:ce051-mismatch-document_version"
+    },
+    {
+      "tx": 134,
+      "event": "activate_index",
+      "version": "ce051-mismatch-document_version"
+    },
+    {
+      "tx": 134,
+      "event": "complete_job",
+      "version": "ce051-mismatch-document_version"
+    },
+    {
+      "tx": 134,
+      "event": "commit",
+      "label": "activate_and_complete:ce051-mismatch-document_version"
+    },
+    {
+      "tx": 138,
+      "event": "enter",
+      "label": "enqueue:ce051-restored-after-document_version"
+    },
+    {
+      "tx": 138,
+      "event": "commit",
+      "label": "enqueue:ce051-restored-after-document_version"
+    },
+    {
+      "tx": 140,
+      "event": "enter",
+      "label": "claim:ce051-restored-after-document_version"
+    },
+    {
+      "tx": 140,
+      "event": "commit",
+      "label": "claim:ce051-restored-after-document_version"
+    },
+    {
+      "event": "E_build_outside_transaction",
+      "version": "ce051-restored-after-document_version"
+    },
+    {
+      "event": "native_persist_file_outside_transaction",
+      "version": "ce051-restored-after-document_version",
+      "sha256": "0d23381c607707dbec214bcd7e854e1eb885eeddb2d5cbf1d6c874adc824607f",
+      "byte_size": 3557
+    },
+    {
+      "tx": 144,
+      "event": "enter",
+      "label": "begin:ce051-restored-after-document_version"
+    },
+    {
+      "tx": 144,
+      "event": "commit",
+      "label": "begin:ce051-restored-after-document_version"
+    },
+    {
+      "tx": 146,
+      "event": "enter",
+      "label": "chunks:ce051-restored-after-document_version"
+    },
+    {
+      "tx": 146,
+      "event": "commit",
+      "label": "chunks:ce051-restored-after-document_version"
+    },
+    {
+      "tx": 148,
+      "event": "enter",
+      "label": "chunks:ce051-restored-after-document_version"
+    },
+    {
+      "tx": 148,
+      "event": "commit",
+      "label": "chunks:ce051-restored-after-document_version"
+    },
+    {
+      "tx": 150,
+      "event": "enter",
+      "label": "activate_and_complete:ce051-restored-after-document_version"
+    },
+    {
+      "tx": 150,
+      "event": "activate_index",
+      "version": "ce051-restored-after-document_version"
+    },
+    {
+      "tx": 150,
+      "event": "complete_job",
+      "version": "ce051-restored-after-document_version"
+    },
+    {
+      "tx": 150,
+      "event": "commit",
+      "label": "activate_and_complete:ce051-restored-after-document_version"
+    },
+    {
+      "tx": 154,
+      "event": "enter",
+      "label": "enqueue:ce051-mismatch-index_version"
+    },
+    {
+      "tx": 154,
+      "event": "commit",
+      "label": "enqueue:ce051-mismatch-index_version"
+    },
+    {
+      "tx": 156,
+      "event": "enter",
+      "label": "claim:ce051-mismatch-index_version"
+    },
+    {
+      "tx": 156,
+      "event": "commit",
+      "label": "claim:ce051-mismatch-index_version"
+    },
+    {
+      "event": "E_build_outside_transaction",
+      "version": "ce051-mismatch-index_version"
+    },
+    {
+      "event": "native_persist_file_outside_transaction",
+      "version": "ce051-mismatch-index_version",
+      "sha256": "2286416e3e32e5bf0bbdeeba16c573b9c2fcf707e48e928831e7989ece012e7a",
+      "byte_size": 3542
+    },
+    {
+      "tx": 160,
+      "event": "enter",
+      "label": "begin:ce051-mismatch-index_version"
+    },
+    {
+      "tx": 160,
+      "event": "commit",
+      "label": "begin:ce051-mismatch-index_version"
+    },
+    {
+      "tx": 162,
+      "event": "enter",
+      "label": "chunks:ce051-mismatch-index_version"
+    },
+    {
+      "tx": 162,
+      "event": "commit",
+      "label": "chunks:ce051-mismatch-index_version"
+    },
+    {
+      "tx": 164,
+      "event": "enter",
+      "label": "chunks:ce051-mismatch-index_version"
+    },
+    {
+      "tx": 164,
+      "event": "commit",
+      "label": "chunks:ce051-mismatch-index_version"
+    },
+    {
+      "tx": 166,
+      "event": "enter",
+      "label": "activate_and_complete:ce051-mismatch-index_version"
+    },
+    {
+      "tx": 166,
+      "event": "activate_index",
+      "version": "ce051-mismatch-index_version"
+    },
+    {
+      "tx": 166,
+      "event": "complete_job",
+      "version": "ce051-mismatch-index_version"
+    },
+    {
+      "tx": 166,
+      "event": "commit",
+      "label": "activate_and_complete:ce051-mismatch-index_version"
+    },
+    {
+      "tx": 170,
+      "event": "enter",
+      "label": "enqueue:ce051-restored-after-index_version"
+    },
+    {
+      "tx": 170,
+      "event": "commit",
+      "label": "enqueue:ce051-restored-after-index_version"
+    },
+    {
+      "tx": 172,
+      "event": "enter",
+      "label": "claim:ce051-restored-after-index_version"
+    },
+    {
+      "tx": 172,
+      "event": "commit",
+      "label": "claim:ce051-restored-after-index_version"
+    },
+    {
+      "event": "E_build_outside_transaction",
+      "version": "ce051-restored-after-index_version"
+    },
+    {
+      "event": "native_persist_file_outside_transaction",
+      "version": "ce051-restored-after-index_version",
+      "sha256": "a6968f3fdf01f1d896d83e8e445035b44eb45b3ca3819d2158754677e03a2b31",
+      "byte_size": 3554
+    },
+    {
+      "tx": 176,
+      "event": "enter",
+      "label": "begin:ce051-restored-after-index_version"
+    },
+    {
+      "tx": 176,
+      "event": "commit",
+      "label": "begin:ce051-restored-after-index_version"
+    },
+    {
+      "tx": 178,
+      "event": "enter",
+      "label": "chunks:ce051-restored-after-index_version"
+    },
+    {
+      "tx": 178,
+      "event": "commit",
+      "label": "chunks:ce051-restored-after-index_version"
+    },
+    {
+      "tx": 180,
+      "event": "enter",
+      "label": "chunks:ce051-restored-after-index_version"
+    },
+    {
+      "tx": 180,
+      "event": "commit",
+      "label": "chunks:ce051-restored-after-index_version"
+    },
+    {
+      "tx": 182,
+      "event": "enter",
+      "label": "activate_and_complete:ce051-restored-after-index_version"
+    },
+    {
+      "tx": 182,
+      "event": "activate_index",
+      "version": "ce051-restored-after-index_version"
+    },
+    {
+      "tx": 182,
+      "event": "complete_job",
+      "version": "ce051-restored-after-index_version"
+    },
+    {
+      "tx": 182,
+      "event": "commit",
+      "label": "activate_and_complete:ce051-restored-after-index_version"
+    },
+    {
+      "tx": 186,
+      "event": "enter",
+      "label": "enqueue:e051-index-1"
+    },
+    {
+      "tx": 186,
+      "event": "commit",
+      "label": "enqueue:e051-index-1"
+    },
+    {
+      "tx": 188,
+      "event": "enter",
+      "label": "claim:e051-index-1"
+    },
+    {
+      "tx": 188,
+      "event": "commit",
+      "label": "claim:e051-index-1"
+    },
+    {
+      "event": "E_build_outside_transaction",
+      "version": "e051-index-1"
+    },
+    {
+      "event": "native_persist_file_outside_transaction",
+      "version": "e051-index-1",
+      "sha256": "2cf005f2c3a7db49095839923b5877ad3db0020dc1513ad9e1a64073db70b1c6",
+      "byte_size": 3532
+    },
+    {
+      "tx": 192,
+      "event": "enter",
+      "label": "begin:e051-index-1"
+    },
+    {
+      "tx": 192,
+      "event": "commit",
+      "label": "begin:e051-index-1"
+    },
+    {
+      "tx": 194,
+      "event": "enter",
+      "label": "chunks:e051-index-1"
+    },
+    {
+      "tx": 194,
+      "event": "commit",
+      "label": "chunks:e051-index-1"
+    },
+    {
+      "tx": 196,
+      "event": "enter",
+      "label": "chunks:e051-index-1"
+    },
+    {
+      "tx": 196,
+      "event": "commit",
+      "label": "chunks:e051-index-1"
+    },
+    {
+      "tx": 198,
+      "event": "enter",
+      "label": "activate_and_complete:e051-index-1"
+    },
+    {
+      "tx": 198,
+      "event": "activate_index",
+      "version": "e051-index-1"
+    },
+    {
+      "tx": 198,
+      "event": "complete_job",
+      "version": "e051-index-1"
+    },
+    {
+      "tx": 198,
+      "event": "commit",
+      "label": "activate_and_complete:e051-index-1"
+    }
+  ],
+  "versions": [
+    {
+      "version": "ce051-acceptance-1",
+      "job_id": "816db6e4-0ca1-4fa8-905b-2393bc0523cc",
+      "index_id": "622d62a0-ee32-43b0-a3ba-e0aeb643d380",
+      "artifact_sha256": "138d47a653a9cd07b0909a835a75f57be896c151826fc3c77ee67df9185db1eb",
+      "byte_size": 3538,
+      "chunk_count": 3
+    },
+    {
+      "version": "ce051-failure-and-retry",
+      "job_id": "37fecf7d-b147-4c95-a3b0-617d47a524f2",
+      "index_id": "1d393a84-0fe7-425b-9132-80951d724acf",
+      "artifact_sha256": "2b43fc7062bd610ef8132f9c5377cfaab79e6a9f795c8cf2390011a6e7b779f5",
+      "byte_size": 3543,
+      "chunk_count": 3
+    },
+    {
+      "version": "ce051-mismatch-text",
+      "job_id": "a0e1e21e-126b-431f-a005-60024b00dfd4",
+      "index_id": "ef628a73-8b53-4224-a2c5-3e769e06b1f4",
+      "artifact_sha256": "1d804f57dbd1ce93dc0cbe2e26a41eaffbd7f124ba704bdeec741ee014de942c",
+      "byte_size": 3568,
+      "chunk_count": 3
+    },
+    {
+      "version": "ce051-restored-after-text",
+      "job_id": "16c0fd94-dc76-4d67-841b-6264cf67e889",
+      "index_id": "b006e4a2-285b-40a4-8314-05b9400bd159",
+      "artifact_sha256": "3daf8c54ff7ec3a55ebbba54781192f4fe0c0b981ed221cafebefc5d4eff599e",
+      "byte_size": 3545,
+      "chunk_count": 3
+    },
+    {
+      "version": "ce051-mismatch-locator",
+      "job_id": "6723ee2e-f9dc-4f72-912c-705376cf9fd9",
+      "index_id": "4661e7b3-f1f5-4e03-a1d9-ba25cfd332e5",
+      "artifact_sha256": "ba5314a2e250102519c15b810968823bf067f176215a51d7947b190c933d48a9",
+      "byte_size": 3526,
+      "chunk_count": 3
+    },
+    {
+      "version": "ce051-restored-after-locator",
+      "job_id": "500ca9cd-4eae-4956-b8a7-ab074f9abf3c",
+      "index_id": "d30476f9-8cf8-4ebc-9e89-5bcf1f0f48b4",
+      "artifact_sha256": "38a861f3bc53dfc2b2388af6331e6077a79d5353b737522386ed6b8b9ee8fee0",
+      "byte_size": 3548,
+      "chunk_count": 3
+    },
+    {
+      "version": "ce051-mismatch-document_version",
+      "job_id": "0d3be61a-0afe-41cf-8de4-721a114863a3",
+      "index_id": "f08b01fc-cda3-48b2-9bd7-f269bd16daab",
+      "artifact_sha256": "37e534fc9cec5950cb1a2730c801838a5af81a56c5611fa11271b9cd3cafa098",
+      "byte_size": 3534,
+      "chunk_count": 3
+    },
+    {
+      "version": "ce051-restored-after-document_version",
+      "job_id": "b4bb5141-05d0-4074-af5c-5e89a0532c4f",
+      "index_id": "ab4f3b55-0fe5-47a4-87c7-a8ca6e64ce93",
+      "artifact_sha256": "0d23381c607707dbec214bcd7e854e1eb885eeddb2d5cbf1d6c874adc824607f",
+      "byte_size": 3557,
+      "chunk_count": 3
+    },
+    {
+      "version": "ce051-mismatch-index_version",
+      "job_id": "ff189a00-09fe-4b53-a434-2ae96190cd29",
+      "index_id": "490d4eae-3112-459a-8be5-09e22220b855",
+      "artifact_sha256": "2286416e3e32e5bf0bbdeeba16c573b9c2fcf707e48e928831e7989ece012e7a",
+      "byte_size": 3542,
+      "chunk_count": 3
+    },
+    {
+      "version": "ce051-restored-after-index_version",
+      "job_id": "d24c3f9d-54d1-494f-9fd5-0f436a8ce275",
+      "index_id": "fb174951-3ae9-44db-8932-655ad56e719d",
+      "artifact_sha256": "a6968f3fdf01f1d896d83e8e445035b44eb45b3ca3819d2158754677e03a2b31",
+      "byte_size": 3554,
+      "chunk_count": 3
+    },
+    {
+      "version": "e051-index-1",
+      "job_id": "457e0f57-f202-4d97-86bd-2707fa8d93b0",
+      "index_id": "75037a89-c064-4fdb-a93c-52422195cfa6",
+      "artifact_sha256": "d33e04e176a39ed186c7cfe13b331bd00de95ddb3bec748413e744da0ff61a9d",
+      "byte_size": 3638,
+      "chunk_count": 3
+    }
+  ],
+  "upstream_E_sample": {
+    "schema_version": 1,
+    "document_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+    "document_version": "sha256:29aa803a0fa3e009feed5ce3aa07330e",
+    "index_version": "e051-index-1",
+    "parser_version": "text-parser-0.5.0",
+    "embedding_model_version": "keyword-tfidf-0.5.0",
+    "sha256": "d33e04e176a39ed186c7cfe13b331bd00de95ddb3bec748413e744da0ff61a9d",
+    "byte_size": 3638,
+    "chunk_count": 3,
+    "vector_format": null,
+    "format": "UTF-8 JSON keyword index; no embedding vectors",
+    "real_historical_document": true
+  },
+  "verified_at": "2026-10-15T04:39:24.807126+00:00",
+  "limitations": [
+    "C-side orchestration, not the D Worker or production database",
+    "Fresh E reader process is not an API/Worker restart acceptance",
+    "No HTTP status assertions; E DependencyUnavailable must still map to D HTTP 503",
+    "Official webpage transcription TXT, not original HTML bytes"
+  ],
+  "mysql_version": "8.4.11",
+  "migration_head": "0006",
+  "business_tables": 31,
+  "source_id": "e4628668-ec52-5d6e-be17-7682c3cdbc2e",
+  "asset_id": "3fe09b19-796e-411b-a2cc-53bd856535b4",
+  "original_sha256": "29aa803a0fa3e009feed5ce3aa07330e086def1b8f61490b0025c22afcfcb404",
+  "answers": {
+    "historical": {
+      "conversation_id": "4b89c45c-31d7-449a-a1a7-4d5dd96c438b",
+      "answer": "根据带日期的来源资料，可参考以下信息：\n- 标题：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告\n来源：黄山风景区管理委员会\n网址：https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html\n发布时间：2025-01-24T10:21:00+08:00\n采录范围：公告正文全文\n- 尊敬的游客朋友：\n非遗贺新春——就在黄山过大年！为提高旅游舒适度与体验感，方便您合理安排行程，现将黄山风景区春节黄金周期间（1月28日—2月4日）开放运营时间公告如下：\n一、黄山风景区开放时间\n1.1月28日、29日，2月4日：7:00—16:30；\n2.1月30日—2月3日：6:30—17:30。 春节期间，徒步登山入园处门票检票口关闭时间为15：00。15：00后，各登山步道门票检票口实行“只出不进”措施，不再安排徒步登山游客检票入园，敬请广大游客合理安排行程。 二、交通股份公司换乘车辆运营时间\n1.1月28日、29日，2月4日：6:40—16:00（上行），7:10—17:10（下行）；\n2.1月30日—2月3日：6:10—17:00（上行），6:40—18:00（下行）。 三、云谷索道、玉屏索道、太平索道运营时间\n1.1月28日、29日，2月4日：7:00—16:30；\n2.1月30日—2月3日：6:30—17:30。\n- 黄山风景区继续执行“限量、预约、错峰”要求，实行强实名分时分方向预约、核验入园制度。先预约、再出行，建议您至少提前一天在黄山旅游官方平台预约景区门票，保持预约门票的身份信息与入园人身份信息一致，并按照预约时段和进山方向入园。未预约成功的游客，请择期预约进山或前往周边景点游览。为保障您的合法权益，请勿在非官方渠道预约景区票务，以免无法检票、影响出行而造成损失。 山岳景区天气多变，请您密切关注黄山风景区天气等情况，配合景区管理，文明出行、错峰游览，共同营造安全和谐美好的旅游环境。欢迎使用景区提供的免费智慧导览系统（微信搜索“智游黄山”小程序），祝您旅途轻松愉快！ 咨询服务热线：0559-2590999。 黄山风景区管理委员会\n2025年1月22日",
+      "status": "answered",
+      "citations": [
+        {
+          "type": "document",
+          "id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+          "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+          "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+          "date": "2025-01-24T02:21:00Z",
+          "chunk_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095-0"
+        },
+        {
+          "type": "document",
+          "id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+          "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+          "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+          "date": "2025-01-24T02:21:00Z",
+          "chunk_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095-1"
+        },
+        {
+          "type": "document",
+          "id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+          "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+          "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+          "date": "2025-01-24T02:21:00Z",
+          "chunk_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095-2"
+        }
+      ],
+      "used_metric_queries": [],
+      "limitations": [
+        "This answer is based only on retrieved authorized documents."
+      ]
+    },
+    "current": {
+      "conversation_id": "ee1fc472-26bf-499e-b0d6-e77764d651d7",
+      "answer": "资料时效与适用范围提示：历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。；历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。；历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。\n根据带日期的来源资料，可参考以下信息：\n- 尊敬的游客朋友：\n非遗贺新春——就在黄山过大年！为提高旅游舒适度与体验感，方便您合理安排行程，现将黄山风景区春节黄金周期间（1月28日—2月4日）开放运营时间公告如下：\n一、黄山风景区开放时间\n1.1月28日、29日，2月4日：7:00—16:30；\n2.1月30日—2月3日：6:30—17:30。 春节期间，徒步登山入园处门票检票口关闭时间为15：00。15：00后，各登山步道门票检票口实行“只出不进”措施，不再安排徒步登山游客检票入园，敬请广大游客合理安排行程。 二、交通股份公司换乘车辆运营时间\n1.1月28日、29日，2月4日：6:40—16:00（上行），7:10—17:10（下行）；\n2.1月30日—2月3日：6:10—17:00（上行），6:40—18:00（下行）。 三、云谷索道、玉屏索道、太平索道运营时间\n1.1月28日、29日，2月4日：7:00—16:30；\n2.1月30日—2月3日：6:30—17:30。\n- 标题：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告\n来源：黄山风景区管理委员会\n网址：https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html\n发布时间：2025-01-24T10:21:00+08:00\n采录范围：公告正文全文\n- 黄山风景区继续执行“限量、预约、错峰”要求，实行强实名分时分方向预约、核验入园制度。先预约、再出行，建议您至少提前一天在黄山旅游官方平台预约景区门票，保持预约门票的身份信息与入园人身份信息一致，并按照预约时段和进山方向入园。未预约成功的游客，请择期预约进山或前往周边景点游览。为保障您的合法权益，请勿在非官方渠道预约景区票务，以免无法检票、影响出行而造成损失。 山岳景区天气多变，请您密切关注黄山风景区天气等情况，配合景区管理，文明出行、错峰游览，共同营造安全和谐美好的旅游环境。欢迎使用景区提供的免费智慧导览系统（微信搜索“智游黄山”小程序），祝您旅途轻松愉快！ 咨询服务热线：0559-2590999。 黄山风景区管理委员会\n2025年1月22日",
+      "status": "answered",
+      "citations": [
+        {
+          "type": "document",
+          "id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+          "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+          "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+          "date": "2025-01-24T02:21:00Z",
+          "chunk_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095-1"
+        },
+        {
+          "type": "document",
+          "id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+          "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+          "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+          "date": "2025-01-24T02:21:00Z",
+          "chunk_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095-0"
+        },
+        {
+          "type": "document",
+          "id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+          "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+          "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+          "date": "2025-01-24T02:21:00Z",
+          "chunk_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095-2"
+        }
+      ],
+      "used_metric_queries": [],
+      "limitations": [
+        "This answer is based only on retrieved authorized documents.",
+        "历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。",
+        "历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。",
+        "历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。"
+      ]
+    }
+  },
+  "C_applicability": {
+    "valid_from": "2025-01-28T00:00:00+08:00",
+    "valid_until": "2025-02-04T23:59:59.999999+08:00"
+  },
+  "E_citation_has_structured_applicability_fields": false,
+  "fresh_reader": {
+    "pid": 51821,
+    "answer": {
+      "conversation_id": "0e0c3283-f8a8-4d3c-a2a0-aa2f3b6fd62e",
+      "answer": "资料时效与适用范围提示：历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。；历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。；历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。\n根据带日期的来源资料，可参考以下信息：\n- 标题：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告\n来源：黄山风景区管理委员会\n网址：https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html\n发布时间：2025-01-24T10:21:00+08:00\n采录范围：公告正文全文\n- 尊敬的游客朋友：\n非遗贺新春——就在黄山过大年！为提高旅游舒适度与体验感，方便您合理安排行程，现将黄山风景区春节黄金周期间（1月28日—2月4日）开放运营时间公告如下：\n一、黄山风景区开放时间\n1.1月28日、29日，2月4日：7:00—16:30；\n2.1月30日—2月3日：6:30—17:30。 春节期间，徒步登山入园处门票检票口关闭时间为15：00。15：00后，各登山步道门票检票口实行“只出不进”措施，不再安排徒步登山游客检票入园，敬请广大游客合理安排行程。 二、交通股份公司换乘车辆运营时间\n1.1月28日、29日，2月4日：6:40—16:00（上行），7:10—17:10（下行）；\n2.1月30日—2月3日：6:10—17:00（上行），6:40—18:00（下行）。 三、云谷索道、玉屏索道、太平索道运营时间\n1.1月28日、29日，2月4日：7:00—16:30；\n2.1月30日—2月3日：6:30—17:30。\n- 黄山风景区继续执行“限量、预约、错峰”要求，实行强实名分时分方向预约、核验入园制度。先预约、再出行，建议您至少提前一天在黄山旅游官方平台预约景区门票，保持预约门票的身份信息与入园人身份信息一致，并按照预约时段和进山方向入园。未预约成功的游客，请择期预约进山或前往周边景点游览。为保障您的合法权益，请勿在非官方渠道预约景区票务，以免无法检票、影响出行而造成损失。 山岳景区天气多变，请您密切关注黄山风景区天气等情况，配合景区管理，文明出行、错峰游览，共同营造安全和谐美好的旅游环境。欢迎使用景区提供的免费智慧导览系统（微信搜索“智游黄山”小程序），祝您旅途轻松愉快！ 咨询服务热线：0559-2590999。 黄山风景区管理委员会\n2025年1月22日",
+      "status": "answered",
+      "citations": [
+        {
+          "type": "document",
+          "id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+          "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+          "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+          "date": "2025-01-24T02:21:00Z",
+          "chunk_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095-0"
+        },
+        {
+          "type": "document",
+          "id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+          "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+          "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+          "date": "2025-01-24T02:21:00Z",
+          "chunk_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095-1"
+        },
+        {
+          "type": "document",
+          "id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+          "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+          "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+          "date": "2025-01-24T02:21:00Z",
+          "chunk_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095-2"
+        }
+      ],
+      "used_metric_queries": [],
+      "limitations": [
+        "This answer is based only on retrieved authorized documents.",
+        "历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。",
+        "历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。",
+        "历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。"
+      ]
+    }
+  },
+  "final_state": {
+    "active_version": "e051-index-1",
+    "job_status": "succeeded",
+    "index_status": "ready"
+  },
+  "status": "passed",
+  "check_count": 17
+}

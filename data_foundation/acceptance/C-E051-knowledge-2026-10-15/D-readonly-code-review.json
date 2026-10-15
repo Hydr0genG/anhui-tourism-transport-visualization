@@ -1,0 +1,108 @@
+{
+  "reviewed_at": "2026-10-15T04:46:17.446235+00:00",
+  "repository": "https://gitee.com/kokoski/dpart",
+  "commit": "0cefaf3cf50b4829928c868ce94e84753827fb40",
+  "declared_D_version": "0.1.0",
+  "mode": "read_only_source_review",
+  "D_source_modified": false,
+  "D_worker_executed_here": false,
+  "formal_DE_mysql_verified": false,
+  "files": [
+    {
+      "path": "app/core/providers.py",
+      "sha256": "ba88221856b14886ccb07c7113e5424d78a08c1a394f7c6fb58e854ea8fb914d",
+      "evidence": [
+        {
+          "start_line": 147,
+          "end_line": 160,
+          "observation": "API still creates SqliteJobStore",
+          "code": "def get_job_store():\n    \"\"\"获取作业仓储。\n\n    当前：D 的 SQLite 桥接实现（app.services.job_store.SqliteJobStore），\n    供 API 入队、worker 领取、GET /jobs/{job_id} 查询。\n    C 的 DE 调用契约定稿后，若 jobs 表由 C 统一维护，\n    在此切换为 C 的实现（保持 claim_job/complete_job/fail_job 方法契约即可）。\n    \"\"\"\n    from app.core.config import get_settings\n    from app.services.job_store import SqliteJobStore\n\n    settings = get_settings()\n    path = settings.job_store_path or f\"{settings.data_dir}/jobs.db\"\n    return SqliteJobStore(path)"
+        }
+      ]
+    },
+    {
+      "path": "app/worker.py",
+      "sha256": "20a7d76b54b4418d6ba5b336f8397cc7c2bb7d0e9ca98104e3d1b731d17caa0d",
+      "evidence": [
+        {
+          "start_line": 47,
+          "end_line": 73,
+          "observation": "outer run_once completes job again",
+          "code": "    def __init__(self, store: SqliteJobStore, counter) -> None:\n        self.store = store\n        self.counter = counter\n\n    # ---------- 主循环 ----------\n\n    def run_once(self) -> dict | None:\n        claimed = self.store.claim_job(worker_id=\"d-worker\", now=datetime.now(UTC))\n        if claimed is None:\n            return None\n        job = claimed[\"job\"]\n        lease = claimed[\"lease\"]\n        job_type = job[\"type\"]\n        try:\n            if job_type == \"knowledge_index\":\n                result = self._run_knowledge_index(job[\"payload\"], lease)\n            elif job_type == \"video_analysis\":\n                result = self._run_video_analysis(job[\"payload\"], lease)\n            elif job_type == \"knowledge_reindex\":\n                result = self._run_knowledge_reindex(job[\"payload\"], lease)\n            else:\n                raise RuntimeError(f\"不支持的作业类型：{job_type}\")\n        except Exception as exc:  # noqa: BLE001 —— 单作业失败不拖垮 worker\n            logger.exception(\"作业 %s 失败\", lease.job_id)\n            self.store.fail_job(lease, str(exc), now=datetime.now(UTC))\n            if job_type == \"video_analysis\":\n                self.store.fail_video_analysis(job[\"payload\"].get(\"analysis_id\", \"\"), str(exc))"
+        },
+        {
+          "start_line": 84,
+          "end_line": 95,
+          "observation": "artifact already written BEFORE activation; ordering is not the remaining bug",
+          "code": "        self.store.heartbeat(lease, now=datetime.now(UTC))\n        prepared = dispatch_analysis_job(\"knowledge_index\", payload)\n\n        # 落盘 artifact（索引不可变），保留 SHA256 与字节数；坏摘要直接失败\n        artifact = prepared[\"artifact_bytes\"]\n        digest = hashlib.sha256(artifact).hexdigest()\n        if digest != prepared[\"artifact_sha256\"]:\n            raise RuntimeError(\"知识产物 SHA256 校验失败，坏摘要不进入活动版本\")\n        artifacts_dir = Path(self._settings().data_dir) / \"knowledge_artifacts\"\n        artifacts_dir.mkdir(parents=True, exist_ok=True)\n        artifact_path = artifacts_dir / f\"{digest[:16]}.json\"\n        artifact_path.write_bytes(artifact)"
+        },
+        {
+          "start_line": 98,
+          "end_line": 106,
+          "observation": "parser/model hardcoded instead of E prepared versions",
+          "code": "        parser_version = \"e-knowledge-0.5.0\"\n        embedding_version = \"e-keyword-index\"\n        with self.store.write() as uow:\n            index = uow.begin_index(\n                document_id=payload[\"document_id\"],\n                version=payload[\"version\"],\n                job_id=lease.job_id,\n                parser_version=parser_version,\n                embedding_model_version=embedding_version,"
+        },
+        {
+          "start_line": 114,
+          "end_line": 127,
+          "observation": "complete_job is outside activation transaction",
+          "code": "        # ④ 短事务 activate_index + complete_job 一起提交（同一写事务）\n        with self.store.write() as uow:\n            uow.activate_index(\n                document_id=payload[\"document_id\"],\n                version=payload[\"version\"],\n                artifact_path=str(artifact_path),\n                artifact_sha256=digest,\n                expected_chunk_count=len(chunks),\n            )\n        self.store.complete_job(\n            lease,\n            {\"document_index_status\": \"ready\", \"chunk_count\": len(chunks)},\n            now=datetime.now(UTC),\n        )"
+        },
+        {
+          "start_line": 218,
+          "end_line": 226,
+          "observation": "worker main still creates SqliteJobStore",
+          "code": "    from app.core.config import get_settings\n\n    settings = get_settings()\n    store = SqliteJobStore(settings.job_store_path or f\"{settings.data_dir}/jobs.db\")\n\n    if _try_import(\"intelligent_analysis\") is not None:\n        configure_e_services()\n        worker = DWorker(store, get_dm_counter())\n        logger.info(\"E 0.5.0 已接入，D worker（队列唯一消费者）启动\")"
+        }
+      ]
+    },
+    {
+      "path": "app/services/job_store.py",
+      "sha256": "75b675de7b41c4d8bd19d8e12bfd1a0370d6afa212b509566d6696e7bfd9a07b",
+      "evidence": [
+        {
+          "start_line": 180,
+          "end_line": 188,
+          "observation": "write yields store; methods use separate connections",
+          "code": "    @contextmanager\n    def write(self):\n        with self._lock:\n            conn = self._connect()\n            try:\n                yield self  # uow 即 store 自身；方法内部各自开短事务\n                conn.commit()\n            finally:\n                conn.close()"
+        },
+        {
+          "start_line": 323,
+          "end_line": 333,
+          "observation": "completion UPDATE checks only job id, not current token/attempt",
+          "code": "    def complete_job(self, lease: Any, result: dict[str, Any], now: datetime | None = None) -> dict[str, Any]:\n        finished = _iso(now) or _now_iso()\n        processed = result.get(\"chunk_count\", result.get(\"window_count\"))\n        with self._lock, self._connect() as conn:\n            conn.execute(\n                \"UPDATE d_jobs SET status = 'succeeded', finished_at = ?, processed_count = ?,\"\n                \" lease_token = NULL, lease_expires_at = NULL WHERE id = ?\",\n                (finished, processed, lease[\"job_id\"] if not isinstance(lease, str) else lease),\n            )\n        return {\"status\": \"succeeded\"}\n"
+        }
+      ]
+    },
+    {
+      "path": "app/services/e_bindings.py",
+      "sha256": "00a0c1b21f8ca8be18ed5e144a3612f1123de85b4eacf712cfa0d58bc2fdf437",
+      "evidence": [
+        {
+          "start_line": 146,
+          "end_line": 153,
+          "observation": "knowledge_index_path configured, not verified snapshot loader",
+          "code": "\n    counter = get_dm_counter()\n    configure_services(ServiceBindings(\n        submit_job=submit_committed_job,\n        load_counts=load_visible_counts,\n        validate_analysis=counter.validate_config if counter is not None else None,\n        knowledge_index_path=get_settings().rag_index_path,\n    ))"
+        }
+      ]
+    },
+    {
+      "path": "app/services/e_bridge.py",
+      "sha256": "3ff03a11dd961f08393d3364d28269a2457212d900cb165c57a0e228a628e155",
+      "evidence": [
+        {
+          "start_line": 94,
+          "end_line": 106,
+          "observation": "old snapshot existence check bypasses E loader",
+          "code": "    if not Path(get_settings().rag_index_path).exists():\n        return {\n            \"conversation_id\": str(conv_uuid or uuid4()),\n            \"answer\": \"知识库尚未建立（没有已提交的文档），暂时无法回答。\",\n            \"status\": \"insufficient_evidence\",\n            \"citations\": [],\n            \"used_metric_queries\": [],\n            \"limitations\": [\"知识库快照尚未发布：请先经 20 号接口上传并完成索引\"],\n        }\n    try:\n        return service.answer_message(message, conv_uuid, context)\n    except Exception as exc:\n        _raise_mapped(exc)"
+        },
+        {
+          "start_line": 154,
+          "end_line": 166,
+          "observation": "new UUID / v1 are bridge identity, not C registered identity",
+          "code": "    document_id = str(uuid4())\n    staged_path = staging_dir / f\"{document_id}{suffix}\"\n    staged_path.write_bytes(file_bytes)\n\n    service = get_e_service()\n    registered = {\n        **metadata,\n        # 表单日期补东八区时区（E 0.5.0 要求 tz-aware）\n        \"published_at\": _aware_cn(metadata.get(\"published_at\")),\n        \"valid_from\": _aware_cn(metadata.get(\"valid_from\")),\n        \"valid_until\": _aware_cn(metadata.get(\"valid_until\")),\n        \"document_id\": document_id,\n        \"document_version\": \"v1\","
+        }
+      ]
+    }
+  ]
+}
