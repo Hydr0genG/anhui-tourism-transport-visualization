@@ -63,7 +63,8 @@ def main():
     save(out/"mysql-shutdown.json",{"shutdown_confirmed":True,"network_listener_enabled":False,
          "temporary_instance_only":True,"database_files_retained":True,"data_deleted":False})
     save(out/"runtime-versions.json",{d.metadata["Name"]:d.version for d in importlib.metadata.distributions()})
-    tracked=subprocess.check_output(["git","-C",str(project),"ls-files","--","data_foundation"],text=True).splitlines()
+    tracked=[name for name in subprocess.check_output(
+        ["git","-C",str(project),"ls-files","-z","--","data_foundation"]).decode("utf-8").split("\0") if name]
     files=set()
     for name in tracked:
         relative=Path(name).relative_to("data_foundation")
@@ -90,7 +91,7 @@ def main():
         assert z.testzip() is None
         assert not any(n.endswith((".sqlite",".sqlite3","/.env")) or "/.git/" in n for n in z.namelist())
     receipt={"version":"0.2.1a1","created_at":datetime.now(timezone.utc).isoformat(),"source_commit":source_commit,
-        "published_to_remote":False,"files":[{"name":p.name,"byte_size":p.stat().st_size,"sha256":sha(p)} for p in (wheel,archive,handoff)],
+        "published_to_remote_at_packaging":False,"files":[{"name":p.name,"byte_size":p.stat().st_size,"sha256":sha(p)} for p in (wheel,archive,handoff)],
         "verification":summary,"archive_members":len(entries)+1,
         "exclusions":["Crawler project","Business credentials/DB dumps","Actual video/weights","Runtime raw copies","Initial local diagnostic paths"]}
     save(receipt_path,receipt)
