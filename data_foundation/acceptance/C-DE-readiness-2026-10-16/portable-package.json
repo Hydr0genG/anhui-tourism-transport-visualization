@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "source_commit": "bdb4697f6e2eec948901e27e408cc031c1df87ea",
+  "zip_sha256": "68492847dad291cb914529065b26caad408cf46158f7dd6dde8dfc94c2fd49d9",
+  "manifest_files_sha_verified": 525,
+  "outside_project_tree": true,
+  "isolated_python": true,
+  "database_environments_cleared": true,
+  "test_counts": {
+    "tests": 425,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "temporary_extraction_retained": true,
+  "runtime_raw_copies_or_own_crawler_included": false
+}

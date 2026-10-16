@@ -1,0 +1,66 @@
+{
+  "status": "passed",
+  "version": "0.2.1a1",
+  "migration_head": "0007",
+  "business_tables": 34,
+  "source_commit": "bdb4697f6e2eec948901e27e408cc031c1df87ea",
+  "test_runs": {
+    "source-tests.xml": {
+      "tests": 425,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "installed-wheel-tests.xml": {
+      "tests": 425,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "mysql-tests.xml": {
+      "tests": 68,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "mysql-installed-wheel-tests.xml": {
+      "tests": 69,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "real_C_E_checks": 12,
+  "packages": {
+    "C": {
+      "version": "0.2.1a1",
+      "wheel_sha256": "a848414b554b054e2ea9c7125626724bc6cf34457db844363b83cb052ab236ed",
+      "matching_package_files": 18,
+      "origin": "isolated_site_packages"
+    },
+    "E": {
+      "version": "0.6.0",
+      "wheel_sha256": "cf55fcb4f4dbb8ca6257e07a2dd7faaec720a26a8800ab0d2fc4ba21126b4a4c",
+      "matching_package_files": 31,
+      "origin": "isolated_site_packages"
+    }
+  },
+  "temporary_mysql_shutdown_confirmed": true,
+  "files_or_databases_deleted": false,
+  "old_C_a2_packages_unchanged": true,
+  "D_source_modified": false,
+  "E_source_modified": false,
+  "D_runtime_executed": false,
+  "HTTP_executed": false,
+  "Windows_executed": false,
+  "real_video_inference": false,
+  "real_manual_MAE": false,
+  "crawler_modified_by_this_work": false,
+  "pending": [
+    "D C021 adapter and HTTP receipt",
+    "D three original JSON evidence files",
+    "Authorized real recording and actual recording times",
+    "E Windows receiving",
+    "Real annotation and prediction validation"
+  ]
+}
