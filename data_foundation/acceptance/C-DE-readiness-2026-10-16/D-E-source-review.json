@@ -1,0 +1,124 @@
+{
+  "status": "reviewed_not_runtime_accepted",
+  "d_commit": "d969e35134d17602b7692831262940fbf35289a0",
+  "e_commit": "784a882188dcf5f767e3d8111fee6926a052b2a9",
+  "repository_sources": {
+    "D": "https://gitee.com/kokoski/dpart",
+    "E": "https://github.com/w3022843643/shumei_intelligent_analysis"
+  },
+  "findings": [
+    {
+      "side": "D",
+      "commit": "d969e35134d17602b7692831262940fbf35289a0",
+      "path": "app/services/c_store.py",
+      "sha256": "6d6794ecfd4c3b75e9ca07dd01ff41e231b5e60aaf091d46d98d4c7b71b814cf",
+      "interpretation": "P2P counts are written in D private storage; no lease parameter, delete/replace by analysis ID",
+      "line": 417,
+      "code": "    def write_count_points(self, analysis_id: str, points: list[dict[str, Any]],\n                            *, recorded_start_at: str | None = None,\n                            recorded_end_at: str | None = None,\n                            roi: dict[str, Any] | None = None) -> int:\n        \"\"\"写一次分析的计数点（先清同 analysis_id 旧点，幂等重跑）。\n\n        顺带回填录制起止与 ROI（roi 用 **E 形状** 存 ``roi_json``）。\n        返回写入点数。\n        \"\"\"\n        import json as _json\n        from sqlalchemy import text\n\n        if not analysis_id:\n            return 0\n        try:\n            self._ensure_d_video_analyses()\n        except Exception:\n            return 0\n        with self.write() as uow:\n            uow.session.execute(\n                text(\"DELETE FROM d_video_count_points WHERE analysis_id = :aid\"),\n                {\"aid\": analysis_id},\n            )\n            for p in points:\n                uow.session.execute(\n                    text(\n                        \"INSERT INTO d_video_count_points\"\n                        \" (analysis_id, metric, value, unit, grain, recorded_at,\"\n                        \"  period_start, period_end, sample_count, aggregation_rule,\"\n                        \"  quality_status, source_ids)\"\n                        \" VALUES (:aid, :metric, :value, :unit, :grain, :rec,\"\n                        \"  :ps, :pe, :sc, :ar, :qs, :src)\"\n                    ),\n                    {\n                        \"aid\": analysis_id,\n                        \"metric\": p.get(\"metric\", \"camera_visible_people\"),\n                        \"value\": p.get(\"value\"),\n                        \"unit\": p.get(\"unit\", \"人\"),\n                        \"grain\": p.get(\"grain\"),\n                        \"rec\": p.get(\"recorded_at\"),\n                        \"ps\": p.get(\"period_start\"),\n                        \"pe\": p.get(\"period_end\"),\n                        \"sc\": p.get(\"sample_count\", 0),\n                        \"ar\": p.get(\"aggregation_rule\", \"median\"),\n                        \"qs\": p.get(\"quality_status\", \"good\"),\n                        \"src\": _json.dumps(p.get(\"source_ids\", []), ensure_ascii=False),\n                    },\n                )\n            if recorded_start_at or recorded_end_at or roi is not None:\n                uow.session.execute(\n                    text(\n                        \"UPDATE d_video_analyses SET\"\n                        \" recorded_start_at = COALESCE(:rs, recorded_start_at),\"\n                        \" recorded_end_at = COALESCE(:re, recorded_end_at),\"\n                        \" roi_json = COALESCE(:roi, roi_json)\"\n                        \" WHERE analysis_id = :aid\"\n                    ),\n                    {\"rs\": recorded_start_at, \"re\": recorded_end_at,\n                     \"roi\": _json.dumps(roi, ensure_ascii=False) if roi is not None else None,\n                     \"aid\": analysis_id},\n                )\n        return len(points)\n\n    def complete_video_analysis(self, analysis_id: str, *,"
+    },
+    {
+      "side": "D",
+      "commit": "d969e35134d17602b7692831262940fbf35289a0",
+      "path": "app/services/c_store.py",
+      "sha256": "6d6794ecfd4c3b75e9ca07dd01ff41e231b5e60aaf091d46d98d4c7b71b814cf",
+      "interpretation": "Analysis publication has no lease parameter and commits independently of job completion",
+      "line": 480,
+      "code": "    def complete_video_analysis(self, analysis_id: str, *,\n                                 recorded_start_at: str | None = None,\n                                 recorded_end_at: str | None = None,\n                                 roi: dict[str, Any] | None = None,\n                                 manual_validation: dict[str, Any] | None = None) -> None:\n        \"\"\"把分析置 ``succeeded`` 并回填录制起止 / ROI / 人工校验（E 返回值）。\"\"\"\n        import json as _json\n        from sqlalchemy import text\n\n        try:\n            self._ensure_d_video_analyses()\n        except Exception:\n            return None\n        with self.write() as uow:\n            uow.session.execute(\n                text(\n                    \"UPDATE d_video_analyses SET status = 'succeeded',\"\n                    \" recorded_start_at = COALESCE(:rs, recorded_start_at),\"\n                    \" recorded_end_at = COALESCE(:re, recorded_end_at),\"\n                    \" roi_json = COALESCE(:roi, roi_json),\"\n                    \" manual_validation_json = COALESCE(:mv, manual_validation_json),\"\n                    \" error_summary = NULL\"\n                    \" WHERE analysis_id = :aid\"\n                ),\n                {\"rs\": recorded_start_at, \"re\": recorded_end_at,\n                 \"roi\": _json.dumps(roi, ensure_ascii=False) if roi is not None else None,\n                 \"mv\": _json.dumps(manual_validation, ensure_ascii=False) if manual_validation is not None else None,\n                 \"aid\": analysis_id},\n            )\n\n    def fail_video_analysis(self, analysis_id: str, error_summary: str) -> None:\n        \"\"\"把分析置 ``failed`` 并写失败摘要（27 号读到 failed → 409）。\"\"\"\n        from sqlalchemy import text\n\n        try:\n            self._ensure_d_video_analyses()"
+    },
+    {
+      "side": "D",
+      "commit": "d969e35134d17602b7692831262940fbf35289a0",
+      "path": "app/worker.py",
+      "sha256": "3e22d5481c7bb6a2422e10f682b3ec7b390b828d2c9b9683748489cc73da6b53",
+      "interpretation": "Count writes and analysis success precede outer complete_job; not one atomic publication",
+      "line": 332,
+      "code": "    def _run_video_analysis(self, payload: dict, lease) -> dict:\n        \"\"\"E 0.6.0 video_analysis（P2PNet 点计数）。\n\n        E 0.6.0 ``dispatch_analysis_job(job_type, payload, *, counter=None, frames=None)``\n        由上层的 ``intelligent_analysis.worker.runner`` 转发到\n        ``worker.video_worker.process_video_job``；counter 必须是\n        ``P2PNetCounter``（E 内部对帧做点计数，再按 ROI 内点数聚合）。\n\n        **禁止**把 DM-Count 密度图喂给点计数处理器：本进程的 counter 只可能来自\n        ``_get_p2p_counter``；若为 None 直接抛错（诚实失败），不回退任何旧口径。\n        \"\"\"\n        from intelligent_analysis.worker.runner import dispatch_analysis_job\n\n        if not payload.get(\"file_path\") and not payload.get(\"analysis_id\"):\n            raise RuntimeError(\"video_analysis 缺少 file_path 或 analysis_id\")\n        if not payload.get(\"file_path\"):\n            raise RuntimeError(\n                \"视频文件未接入：等待 C 的视频资产与授权记录契约（接口 24）\"\n            )\n        if self.counter is None:\n            raise RuntimeError(\n                \"P2PNet 模型包未登记或校验失败（P2PNET_BUNDLE_DIR），无法执行画面人数分析\"\n            )\n\n        self.store.heartbeat(lease, now=datetime.now(UTC))\n        result = dispatch_analysis_job(\"video_analysis\", payload, counter=self.counter)\n        self.store.heartbeat(lease, now=datetime.now(UTC))\n\n        analysis_id = payload.get(\"analysis_id\", \"\")\n        points = result.get(\"points\", [])\n        rs = result.get(\"recorded_start_at\")\n        re_ = result.get(\"recorded_end_at\")\n        roi = result.get(\"roi\")\n        manual = result.get(\"manual_validation\")\n        if hasattr(self.store, \"write_count_points\"):\n            try:\n                self.store.write_count_points(\n                    analysis_id, points,\n                    recorded_start_at=rs, recorded_end_at=re_, roi=roi,\n                )\n            except TypeError:\n                # 兼容旧签名（仅 points）\n                self.store.write_count_points(analysis_id, points)\n        # 关键：把 d_video_analyses 从 processing 推进到 succeeded，并回填\n        # E process_video_job 返回的录制起止与 ROI（E 形状）。否则 27 GET 永远是\n        # analysis_not_ready → 409，worker 干完活却查不到结果。\n        if hasattr(self.store, \"complete_video_analysis\"):\n            try:\n                self.store.complete_video_analysis(\n                    analysis_id,\n                    recorded_start_at=rs,\n                    recorded_end_at=re_,\n                    roi=roi,\n                    manual_validation=manual,\n                )\n            except TypeError:\n                self.store.complete_video_analysis(\n                    analysis_id, recorded_start_at=rs, recorded_end_at=re_, roi=roi,\n                )\n        return {\n            \"analysis_id\": analysis_id,\n            \"point_count\": len(points),\n            \"metric\": result.get(\"metric\", \"camera_visible_people\"),\n            \"count_model\": \"p2pnet\",\n        }\n\n    # ---------- knowledge_reindex（D 管理操作） ----------\n\n    def _run_knowledge_reindex(self, payload: dict, lease) -> dict:\n        \"\"\"22 重建索引：把 E 入队的 ``knowledge_reindex`` 信封**逐文档展开**。\n\n        E 0.5.1 ``reindex_documents`` 只做 ``submit(\"knowledge_reindex\", {...})``\n        （见 ``intelligent_analysis/service.py``），自己**不会**生成子作业；D 是队列\n        唯一消费者，必须在领取信封后为每个 document_id 重新入队一个\n        ``knowledge_index`` 作业。子作业走与首次上传**完全相同**的五步事务序列\n        （见 ``_run_knowledge_index``），因此新版本构建期间旧活动索引继续服务。\n\n        输入源用上传时留下的 staging 原文件（``data_dir/knowledge_staging``，\n        sandbox 场景回退 ``%TEMP%/dpart_knowledge_staging``）；找不到源文件时\n        该文档记入 ``skipped`` 而不是静默当作已重建——重建结果必须可核对。\n        \"\"\"\n        document_ids = [str(d) for d in (payload.get(\"document_ids\") or []) if d]"
+    },
+    {
+      "side": "D",
+      "commit": "d969e35134d17602b7692831262940fbf35289a0",
+      "path": "app/services/e_bindings.py",
+      "sha256": "c1d119408b9647e31c8f7497e7723b70ba01f81f6234f58aee4bce1be21c644d",
+      "interpretation": "Normal branch uses E verified loader; ImportError branch still allows weaker snapshot",
+      "line": 184,
+      "code": "def knowledge_snapshot_loader() -> Callable[[], Any] | None:\n    \"\"\"快照加载器：D 把它注入 E 的 ``ServiceBindings.knowledge_snapshot_loader``。\n\n    E ``service.answer_message`` 无参调用它，拿到的 dict 交给\n    ``InMemoryKnowledgeIndex.from_payload()``。\n\n    **主路径走 E 的 ``load_verified_knowledge_snapshot``**（E 0.5.1 起提供，\n    ``knowledge/artifacts.py``）。它会逐项做语义对账，而不是只校验文件摘要：\n\n    - schema_version / parser_version / embedding_model_version；\n    - 文档身份（产物里的 documents 键集合必须 == 请求的 document_id）；\n    - **index_version**、**document_version** 与 C 库登记值一致；\n    - metadata 逐字段比对（``applicability_note`` 除外，它属 manifest 溯源，不是 C 列）；\n    - **chunk 逐条比对**：order / chunk_id / ``locator.order`` / **text** 必须与\n      C 库的 KnowledgeChunk 行一致。\n\n    这正是 C §六 场景⑧（「摘要正确但 JSON 文本或 locator 与数据库不同 →\n    E 拒绝加载」）要的校验。**D 之前只喂自己拼的\n    ``snapshot_for_e_publisher()``，E 的 ``from_payload`` 只校验 chunk 的文档\n    归属，拦不住「产物被改写但摘要同步改对」——2026-10-15 取证实测该项返回 200\n    而非 503，就是因为这个。**\n\n    退回宽松版的**唯一条件**是 E 没有 artifacts 模块（< 0.5.1）。校验失败\n    **绝不退回**——那等于绕开 C §六 的 all-or-nothing 口径，用脏数据继续回答。\n\n    **只有 C store 可用时才返回 loader**（否则返回 None，让调用方退回\n    ``knowledge_index_path`` 路径模式）：loader 内部要读 C 的 knowledge 仓储，\n    sqlite 桥接后端（测试 / 快速回环）没有 C 库可读，塞给 E 只会在问答时炸成 500。\n    \"\"\"\n    from app.core.providers import get_c_store\n\n    if get_c_store() is None:\n        return None\n\n    def _loader():\n        cstore = get_c_store()\n        try:\n            from intelligent_analysis.knowledge.artifacts import (\n                load_verified_knowledge_snapshot,\n            )\n        except ImportError:\n            # E < 0.5.1：没有正式校验器，退回宽松形状（不静默放行旧内存，\n            # 只是老 E 版本根本没这套语义校验，D 无法补）。\n            from data_foundation import DataFoundationError\n\n            try:\n                return cstore.snapshot_for_e_publisher()\n            except DataFoundationError as exc:\n                raise e_errors().DependencyUnavailable(\n                    \"活动知识索引产物缺失或校验失败，请重建索引\"\n                ) from exc\n\n        # 授权边界由 D 定：只把 C 侧活动索引已就绪的文档交给 E。\n        # load_verified_knowledge_snapshot 内部已把 DataFoundationError /\n        # OSError / ValueError / KeyError / TypeError 统一转成\n        # DependencyUnavailable（「全部或无」，任一文档不通过即整体失败），\n        # D 不再额外捕获——捕获就等于放行脏数据。\n        return load_verified_knowledge_snapshot(\n            cstore, cstore.ready_document_ids(), cstore.data_root,\n        )\n\n    return _loader\n"
+    },
+    {
+      "side": "D",
+      "commit": "d969e35134d17602b7692831262940fbf35289a0",
+      "path": "app/services/metrics_query.py",
+      "sha256": "006bde1d91ad9d9fe869d240a540b46216f7699705588a9ca62360c42c4816f7",
+      "interpretation": "All metric branches are still explicit unavailable placeholders; C query adapter not wired",
+      "line": 170,
+      "code": "def metric_tool(query: dict[str, Any]) -> dict[str, Any]:\n    \"\"\"注入 E 的 ``metric_tool``：``dict -> dict``。\n\n    成功时必须返回 ``metric`` / ``value`` / ``source_ids`` /\n    ``period_start`` / ``period_end`` / ``queried_at`` 六键且 ``source_ids``\n    非空（E 会据此生成 citation 与 ``metric_result``）；**当前所有指标的数据\n    源都还没接通（卡 C 的观测/视频接口），因此一律走「不足」分支**——\n    宁可让 E 说「无法核实数值」，也不拿历史资料或旧快照顶替当前值。\n\n    等 C 的 08/09/23 落地后，只需在本函数内按 metric 分支补 resolver，\n    返回形状不变，E 侧零改动。\n    \"\"\"\n    if not isinstance(query, dict):\n        return _unavailable(REASON_INVALID_ENTITY, detail=\"查询体必须是对象\")\n\n    metric = query.get(\"metric\")\n    spec = METRIC_CATALOG.get(metric) if isinstance(metric, str) else None\n    if spec is None:\n        return _unavailable(\n            REASON_UNSUPPORTED_METRIC, metric=metric if isinstance(metric, str) else None,\n            detail=f\"指标不在字典内，可用：{', '.join(SUPPORTED_METRICS)}\",\n        )\n\n    grain = query.get(\"grain\")\n    if grain not in spec[\"grains\"]:\n        return _unavailable(\n            REASON_UNSUPPORTED_GRAIN, metric=metric,\n            detail=f\"{metric} 不支持粒度 {grain}，可用：{', '.join(spec['grains'])}\",\n        )\n\n    entity_ids = query.get(\"entity_ids\") or []\n    if not isinstance(entity_ids, list) or not entity_ids:\n        return _unavailable(REASON_INVALID_ENTITY, metric=metric,\n                            detail=\"必须指定至少一个 entity_id（对象白名单内）\")\n    if len(entity_ids) > MAX_ENTITY_IDS:\n        return _unavailable(REASON_INVALID_ENTITY, metric=metric,\n                            detail=f\"单次最多 {MAX_ENTITY_IDS} 个对象\")\n    if not all(_is_uuid(e) for e in entity_ids):\n        return _unavailable(REASON_INVALID_ENTITY, metric=metric,\n                            detail=\"entity_ids 必须是 UUID\")\n\n    start = _parse_period(query.get(\"period_start\"))\n    end = _parse_period(query.get(\"period_end\"))\n    if start is None or end is None:\n        return _unavailable(REASON_INVALID_PERIOD, metric=metric,\n                            detail=\"period_start / period_end 必填且须为带时区的 ISO 8601\")\n    if start >= end:\n        return _unavailable(REASON_INVALID_PERIOD, metric=metric,\n                            detail=\"period_start 必须早于 period_end\")\n\n    # 数据源未接通：明确报不足。注意 **E 会把整个 result 原样塞进\n    # metric_result 回给前端**，所以 detail 只能写 ``source_public``（接口级），\n    # 内部表名 / 责任方 / 目录路径一律只进日志。\n    logger.info(\n        \"指标查询不足：metric=%s reason=%s blocked_by=%s source=%s\",\n        metric, REASON_DATA_SOURCE_UNAVAILABLE, spec.get(\"blocked_by\"), spec[\"source\"],\n    )\n    return _unavailable(\n        REASON_DATA_SOURCE_UNAVAILABLE, metric=metric,\n        detail=f\"指标「{spec['label']}」的数据源（{spec['source_public']}）尚未接通，无法核实当前数值\",\n        unit=spec[\"unit\"],\n        entity_type=spec[\"entity_types\"][0],\n        period_start=start.isoformat(),\n        period_end=end.isoformat(),\n        grain=grain,\n    )"
+    },
+    {
+      "side": "D",
+      "commit": "d969e35134d17602b7692831262940fbf35289a0",
+      "path": "app/worker.py",
+      "sha256": "3e22d5481c7bb6a2422e10f682b3ec7b390b828d2c9b9683748489cc73da6b53",
+      "interpretation": "Normal worker separates source version from new index version; fallback behavior needs review",
+      "line": 152,
+      "code": "        document_version = (\n            (doc_row or {}).get(\"document_version\")\n            or payload.get(\"document_version\")\n            or (payload.get(\"metadata\") or {}).get(\"document_version\")\n        )\n        if not document_version:\n            raise ValueError(\n                f\"文档 {document_id} 缺少 C 口径 document_version，拒绝构建索引\"\n            )\n        index_version = self._resolve_index_version(document_id)\n\n        # ① 事务外 long-running：E 解析 + 构建（失败直接抛 → fail_job）\n        self.store.heartbeat(lease, now=datetime.now(UTC))\n        prepared = dispatch_analysis_job(\"knowledge_index\", {\n            \"document_id\": document_id,\n            \"document_version\": document_version,\n            \"version\": index_version,\n            \"file_path\": file_path,\n            \"metadata\": payload.get(\"metadata\") or (doc_row or {}),\n        })\n\n        artifact_bytes = prepared[\"artifact_bytes\"]\n        declared_sha = prepared[\"artifact_sha256\"]\n        actual_sha = _sha256(artifact_bytes)\n        if actual_sha != declared_sha:"
+    },
+    {
+      "side": "D",
+      "commit": "d969e35134d17602b7692831262940fbf35289a0",
+      "path": "app/worker.py",
+      "sha256": "3e22d5481c7bb6a2422e10f682b3ec7b390b828d2c9b9683748489cc73da6b53",
+      "interpretation": "Staging input selected by filename; source SHA/asset binding not established here",
+      "line": 458,
+      "code": "    def _locate_staging_file(self, document_id: str) -> Path | None:\n        \"\"\"定位上传时留下的 staging 原文件（重建立即可复用的输入源）。\n\n        与 ``e_bridge.stage_and_accept_document`` 的落盘约定一致：优先\n        ``settings.data_dir/knowledge_staging/{document_id}.*``，其次\n        ``%TEMP%/dpart_knowledge_staging/{document_id}.*``。\n        \"\"\"\n        import tempfile\n\n        candidates: list[Path] = []\n        base = Path(self._settings().data_dir) / \"knowledge_staging\"\n        if base.exists():\n            candidates.extend(sorted(base.glob(f\"{document_id}.*\")))\n        tmp = Path(tempfile.gettempdir()) / \"dpart_knowledge_staging\"\n        if tmp.exists():\n            candidates.extend(sorted(tmp.glob(f\"{document_id}.*\")))\n        for path in candidates:\n            if path.is_file():\n                return path\n        return None\n\n    def _get_document_row(self, document_id: str) -> dict:\n        \"\"\"读 C 登记的文档行（身份 + 元数据）；后端不支持时返回空 dict。\"\"\"\n        getter = getattr(self.store, \"get_document\", None)\n        if getter is None:\n            return {}\n        try:\n            return getter(document_id) or {}"
+    },
+    {
+      "side": "E",
+      "commit": "784a882188dcf5f767e3d8111fee6926a052b2a9",
+      "path": "intelligent_analysis/service.py",
+      "sha256": "0b21e78c3b2b0f22d4298eedfbf9aee0a02a9e2d6b8f55c77ee11f35b583de48",
+      "interpretation": "Source and index versions are coupled in service submission, but worker supports separation",
+      "line": 60,
+      "code": "def index_document(file_path: str, metadata: dict[str, Any]) -> dict[str, Any]:\n    validated = DocumentMetadata.model_validate(metadata)\n    if not metadata.get(\"document_id\"):\n        raise ValueError(\"C document_id is required\")\n    if not metadata.get(\"document_version\"):\n        raise ValueError(\"C document_version is required\")\n    payload = {\"document_id\": metadata[\"document_id\"], \"file_path\": file_path,\n               \"version\": metadata[\"document_version\"],\n               \"document_version\": metadata[\"document_version\"],\n               \"metadata\": validated.model_dump(mode=\"json\")}\n    result = submit(\"knowledge_index\", payload)\n    return {\"document_id\": metadata[\"document_id\"], \"index_status\": \"pending\",\n            \"job_id\": str(UUID(str(result[\"job_id\"])))}\n\n\ndef process_document_index(file_path: str, metadata: dict[str, Any],\n                           document_id: str | None = None) -> dict[str, Any]:\n    document_id = document_id or metadata.get(\"document_id\")"
+    },
+    {
+      "side": "E",
+      "commit": "784a882188dcf5f767e3d8111fee6926a052b2a9",
+      "path": "intelligent_analysis/worker/knowledge_worker.py",
+      "sha256": "8e8a17e750ade858a27553a6ddb1e3cb02de07ef1b1a6405e9e7ec709036801c",
+      "interpretation": "Worker reads document_version separately from version/index_version",
+      "line": 15,
+      "code": "def process_knowledge_job(job_payload: dict) -> dict:\n    document_id = job_payload[\"document_id\"]\n    metadata = DocumentMetadata.model_validate(job_payload[\"metadata\"])\n    document_version = job_payload.get(\"document_version\", job_payload[\"metadata\"].get(\"document_version\"))\n    index_version = job_payload[\"version\"]\n    if not isinstance(document_version, str) or not document_version.strip():\n        raise ValueError(\"C source document_version is required\")\n    metadata_version = job_payload[\"metadata\"].get(\"document_version\")\n    if metadata_version is not None and metadata_version != document_version:\n        raise ValueError(\"Conflicting source document versions\")\n    if not isinstance(index_version, str) or not index_version.strip():\n        raise ValueError(\"Index version is required\")\n    chunks = split_text(read_document(job_payload[\"file_path\"]), document_id=document_id)\n    if not chunks:\n        raise ValueError(\"Document has no extractable text\")\n    payload = {\"schema_version\": ARTIFACT_SCHEMA_VERSION,\n        \"parser_version\": PARSER_VERSION, \"embedding_model_version\": EMBEDDING_MODEL_VERSION,\n        \"documents\": {document_id: {\"document_version\": document_version, \"index_version\": index_version,\n        \"metadata\": metadata.model_dump(mode=\"json\"),\n        \"chunks\": [c.model_dump(mode=\"json\") for c in chunks]}}}\n    artifact = json.dumps(payload, ensure_ascii=False, sort_keys=True).encode(\"utf-8\")\n    return {\"document_id\": document_id, \"version\": job_payload[\"version\"],\n            \"document_version\": document_version, \"index_version\": index_version,\n            \"parser_version\": PARSER_VERSION, \"embedding_model_version\": EMBEDDING_MODEL_VERSION,\n            \"chunk_count\": len(chunks), \"artifact_bytes\": artifact,\n            \"artifact_sha256\": hashlib.sha256(artifact).hexdigest(),\n            \"chunks\": [{\"chunk_no\": c.order, \"text\": c.text,\n                        \"locator\": {\"chunk_id\": c.chunk_id, \"order\": c.order}}\n                       for c in chunks], \"snapshot\": payload}"
+    }
+  ],
+  "upstream_files": [
+    {
+      "path": "docs/致D-整合回执答复与故障复现-2026-10-15.md",
+      "local_name": "致D-整合回执答复与故障复现-2026-10-15.md",
+      "byte_size": 9116,
+      "sha256": "724124e90d4bdc4542306badfe0ab41ff920eff817aab1691de5de43c1e69d0e",
+      "commit": "784a882188dcf5f767e3d8111fee6926a052b2a9"
+    },
+    {
+      "path": "docs/acceptance/E060-D-reply-failure-recheck-2026-10-15.json",
+      "local_name": "E060-D-reply-failure-recheck-2026-10-15.json",
+      "byte_size": 21886,
+      "sha256": "768fe1636d83a9cb5c8c47cde8a352586cf672cef44eda9266977fbe5d59ef56",
+      "commit": "784a882188dcf5f767e3d8111fee6926a052b2a9"
+    },
+    {
+      "path": "release/E-visible-people-0.6.0-2026-10-15.receipt.json",
+      "local_name": "E-visible-people-0.6.0-2026-10-15.receipt.json",
+      "byte_size": 1161,
+      "sha256": "25de383a33b2f5434fc2b16cc1c2cd8d11ffdbd9cc0e9cb9f3d51ba103acfbc2",
+      "commit": "784a882188dcf5f767e3d8111fee6926a052b2a9"
+    },
+    {
+      "path": "release/shumei_intelligent_analysis-0.6.0-py3-none-any.whl",
+      "local_name": "shumei_intelligent_analysis-0.6.0-py3-none-any.whl",
+      "byte_size": 40736,
+      "sha256": "cf55fcb4f4dbb8ca6257e07a2dd7faaec720a26a8800ab0d2fc4ba21126b4a4c",
+      "commit": "784a882188dcf5f767e3d8111fee6926a052b2a9"
+    }
+  ],
+  "d_machine_json_evidence_received": false,
+  "d_or_e_source_modified": false
+}

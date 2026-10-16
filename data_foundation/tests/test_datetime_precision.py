@@ -22,7 +22,12 @@ def test_every_model_datetime_and_migration_preserve_mysql_microseconds(tmp_path
                 assert column.type.compile(dialect=sqlite.dialect()) == "DATETIME"
                 actual.add((table.name, column.name, column.nullable))
     assert actual == set(revision.TIME_COLUMNS) | {
-        ("job_retries", "created_at", False), ("job_retries", "requested_at", False)
+        ("job_retries", "created_at", False), ("job_retries", "requested_at", False),
+        ("visible_analyses", "created_at", False), ("visible_count_points", "created_at", False),
+        ("visible_count_points", "recorded_at", True), ("visible_count_points", "period_start", True),
+        ("visible_count_points", "period_end", True), ("visible_count_points", "published_at", True),
+        ("visible_count_points", "ingested_at", True), ("visible_forecasts", "created_at", False),
+        ("visible_forecasts", "cutoff_at", False),
     }
     # Compile the upgrade against MySQL without claiming it was executed on a server.
     monkeypatch.setenv("DATABASE_URL", "mysql+pymysql://test:test@localhost/precision_test")
@@ -48,7 +53,7 @@ def test_precision_upgrade_keeps_existing_sqlite_rows(tmp_path, monkeypatch):
     command.upgrade(config, "head")
     with engine.connect() as connection:
         assert connection.execute(text("SELECT created_at FROM users WHERE id='precision-user'")).scalar_one() == "2026-10-11 08:14:07.700000"
-        assert connection.execute(text("SELECT version_num FROM alembic_version")).scalar_one() == "0006"
+        assert connection.execute(text("SELECT version_num FROM alembic_version")).scalar_one() == "0007"
     engine.dispose()
 
 

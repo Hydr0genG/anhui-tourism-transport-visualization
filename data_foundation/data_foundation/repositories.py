@@ -1249,6 +1249,8 @@ class KnowledgeRepository(Repository):
     def get_index_artifact_ref(self, document_id: str, version: str | None = None) -> dict[str, Any]:
         """Internal single-file reference, freshly verified before E loads it."""
         document = self.get_or_404(KnowledgeDocument, document_id, "知识文档")
+        if version is None and document.index_status != "ready":
+            return {"status": "index_not_ready"}
         target = version or document.active_index_version
         if not target:
             return {"status": "index_not_ready"}
@@ -1280,6 +1282,8 @@ class KnowledgeRepository(Repository):
 
     def get_chunks(self, document_id: str, version: str | None = None) -> dict[str, Any]:
         document = self.get_or_404(KnowledgeDocument, document_id, "知识文档")
+        if version is None and document.index_status != "ready":
+            return {"status": "index_not_ready", "items": []}
         target = version or document.active_index_version
         if not target:
             return {"status": "index_not_ready", "items": []}
@@ -1291,6 +1295,32 @@ class KnowledgeRepository(Repository):
             return {"status": "index_not_ready", "items": []}
         rows = self.session.scalars(select(KnowledgeChunk).where(KnowledgeChunk.index_id == index.id).order_by(KnowledgeChunk.chunk_no)).all()
         return {"status": "ready", "version": target, "items": [public_columns(x) for x in rows]}
+
+
+    def invalidate_document(self, *, document_id: str, reason: str, operator_id: str,
+                            lease: JobLease, now: datetime | None = None) -> dict[str, Any]:
+        """Audited admin operation; keep last version/files, never silently skip corruption."""
+        self.require_write()
+        if not isinstance(reason, str) or not reason.strip() or len(reason) > 2000:
+            raise InvalidArgument("索引失效原因须为1至2000字符")
+        with self.session.begin_nested():
+            jobs = JobRepository(self.session, True)
+            jobs.ensure_lease(lease, now)
+            job = self.locked(Job, lease.job_id, "索引失效任务")
+            if (job.type != "knowledge_invalidate" or job.requested_by != operator_id
+                    or job.payload.get("document_id") != document_id):
+                raise LeaseLost("索引失效任务与操作者/文档不一致")
+            operator = self.locked(User, operator_id, "操作者")
+            if operator.role != "admin" or operator.status != "active":
+                raise InvalidPermission("只有有效管理员可以显式失效索引")
+            document = self.locked(KnowledgeDocument, document_id, "知识文档")
+            previous = document.active_index_version
+            document.index_status = "failed"
+            result = {"document_id": document_id, "previous_index_version": previous,
+                      "index_status": "failed", "reason": reason.strip(), "operator_id": operator_id}
+            jobs.complete_job(lease, result, now or datetime.now(timezone.utc))
+            self.session.flush()
+            return result
 
 
 class VideoRepository(Repository):
@@ -1718,4 +1748,6 @@ class UnitOfWork:
         self.events = EventRepository(session, writable)
         self.knowledge = KnowledgeRepository(session, writable, data_root)
         self.video = VideoRepository(session, writable, data_root)
+        from .visible import VisibleRepository
+        self.visible = VisibleRepository(session, writable, data_root)
         self.forecasts = ForecastRepository(session, writable)

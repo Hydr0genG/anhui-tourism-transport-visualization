@@ -11,6 +11,7 @@ from sqlalchemy import (
     CheckConstraint,
     Date,
     ForeignKey,
+    Float,
     Index,
     Integer,
     Numeric,
@@ -22,6 +23,59 @@ from sqlalchemy import (
 from sqlalchemy.orm import Mapped, mapped_column
 
 from .base import PRECISE_DATETIME, Base, CreatedMixin, IdMixin, MutableMixin, utcnow_naive
+
+
+class VisibleAnalysis(IdMixin, CreatedMixin, Base):
+    """New visible-people domain; legacy detector/entries/exits tables stay intact."""
+    __tablename__ = "visible_analyses"
+    video_id: Mapped[str] = mapped_column(ForeignKey("videos.id"), nullable=False)
+    job_id: Mapped[str] = mapped_column(ForeignKey("jobs.id"), unique=True, nullable=False)
+    config_sha256: Mapped[str] = mapped_column(String(64), nullable=False)
+    config: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False)
+    provenance: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False)
+    input_identity: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False)
+    status: Mapped[str] = mapped_column(String(24), nullable=False, default="queued")
+    manual_validation: Mapped[dict[str, Any] | None] = mapped_column(JSON)
+    error_summary: Mapped[str | None] = mapped_column(Text)
+    __table_args__ = (Index("ix_visible_analyses_video", "video_id", "created_at"),)
+
+
+class VisibleCountPoint(IdMixin, CreatedMixin, Base):
+    __tablename__ = "visible_count_points"
+    analysis_id: Mapped[str] = mapped_column(ForeignKey("visible_analyses.id"), nullable=False)
+    point_key: Mapped[str] = mapped_column(String(64), nullable=False)
+    content_sha256: Mapped[str] = mapped_column(String(64), nullable=False)
+    grain: Mapped[str] = mapped_column(String(16), nullable=False)
+    recorded_at: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
+    period_start: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
+    period_end: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
+    value: Mapped[float | None] = mapped_column(Float(53))
+    sample_count: Mapped[int] = mapped_column(Integer, nullable=False)
+    quality_status: Mapped[str] = mapped_column(String(24), nullable=False)
+    source_ids: Mapped[list[str]] = mapped_column(JSON, nullable=False)
+    published_at: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
+    ingested_at: Mapped[datetime | None] = mapped_column(PRECISE_DATETIME)
+    __table_args__ = (
+        UniqueConstraint("analysis_id", "point_key", name="visible_analysis_point"),
+        Index("ix_visible_points_time", "analysis_id", "grain", "period_end"),
+        CheckConstraint("sample_count >= 0", name="visible_samples_nonnegative"),
+        CheckConstraint("value IS NULL OR value >= 0", name="visible_value_nonnegative"),
+    )
+
+
+class VisibleForecast(IdMixin, CreatedMixin, Base):
+    __tablename__ = "visible_forecasts"
+    analysis_id: Mapped[str] = mapped_column(ForeignKey("visible_analyses.id"), nullable=False)
+    job_id: Mapped[str] = mapped_column(ForeignKey("jobs.id"), unique=True, nullable=False)
+    cutoff_at: Mapped[datetime] = mapped_column(PRECISE_DATETIME, nullable=False)
+    horizon_minutes: Mapped[int] = mapped_column(SmallInteger, nullable=False)
+    input_sha256: Mapped[str] = mapped_column(String(64), nullable=False)
+    input_manifest: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False)
+    result: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False)
+    __table_args__ = (
+        Index("ix_visible_forecast_analysis_cutoff", "analysis_id", "cutoff_at"),
+        CheckConstraint("horizon_minutes IN (15,30,60)", name="visible_forecast_horizon"),
+    )
 
 
 ID = String(36)

@@ -1,0 +1,440 @@
+{
+  "e_version": "0.6.0",
+  "c_version": "0.2.0a2",
+  "migration_head": "0006",
+  "target": "isolated_sqlite",
+  "business_database_verified": false,
+  "dataset_validation": {
+    "dataset_id": "anhui-public-supplement-2026-10-12",
+    "status": "validated",
+    "asset_count": 106,
+    "holiday_count": 26,
+    "event_count": 1,
+    "observation_count": 83,
+    "supplementary_fact_count": 17,
+    "document_count": 16
+  },
+  "documents": [
+    {
+      "document_id": "c962ee5f-53f6-5007-98eb-77bf1436963a",
+      "title": "2025年1月华东机场吞吐量排名.pdf",
+      "document_version": "sha256:c7302d6b9c545c971d194f84e2d7d063",
+      "index_version": "e051-index-1",
+      "source_id": "fe47bf03-2cd2-5c89-a944-4cbcf5d38cd7",
+      "job_id": "234ff9ce-2eeb-46ba-92be-85b96f3528c4",
+      "index_id": "41e896e6-8e79-4f3c-9ecb-3dfa80d8e2a3",
+      "status": "ready",
+      "chunk_count": 5,
+      "text_sha256": "11f6cbe040400de19de8b8b4ba74d154d2ea5e6338a4080ce89c440a685fcee7",
+      "artifact_sha256": "11963622042cdb312c40a9179d53cefc50c10f633f00f4246b4885d98b014df2",
+      "duplicate_chunks_skipped": 5,
+      "inserted": 5
+    },
+    {
+      "document_id": "e4953b67-515f-55d5-964b-96bb155a3f62",
+      "title": "2026年8月华东机场吞吐量排名.pdf",
+      "document_version": "sha256:c42dfb4232510256775629ba67ae2c01",
+      "index_version": "e051-index-1",
+      "source_id": "fe47bf03-2cd2-5c89-a944-4cbcf5d38cd7",
+      "job_id": "6372e157-4994-4638-8fd7-598a0ea79362",
+      "index_id": "1b66df0e-a24c-4010-9d39-1ce319f68c15",
+      "status": "ready",
+      "chunk_count": 10,
+      "text_sha256": "5031c6bc686545258045e470f1faaa1af6f3af35859b166ed7751fe0e13cae84",
+      "artifact_sha256": "b544f4f0cd1f92575b9de76b07f964168e60556f6c20e9b46f753b6f989c584e",
+      "duplicate_chunks_skipped": 10,
+      "inserted": 10
+    },
+    {
+      "document_id": "58b613f3-36f5-5428-9dd7-5a9e6ba147a6",
+      "title": "2024年年度报告摘要",
+      "document_version": "sha256:bd8718ade629321daf826b298afef01a",
+      "index_version": "e051-index-1",
+      "source_id": "63e641e3-a964-591d-8a09-6eb6d9dd8986",
+      "job_id": "34c91c15-77db-4381-b2ab-6791ff171ce7",
+      "index_id": "82a8fba6-4d87-4fd8-afb5-86b23c93f4fc",
+      "status": "ready",
+      "chunk_count": 18,
+      "text_sha256": "77c416c571dddbb25833ad0369a4f8433fdbeccd1500e2f0730de42f6c229874",
+      "artifact_sha256": "76c76fa0f307655396b6d4ca284a37339ebdfb780e7e3a459808131314d1d6d6",
+      "duplicate_chunks_skipped": 18,
+      "inserted": 18
+    },
+    {
+      "document_id": "1284ab90-96ea-5542-865e-f598314cbbde",
+      "title": "2025年第一季度报告",
+      "document_version": "sha256:de18ec78de963b664a395a91f3a47dfe",
+      "index_version": "e051-index-1",
+      "source_id": "fba90e23-e200-5930-8a86-1b13130f4667",
+      "job_id": "a5fed6de-e241-43c2-944b-9e7953108ca4",
+      "index_id": "8298ab53-7689-41d4-b01a-e74b0167e6cc",
+      "status": "ready",
+      "chunk_count": 29,
+      "text_sha256": "cc9401f7a4e2033a2de04aaa9197a3cfe28d68397e093d20cae9f567606b49cd",
+      "artifact_sha256": "6b22d3bf34c78bdcd8b7ec11899a193965f12f14d5db68698cf00c9081c13dc5",
+      "duplicate_chunks_skipped": 29,
+      "inserted": 29
+    },
+    {
+      "document_id": "c83be9de-8af1-5a26-aae8-8f30dd8eca09",
+      "title": "2025年年度报告",
+      "document_version": "sha256:f8fa6356c3e7808d4ea70497aa057e7b",
+      "index_version": "e051-index-1",
+      "source_id": "9144cb69-e404-5f03-84d0-6d5d976926de",
+      "job_id": "6a255cd4-1dcd-4664-88fc-5dc6529671e0",
+      "index_id": "6f24973d-ce33-4e04-b871-ace3863ac2a0",
+      "status": "ready",
+      "chunk_count": 545,
+      "text_sha256": "6292236ad56ecc62273ed2e9b86cf18736e58e6b1b0a5f389759ae67fa201e83",
+      "artifact_sha256": "82e935e32bd58c2d8688a0afe097cf6e2369dfe9c2d907bfaca69cdbfbbddb85",
+      "duplicate_chunks_skipped": 545,
+      "inserted": 545
+    },
+    {
+      "document_id": "6f3bd8f1-fe1b-5982-9154-d21e03305c69",
+      "title": "轨道上的文旅协奏曲",
+      "document_version": "sha256:4abde2424b1ec9b96c2f556fded4d499",
+      "index_version": "e051-index-1",
+      "source_id": "264e6f29-8b65-5d0e-b285-10411b6b6073",
+      "job_id": "9ebf7631-98ec-4023-8a00-e47c21cef1ff",
+      "index_id": "4cb00b16-b5f7-4cc5-9724-1284edb31fa7",
+      "status": "ready",
+      "chunk_count": 9,
+      "text_sha256": "b0d331e536ecad6ae6ed02081d6ee58d8563f29dfb393f26fbe96a28ddd4db87",
+      "artifact_sha256": "bed01f9a3a0d73fdb58650b91316b7341a236c5b0f8fe8283276ae093064b03d",
+      "duplicate_chunks_skipped": 9,
+      "inserted": 9
+    },
+    {
+      "document_id": "a5a68f13-b713-5fe8-9838-8fd4321fd388",
+      "title": "【分析解读】2024年1月全市经济运行简析",
+      "document_version": "sha256:325388067694704305b9afb31536a172",
+      "index_version": "e051-index-1",
+      "source_id": "d5f97e63-85d5-525e-842b-eaf218e816bc",
+      "job_id": "d351ce69-9719-4118-8953-4ff4fb3b0bd9",
+      "index_id": "67cbbd87-d45c-471c-973d-75306ffffdf7",
+      "status": "ready",
+      "chunk_count": 1,
+      "text_sha256": "325388067694704305b9afb31536a172a3f1fbcb832f8b72a5e4d96e6055174b",
+      "artifact_sha256": "bbc2de0b434038374ca2aae23fb51619daa4dcf0f17dd89f0358a508d3561378",
+      "duplicate_chunks_skipped": 1,
+      "inserted": 1
+    },
+    {
+      "document_id": "e0fd0916-7b2a-5b6f-8b11-0c2c56e7c0bf",
+      "title": "关于关闭黄山风景区部分景点的公告",
+      "document_version": "sha256:7e73cf30bfdd02a241682ff73083d851",
+      "index_version": "e051-index-1",
+      "source_id": "b2380236-cca8-5d8d-9e4e-e67678dcfc36",
+      "job_id": "14a2b1e6-a941-4285-bc9e-d3001f61ab3e",
+      "index_id": "1521939b-3ebc-4137-a4df-7ca068127971",
+      "status": "ready",
+      "chunk_count": 1,
+      "text_sha256": "7e73cf30bfdd02a241682ff73083d8510665aa201e3750bd6a5c46121b56f259",
+      "artifact_sha256": "2669e24202025c17a3e975948e81c20c8b1a0dc12bd108f92bd26d022ba083ee",
+      "duplicate_chunks_skipped": 1,
+      "inserted": 1
+    },
+    {
+      "document_id": "3ea765c6-e5be-5b2d-a15d-8a19a7fc6d2b",
+      "title": "黄山风景区：山水人文相生共融",
+      "document_version": "sha256:8bfa6739a4da7c4ff064927b5859e158",
+      "index_version": "e051-index-1",
+      "source_id": "803dcb47-36de-57bb-bd12-da1146f1ad9c",
+      "job_id": "fc262cbc-1d83-43c7-928b-d79822e3b0ef",
+      "index_id": "e0f5bc9c-ca15-48c4-99de-3aae51e68b46",
+      "status": "ready",
+      "chunk_count": 1,
+      "text_sha256": "8bfa6739a4da7c4ff064927b5859e158f6bfbfc349215baead3f8c8e51f59f2a",
+      "artifact_sha256": "8a75cf758a7a6570f6cb9466f1f08d39b3c8d2e6edbfce41357128593829a433",
+      "duplicate_chunks_skipped": 1,
+      "inserted": 1
+    },
+    {
+      "document_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+      "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+      "document_version": "sha256:29aa803a0fa3e009feed5ce3aa07330e",
+      "index_version": "e051-index-1",
+      "source_id": "e4628668-ec52-5d6e-be17-7682c3cdbc2e",
+      "job_id": "beb34e6d-fe9d-43a7-84fd-95118137612a",
+      "index_id": "8d52f042-5371-4155-89e3-0c7df44febc7",
+      "status": "ready",
+      "chunk_count": 3,
+      "text_sha256": "29aa803a0fa3e009feed5ce3aa07330e086def1b8f61490b0025c22afcfcb404",
+      "artifact_sha256": "d33e04e176a39ed186c7cfe13b331bd00de95ddb3bec748413e744da0ff61a9d",
+      "duplicate_chunks_skipped": 3,
+      "inserted": 3
+    },
+    {
+      "document_id": "5461c502-9273-54c3-a430-80918c414369",
+      "title": "五一假期出游温馨提示",
+      "document_version": "sha256:bf29960ce722fc0c7c52a69c59186000",
+      "index_version": "e051-index-1",
+      "source_id": "da00d2b9-c379-5029-a5f7-d802604c74bf",
+      "job_id": "403f7bf9-8e6f-4268-ac7d-421c4a0d6b0e",
+      "index_id": "4acad57a-aed1-4b99-9985-a33f8c48d894",
+      "status": "ready",
+      "chunk_count": 3,
+      "text_sha256": "bf29960ce722fc0c7c52a69c59186000fb5de44a2dd5d19c41712cc6a236e332",
+      "artifact_sha256": "824b32a8d5307c2d1f4adf7419193c32878172b9c26ae52e0065e7b5ed258d36",
+      "duplicate_chunks_skipped": 3,
+      "inserted": 3
+    },
+    {
+      "document_id": "6d0f8793-e764-504a-b50e-93208d264f76",
+      "title": "国务院办公厅关于2023年部分节假日安排的通知",
+      "document_version": "sha256:1e0d63309187bd8d6867328d2d4a79e3",
+      "index_version": "e051-index-1",
+      "source_id": "6c924f36-74a8-56f5-93eb-573fa7cd9d34",
+      "job_id": "8ff8b07a-b5b2-4b9e-bb15-e38a397d8294",
+      "index_id": "1bb27e5a-1b44-4258-8d66-05ae9e510489",
+      "status": "ready",
+      "chunk_count": 3,
+      "text_sha256": "fcc0e8a7055d0d71d903e91fe894aa54bdaec321df59df2631431b144e4f3c39",
+      "artifact_sha256": "052652ffb357495727aad82b327c86c6c9238da64b3204fcc882942fb596e5d5",
+      "duplicate_chunks_skipped": 3,
+      "inserted": 3
+    },
+    {
+      "document_id": "9ac14d22-c95f-51d6-bccf-90872ecdb0dc",
+      "title": "国务院办公厅关于2024年部分节假日安排的通知",
+      "document_version": "sha256:07c413835443b958c5bf40b94dd47a02",
+      "index_version": "e051-index-1",
+      "source_id": "d2d38e8b-2552-5ae0-ad6e-db2ebbfdd969",
+      "job_id": "a33e29e2-0cdb-49ac-a727-f355ffe286ba",
+      "index_id": "fd219208-2775-47a9-9dcc-4d34540ff6ba",
+      "status": "ready",
+      "chunk_count": 2,
+      "text_sha256": "b50a611245f5586d1b3dd00e5e9939e2ab2fe01d9ebb6be0ba25c052a524884c",
+      "artifact_sha256": "4cbc74a91c4979e77c1ecebe46f12cace52900fb37eaa2bc9b684977fb479409",
+      "duplicate_chunks_skipped": 2,
+      "inserted": 2
+    },
+    {
+      "document_id": "187ee5be-f5a8-5cce-af27-5f1763436578",
+      "title": "国务院办公厅关于2025年部分节假日安排的通知",
+      "document_version": "sha256:2ce246e9776a9b2102e96ac9d438804a",
+      "index_version": "e051-index-1",
+      "source_id": "474ca1af-2702-55c8-8662-0f74ac2cf70e",
+      "job_id": "253b0fe9-365f-4de8-a103-febc554bfeab",
+      "index_id": "55679d43-14ed-4891-b228-244fc5627518",
+      "status": "ready",
+      "chunk_count": 2,
+      "text_sha256": "73d3c70b141293f1bc150229a5807fb587c0fa11d5621e718507d6c4f487a801",
+      "artifact_sha256": "23b90924343f69593127310727473370bd59b6dadf180bea9ef769416b153c84",
+      "duplicate_chunks_skipped": 2,
+      "inserted": 2
+    },
+    {
+      "document_id": "4ea6a5a1-6a4e-5f5e-8682-0b2d506a6e46",
+      "title": "国务院办公厅关于2026年部分节假日安排的通知",
+      "document_version": "sha256:0b9d4b2b07360bc0915ff929709a738f",
+      "index_version": "e051-index-1",
+      "source_id": "ac3be639-f4dd-565e-b0e1-93eacb8dbbb3",
+      "job_id": "fee98598-6454-4d3d-aa28-7dd38a9d9110",
+      "index_id": "2f9a16ea-dce0-4483-b535-57794747fda0",
+      "status": "ready",
+      "chunk_count": 2,
+      "text_sha256": "d9256100c222044e346d52d2a1523f54bd71959c482825057b95907478f7a466",
+      "artifact_sha256": "f56f61093c19113d8f97e0c5b505de0af8e7b2f25d5bb3194ba849d71c38b3f6",
+      "duplicate_chunks_skipped": 2,
+      "inserted": 2
+    },
+    {
+      "document_id": "8965d8e0-4c1c-5d5f-b2ef-716d076b6d12",
+      "title": "暑期黄山旅游报道",
+      "document_version": "sha256:42292084bcd8561b9782bbb5b4a4d494",
+      "index_version": "e051-index-1",
+      "source_id": "1f1e4044-94a7-5436-a7c3-b9a3a861735d",
+      "job_id": "9d28c9a9-6966-4abb-b91d-f4c31467fb6a",
+      "index_id": "ece50aee-7b36-48fb-a3b2-0177ca031515",
+      "status": "ready",
+      "chunk_count": 21,
+      "text_sha256": "fe7bc0e04a9f18b8563688b7e91ce70ac9a2fb48eb6ab899b0fc8415d7a655b1",
+      "artifact_sha256": "4ce6865272662f440a9c3a6c2fae93a980da446784c6a1fe9dc36cb4ebc61456",
+      "duplicate_chunks_skipped": 21,
+      "inserted": 21
+    }
+  ],
+  "checks": {
+    "expired_lease_rejected": true,
+    "recovery_new_lease_completed": true,
+    "restart_load": "passed",
+    "all_16_indexed": true,
+    "citations_keep_c_ids": true,
+    "all_documents_loaded_through_verified_c_refs": true
+  },
+  "windows": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.13",
+  "c_module_origin_relative_to_e": "artifacts/c-0.2.0a2/runtime/data_foundation/__init__.py",
+  "acceptance_run_relative_to_e": "artifacts/knowledge-acceptance-dc0434c2",
+  "business_tables": 31,
+  "artifact_staging_mode": "C.persist_file",
+  "c_runtime_mode": "unmodified",
+  "import": {
+    "dataset_id": "anhui-public-supplement-2026-10-12",
+    "status": "imported",
+    "counts": {
+      "processed": 83,
+      "imported": 83,
+      "revised": 0,
+      "skipped": 0,
+      "quarantined": 0
+    },
+    "database_dialect": "sqlite"
+  },
+  "question_checks": [
+    {
+      "question": "2025年春节黄山运营时间",
+      "status": "answered",
+      "citation_ids": [
+        "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+        "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+        "6f3bd8f1-fe1b-5982-9154-d21e03305c69"
+      ],
+      "citations": [
+        {
+          "type": "document",
+          "id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+          "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+          "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+          "date": "2025-01-24T10:21:00+08:00",
+          "chunk_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095-0"
+        },
+        {
+          "type": "document",
+          "id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+          "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+          "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+          "date": "2025-01-24T10:21:00+08:00",
+          "chunk_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095-1"
+        },
+        {
+          "type": "document",
+          "id": "6f3bd8f1-fe1b-5982-9154-d21e03305c69",
+          "title": "轨道上的文旅协奏曲",
+          "url": "https://szb.ahnews.com.cn/szb/content/202507/21/c1096188.html",
+          "date": "2025-07-21T00:00:00+08:00",
+          "chunk_id": "6f3bd8f1-fe1b-5982-9154-d21e03305c69-6"
+        }
+      ],
+      "answer_preview": "资料时效与适用范围提示：历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。；历史资料，仅适用于注明周期；公告正文全文；不代表当前运营规定。；历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。；历史资料，仅适用于注明周期；公告正文全文；不代表当前运营规定。；历史",
+      "limitations": [
+        "This answer is based only on retrieved authorized documents.",
+        "历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。",
+        "历史资料，仅适用于注明周期；公告正文全文；不代表当前运营规定。",
+        "历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。",
+        "历史资料，仅适用于注明周期；公告正文全文；不代表当前运营规定。",
+        "历史资料：轨道上的文旅协奏曲，适用期已结束，不能作为当前运营事实。",
+        "历史统计/报道资料，仅适用于注明的统计周期；不代表当前运营规定。"
+      ]
+    },
+    {
+      "question": "2026年五一出游提示",
+      "status": "answered",
+      "citation_ids": [
+        "c83be9de-8af1-5a26-aae8-8f30dd8eca09",
+        "5461c502-9273-54c3-a430-80918c414369",
+        "5461c502-9273-54c3-a430-80918c414369"
+      ],
+      "citations": [
+        {
+          "type": "document",
+          "id": "c83be9de-8af1-5a26-aae8-8f30dd8eca09",
+          "title": "2025年年度报告",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-18/1225118314.PDF",
+          "date": "2026-04-18T00:00:00+08:00",
+          "chunk_id": "c83be9de-8af1-5a26-aae8-8f30dd8eca09-1"
+        },
+        {
+          "type": "document",
+          "id": "5461c502-9273-54c3-a430-80918c414369",
+          "title": "五一假期出游温馨提示",
+          "url": "https://www.huangshan.gov.cn/zwgk/public/6615714/12043498.html",
+          "date": "2026-04-22T09:53:00+08:00",
+          "chunk_id": "5461c502-9273-54c3-a430-80918c414369-0"
+        },
+        {
+          "type": "document",
+          "id": "5461c502-9273-54c3-a430-80918c414369",
+          "title": "五一假期出游温馨提示",
+          "url": "https://www.huangshan.gov.cn/zwgk/public/6615714/12043498.html",
+          "date": "2026-04-22T09:53:00+08:00",
+          "chunk_id": "5461c502-9273-54c3-a430-80918c414369-1"
+        }
+      ],
+      "answer_preview": "资料时效与适用范围提示：历史资料：2025年年度报告，适用期已结束，不能作为当前运营事实。；历史统计/报道资料，仅适用于注明的统计周期；不代表当前运营规定。；历史资料：五一假期出游温馨提示，适用期已结束，不能作为当前运营事实。；历史资料，仅适用于注明周期；提示正文全文；不代表当前运营规定。；历史资料：五一假期出游温馨提示，适用期已结束，不能作为当前运营事实。；历史资料，仅适用于注明周期；提示正文全",
+      "limitations": [
+        "This answer is based only on retrieved authorized documents.",
+        "历史资料：2025年年度报告，适用期已结束，不能作为当前运营事实。",
+        "历史统计/报道资料，仅适用于注明的统计周期；不代表当前运营规定。",
+        "历史资料：五一假期出游温馨提示，适用期已结束，不能作为当前运营事实。",
+        "历史资料，仅适用于注明周期；提示正文全文；不代表当前运营规定。",
+        "历史资料：五一假期出游温馨提示，适用期已结束，不能作为当前运营事实。",
+        "历史资料，仅适用于注明周期；提示正文全文；不代表当前运营规定。"
+      ]
+    },
+    {
+      "question": "2024年部分景点关闭公告",
+      "status": "answered",
+      "citation_ids": [
+        "e0fd0916-7b2a-5b6f-8b11-0c2c56e7c0bf",
+        "c83be9de-8af1-5a26-aae8-8f30dd8eca09",
+        "c83be9de-8af1-5a26-aae8-8f30dd8eca09"
+      ],
+      "citations": [
+        {
+          "type": "document",
+          "id": "e0fd0916-7b2a-5b6f-8b11-0c2c56e7c0bf",
+          "title": "关于关闭黄山风景区部分景点的公告",
+          "url": "https://www.huangshan.gov.cn/zwgk/public/6615714/11591595.html",
+          "date": "2024-07-25T17:44:00+08:00",
+          "chunk_id": "e0fd0916-7b2a-5b6f-8b11-0c2c56e7c0bf-0"
+        },
+        {
+          "type": "document",
+          "id": "c83be9de-8af1-5a26-aae8-8f30dd8eca09",
+          "title": "2025年年度报告",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-18/1225118314.PDF",
+          "date": "2026-04-18T00:00:00+08:00",
+          "chunk_id": "c83be9de-8af1-5a26-aae8-8f30dd8eca09-129"
+        },
+        {
+          "type": "document",
+          "id": "c83be9de-8af1-5a26-aae8-8f30dd8eca09",
+          "title": "2025年年度报告",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-18/1225118314.PDF",
+          "date": "2026-04-18T00:00:00+08:00",
+          "chunk_id": "c83be9de-8af1-5a26-aae8-8f30dd8eca09-28"
+        }
+      ],
+      "answer_preview": "资料时效与适用范围提示：历史资料：关于关闭黄山风景区部分景点的公告，适用期已结束，不能作为当前运营事实。；历史资料，仅适用于注明周期；公告正文全文；不代表当前运营规定。；历史资料：2025年年度报告，适用期已结束，不能作为当前运营事实。；历史统计/报道资料，仅适用于注明的统计周期；不代表当前运营规定。；历史资料：2025年年度报告，适用期已结束，不能作为当前运营事实。；历史统计/报道资料，仅适用于",
+      "limitations": [
+        "This answer is based only on retrieved authorized documents.",
+        "历史资料：关于关闭黄山风景区部分景点的公告，适用期已结束，不能作为当前运营事实。",
+        "历史资料，仅适用于注明周期；公告正文全文；不代表当前运营规定。",
+        "历史资料：2025年年度报告，适用期已结束，不能作为当前运营事实。",
+        "历史统计/报道资料，仅适用于注明的统计周期；不代表当前运营规定。",
+        "历史资料：2025年年度报告，适用期已结束，不能作为当前运营事实。",
+        "历史统计/报道资料，仅适用于注明的统计周期；不代表当前运营规定。"
+      ]
+    }
+  ],
+  "artifact_failure_checks": {
+    "damaged_file_blocks_answer_without_stale_fallback": true,
+    "damage_does_not_delete_committed_chunks": true,
+    "missing_file_blocks_answer": true,
+    "bad_new_digest_rejected": true,
+    "bad_publish_keeps_old_active_version_and_job_uncompleted": true,
+    "activation_and_job_completion_rollback_together": true,
+    "completion_failure_rolls_back_activation": true,
+    "old_attempt_cannot_publish_after_retry": true,
+    "new_attempt_reuses_chunks_and_publishes": true,
+    "valid_hash_but_wrong_chunks_blocks_answer": true,
+    "valid_hash_but_wrong_locator_blocks_answer": true,
+    "valid_hash_but_wrong_document_version_blocks_answer": true,
+    "valid_hash_but_wrong_index_version_blocks_answer": true,
+    "repaired_version_loads": true
+  },
+  "status": "passed"
+}
