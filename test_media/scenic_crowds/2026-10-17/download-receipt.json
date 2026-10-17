@@ -1,0 +1,97 @@
+{
+  "created_at": "2026-10-17T12:49:56.518253+00:00",
+  "archive": "景区人群计数测试视频-5段-2026-10-17.zip",
+  "archive_byte_size": 54267356,
+  "archive_sha256": "f1785c5f7d1e4a393382d99f4b145d4e0c699deb7f0087dc7e2cef1bf54dbaff",
+  "video_count": 5,
+  "distinct_source_video_count": 5,
+  "anhui_video_count": 1,
+  "total_MP4_bytes": 53840324,
+  "all_MP4_full_decode_verified": true,
+  "all_MP4_sha256_verified": true,
+  "archive_crc_and_file_hashes_verified": true,
+  "extracted_archive_verifier_passed": true,
+  "original_files_preserved_locally": true,
+  "original_Huangshan_SHA1_matches_Commons": true,
+  "model_inference_executed": false,
+  "manual_labels_available": false,
+  "business_database_touched": false,
+  "crawler_changed": false,
+  "files": [
+    {
+      "path": "README.md",
+      "byte_size": 5019,
+      "sha256": "ae0dd4a4c5f6922660ca9f415c93ee713bd4a2e9b74e1bbc01143406b04e3cb6"
+    },
+    {
+      "path": "manifest.json",
+      "byte_size": 8780,
+      "sha256": "c7a72012705b85f8e31dbfa14a19e76388b9fe94a2841766f2a052efd4ff5254"
+    },
+    {
+      "path": "test_inputs.json",
+      "byte_size": 998,
+      "sha256": "fd707c409018c1788a8e31d6bcf6fe4393b3c9ab6e313dd3e5b19e60629e61e6"
+    },
+    {
+      "path": "verify_media.py",
+      "byte_size": 964,
+      "sha256": "45942d6835998a3be1b69cc091c1114fb1d06ce0bb9d6c176f96b0aa25e6c77f"
+    },
+    {
+      "path": "sources/selected-source-records.json",
+      "byte_size": 3112,
+      "sha256": "02d207665ee2d6608d15856e1c236f311eb4ac8c9ebb68ba54560b8dded4113a"
+    },
+    {
+      "path": "videos/01_安徽黄山_雪景与游客.mp4",
+      "byte_size": 10076609,
+      "sha256": "8d5dd3b00ef538239cf094bba8141df0d7149696512e2723fabd73f7cac051e8"
+    },
+    {
+      "path": "videos/02_北京长城_游客通道.mp4",
+      "byte_size": 4857501,
+      "sha256": "31aa540bf7e292622ffe8c247642de70af6402b4a2b203ee68eb5a1d19e95fc0"
+    },
+    {
+      "path": "videos/03_北京故宫_院落游客.mp4",
+      "byte_size": 7099004,
+      "sha256": "5d4e996bf97867cecbf39be7182c1fbdeadfdc1b36831235df04abaf4eeca207"
+    },
+    {
+      "path": "videos/04_北京天坛_游客台阶.mp4",
+      "byte_size": 5518706,
+      "sha256": "6c0a9e07e65e63a3737125dce8c9b1a53c079d3527b88e2b57bf6706bd837470"
+    },
+    {
+      "path": "videos/05_上海传统旅游街区_游客人群.mp4",
+      "byte_size": 26288504,
+      "sha256": "e914e8c7e1c0c077326e1b8b5cbc3dbd279f851f94c5fc4e4095e8d2f217f328"
+    },
+    {
+      "path": "previews/01_安徽黄山_雪景与游客.jpg",
+      "byte_size": 183911,
+      "sha256": "205fc869746bc365c7831fb3a035c2b1004cffd8d1683c104db510cd0e0024e6"
+    },
+    {
+      "path": "previews/02_北京长城_游客通道.jpg",
+      "byte_size": 66000,
+      "sha256": "24349df5ada0e2f48b27afd9e80c3159bbc338c44fb2fa3a29b44cd747645942"
+    },
+    {
+      "path": "previews/03_北京故宫_院落游客.jpg",
+      "byte_size": 61390,
+      "sha256": "fe26e5e3e7fb743f68604a6e00c37ce88f423cf47bcdf5571c4ebe896256809e"
+    },
+    {
+      "path": "previews/04_北京天坛_游客台阶.jpg",
+      "byte_size": 55478,
+      "sha256": "a75dbe666dc4ec5085a98ed3040fa2acd7b00682a08c5051ffb6a6f326d72a35"
+    },
+    {
+      "path": "previews/05_上海传统旅游街区_游客人群.jpg",
+      "byte_size": 87262,
+      "sha256": "7ba4ba1cfa063c677f553b177e3776e812ce346c44c4ac9644aab5953e182fc2"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+videos/
+originals/
+previews/
+*.zip
+sources/commons-huangshan-search.json
+sources/search-*.json
+sources/*.html

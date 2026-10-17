@@ -1,0 +1,35 @@
+{
+  "base_directory": ".",
+  "videos": [
+    {
+      "id": "huangshan_snow",
+      "file": "videos/01_安徽黄山_雪景与游客.mp4",
+      "frame_time_basis": "relative_video_seconds",
+      "manual_validation": null
+    },
+    {
+      "id": "great_wall",
+      "file": "videos/02_北京长城_游客通道.mp4",
+      "frame_time_basis": "relative_video_seconds",
+      "manual_validation": null
+    },
+    {
+      "id": "forbidden_city_courtyard",
+      "file": "videos/03_北京故宫_院落游客.mp4",
+      "frame_time_basis": "relative_video_seconds",
+      "manual_validation": null
+    },
+    {
+      "id": "temple_of_heaven",
+      "file": "videos/04_北京天坛_游客台阶.mp4",
+      "frame_time_basis": "relative_video_seconds",
+      "manual_validation": null
+    },
+    {
+      "id": "shanghai_tourist_market",
+      "file": "videos/05_上海传统旅游街区_游客人群.mp4",
+      "frame_time_basis": "relative_video_seconds",
+      "manual_validation": null
+    }
+  ]
+}

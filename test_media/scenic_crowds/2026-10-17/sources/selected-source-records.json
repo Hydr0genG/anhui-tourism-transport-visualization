@@ -1,0 +1,61 @@
+{
+  "retrieved_at": "2026-10-17T12:49:23.169182+00:00",
+  "sources": [
+    {
+      "id": "huangshan_snow",
+      "author": "中国新闻网",
+      "source_page": "https://commons.wikimedia.org/wiki/File:2019年1月1日_安徽黄山漫山银装宛如仙境.webm",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/2019%E5%B9%B41%E6%9C%881%E6%97%A5_%E5%AE%89%E5%BE%BD%E9%BB%84%E5%B1%B1%E6%BC%AB%E5%B1%B1%E9%93%B6%E8%A3%85%E5%AE%9B%E5%A6%82%E4%BB%99%E5%A2%83.webm",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "source_page_date": "2019-01-01",
+      "original_sha256": "fd92045d871ee2245b67b6260e6b65a70629e9d3d2ada12393a16d385bbadb0c",
+      "original_bytes": 20235560
+    },
+    {
+      "id": "great_wall",
+      "author": "8K（Pexels页面署名）",
+      "source_page": "https://www.pexels.com/video/people-in-the-great-wall-of-china-2881972/",
+      "download_url": "https://videos.pexels.com/video-files/2881972/2881972-uhd_3840_2160_24fps.mp4",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "source_page_date": "2019-09-02",
+      "original_sha256": "525db0991a43536da8ec760023487da04559c65c6126fced7d8fb0e4c676ce4b",
+      "original_bytes": 29677749
+    },
+    {
+      "id": "forbidden_city_courtyard",
+      "author": "8K（Pexels页面署名）",
+      "source_page": "https://www.pexels.com/video/people-walking-a-courtyard-of-a-palace-in-china-2953628/",
+      "download_url": "https://videos.pexels.com/video-files/2953628/2953628-uhd_4096_2160_24fps.mp4",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "source_page_date": "2019-09-17",
+      "original_sha256": "d2594bbcee46a7d35ef9f39f060284c0be01ebceabcc50de14f5290806026921",
+      "original_bytes": 47131162
+    },
+    {
+      "id": "temple_of_heaven",
+      "author": "8K（Pexels页面署名）",
+      "source_page": "https://www.pexels.com/video/slow-motion-footage-of-people-traffic-in-a-temple-2894885/",
+      "download_url": "https://videos.pexels.com/video-files/2894885/2894885-uhd_3840_2160_24fps.mp4",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "source_page_date": "2019-09-04",
+      "original_sha256": "253d6f10cb0fc95a6e98f4976a28a7d3e36ef2dacc82bbdc054cc73795abb67f",
+      "original_bytes": 28424824
+    },
+    {
+      "id": "shanghai_tourist_market",
+      "author": "Iyan Darmawan",
+      "source_page": "https://www.pexels.com/video/crowd-of-tourists-walking-5234040/",
+      "download_url": "https://videos.pexels.com/video-files/5234040/5234040-hd_1920_1080_30fps.mp4",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "source_page_date": "2020-08-31",
+      "original_sha256": "0197dabc1e873e5c8f4784e3f7aa2123595c6adb1058e610ad750229a594ba43",
+      "original_bytes": 24094655
+    }
+  ],
+  "licensing_basis": "Reviewed public license stated by the source platform/file page; no site-specific private camera permission inferred"
+}
