@@ -1,0 +1,210 @@
+{
+  "archive": "C-E061-MySQL-mainline-supplement-2026-10-17.zip",
+  "sha256": "cccce9d9d56f67462bffd11325c7633bcf9d3298666e0b29b85d82fb35b6116f",
+  "byte_size": 174604,
+  "manifest_files": 37,
+  "created_at": "2026-10-17T12:01:01.458835+00:00",
+  "verification": {
+    "official_E061_wheel_sha256": "afd79097a7199ef5b8d03ebdc39bf42e79b18b16cf5e59333f274f6a1ea3a201",
+    "D_original_mainline": "16/17; 30 remains 500",
+    "D_candidate_mainline": "17/17; disposable copy only",
+    "knowledge_MySQL_checks": 30,
+    "C_MySQL_tests": 128,
+    "reference_SQLite_tests": 8,
+    "E_tests_passed": 117,
+    "E_tests_skipped": 7,
+    "portable_tests": 15,
+    "C_original_releases_unchanged": true,
+    "D_host_receiving_verified": false,
+    "real_video_verified": false,
+    "MySQL_shutdown_confirmed": true,
+    "crawler_touched": false
+  },
+  "files": [
+    {
+      "path": "data_foundation/acceptance/C-DE-receiving-followup-2026-10-17/registered-csv-input/README.md",
+      "byte_size": 2084,
+      "sha256": "a0ef062eb78fdda7533aab5f65e9545f9445cd1b7d5c8ef9eab54435a28067fd"
+    },
+    {
+      "path": "data_foundation/acceptance/C-DE-receiving-followup-2026-10-17/registered-csv-input/hefei-airport-2025-01.csv",
+      "byte_size": 502,
+      "sha256": "cfc6aab88a805ba098dbb99a3e5cc2b63af9575df551b7c36b5421ce89fab798"
+    },
+    {
+      "path": "data_foundation/acceptance/C-DE-receiving-followup-2026-10-17/registered-csv-input/input-manifest.json",
+      "byte_size": 1287,
+      "sha256": "c9766d3dcf2edf6f785ed5dd08fa8708e3b884ef2607cf8657fa7b01763aec58"
+    },
+    {
+      "path": "data_foundation/acceptance/C-DE-receiving-followup-2026-10-17/registered-csv-input/official-2025-01.pdf",
+      "byte_size": 73289,
+      "sha256": "c7302d6b9c545c971d194f84e2d7d063b7e7d7c4bcb0decb5dd607e589846fd5"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/.gitignore",
+      "byte_size": 8,
+      "sha256": "6427552aa64ec1a9576936e7c6c0ff276c01c3275bbbc7aaf4f4acab01fdb611"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/C-E061-mysql-tests.xml",
+      "byte_size": 7303,
+      "sha256": "70ed2f52af345e67d7dfdbb2ddc03e9c65cd71e23217f3285da76d2b8e52bab7"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/D-source-verification.json",
+      "byte_size": 11967,
+      "sha256": "fae0150a35b2d1f3be723442114d625afe3f0e4e89a030ed37d12761a2a59bc8"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/E061-installed-tests.xml",
+      "byte_size": 17472,
+      "sha256": "4713de78190c11c41f04c879ea98066d627cbe04b1e620e74e6dc21735e87b2d"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/README.md",
+      "byte_size": 2896,
+      "sha256": "2ee3dd425d38c5c8cbdaa88b262a97b8bb346a6539ee2b5975f871a15162dc6a"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/commands.json",
+      "byte_size": 2003,
+      "sha256": "6fd26178523c79099bf251ba1c20c588faf6d5fa6e97fe314457096dc5022d0d"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/ingestion-candidate/report.json",
+      "byte_size": 6284,
+      "sha256": "7dd463bc4dc08f62fac6574bed07d39f6315be24a6c00795e647edb9db3456a8"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/ingestion-original/report.json",
+      "byte_size": 5934,
+      "sha256": "f4b07b08b57012122038c823e33684c371cc52dc1c9d10d459e9a56a349dd019"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/knowledge-final/report.json",
+      "byte_size": 16673,
+      "sha256": "68df8597137687a1d99a870856765c93650b7d303d879634348f135917c018f4"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/knowledge/report.json",
+      "byte_size": 16559,
+      "sha256": "3c6fc2d74c2389f3a63ceb0b2c6d9cee144f2b9c7543632233aec1941702fc5a"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/material-availability.json",
+      "byte_size": 635,
+      "sha256": "049e8460d8a6ddaf320eb6ee43168990c131ff90befa5e5bdfe8aa3471c0ac26"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/mysql-shutdown.json",
+      "byte_size": 197,
+      "sha256": "707d66540d0434f35348f3f582d536c2e6c819eab8886d666d84e71b9b1cdd12"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/portable-tests.xml",
+      "byte_size": 2782,
+      "sha256": "ffc6b2e6224337c853792a6c279dfa19eda46064cae83bcf2b98d5629f19660e"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/portable-verification.json",
+      "byte_size": 362,
+      "sha256": "88481266d94e9d4613bce12258a55cd3a01bdb0a835785809aed3d5bee9cf4c8"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/queue-mysql-tests.xml",
+      "byte_size": 9881,
+      "sha256": "1a2d1c035e7825fc4f2899f42e67a71038764b5265f332ef20be44234a62a13f"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/runtime-versions.json",
+      "byte_size": 515,
+      "sha256": "c937f1bad27914f3fe7436e7588bd2eac0aa755e6fa430c10da9a675cf8ebfc8"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/test-counts.json",
+      "byte_size": 1703,
+      "sha256": "c95699b160ba7b899b177a23802824f6a28fc9e02618c9c97851bbc905b9eada"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/upstream-receipt.json",
+      "byte_size": 402,
+      "sha256": "a918395ce47c587017a51da9e0353022b2cb106250c541adfc819aa96c838297"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/upstream/E061-original-receipt.json",
+      "byte_size": 1167,
+      "sha256": "9cb74020adfe34951d1869b06455cdb984dbe14fd45e75e578c6f6c1aeb42c7d"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/upstream/shumei_intelligent_analysis-0.6.1-py3-none-any.whl",
+      "byte_size": 40210,
+      "sha256": "afd79097a7199ef5b8d03ebdc39bf42e79b18b16cf5e59333f274f6a1ea3a201"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/upstream/致C-021a2接收回执-2026-10-17.md",
+      "byte_size": 4091,
+      "sha256": "7d6c39d79164d1f0b419b57852f548059d53743cbfde405a77b98f23181a7d38"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/upstream/致C-当前接收结论与下一步协作-2026-10-17.md",
+      "byte_size": 5810,
+      "sha256": "3585e1d5c2f3b36e9ed714384303191614b8f1dbc91f5e0b9ceb4294f8d0c2cf"
+    },
+    {
+      "path": "data_foundation/acceptance/C-E061-mainline-2026-10-17/worker-reference-sqlite.xml",
+      "byte_size": 1379,
+      "sha256": "6b8ccaa0899bc33f107cd0f5161e1ba885b86f2037b415468668869cb97db3c8"
+    },
+    {
+      "path": "data_foundation/coordination/2026-10-17-mainline/D-30-job-readback.patch",
+      "byte_size": 1218,
+      "sha256": "7f6a25781faa998bb64e1a1a6cf20f2cbd210d16e38affc8ee4f851821bb8c49"
+    },
+    {
+      "path": "data_foundation/coordination/2026-10-17-mainline/D-30-original-jobs.py",
+      "byte_size": 4797,
+      "sha256": "f3eb292bb9f719872f3199fcdbf4383a5957c9ef2007009465bf1a14c761460b"
+    },
+    {
+      "path": "data_foundation/coordination/2026-10-17-mainline/README.md",
+      "byte_size": 3096,
+      "sha256": "e0cb15823c5e50b7b66322363eef38625c1a0dc4a0dbd2fb7e5aeed33a7f232e"
+    },
+    {
+      "path": "data_foundation/coordination/2026-10-17-mainline/test_D_job_datetime_patch.py",
+      "byte_size": 1513,
+      "sha256": "e9dd2ec66ef5c7785216e69d01b8a8d9a35db9bed9a6575fa4eba0f9b378e282"
+    },
+    {
+      "path": "data_foundation/examples/c_worker_reference.py",
+      "byte_size": 4296,
+      "sha256": "44580b998c6e6c1e3df45f4ad7f834918a713b72b65774fc0bb19b12afde3b3b"
+    },
+    {
+      "path": "data_foundation/examples/configure_registered_csv_rehearsal.py",
+      "byte_size": 5018,
+      "sha256": "e9f6b8fe2326371efcc51d08cb279ca99435135037c34314393bbb4361c08643"
+    },
+    {
+      "path": "data_foundation/examples/verify_cde_knowledge_mysql.py",
+      "byte_size": 15470,
+      "sha256": "5abe4e0326bd8f4f99ffa3897b8335fe69f19bd0c685a791f247cf8106baa514"
+    },
+    {
+      "path": "data_foundation/examples/verify_cde_mainline_http.py",
+      "byte_size": 13918,
+      "sha256": "bf4af581dcbbcd967aed84bd8ee98c1766a5728d8abf75bce6ced5367c0622e3"
+    },
+    {
+      "path": "data_foundation/tests/test_worker_reference.py",
+      "byte_size": 7621,
+      "sha256": "66670c910e9e7f06b374e23eff386e7b52d2f190af1daf50dd21dee68d147108"
+    },
+    {
+      "path": "致D和E-E061接收与MySQL主线续验-2026-10-17.md",
+      "byte_size": 5919,
+      "sha256": "b065830f8f1a8da5d14f3b0c586cfed77bcd0cb289f72a7d339642b3c5737eaf"
+    }
+  ]
+}

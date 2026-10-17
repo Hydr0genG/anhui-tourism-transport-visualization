@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "scope": "old_C_full_archive_plus_current_supplement_in_new_directory",
+  "test_count": 15,
+  "tests": "8 E061/C reference + 7 D patch regressions",
+  "C_MAINLINE_DATABASE_URL_present": false,
+  "COVERAGE_MYSQL_ADMIN_URL_present": false,
+  "Python_isolated_mode": true,
+  "official_E_version": "0.6.1",
+  "business_DB_touched": false
+}

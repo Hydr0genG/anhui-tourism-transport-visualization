@@ -1,0 +1,13 @@
+{
+  "status": "awaiting_verifiable_materials_and_user_reply",
+  "workspace_video_files_found": 0,
+  "workspace_label_files_found": 0,
+  "search_scope": "project working files, including ignored files; crawler, .tmp, .git, virtual environments and node_modules excluded",
+  "other_devices_and_unprovided_directories_inspected": false,
+  "business_database_queried": false,
+  "user_authorization_reply_received": false,
+  "real_video_accuracy_verified": false,
+  "MAE": null,
+  "real_continuous_forecast_verified": false,
+  "sources": "local filename inventory and E upstream readiness report; no inferred authorization or timestamps"
+}

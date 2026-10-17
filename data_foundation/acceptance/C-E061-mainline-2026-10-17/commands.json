@@ -1,0 +1,19 @@
+{
+  "runtime": "C0.2.1a2/E0.6.1 official wheels; versions in runtime-versions.json",
+  "environment": {
+    "C_MAINLINE_DATABASE_URL": "new dedicated empty cde_readiness_*_test schema only; actual URL not included",
+    "COVERAGE_MYSQL_ADMIN_URL": "empty c018_schema_anchor_test on the same dedicated temporary instance only"
+  },
+  "commands": [
+    "python -I data_foundation/examples/verify_cde_mainline_http.py --d-root <original-D-24eec2d> --d-commit 24eec2d33d6186bacdaafe08e33808c28dcdeb5e --e-wheel <official-E061-wheel> --output <new-original-output> --require-socket-only-instance",
+    "python -I data_foundation/examples/verify_cde_mainline_http.py --d-root <disposable-candidate> --d-commit 24eec2d33d6186bacdaafe08e33808c28dcdeb5e --e-wheel <official-E061-wheel> --output <new-candidate-output> --candidate-patch data_foundation/coordination/2026-10-17-mainline/D-30-job-readback.patch --require-socket-only-instance",
+    "python -I data_foundation/examples/verify_cde_knowledge_mysql.py --d-root <original-D-24eec2d> --d-commit 24eec2d33d6186bacdaafe08e33808c28dcdeb5e --e-wheel <official-E061-wheel> --output <new-knowledge-output> --require-socket-only-instance",
+    "python -I -m pytest <E-938e464>/tests --import-mode=importlib -q --junitxml=<E061-installed-tests.xml>",
+    "python -I -m pytest data_foundation/tests/test_worker_reference.py -q --junitxml=<worker-reference-sqlite.xml>",
+    "COVERAGE_MYSQL_ADMIN_URL set: python -I -m pytest data_foundation/tests/test_worker_reference.py data_foundation/tests/test_visible_people.py data_foundation/tests/test_document_invalidation.py -q --junitxml=<C-E061-mysql-tests.xml>",
+    "COVERAGE_MYSQL_ADMIN_URL set: python -I -m pytest data_foundation/tests/test_job_claim_filters.py data_foundation/tests/test_job_recovery.py data_foundation/tests/test_ingestion_jobs.py -q --junitxml=<queue-mysql-tests.xml>"
+  ],
+  "all_schema_names_new_per_run": true,
+  "API_listener_started": false,
+  "test_instance_shutdown_confirmed": true
+}

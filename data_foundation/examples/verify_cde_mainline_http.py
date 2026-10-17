@@ -54,6 +54,7 @@ def main():
     parser.add_argument("--d-root", type=Path, required=True)
     parser.add_argument("--d-commit", required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--e-wheel", type=Path, help="Official E 0.6.0 or 0.6.1 wheel matching the installed runtime")
     parser.add_argument("--candidate-patch", type=Path, help="Only for a disposable D candidate copy; never label it as unmodified")
     parser.add_argument("--require-socket-only-instance", action="store_true", help="C local acceptance additionally requires MySQL skip_networking")
     args = parser.parse_args()
@@ -84,10 +85,10 @@ def main():
         capture_output=True, text=True, env=os.environ.copy())
     assert command.returncode == 0, "Isolated migration failed"
     packages = {"C": package(root / "release/anhui_data_foundation-0.2.1a2-py3-none-any.whl", "data_foundation"),
-        "E": package(root / "acceptance/C-DE-readiness-2026-10-16/upstream-e060/shumei_intelligent_analysis-0.6.0-py3-none-any.whl", "intelligent_analysis")}
+        "E": package(args.e_wheel or root / "acceptance/C-DE-readiness-2026-10-16/upstream-e060/shumei_intelligent_analysis-0.6.0-py3-none-any.whl", "intelligent_analysis")}
     packages["C"]["version"] = importlib.metadata.version("anhui-data-foundation")
     packages["E"]["version"] = importlib.metadata.version("shumei-intelligent-analysis")
-    assert packages["C"]["version"] == "0.2.1a2" and packages["E"]["version"] == "0.6.0"
+    assert packages["C"]["version"] == "0.2.1a2" and packages["E"]["version"] in {"0.6.0", "0.6.1"}
     sys.path.insert(0, str(args.d_root.resolve()))
     from app.core.security import PasswordService
     from fastapi.testclient import TestClient

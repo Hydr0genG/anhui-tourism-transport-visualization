@@ -1,0 +1,333 @@
+{
+  "scope": "C_run_unmodified_D_ASGI_knowledge_worker_on_MySQL_not_D_host_receiving",
+  "D_commit": "24eec2d33d6186bacdaafe08e33808c28dcdeb5e",
+  "packages": {
+    "C": {
+      "wheel_sha256": "17c2c60045d4153507e66282a3f35d1583ed81332fb29654c8e0b86882c91c5b",
+      "matching_files": 19,
+      "version": "0.2.1a2"
+    },
+    "E": {
+      "wheel_sha256": "afd79097a7199ef5b8d03ebdc39bf42e79b18b16cf5e59333f274f6a1ea3a201",
+      "matching_files": 31,
+      "version": "0.6.1"
+    }
+  },
+  "checks": [
+    {
+      "name": "anonymous_401",
+      "status": "passed"
+    },
+    {
+      "name": "20_real_notice_upload_enqueues",
+      "status": "passed"
+    },
+    {
+      "name": "E061_source_and_index_versions_independent",
+      "status": "passed"
+    },
+    {
+      "name": "C_verified_original_bytes",
+      "status": "passed"
+    },
+    {
+      "name": "D_worker_real_MySQL_index",
+      "status": "passed"
+    },
+    {
+      "name": "19_strict_loader_real_citations",
+      "status": "passed"
+    },
+    {
+      "name": "22_reindex_accepted",
+      "status": "passed"
+    },
+    {
+      "name": "22_parent_and_child_processed",
+      "status": "passed"
+    },
+    {
+      "name": "22_rebuilt_answer_available",
+      "status": "passed"
+    },
+    {
+      "name": "D_activation_and_completion_roll_back_together",
+      "status": "passed"
+    },
+    {
+      "name": "old_lease_cannot_publish_after_retry",
+      "status": "passed"
+    },
+    {
+      "name": "new_attempt_publishes_successfully",
+      "status": "passed"
+    },
+    {
+      "name": "fresh_process_strict_loader_recovers_committed_MySQL_index",
+      "status": "passed"
+    },
+    {
+      "name": "damaged_artifact_503_no_stale_answer",
+      "status": "passed"
+    },
+    {
+      "name": "repaired_artifact_restores_answer",
+      "status": "passed"
+    },
+    {
+      "name": "correct_hash_wrong_text_503",
+      "status": "passed"
+    },
+    {
+      "name": "restore_after_text",
+      "status": "passed"
+    },
+    {
+      "name": "correct_hash_wrong_locator_503",
+      "status": "passed"
+    },
+    {
+      "name": "restore_after_locator",
+      "status": "passed"
+    },
+    {
+      "name": "correct_hash_wrong_document_version_503",
+      "status": "passed"
+    },
+    {
+      "name": "restore_after_document_version",
+      "status": "passed"
+    },
+    {
+      "name": "correct_hash_wrong_index_version_503",
+      "status": "passed"
+    },
+    {
+      "name": "restore_after_index_version",
+      "status": "passed"
+    },
+    {
+      "name": "correct_hash_wrong_metadata_503",
+      "status": "passed"
+    },
+    {
+      "name": "restore_after_metadata",
+      "status": "passed"
+    },
+    {
+      "name": "client_tool_injection_400",
+      "status": "passed"
+    },
+    {
+      "name": "missing_csrf_403",
+      "status": "passed"
+    },
+    {
+      "name": "logout_revokes_session",
+      "status": "passed"
+    },
+    {
+      "name": "HTTP_hides_internal_fields",
+      "status": "passed"
+    },
+    {
+      "name": "D_snapshot_unchanged",
+      "status": "passed"
+    }
+  ],
+  "http_samples": [
+    {
+      "name": "19_real_historical_knowledge",
+      "status_code": 200,
+      "body": {
+        "data": {
+          "conversation_id": "18b9077c-373e-4a62-96ca-fdcfc9d764b7",
+          "answer": "资料时效与适用范围提示：历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。；历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。；历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。\n根据带日期的来源资料，可参考以下信息：\n- 标题：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告\n来源：黄山风景区管理委员会\n网址：https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html\n发布时间：2025-01-24T10:21:00+08:00\n采录范围：公告正文全文\n- 尊敬的游客朋友：\n非遗贺新春——就在黄山过大年！为提高旅游舒适度与体验感，方便您合理安排行程，现将黄山风景区春节黄金周期间（1月28日—2月4日）开放运营时间公告如下：\n一、黄山风景区开放时间\n1.1月28日、29日，2月4日：7:00—16:30；\n2.1月30日—2月3日：6:30—17:30。 春节期间，徒步登山入园处门票检票口关闭时间为15：00。15：00后，各登山步道门票检票口实行“只出不进”措施，不再安排徒步登山游客检票入园，敬请广大游客合理安排行程。 二、交通股份公司换乘车辆运营时间\n1.1月28日、29日，2月4日：6:40—16:00（上行），7:10—17:10（下行）；\n2.1月30日—2月3日：6:10—17:00（上行），6:40—18:00（下行）。 三、云谷索道、玉屏索道、太平索道运营时间\n1.1月28日、29日，2月4日：7:00—16:30；\n2.1月30日—2月3日：6:30—17:30。\n- 黄山风景区继续执行“限量、预约、错峰”要求，实行强实名分时分方向预约、核验入园制度。先预约、再出行，建议您至少提前一天在黄山旅游官方平台预约景区门票，保持预约门票的身份信息与入园人身份信息一致，并按照预约时段和进山方向入园。未预约成功的游客，请择期预约进山或前往周边景点游览。为保障您的合法权益，请勿在非官方渠道预约景区票务，以免无法检票、影响出行而造成损失。 山岳景区天气多变，请您密切关注黄山风景区天气等情况，配合景区管理，文明出行、错峰游览，共同营造安全和谐美好的旅游环境。欢迎使用景区提供的免费智慧导览系统（微信搜索“智游黄山”小程序），祝您旅途轻松愉快！ 咨询服务热线：0559-2590999。 黄山风景区管理委员会\n2025年1月22日",
+          "status": "answered",
+          "citations": [
+            {
+              "type": "document",
+              "id": "e6d412b1-259e-4131-982b-35310ebfef9b",
+              "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+              "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+              "date": "2025-01-24T10:21:00+08:00",
+              "chunk_id": "e6d412b1-259e-4131-982b-35310ebfef9b-0"
+            },
+            {
+              "type": "document",
+              "id": "e6d412b1-259e-4131-982b-35310ebfef9b",
+              "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+              "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+              "date": "2025-01-24T10:21:00+08:00",
+              "chunk_id": "e6d412b1-259e-4131-982b-35310ebfef9b-1"
+            },
+            {
+              "type": "document",
+              "id": "e6d412b1-259e-4131-982b-35310ebfef9b",
+              "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+              "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+              "date": "2025-01-24T10:21:00+08:00",
+              "chunk_id": "e6d412b1-259e-4131-982b-35310ebfef9b-2"
+            }
+          ],
+          "used_metric_queries": [],
+          "limitations": [
+            "This answer is based only on retrieved authorized documents.",
+            "历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。",
+            "历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。",
+            "历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。"
+          ],
+          "metric_result": null
+        },
+        "meta": {
+          "request_id": "9fe4901bac3b4c27"
+        }
+      }
+    },
+    {
+      "name": "damaged_artifact",
+      "status_code": 503,
+      "body": {
+        "error": {
+          "code": "dependency_not_available",
+          "message": "Knowledge artifact verification failed; rebuild or repair required",
+          "details": {}
+        },
+        "request_id": "0af82d3bca3e4a7f"
+      }
+    },
+    {
+      "name": "correct_hash_wrong_text",
+      "status_code": 503,
+      "body": {
+        "error": {
+          "code": "dependency_not_available",
+          "message": "Knowledge artifact verification failed; rebuild or repair required",
+          "details": {}
+        },
+        "request_id": "0353221ee8324f0c"
+      }
+    },
+    {
+      "name": "correct_hash_wrong_locator",
+      "status_code": 503,
+      "body": {
+        "error": {
+          "code": "dependency_not_available",
+          "message": "Knowledge artifact verification failed; rebuild or repair required",
+          "details": {}
+        },
+        "request_id": "198cb410b2b54019"
+      }
+    },
+    {
+      "name": "correct_hash_wrong_document_version",
+      "status_code": 503,
+      "body": {
+        "error": {
+          "code": "dependency_not_available",
+          "message": "Knowledge artifact verification failed; rebuild or repair required",
+          "details": {}
+        },
+        "request_id": "d8962e16e6bf4e48"
+      }
+    },
+    {
+      "name": "correct_hash_wrong_index_version",
+      "status_code": 503,
+      "body": {
+        "error": {
+          "code": "dependency_not_available",
+          "message": "Knowledge artifact verification failed; rebuild or repair required",
+          "details": {}
+        },
+        "request_id": "d93dc56a67fc44d7"
+      }
+    },
+    {
+      "name": "correct_hash_wrong_metadata",
+      "status_code": 503,
+      "body": {
+        "error": {
+          "code": "dependency_not_available",
+          "message": "Knowledge artifact verification failed; rebuild or repair required",
+          "details": {}
+        },
+        "request_id": "321b1508586c4c90"
+      }
+    }
+  ],
+  "D_source_sha256": {
+    "app/__init__.py": "b74d3c32c1172867b08185cf58d4d55117d2c8113682109635e80b263aea4701",
+    "app/api/__init__.py": "b49aee31dc66d2f4d108f3dcceb36969f25a9badef9423cb16670a51417d9255",
+    "app/api/v1/__init__.py": "b49aee31dc66d2f4d108f3dcceb36969f25a9badef9423cb16670a51417d9255",
+    "app/api/v1/_c_errors.py": "d0caca30d4e408b9ee3781fa61206f2efbd5dfcefb4787743b8264e0a06b7aff",
+    "app/api/v1/_paging.py": "a4cf13dd6ed8ad4065c6bbb03b22fd8e26662aaadcc5c518d1bf356f3563076c",
+    "app/api/v1/_pending.py": "c952f5dad462cc069a0eb165aa4bfbb9d44afe3693d393b156efff946ef37e0e",
+    "app/api/v1/_series.py": "924bfe9a859a47ed1e5039e4a10e47aea06e80a8de8e9cc15eb1c8c49a9b8a8c",
+    "app/api/v1/analytics.py": "6416226a82bce0710baac0cfee2d86af44e4f883a51b44ff783074bad80ab4e0",
+    "app/api/v1/assistant.py": "800f63d07c058670073b30ee2dbbe8196600164b7832e1f516cb2f97ae1f541f",
+    "app/api/v1/auth.py": "c82ebf60f36eadb9f5a1b07599094029902ea9844897877aa602266020fbeb35",
+    "app/api/v1/catalog.py": "f80c96f48e2a8c0c26e8e11749b0d8411ff0b619c280114fe35cdddd6a870500",
+    "app/api/v1/dashboard.py": "4db766234915dce3b0c98096ce1778ca70b2117e0858b4d355c498c14034d162",
+    "app/api/v1/events.py": "6e03d8ec05dff4d70510f4d3dc5014d7bd313d06b4cda055a1c3220c159ad484",
+    "app/api/v1/forecasts.py": "118822fe91e9ff2d1d11f72d2703233756cc7e93942f92989a585f5b2d9697ee",
+    "app/api/v1/holidays.py": "05355998a917239d38d798e673ffcc7b62c5d0b0de133158f04ac93f5bc02395",
+    "app/api/v1/jobs.py": "f3eb292bb9f719872f3199fcdbf4383a5957c9ef2007009465bf1a14c761460b",
+    "app/api/v1/knowledge.py": "fc04e058bad05a555eed6ba74ef6244aff705c533c08f716ecaaf7f9e5101bad",
+    "app/api/v1/router.py": "651d003748d1bc186c1a8dd3fd7785f82af08fb11b30d11e80317498b7282698",
+    "app/api/v1/scenic.py": "8bbc1a22b944fa6053e62874b447bbf1bcc2789257f323f9f63d869bf2b8dd1a",
+    "app/api/v1/sources.py": "08768ae2bf51dfe69838388ac6d0e9e3730b5de3185442143d9e00e0d804a404",
+    "app/api/v1/transport.py": "13a56d04cd31ec34882a3a29dd478f14afb0b51ca0cb6a31549fdf2ecc4c20bd",
+    "app/api/v1/videos.py": "2351a79929316def1d6850c32e904f17c1260ac7cef66fdb4f0f01b17dd34ff4",
+    "app/core/__init__.py": "a10d55dc9ec55d17667d97ea5848c15770a9f26f42dc9da69d9a5f155f00f127",
+    "app/core/config.py": "f58e311fbd2c3ff29feaf43b666d0779585be2e512989ed6d76f2bb6ac36be7e",
+    "app/core/errors.py": "51c7b351cc4bcbf57097c0300cae6a68414a1ff65944e949a1ea4e378653c0c2",
+    "app/core/permissions.py": "25ccc2c7de3506d88334038d2ec5e34da62aaeded3912d1fd50b121e8bdf7102",
+    "app/core/providers.py": "0af6fe19e752a88bcc6ee374aa138b3c5714577ba41267d7b0753eca13b2ac51",
+    "app/core/security.py": "f01bb50e9dbde5bfd4dd0ecf896b0196114aebe2755e2b03e77aff6966a43051",
+    "app/main.py": "efb4187624060439c1b55ea66acbafce73aaca983737fd5ab6729ac0d9aed0ae",
+    "app/schemas/__init__.py": "e04957b561a01e468ba11da430628caea36dae48f7584ef44f9a5a6111c470ce",
+    "app/schemas/analytics.py": "4d802d7756bbdb235341daa8aeb7df7349601c52a9206dd8ebd70c7afa2c27ba",
+    "app/schemas/assistant.py": "dc941b70373a0463bba62cba3c91a543760a6f31e896f98a08d9e2dad8e4c0e5",
+    "app/schemas/auth.py": "7445ff53b564bc2f5449cf654d66c078516b7eac339b801b21752635b2c70741",
+    "app/schemas/catalog.py": "b0c206750841e0c5149d030e1de8e35e22f1034f78f5a5ba7388af4e34a90894",
+    "app/schemas/common.py": "24971af588fe82a0416691566ec0976dca6200f9efdf0cd6ae56bb8a040cac7a",
+    "app/schemas/dashboard.py": "468fc0c7470c2504a46c9e7ed4a6c5b486da117316a3f3e4d899b7ee5f0b3e06",
+    "app/schemas/events.py": "815fb8870f5ac46bca42b2601e7a8ef0303bc73b7a21dd7932f8846bf9334404",
+    "app/schemas/forecast.py": "e6dd7cfc5c88f5567a8fd304c79f6b78634d9b5243257c28fcb6a7043b23a442",
+    "app/schemas/holidays.py": "c6cd8aa8b3a2f7829d5468712eb85af6bf220e47189fd92a6e3fc6b0e129ee9c",
+    "app/schemas/jobs.py": "270a38de300d06de13bfccd31a5bb45cd47f9cc9b3ae8be0edea94b183848bc1",
+    "app/schemas/knowledge.py": "ce97c72ee46901ba8a9f6a6ccd533d7d2a1ca7941ed3219560ab8f445fa7fd48",
+    "app/schemas/series.py": "c1ee53939cf109ba1f012937eaf620480c8a99cf225d4bab46d54665107a66e4",
+    "app/schemas/videos.py": "41886133c1b3d729327413af66bbf70c8de44b12bd08684514806458e8fe50ea",
+    "app/services/__init__.py": "22a22dce4f8f50d16fcabba1074267c1fe566a7492fa4adfc22fe370f0c3b30a",
+    "app/services/auth_service.py": "06aeddf19c67ecc0906138cc4cc7ac3a4eda407963cfa5a68521010556afcde3",
+    "app/services/c_auth_store.py": "4ce8c505300263c30b842acea77730c32cf7f286c0b3408e3ecb255673bce9fd",
+    "app/services/c_enums.py": "972b96b4a8eea4e47e3233aa118019ec83fa95148f0ee2d3110a97665c030202",
+    "app/services/c_store.py": "a4d704a0ad4ae944791e1f5b4823eb54a2d5873371bb6c56d3d57f6e1ec2b10f",
+    "app/services/e_bindings.py": "c1c7ddf3a26fec7fe81f8352b9876ed6b33fe81b8cc83da58888896cf85986da",
+    "app/services/e_bridge.py": "016aee29e2c6164028788f3447e771595ca68b421f7163ed5fe3f566a8326733",
+    "app/services/historical_forecast/__init__.py": "15cd2fa36b31fae4de3bbd5ff0d5e46a8721d81e12e517c58c29458094b86384",
+    "app/services/historical_forecast/backtest.py": "4ee01ecb9faedb440b7758a06874c493993ddd5df2ee4a8cd3cb536df2d80e34",
+    "app/services/historical_forecast/baseline.py": "63bf3aa0741065b65a63f25fd71791730f3977ce1dbf871524a99f686580a197",
+    "app/services/job_store.py": "5768d1f739c36a93fcaf52365d62d0e7f405b55e0e794fa8ab089d1213d0488e",
+    "app/services/metrics_query.py": "0e57f3e3b5bc0fd6d210a9520b365c134647879c95abfb2403049655ddc55480",
+    "app/services/rate_limit.py": "481b6ae026ecbc3bf68b273facf1296fbcfced447f7612bdcea6d074e79d963a",
+    "app/telemetry/__init__.py": "1ca06461e8cb03fff2df25b5a58f8d19d7d82595605eb3756df9e0680d1df612",
+    "app/telemetry/logging.py": "867e415c60c6c973cfd1db9685af65874bb5942d3ac6f1f4419a8010303990d6",
+    "app/worker.py": "93ba3b76b0e0b801f3fef1e3c9c8f30f3d222ded8652d2aea91bbe797946890c"
+  },
+  "provider_replacement": false,
+  "fault_injection_only_in_dedicated_test_schema": true,
+  "real_public_knowledge_used": true,
+  "synthetic_login_accounts": true,
+  "D_upstream_modified": false,
+  "E_source_modified": false,
+  "business_DB_touched": false,
+  "crawler_touched": false,
+  "real_video_verified": false,
+  "live_network_API": false,
+  "mysql_network_listener_disabled": true,
+  "status": "passed"
+}

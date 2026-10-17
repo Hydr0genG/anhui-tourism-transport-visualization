@@ -94,3 +94,41 @@ def test_equivalent_recording_timezone_is_the_same_input_identity(store, tmp_pat
     result = reference.run_video_analysis(store, analysis_id=f["analysis"]["id"], lease=f["lease"],
         counter=SyntheticCounter(), calculate=equivalent)
     assert result["_job_already_completed"] and result["point_count"] == 31
+
+
+@pytest.mark.parametrize("horizon,expected", [(15, "ready"), (30, "ready"), (60, "data_insufficient")])
+def test_reference_forecast_publishes_E_native_backtested_result(store, tmp_path, horizon, expected):
+    """Synthetic continuous frames exercise batching and the successful forecast path."""
+    f = setup_visible(store, tmp_path, duration=36 * 300)
+    def continuous(payload, *, counter):
+        from intelligent_analysis.worker.video_worker import FrameData, process_video_job
+        image = np.zeros((16, 16, 3), dtype=np.uint8)
+        frames = (FrameData(i, i * 10, image) for i in range(36 * 30))
+        return process_video_job(payload, counter=counter, frames=frames)
+    reference.run_video_analysis(store, analysis_id=f["analysis"]["id"], lease=f["lease"],
+        counter=SyntheticCounter(), calculate=continuous)
+    cutoff = f["start"] + timedelta(minutes=180)
+    with store.read() as uow:
+        data = uow.visible.forecast_input(f["analysis"]["id"], cutoff)
+        assert len(data["history"]) == 36
+        assert len(uow.visible.forecast_input(f["analysis"]["id"], cutoff - timedelta(seconds=150))["history"]) == 35
+    now = datetime.now(timezone.utc)
+    with store.write() as uow:
+        job = uow.jobs.enqueue_or_get(JobCreate("visible_forecast", str(uuid4()), {
+            "analysis_id": f["analysis"]["id"], "cutoff_at": cutoff.isoformat(), "horizon_minutes": horizon},
+            "SYNTHETIC continuous-frame reference acceptance"), now)
+        lease = JobLease(**uow.jobs.claim_job("reference", now, 600, job_id=job["id"])["lease"])
+    result = reference.run_visible_forecast(store, analysis_id=f["analysis"]["id"],
+        cutoff_at=cutoff, horizon_minutes=horizon, lease=lease)
+    assert result["status"] == expected and result["_job_already_completed"]
+    with store.read() as uow:
+        saved = uow.visible.get_forecast(result["forecast_id"])
+        assert saved["input_sha256"] == data["input_sha256"]
+        assert uow.jobs.get_job(job["id"])["status"] == "succeeded"
+        response = saved["result"]
+        if expected == "ready":
+            assert len(response["forecast_points"]) == horizon // 5
+            assert response["validation_error"][str(horizon)]["fold_count"] >= 3
+            assert all(point["lower"] is None and point["upper"] is None for point in response["forecast_points"])
+        else:
+            assert response["forecast_points"] == [] and response["reason"]

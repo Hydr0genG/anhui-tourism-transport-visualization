@@ -1,0 +1,63 @@
+{
+  "E061-installed-tests.xml": {
+    "tests": 124,
+    "passed": 117,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 7,
+    "skips": [
+      {
+        "name": "test_real_c_knowledge_receiving",
+        "reason": "Set RUN_C_ACCEPTANCE=1 after demo/receive_c.py"
+      },
+      {
+        "name": "test_c020_official_receiving_preserves_failure_protection",
+        "reason": "Run demo/receive_c020.py --version 0.2.0a2 first"
+      },
+      {
+        "name": "test_cli_with_official_dm_weights_and_synthetic_p2p_model",
+        "reason": "Set RUN_DM_BENCHMARK=1 with the verified DM-Count weights installed"
+      },
+      {
+        "name": "test_team_source_hashes_must_match",
+        "reason": "could not import 'torch': No module named 'torch'"
+      },
+      {
+        "name": "test_weights_loaded_strictly_and_points_validate_rgb",
+        "reason": "could not import 'torch': No module named 'torch'"
+      },
+      {
+        "name": "test_nonfinite_model_output_is_not_silently_reported_as_zero[points]",
+        "reason": "could not import 'torch': No module named 'torch'"
+      },
+      {
+        "name": "test_nonfinite_model_output_is_not_silently_reported_as_zero[scores]",
+        "reason": "could not import 'torch': No module named 'torch'"
+      }
+    ]
+  },
+  "worker-reference-sqlite.xml": {
+    "tests": 8,
+    "passed": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": []
+  },
+  "C-E061-mysql-tests.xml": {
+    "tests": 53,
+    "passed": 53,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": []
+  },
+  "queue-mysql-tests.xml": {
+    "tests": 75,
+    "passed": 75,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": []
+  }
+}

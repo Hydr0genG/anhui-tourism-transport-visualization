@@ -1,0 +1,242 @@
+{
+  "status": "passed",
+  "scope": "C_run_D_candidate_ASGI_HTTP_and_C_MySQL_not_D_host_receiving",
+  "D_commit": "24eec2d33d6186bacdaafe08e33808c28dcdeb5e",
+  "packages": {
+    "C": {
+      "wheel_sha256": "17c2c60045d4153507e66282a3f35d1583ed81332fb29654c8e0b86882c91c5b",
+      "matching_files": 19,
+      "version": "0.2.1a2"
+    },
+    "E": {
+      "wheel_sha256": "afd79097a7199ef5b8d03ebdc39bf42e79b18b16cf5e59333f274f6a1ea3a201",
+      "matching_files": 31,
+      "version": "0.6.1"
+    }
+  },
+  "checks": [
+    {
+      "name": "existing_real_C_data_imported",
+      "status": "passed",
+      "counts": {
+        "processed": 83,
+        "imported": 83,
+        "revised": 0,
+        "skipped": 0,
+        "quarantined": 0
+      }
+    },
+    {
+      "name": "29_anonymous_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "admin_login_real_C_auth",
+      "status": "passed"
+    },
+    {
+      "name": "29_missing_CSRF_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "29_enqueues_C_job",
+      "status": "passed",
+      "job_id": "8dba182a-f821-412a-a2af-1dd29a5ded9a"
+    },
+    {
+      "name": "D_worker_does_not_steal_C_ingestion",
+      "status": "passed"
+    },
+    {
+      "name": "C_ingestion_still_queued",
+      "status": "passed"
+    },
+    {
+      "name": "C_worker_real_CSV_success",
+      "status": "passed",
+      "result": {
+        "job_id": "8dba182a-f821-412a-a2af-1dd29a5ded9a",
+        "status": "succeeded",
+        "run_ids": [
+          "49cdffc3-334a-42be-98bd-52ba01cbf69f"
+        ],
+        "counts": {
+          "processed": 1,
+          "imported": 0,
+          "revised": 0,
+          "skipped": 1,
+          "quarantined": 0
+        },
+        "dry_run": false
+      }
+    },
+    {
+      "name": "30_reads_completed_C_job",
+      "status": "passed"
+    },
+    {
+      "name": "29_repeat_returns_same_completed_job",
+      "status": "passed"
+    },
+    {
+      "name": "C_reconsume_completed_job_returns_none",
+      "status": "passed"
+    },
+    {
+      "name": "19_C_D_E_real_metric_answer",
+      "status": "passed"
+    },
+    {
+      "name": "dry_run_preserves_observations",
+      "status": "passed"
+    },
+    {
+      "name": "29_viewer_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "30_viewer_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "logout_invalidates_C_session",
+      "status": "passed"
+    },
+    {
+      "name": "no_new_or_revised_observations",
+      "status": "passed"
+    }
+  ],
+  "http_samples": [
+    {
+      "name": "29_anonymous",
+      "status_code": 401,
+      "body": {
+        "error": {
+          "code": "unauthorized",
+          "message": "未登录或会话已失效",
+          "details": {}
+        },
+        "request_id": "55f471b81be54f73"
+      }
+    },
+    {
+      "name": "29_missing_CSRF",
+      "status_code": 403,
+      "body": {
+        "error": {
+          "code": "csrf_required",
+          "message": "缺少或错误的 CSRF 令牌",
+          "details": {}
+        },
+        "request_id": "e74150d7e6684fa8"
+      }
+    },
+    {
+      "name": "29_queued",
+      "status_code": 202,
+      "body": {
+        "job_id": "8dba182a-f821-412a-a2af-1dd29a5ded9a",
+        "status": "queued"
+      }
+    },
+    {
+      "name": "30_completed",
+      "status_code": 200,
+      "body": {
+        "data": {
+          "id": "8dba182a-f821-412a-a2af-1dd29a5ded9a",
+          "type": "ingestion",
+          "status": "succeeded",
+          "started_at": "2026-10-17T19:53:31.913235+08:00",
+          "finished_at": "2026-10-17T19:53:31.925965+08:00",
+          "processed_count": 1,
+          "imported_count": 0,
+          "error_summary": null,
+          "analysis_id": null
+        },
+        "meta": {
+          "request_id": "d676f67179494a19"
+        }
+      }
+    },
+    {
+      "name": "29_repeat_after_completion",
+      "status_code": 202,
+      "body": {
+        "job_id": "8dba182a-f821-412a-a2af-1dd29a5ded9a",
+        "status": "succeeded"
+      }
+    },
+    {
+      "name": "19_real_historical_value",
+      "status_code": 200,
+      "body": {
+        "data": {
+          "conversation_id": "865d92a4-191c-4929-8175-b5db0c3cf6ca",
+          "answer": "airport_throughput：1111644（2025-01-01—2025-01-31）。",
+          "status": "answered",
+          "citations": [
+            {
+              "type": "metric",
+              "id": "fe47bf03-2cd2-5c89-a944-4cbcf5d38cd7",
+              "title": "airport_throughput",
+              "url": null,
+              "date": null,
+              "chunk_id": null
+            }
+          ],
+          "used_metric_queries": [
+            "{'metric': 'airport_throughput', 'entity_type': 'station', 'entity_ids': ['28380b0b-e209-5ced-8d09-58854248f26e'], 'grain': 'month', 'period_start': '2025-01-01', 'period_end': '2025-01-31'}"
+          ],
+          "limitations": [],
+          "metric_result": {
+            "metric": "airport_throughput",
+            "value": 1111644.0,
+            "period_start": "2025-01-01",
+            "period_end": "2025-01-31",
+            "queried_at": "2026-10-17T11:53:31.947011+00:00",
+            "source_ids": [
+              "fe47bf03-2cd2-5c89-a944-4cbcf5d38cd7"
+            ]
+          }
+        },
+        "meta": {
+          "request_id": "1714c37736f74209"
+        }
+      }
+    },
+    {
+      "name": "29_viewer",
+      "status_code": 403,
+      "body": {
+        "error": {
+          "code": "forbidden",
+          "message": "需要管理员权限",
+          "details": {}
+        },
+        "request_id": "daa2e6a2778c4660"
+      }
+    }
+  ],
+  "table_ownership": {
+    "C_tables": 34,
+    "other_tables": [],
+    "alembic_version_present": true,
+    "database_total": 35
+  },
+  "synthetic_login_accounts": true,
+  "real_existing_C_observations": true,
+  "D_upstream_repository_modified": false,
+  "D_snapshot_modified": true,
+  "E_source_modified": false,
+  "C_wheel_changed": false,
+  "business_DB_touched": false,
+  "live_network_API": false,
+  "real_video_inference": false,
+  "crawler_touched": false,
+  "mysql_network_listener_disabled": true,
+  "D_snapshot_matches_base_commit": false,
+  "candidate_patch_sha256": "7f6a25781faa998bb64e1a1a6cf20f2cbd210d16e38affc8ee4f851821bb8c49",
+  "candidate_patch_only_in_disposable_copy": true
+}
