@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "outside_workspace": true,
+  "files_verified": 25,
+  "reference_and_patch_tests": 12,
+  "live_network_API": false,
+  "D_host_receiving_verified": false,
+  "old_C_archive_unchanged": true
+}

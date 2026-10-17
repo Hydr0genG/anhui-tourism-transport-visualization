@@ -1,0 +1,20 @@
+{
+  "python": "3.13.16",
+  "distributions": {
+    "anhui-data-foundation": "0.2.1a2",
+    "shumei-intelligent-analysis": "0.6.0",
+    "fastapi": "0.143.3",
+    "starlette": "1.8.0",
+    "httpx": "0.28.1",
+    "pydantic": "2.14.1",
+    "pydantic-settings": "2.16.0",
+    "SQLAlchemy": "2.0.54",
+    "PyMySQL": "1.2.3",
+    "alembic": "1.20.0",
+    "argon2-cffi": "25.1.0",
+    "python-multipart": "0.0.32",
+    "numpy": "2.5.4"
+  },
+  "D_requirements_satisfied": true,
+  "live_network_API": false
+}

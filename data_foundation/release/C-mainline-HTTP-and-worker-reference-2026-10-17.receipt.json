@@ -1,0 +1,150 @@
+{
+  "name": "C-mainline-HTTP-and-worker-reference-2026-10-17.zip",
+  "sha256": "24831bab61aa6c6c99e21b523f58e4b8b516cac0672fd1a6b50f52aa43ff3f92",
+  "byte_size": 104727,
+  "verification": {
+    "created_at": "2026-10-17T11:23:46.192066+00:00",
+    "C_version": "0.2.1a2",
+    "E_version": "0.6.0",
+    "D_base_commit": "24eec2d33d6186bacdaafe08e33808c28dcdeb5e",
+    "D_upstream_changed": false,
+    "D_original_checks": {
+      "passed": 16,
+      "total": 17
+    },
+    "D_candidate_checks": {
+      "passed": 17,
+      "total": 17
+    },
+    "live_network_API": false,
+    "D_host_receiving_verified": false,
+    "real_video_verified": false,
+    "files": [
+      {
+        "path": "data_foundation/acceptance/C-DE-receiving-followup-2026-10-17/registered-csv-input/README.md",
+        "sha256": "a0ef062eb78fdda7533aab5f65e9545f9445cd1b7d5c8ef9eab54435a28067fd",
+        "byte_size": 2084
+      },
+      {
+        "path": "data_foundation/acceptance/C-DE-receiving-followup-2026-10-17/registered-csv-input/hefei-airport-2025-01.csv",
+        "sha256": "cfc6aab88a805ba098dbb99a3e5cc2b63af9575df551b7c36b5421ce89fab798",
+        "byte_size": 502
+      },
+      {
+        "path": "data_foundation/acceptance/C-DE-receiving-followup-2026-10-17/registered-csv-input/input-manifest.json",
+        "sha256": "c9766d3dcf2edf6f785ed5dd08fa8708e3b884ef2607cf8657fa7b01763aec58",
+        "byte_size": 1287
+      },
+      {
+        "path": "data_foundation/acceptance/C-DE-receiving-followup-2026-10-17/registered-csv-input/official-2025-01.pdf",
+        "sha256": "c7302d6b9c545c971d194f84e2d7d063b7e7d7c4bcb0decb5dd607e589846fd5",
+        "byte_size": 73289
+      },
+      {
+        "path": "data_foundation/acceptance/C-mainline-HTTP-2026-10-17/.gitignore",
+        "sha256": "6427552aa64ec1a9576936e7c6c0ff276c01c3275bbbc7aaf4f4acab01fdb611",
+        "byte_size": 8
+      },
+      {
+        "path": "data_foundation/acceptance/C-mainline-HTTP-2026-10-17/D-source-fingerprints.json",
+        "sha256": "690df162a4da836b73aca1da8f47a6b716da0f1f8238735da60046d3c00ccff0",
+        "byte_size": 14777
+      },
+      {
+        "path": "data_foundation/acceptance/C-mainline-HTTP-2026-10-17/README.md",
+        "sha256": "9209bdfe3cd5117d3689fbdd7aa1c9c20a3cb8ff6a724f6c91a5088ee949648f",
+        "byte_size": 1849
+      },
+      {
+        "path": "data_foundation/acceptance/C-mainline-HTTP-2026-10-17/mysql-shutdown.json",
+        "sha256": "707d66540d0434f35348f3f582d536c2e6c819eab8886d666d84e71b9b1cdd12",
+        "byte_size": 197
+      },
+      {
+        "path": "data_foundation/acceptance/C-mainline-HTTP-2026-10-17/proposed-D-patch-tests.xml",
+        "sha256": "0315f6260ac4a3fac9336c20e92c45067c81ebb728d438c8e5a0bf53d605a324",
+        "byte_size": 1656
+      },
+      {
+        "path": "data_foundation/acceptance/C-mainline-HTTP-2026-10-17/run-1/report.json",
+        "sha256": "da93db629399f809ddf3c600ef2f4cec70e53eb39369a01bfe1475127cfbd8c7",
+        "byte_size": 5806
+      },
+      {
+        "path": "data_foundation/acceptance/C-mainline-HTTP-2026-10-17/run-2-candidate/D-30-datetime-only.patch",
+        "sha256": "67108d7680d90caa6145e0ad1cd57f525b0c8a2c2c26e4a67288ea7582358804",
+        "byte_size": 908
+      },
+      {
+        "path": "data_foundation/acceptance/C-mainline-HTTP-2026-10-17/run-2-candidate/report.json",
+        "sha256": "c152e515018115aed8c2fc87f4d10a1d2abbbd3c5fd855b95aae6f6de8e7fdf4",
+        "byte_size": 5994
+      },
+      {
+        "path": "data_foundation/acceptance/C-mainline-HTTP-2026-10-17/run-3-final-candidate/report.json",
+        "sha256": "aeee012a426c45204b082a1fe0788fef899ff93e4fc64fa88c99300e51a0d767",
+        "byte_size": 6284
+      },
+      {
+        "path": "data_foundation/acceptance/C-mainline-HTTP-2026-10-17/runtime-versions.json",
+        "sha256": "f3aea7c07d22f01ba3a42618ec042425a1cab7dd416216c948ce966da02abcff",
+        "byte_size": 498
+      },
+      {
+        "path": "data_foundation/acceptance/C-mainline-HTTP-2026-10-17/worker-reference/mysql-tests.xml",
+        "sha256": "4b9d4bce64a6998a76a1f40762f6e2e73533276a5ba2da55c5b9eff07a76dcf1",
+        "byte_size": 938
+      },
+      {
+        "path": "data_foundation/acceptance/C-mainline-HTTP-2026-10-17/worker-reference/tests.xml",
+        "sha256": "c4b833120d82888519edcb2059ff7ee1de92a836344cc5f25df85a7375318ee3",
+        "byte_size": 938
+      },
+      {
+        "path": "data_foundation/coordination/2026-10-17-mainline/D-30-job-readback.patch",
+        "sha256": "7f6a25781faa998bb64e1a1a6cf20f2cbd210d16e38affc8ee4f851821bb8c49",
+        "byte_size": 1218
+      },
+      {
+        "path": "data_foundation/coordination/2026-10-17-mainline/D-30-original-jobs.py",
+        "sha256": "f3eb292bb9f719872f3199fcdbf4383a5957c9ef2007009465bf1a14c761460b",
+        "byte_size": 4797
+      },
+      {
+        "path": "data_foundation/coordination/2026-10-17-mainline/README.md",
+        "sha256": "e0cb15823c5e50b7b66322363eef38625c1a0dc4a0dbd2fb7e5aeed33a7f232e",
+        "byte_size": 3096
+      },
+      {
+        "path": "data_foundation/coordination/2026-10-17-mainline/test_D_job_datetime_patch.py",
+        "sha256": "e9dd2ec66ef5c7785216e69d01b8a8d9a35db9bed9a6575fa4eba0f9b378e282",
+        "byte_size": 1513
+      },
+      {
+        "path": "data_foundation/examples/c_worker_reference.py",
+        "sha256": "44580b998c6e6c1e3df45f4ad7f834918a713b72b65774fc0bb19b12afde3b3b",
+        "byte_size": 4296
+      },
+      {
+        "path": "data_foundation/examples/configure_registered_csv_rehearsal.py",
+        "sha256": "e9f6b8fe2326371efcc51d08cb279ca99435135037c34314393bbb4361c08643",
+        "byte_size": 5018
+      },
+      {
+        "path": "data_foundation/examples/verify_cde_mainline_http.py",
+        "sha256": "d688e1ebea6b74a32168a3b6004d35e810de8a6a1e91ea3bbf3336263d172241",
+        "byte_size": 13772
+      },
+      {
+        "path": "data_foundation/tests/test_worker_reference.py",
+        "sha256": "91a0d0c015901359d2b9b72d95ee977f1d9423ff874d8cb4fdda20279f3f02c4",
+        "byte_size": 5179
+      },
+      {
+        "path": "致D和E-主线实测与30号修复补丁-2026-10-17.md",
+        "sha256": "8b706c4ccdbab508b312aba54a07ed7871e8dcc2dca855df882a21467e9fadb4",
+        "byte_size": 4828
+      }
+    ]
+  }
+}

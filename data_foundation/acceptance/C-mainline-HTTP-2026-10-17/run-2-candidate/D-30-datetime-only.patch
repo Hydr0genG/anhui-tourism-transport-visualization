@@ -1,0 +1,24 @@
+--- a/app/api/v1/jobs.py
++++ b/app/api/v1/jobs.py
+@@ -26,14 +26,17 @@
+ _CN_TZ = timezone(timedelta(hours=8))
+ 
+ 
+-def _to_cn_tz(value: str | None) -> str | None:
+-    """作业库按 UTC 存储（04 文档 §4），输出时转为 +08:00。"""
+-    if not value:
++def _to_cn_tz(value: datetime | str | None) -> str | None:
++    """C返回datetime、旧桥返回ISO字符串；UTC语义不依赖主机时区。"""
++    if value is None or value == "":
+         return None
+     try:
+-        return datetime.fromisoformat(value).astimezone(_CN_TZ).isoformat()
++        stamp = value if isinstance(value, datetime) else datetime.fromisoformat(value)
+     except ValueError:
+         return value
++    if stamp.tzinfo is None:
++        stamp = stamp.replace(tzinfo=timezone.utc)
++    return stamp.astimezone(_CN_TZ).isoformat()
+ 
+ 
+ @router.post("/ingestion", status_code=202, response_model=IngestionAccepted)
