@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "verified_at": "2026-10-17T04:24:10.742050+00:00",
+  "archive_sha256": "3eb8c5a7e388cfe222e2a0c8b7aecfa52c4ab3ceabf1c2ba8f0b3d847910a2e7",
+  "manifest_entries_verified": 535,
+  "installed_wheel_matching_files": 19,
+  "tests": {
+    "tests": 479,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "outside_workspace": true,
+  "source_shadowing": false,
+  "credentials_and_database_env_removed": true,
+  "archive_modified_after_sealing": false
+}

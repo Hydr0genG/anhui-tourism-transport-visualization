@@ -24,3 +24,9 @@
 - Windows正式安装；真实授权录像及录制元数据、人工MAE、连续录像预测。均未验收，不阻塞本轮C代码交付。
 
 本轮临时MySQL禁用网络监听，只用于新建专用测试库；结束后关闭实例并保留文件。数据完整性、工程闭环、模型精度、接收方部署分别记账。完整ZIP及摘要以release目录receipt为准。
+
+## 封存后独立目录复验
+
+完整ZIP固定源码提交b3d81467c8705cba13af4de72e400b726f9ff38f，SHA256为3eb8c5a7e388cfe222e2a0c8b7aecfa52c4ab3ceabf1c2ba8f0b3d847910a2e7。随后解压到工作区之外，535个清单文件的长度/摘要全部一致，已安装wheel的19个代码/JSON文件一致；清除数据库及PYTHONPATH环境后479项全部通过。见portable-package.json及portable-package-tests.xml。
+
+这两份是封存后补充证据，与本节一起单独保留；未回写或重新制作已封存ZIP，原receipt仍准确。旧a1 wheel、ZIP和交接MD摘要再次核对未变。正式包及本确认材料未推送或代发给D/E。

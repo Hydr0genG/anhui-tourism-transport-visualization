@@ -1,0 +1,72 @@
+{
+  "version": "0.2.1a2",
+  "source_commit": "b3d81467c8705cba13af4de72e400b726f9ff38f",
+  "created_at": "2026-10-17T04:23:34.254615+00:00",
+  "published_to_remote": false,
+  "verification": {
+    "status": "passed",
+    "C_version": "0.2.1a2",
+    "migration_head": "0007",
+    "business_tables": 34,
+    "test_runs": {
+      "source-tests.xml": {
+        "tests": 479,
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0
+      },
+      "installed-wheel-tests.xml": {
+        "tests": 479,
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0
+      },
+      "mysql-tests.xml": {
+        "tests": 99,
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0
+      }
+    },
+    "real_C_E_checks": 12,
+    "installed_matching_files": 19,
+    "source_shadowing": false,
+    "old_C_a1_delivery_unchanged": true,
+    "mysql_two_connection_concurrency": "passed",
+    "D_commit_reviewed": "ee8b9f202a3a0f8e702c735cc1e28c5224c9f68e",
+    "D_source_modified": false,
+    "E_source_modified": false,
+    "D_HTTP_executed": false,
+    "Windows_executed": false,
+    "real_video_inference": false,
+    "crawler_modified_by_this_work": false,
+    "production_database_touched": false,
+    "pending": [
+      "D/E a2 receiving and adapter changes",
+      "D original JSON evidence and formal HTTP",
+      "Windows installation",
+      "Authorized real recording",
+      "Real manual accuracy and continuous-recording prediction"
+    ]
+  },
+  "archive_members": 536,
+  "files": [
+    {
+      "name": "anhui_data_foundation-0.2.1a2-py3-none-any.whl",
+      "byte_size": 68006,
+      "sha256": "17c2c60045d4153507e66282a3f35d1583ed81332fb29654c8e0b86882c91c5b"
+    },
+    {
+      "name": "C-contract-closeout-0.2.1a2-2026-10-17.zip",
+      "byte_size": 13611934,
+      "sha256": "3eb8c5a7e388cfe222e2a0c8b7aecfa52c4ab3ceabf1c2ba8f0b3d847910a2e7"
+    }
+  ],
+  "exclusions": [
+    "Independent crawler",
+    "Unrelated expansion changes",
+    "Business credentials and databases",
+    "Runtime raw copies",
+    "Actual videos and weights"
+  ]
+}
