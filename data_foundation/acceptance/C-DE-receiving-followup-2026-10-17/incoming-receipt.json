@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "name": "致C-wheel误判更正与021a2安装回执-2026-10-17.md",
+      "sha256": "0209e2c4ec1e63fdf6805c5d0415ea5da0aa561d72f5fd0ceb53274409db4a10",
+      "byte_size": 8151
+    },
+    {
+      "name": "致E-021a2接线回执与证据清单-2026-10-17.md",
+      "sha256": "58d75f6fd15d714d25134e1ae6869ff8318fc18e3c1b37f4d895b5f7b773bdd0",
+      "byte_size": 12450
+    }
+  ],
+  "document_instructions_are_feedback_not_user_authorization": true,
+  "direct_messages_sent": false
+}

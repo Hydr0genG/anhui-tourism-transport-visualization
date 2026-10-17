@@ -1,0 +1,29 @@
+{
+  "schema": "C-registered-csv-rehearsal-1",
+  "source_id": "fe47bf03-2cd2-5c89-a944-4cbcf5d38cd7",
+  "entity_id": "28380b0b-e209-5ced-8d09-58854248f26e",
+  "expected_value": "1111644",
+  "expected_unit": "人次",
+  "period_start": "2025-01-01",
+  "period_end": "2025-01-31",
+  "rows": 1,
+  "synthetic": false,
+  "source_dataset": "2026-10-12-v2",
+  "source_locator": "2025年1月华东机场吞吐量排名.pdf；PDF第1页；HFE对应机场行；旅客吞吐量/本期完成；抽取文本第20行",
+  "csv": {
+    "path": "hefei-airport-2025-01.csv",
+    "sha256": "cfc6aab88a805ba098dbb99a3e5cc2b63af9575df551b7c36b5421ce89fab798",
+    "byte_size": 502
+  },
+  "evidence": {
+    "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202502/P020250224343413036795.pdf",
+    "title": "2025年1月华东机场吞吐量排名.pdf",
+    "sha256": "c7302d6b9c545c971d194f84e2d7d063b7e7d7c4bcb0decb5dd607e589846fd5",
+    "byte_size": 73289,
+    "media_type": "application/pdf",
+    "retrieved_at": "2026-10-12T08:14:43.568362+00:00",
+    "published_at": "2025-02-24T09:29:00+08:00",
+    "usage_note": "公开发布资料，用于本项目历史统计核验及带出处引用；原站未明确专项开放许可，全文对外再发布条件未核实。",
+    "path": "official-2025-01.pdf"
+  }
+}

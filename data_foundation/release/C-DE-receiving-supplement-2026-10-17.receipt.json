@@ -1,0 +1,79 @@
+{
+  "archive_name": "C-DE-receiving-supplement-2026-10-17.zip",
+  "sha256": "7fea101f1f7739000a48a298621ba3f4a0235d9894c786c8658ea5baaca293fa",
+  "byte_size": 92358,
+  "manifest_entries": 12,
+  "verification": {
+    "scope": "receiving_reply_and_registered_real_CSV_input",
+    "created_at": "2026-10-17T10:34:27.174935+00:00",
+    "C_version_unchanged": "0.2.1a2",
+    "C_wheel_sha256": "17c2c60045d4153507e66282a3f35d1583ed81332fb29654c8e0b86882c91c5b",
+    "D_commit_reviewed": "24eec2d33d6186bacdaafe08e33808c28dcdeb5e",
+    "files": [
+      {
+        "path": "data_foundation/acceptance/C-DE-receiving-followup-2026-10-17/D-source-reconciliation.json",
+        "sha256": "540da7fd29571e774149cc09067f796838c8d78af9dd0c49336a1b6663b6663a",
+        "byte_size": 8583
+      },
+      {
+        "path": "data_foundation/acceptance/C-DE-receiving-followup-2026-10-17/csv-rehearsal-tests.xml",
+        "sha256": "1047ab0ff6c2e4888b7a352318a3a21d4e1861594d4d34b701211cd919ad034c",
+        "byte_size": 547
+      },
+      {
+        "path": "data_foundation/acceptance/C-DE-receiving-followup-2026-10-17/incoming/致C-wheel误判更正与021a2安装回执-2026-10-17.md",
+        "sha256": "0209e2c4ec1e63fdf6805c5d0415ea5da0aa561d72f5fd0ceb53274409db4a10",
+        "byte_size": 8151
+      },
+      {
+        "path": "data_foundation/acceptance/C-DE-receiving-followup-2026-10-17/incoming/致E-021a2接线回执与证据清单-2026-10-17.md",
+        "sha256": "58d75f6fd15d714d25134e1ae6869ff8318fc18e3c1b37f4d895b5f7b773bdd0",
+        "byte_size": 12450
+      },
+      {
+        "path": "data_foundation/acceptance/C-DE-receiving-followup-2026-10-17/incoming-receipt.json",
+        "sha256": "d2b4f71819ce738a9a20214a7f3c3e0301af10449c78638ed40a1c8fe0b60d0e",
+        "byte_size": 508
+      },
+      {
+        "path": "data_foundation/acceptance/C-DE-receiving-followup-2026-10-17/registered-csv-input/README.md",
+        "sha256": "a0ef062eb78fdda7533aab5f65e9545f9445cd1b7d5c8ef9eab54435a28067fd",
+        "byte_size": 2084
+      },
+      {
+        "path": "data_foundation/acceptance/C-DE-receiving-followup-2026-10-17/registered-csv-input/hefei-airport-2025-01.csv",
+        "sha256": "cfc6aab88a805ba098dbb99a3e5cc2b63af9575df551b7c36b5421ce89fab798",
+        "byte_size": 502
+      },
+      {
+        "path": "data_foundation/acceptance/C-DE-receiving-followup-2026-10-17/registered-csv-input/input-manifest.json",
+        "sha256": "c9766d3dcf2edf6f785ed5dd08fa8708e3b884ef2607cf8657fa7b01763aec58",
+        "byte_size": 1287
+      },
+      {
+        "path": "data_foundation/acceptance/C-DE-receiving-followup-2026-10-17/registered-csv-input/official-2025-01.pdf",
+        "sha256": "c7302d6b9c545c971d194f84e2d7d063b7e7d7c4bcb0decb5dd607e589846fd5",
+        "byte_size": 73289
+      },
+      {
+        "path": "data_foundation/examples/configure_registered_csv_rehearsal.py",
+        "sha256": "e9f6b8fe2326371efcc51d08cb279ca99435135037c34314393bbb4361c08643",
+        "byte_size": 5018
+      },
+      {
+        "path": "data_foundation/tests/test_registered_csv_rehearsal.py",
+        "sha256": "911581977ec837babc82b41681693353f7ac161a9add84fb05f64054e5b727af",
+        "byte_size": 2415
+      },
+      {
+        "path": "致D和E-021a2接收核对与补充答复-2026-10-17.md",
+        "sha256": "422562f552a90c9ff9df9d432af8fb46357f1e279cbe9ab4b0f6b5ce488e9b7e",
+        "byte_size": 6210
+      }
+    ],
+    "D_HTTP_replayed": false,
+    "test_database_configured_by_this_session": false,
+    "standalone_crawler_touched": false,
+    "messages_sent": false
+  }
+}

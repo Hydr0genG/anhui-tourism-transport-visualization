@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "outside_workspace": true,
+  "supplement_files_verified": 12,
+  "supplement_tests": 2,
+  "failed": 0,
+  "skipped": 0,
+  "C_wheel_unchanged": true,
+  "source_shadowing": false,
+  "D_HTTP_executed": false,
+  "mysql_supplement_rehearsal_executed": false
+}

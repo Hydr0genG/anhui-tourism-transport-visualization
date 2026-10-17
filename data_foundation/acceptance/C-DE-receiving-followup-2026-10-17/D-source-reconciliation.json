@@ -1,0 +1,71 @@
+{
+  "status": "source_verified_receipts_not_independently_runtime_replayed",
+  "D_commit": "24eec2d33d6186bacdaafe08e33808c28dcdeb5e",
+  "reviewed_at": "2026-10-17T10:30:20.159773+00:00",
+  "findings": [
+    {
+      "path": "app/worker.py",
+      "line": 94,
+      "file_sha256": "93ba3b76b0e0b801f3fef1e3c9c8f30f3d222ded8652d2aea91bbe797946890c",
+      "finding": "job_type_filter_present",
+      "excerpt": "    def _claim(self) -> dict | None:\n        \"\"\"按 SUPPORTED_JOB_TYPES 轮转领取一个作业，不碰其它类型。\"\"\"\n        lease_seconds = self._settings().worker_lease_seconds\n        for offset, job_type in enumerate(_next_types(self._claim_cursor)):\n            try:\n                claimed = self.store.claim_job(\n                    worker_id=\"d-worker\", now=datetime.now(UTC),\n                    lease_seconds=lease_seconds, job_type=job_type,\n                )\n            except TypeError:  # 旧 store 不支持 job_type 筛选：宁可不领也不裸领\n                logger.error(\"store.claim_job 不支持 job_type 筛选，拒绝无筛选领取\")\n                return None\n            if claimed is not None:\n                self._claim_cursor = (self._claim_cursor + offset + 1) % len(SUPPORTED_JOB_TYPES)\n                return claimed\n        return None\n"
+    },
+    {
+      "path": "app/services/e_bindings.py",
+      "line": 224,
+      "file_sha256": "c1c7ddf3a26fec7fe81f8352b9876ed6b33fe81b8cc83da58888896cf85986da",
+      "finding": "strict_loader_dependency_failure_closed",
+      "excerpt": "        except ImportError as exc:\n            # C 021a2 收口明确：**失败不能以宽松 snapshot 继续报成功**。\n            # 2026-10-17 之前这里会退回 ``snapshot_for_e_publisher()``——那等于\n            # 绕开 C §六 的 all-or-nothing 口径，在 E 缺严格校验器时拿未经逐条\n            # 比对的数据继续回答。现在如实报依赖不可用。\n            raise e_errors().DependencyUnavailable(\n                \"E 未提供严格知识校验器（intelligent_analysis.knowledge.artifacts），\"\n                \"拒绝退回宽松快照\"\n            ) from exc\n"
+    },
+    {
+      "path": "app/services/metrics_query.py",
+      "line": 194,
+      "file_sha256": "0e57f3e3b5bc0fd6d210a9520b365c134647879c95abfb2403049655ddc55480",
+      "finding": "date_input_business_timezone_support_present",
+      "excerpt": "def _parse_period(value: Any) -> datetime | None:\n    \"\"\"解析 ISO 8601；**缺时区时按 +08:00 业务时区补全**，不再直接判无效。\n\n    为什么必须补：19 号 HTTP 的 ``context.period_start / period_end`` 是\n    **日期串**（03 §19 只写 ``period_start, period_end``，没要求带时区，前端按\n    日期给它），而这一层本来硬性要求 aware datetime。结果就是——真机 HTTP 的每\n    一条数值核实都走 ``invalid_period`` 变成「不足」，而 pytest 用例用的是带时区\n    的 datetime，**测试全绿、真机全废**（第六次「单测入参形状与真实入参形状不\n    一致」的同类误判，2026-10-17 由 E 的独立实测暴露）。\n\n    时区口径与 C 一致：26 号文档 §6 明确「按 +08 业务日转成 C 的闭区间 date」。\n    \"\"\"\n    if not isinstance(value, str) or not value.strip():\n        return None\n    raw = value.strip()\n    if raw.endswith((\"Z\", \"z\")):\n        raw = raw[:-1] + \"+00:00\"\n    try:\n        parsed = datetime.fromisoformat(raw)\n    except ValueError:\n        return None\n    if parsed.utcoffset() is None:\n        parsed = parsed.replace(tzinfo=BUSINESS_TZ)\n    return parsed"
+    },
+    {
+      "path": "app/worker.py",
+      "line": 502,
+      "file_sha256": "93ba3b76b0e0b801f3fef1e3c9c8f30f3d222ded8652d2aea91bbe797946890c",
+      "finding": "invalidate_branch_stub",
+      "excerpt": "    def _run_knowledge_invalidate(self, payload: dict, lease) -> dict:\n        \"\"\"按文档失效索引。``knowledge.invalidate_document`` 是 C 0.2.1a2 才有的仓储方法。\n\n        D 尚未装上 0.2.1a2 的 wheel（交付包里没有 release/ 目录），因此这里\n        **诚实失败**而不是绕过——按文档失效半张索引会把问答链路留在\n        「部分 ready」的脏状态，比直接报错危险得多。\n        \"\"\"\n        raise RuntimeError(\n            \"knowledge_invalidate 尚未接线：需要 C 0.2.1a2 的 \"\n            \"knowledge.invalidate_document（当前安装版本为 0.2.0a2），\""
+    },
+    {
+      "path": "app/worker.py",
+      "line": 515,
+      "file_sha256": "93ba3b76b0e0b801f3fef1e3c9c8f30f3d222ded8652d2aea91bbe797946890c",
+      "finding": "forecast_branch_stub",
+      "excerpt": "    def _run_visible_forecast(self, payload: dict, lease) -> dict:\n        \"\"\"可见人数预测。依赖 C 0.2.1a2 的 ``uow.visible`` 仓储。\"\"\"\n        raise RuntimeError(\n            \"visible_forecast 尚未接线：需要 C 0.2.1a2 的 uow.visible 仓储\"\n            \"（forecast_input / publish_forecast），拿到 wheel 后接线\"\n        )\n\n    def _locate_staging_file(self, document_id: str) -> Path | None:\n        \"\"\"定位上传时留下的 staging 原文件（重建立即可复用的输入源）。\n"
+    },
+    {
+      "path": "app/services/c_store.py",
+      "line": 256,
+      "file_sha256": "a4d704a0ad4ae944791e1f5b4823eb54a2d5873371bb6c56d3d57f6e1ec2b10f",
+      "finding": "D_private_analysis_table_still_present",
+      "excerpt": "    _VIDEO_ANALYSES_DDL = (\n        \"CREATE TABLE IF NOT EXISTS d_video_analyses (\"\n        \" analysis_id VARCHAR(64) PRIMARY KEY,\"\n        \" video_id VARCHAR(64) NOT NULL,\"\n        \" status VARCHAR(20) NOT NULL DEFAULT 'processing',\"\n        \" config_json TEXT NOT NULL,\"\n        \" provenance_json TEXT NULL,\"\n        \" recorded_start_at VARCHAR(40) NULL,\"\n        \" recorded_end_at VARCHAR(40) NULL,\"\n        \" roi_json TEXT NULL,\"\n        \" manual_validation_json TEXT NULL,\"\n        \" error_summary TEXT NULL,\"\n        \" created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\"\n        \" INDEX idx_dva_video (video_id)\"\n        \") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4\"\n    )\n\n    #: D 私表计数点（27 号一段序列）。value 允许 NULL（质量 unavailable）。\n    _COUNT_POINTS_DDL = (\n        \"CREATE TABLE IF NOT EXISTS d_video_count_points (\""
+    },
+    {
+      "path": "app/services/c_store.py",
+      "line": 274,
+      "file_sha256": "a4d704a0ad4ae944791e1f5b4823eb54a2d5873371bb6c56d3d57f6e1ec2b10f",
+      "finding": "D_private_count_table_still_present",
+      "excerpt": "    _COUNT_POINTS_DDL = (\n        \"CREATE TABLE IF NOT EXISTS d_video_count_points (\"\n        \" id BIGINT AUTO_INCREMENT PRIMARY KEY,\"\n        \" analysis_id VARCHAR(64) NOT NULL,\"\n        \" metric VARCHAR(40) NOT NULL DEFAULT 'camera_visible_people',\"\n        \" value DOUBLE NULL,\"\n        \" unit VARCHAR(20) NOT NULL DEFAULT '人',\"\n        \" grain VARCHAR(10) NOT NULL,\"\n        \" recorded_at VARCHAR(40) NULL,\"\n        \" period_start VARCHAR(40) NULL,\"\n        \" period_end VARCHAR(40) NULL,\"\n        \" sample_count INT NOT NULL DEFAULT 0,\"\n        \" aggregation_rule VARCHAR(20) NOT NULL DEFAULT 'median',\"\n        \" quality_status VARCHAR(20) NOT NULL DEFAULT 'good',\"\n        \" source_ids TEXT NULL,\"\n        \" INDEX idx_dvcp_analysis (analysis_id)\"\n        \") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4\""
+    },
+    {
+      "path": "app/services/metrics_query.py",
+      "line": 425,
+      "file_sha256": "0e57f3e3b5bc0fd6d210a9520b365c134647879c95abfb2403049655ddc55480",
+      "finding": "aware_input_not_normalized_to_business_timezone_before_date",
+      "excerpt": "        try:\n            series = cstore.query_series(entity_id=entity_id, metric=metric,\n                                         grain=grain, start=start.date(),\n                                         end=end.date(), quality=\"verified\")\n        except NotFound as exc:\n            return _unavailable(REASON_INVALID_ENTITY, metric=metric, unit=spec[\"unit\"],\n                                entity_type=spec[\"entity_types\"][0],"
+    }
+  ],
+  "C_table_count_from_installed_metadata": 34,
+  "D_table_count_reported": 37,
+  "D_table_inventory_received": false,
+  "D_original_JSON_evidence_received": false,
+  "D_reported_tests": 350,
+  "D_HTTP_success_in_attached_markdown": true,
+  "D_HTTP_replayed_here": false,
+  "crawler_touched": false
+}
