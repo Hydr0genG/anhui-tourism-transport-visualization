@@ -1,0 +1,39 @@
+{
+  "videos": [
+    {
+      "id": "MOT20-01",
+      "file": "videos/01_固定高位_室内通道人流.mp4",
+      "fps": 25.0,
+      "time_basis": "relative_video_seconds",
+      "manual_validation": null
+    },
+    {
+      "id": "MOT20-03",
+      "file": "videos/02_固定高位_体育场出口夜间人流.mp4",
+      "fps": 25.0,
+      "time_basis": "relative_video_seconds",
+      "manual_validation": null
+    },
+    {
+      "id": "MOT20-05",
+      "file": "videos/03_固定高位_夜间广场密集人流.mp4",
+      "fps": 25.0,
+      "time_basis": "relative_video_seconds",
+      "manual_validation": null
+    },
+    {
+      "id": "MOT20-06",
+      "file": "videos/04_固定高位_步行街人流.mp4",
+      "fps": 25.0,
+      "time_basis": "relative_video_seconds",
+      "manual_validation": null
+    },
+    {
+      "id": "MOT17-04-DPM",
+      "file": "videos/05_固定高位_夜间步行街人流.mp4",
+      "fps": 30.0,
+      "time_basis": "relative_video_seconds",
+      "manual_validation": null
+    }
+  ]
+}

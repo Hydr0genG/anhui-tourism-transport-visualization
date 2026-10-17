@@ -1,0 +1,40 @@
+{
+  "sequence": "MOT20-05",
+  "file": "videos/03_固定高位_夜间广场密集人流.mp4",
+  "download_url": "https://motchallenge.net/sequenceVideos/MOT20-05-raw.mp4",
+  "downloaded_at": "2026-10-17T13:01:35.930613+00:00",
+  "byte_size": 86279421,
+  "sha256": "e5d1099517a3d5fe8cded2035fce54ff641171b3be5b97cfcb774db90a64bc8e",
+  "source_page": "https://motchallenge.net/data/MOT20/",
+  "license": "CC BY-NC-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+  "metadata": {
+    "ffmpeg_version": "7.1 built with Apple clang version 13.1.6 (clang-1316.0.21.2.5)",
+    "codec": "mpeg4",
+    "pix_fmt": "yuv420p",
+    "fps": 25.0,
+    "source_size": [
+      826,
+      540
+    ],
+    "size": [
+      826,
+      540
+    ],
+    "rotate": 0,
+    "duration": 132.6
+  },
+  "full_decode_verified": true,
+  "sample_times_seconds": [
+    0.5,
+    66.3,
+    119.34
+  ],
+  "visual_viewpoint_check": "fixed_background_confirmed_in_start_middle_end_samples",
+  "frame_samples": [
+    "previews/MOT20-05-1.jpg",
+    "previews/MOT20-05-2.jpg",
+    "previews/MOT20-05-3.jpg"
+  ],
+  "visual_inspection_basis": "Assistant inspected actual decoded frames at all three listed times; no camera pan/zoom/cut evident in those samples"
+}

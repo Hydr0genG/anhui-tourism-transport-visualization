@@ -1,0 +1,219 @@
+{
+  "created_at": "2026-10-17T13:07:57.936536+00:00",
+  "archive": "固定监控视角人流测试视频-5段-2026-10-17.zip",
+  "archive_byte_size": 185310299,
+  "archive_sha256": "0e826fc249624a1d58a82e56f85c3e8ee2e5a85d95e33f89c1fbc3dfadd3e368",
+  "video_count": 5,
+  "all_published_MP4_bytes_preserved": true,
+  "all_videos_fully_decoded": true,
+  "start_middle_end_actual_frames_visually_checked": true,
+  "source_camera_view": "fixed elevated surveillance-style views",
+  "anhui_scenic_area_recordings": false,
+  "license": "CC BY-NC-SA 3.0, non-commercial research/code testing",
+  "prior_tourism_batch_rejected_for_viewpoint": true,
+  "ZIP_CRC_and_file_hashes_verified": true,
+  "extracted_verifier_passed": true,
+  "model_inference_executed": false,
+  "files": [
+    {
+      "path": "README.md",
+      "byte_size": 3150,
+      "sha256": "7d88c9c725b7f57d6d3cb0ac869de7d09381a4053b1f23f46c6b38fb0c3c2850"
+    },
+    {
+      "path": "manifest.json",
+      "byte_size": 6867,
+      "sha256": "372d7055f335d3a1fab8f2c68631c5f32176a2ad75518cdbe307a23c4a901274"
+    },
+    {
+      "path": "test_inputs.json",
+      "byte_size": 1025,
+      "sha256": "01972e458abe3aac885fb3cc2d8f760e2914440dece4cad6d58a585cf0378c21"
+    },
+    {
+      "path": "verify_media.py",
+      "byte_size": 948,
+      "sha256": "4b7c2e443db1ba0e963e655975bebb6288cf1bf8fec74cb21da267c307a2eea0"
+    },
+    {
+      "path": "MOT17-04-DPM-download.json",
+      "byte_size": 497,
+      "sha256": "bc6dd571a991c0c666fc7bf9f948418e80fd4bbd9d645478a7be44a38e489516"
+    },
+    {
+      "path": "MOT20-01-download.json",
+      "byte_size": 486,
+      "sha256": "59763d06b49cb0d4e03c71760da41abf9054ebeae2f9aa7abbc9a81e537eff7c"
+    },
+    {
+      "path": "MOT20-03-download.json",
+      "byte_size": 526,
+      "sha256": "be9fa1abd283076f699f64be772fd7fa2b78f527dc2987d63084a8d9d94fc8a8"
+    },
+    {
+      "path": "MOT20-05-download.json",
+      "byte_size": 492,
+      "sha256": "ac626e03c308e1f29fdd915295f1c709cbe83e185572d56fe4e3a5a13e4f4819"
+    },
+    {
+      "path": "MOT20-06-download.json",
+      "byte_size": 483,
+      "sha256": "63949396de9a386710344a249dda96de0c94a38e9df0f1b6bc7676038d2361ee"
+    },
+    {
+      "path": "MOT17-04-DPM-qa.json",
+      "byte_size": 1259,
+      "sha256": "0a9201636c9111687cce63e781829f506ea57b2784a8c2173f80ee9bbc8d86d0"
+    },
+    {
+      "path": "MOT20-01-qa.json",
+      "byte_size": 1239,
+      "sha256": "7c7a243f1f6b0eb1d10b2a4a018bdb32c63be8a0539f8dc495a9f8805fc8ead5"
+    },
+    {
+      "path": "MOT20-03-qa.json",
+      "byte_size": 1277,
+      "sha256": "77bdc65c5a5f629d8ad48b4d0ef1978817fd0371cabdf77955238bf5523b5a0f"
+    },
+    {
+      "path": "MOT20-05-qa.json",
+      "byte_size": 1245,
+      "sha256": "5be54dd4e95993b760b9c6bed2e1c698bb7d8f5a90dd1d4bfc840890b5998630"
+    },
+    {
+      "path": "MOT20-06-qa.json",
+      "byte_size": 1249,
+      "sha256": "5743473616173190a5d9508b10168cb4f016a378b97f53c501de518ee8a05459"
+    },
+    {
+      "path": "videos/01_固定高位_室内通道人流.mp4",
+      "byte_size": 13110890,
+      "sha256": "0105c42857c50f73c6ec50d3456f9bb8a04cbe45944bf7bbc3c77dc755feeae8"
+    },
+    {
+      "path": "videos/02_固定高位_体育场出口夜间人流.mp4",
+      "byte_size": 34619433,
+      "sha256": "a93dc3d6ef9d3f897db2dd493e96f3077ad7b6edc31225fefd5f4d204b9faba3"
+    },
+    {
+      "path": "videos/03_固定高位_夜间广场密集人流.mp4",
+      "byte_size": 86279421,
+      "sha256": "e5d1099517a3d5fe8cded2035fce54ff641171b3be5b97cfcb774db90a64bc8e"
+    },
+    {
+      "path": "videos/04_固定高位_步行街人流.mp4",
+      "byte_size": 35381764,
+      "sha256": "fc1f0afa16c32ca9218fcaf531fe561a5a6264b0841a21102703139eb0c16ee0"
+    },
+    {
+      "path": "videos/05_固定高位_夜间步行街人流.mp4",
+      "byte_size": 14745062,
+      "sha256": "ab0d2fc03bce5e112abe9a173de7a2d70b39875c0af3eca49d6160c6e317e495"
+    },
+    {
+      "path": "previews/MOT17-04-DPM-1.jpg",
+      "byte_size": 24477,
+      "sha256": "81f874d511b3e6025b0de9fe8f3ed86ecc5f4448e2bf72a9bd8c7144a215031e"
+    },
+    {
+      "path": "previews/MOT17-04-DPM-2.jpg",
+      "byte_size": 24712,
+      "sha256": "0f4608acc36e15e68f43d95e31ab9fd21eb2f4ac8e6cb36feb23bd40423b8fd4"
+    },
+    {
+      "path": "previews/MOT17-04-DPM-3.jpg",
+      "byte_size": 25368,
+      "sha256": "cfefc4353d86941c83082f65c1c9fe3b930b6f56c9c5f52c644a2cd53b3f4762"
+    },
+    {
+      "path": "previews/MOT17-04-DPM-temporal-check.jpg",
+      "byte_size": 91999,
+      "sha256": "bfd2e976ef4afe85a605fc73cd6a8699e148a73eaa1c332abc59d552294810e0"
+    },
+    {
+      "path": "previews/MOT20-01-1.jpg",
+      "byte_size": 30645,
+      "sha256": "40b4dea77dba936bed89c1fdb88b948cd206bd7811979adb0dbbe810625d7047"
+    },
+    {
+      "path": "previews/MOT20-01-2.jpg",
+      "byte_size": 31786,
+      "sha256": "0b56eee81f9bd32edcb103c88d8d6fa95fd32357415ab18f0b535be8a919e2e5"
+    },
+    {
+      "path": "previews/MOT20-01-3.jpg",
+      "byte_size": 30986,
+      "sha256": "5bbe4f5c21e7b3da39dbc097eed8baa68f52fae877ac7ce55f8580bddea67d88"
+    },
+    {
+      "path": "previews/MOT20-01-temporal-check.jpg",
+      "byte_size": 124377,
+      "sha256": "b7686c6325bc7bb28d4c3fb6365d7ffe268611aba27cb4e3e2570f96afe6c30d"
+    },
+    {
+      "path": "previews/MOT20-03-1.jpg",
+      "byte_size": 28838,
+      "sha256": "fdd8b69bead9ab4316152ca841fe4ad0acfc788e88d4dbe5f9bfa7f1cf5aca39"
+    },
+    {
+      "path": "previews/MOT20-03-2.jpg",
+      "byte_size": 28134,
+      "sha256": "4b497fe80369e945d6a980be41062fff5274f8e72892e3a440adb4675f3c0036"
+    },
+    {
+      "path": "previews/MOT20-03-3.jpg",
+      "byte_size": 32084,
+      "sha256": "b118add5e7286601ba3f54bc0343ea43e4e928e996ad6f42f51cd252e6483508"
+    },
+    {
+      "path": "previews/MOT20-03-temporal-check.jpg",
+      "byte_size": 90685,
+      "sha256": "c832091aa5dcfdd1a42d112034be8adb331d0ff0ecae9110f2612256a3b89527"
+    },
+    {
+      "path": "previews/MOT20-05-1.jpg",
+      "byte_size": 32500,
+      "sha256": "7dab14655cff7da6e3c1898803df53cadc719177a161d81c89a704d65f62bb2a"
+    },
+    {
+      "path": "previews/MOT20-05-2.jpg",
+      "byte_size": 32832,
+      "sha256": "2771f4224c4c2b5259238020584952fa1186ec172595ca420a0f89530cee0827"
+    },
+    {
+      "path": "previews/MOT20-05-3.jpg",
+      "byte_size": 35039,
+      "sha256": "db4e8cdd8079baff66d6ef196fe17fa117b62ff34d5e4b7891e24b6cffa14fc8"
+    },
+    {
+      "path": "previews/MOT20-05-temporal-check.jpg",
+      "byte_size": 116394,
+      "sha256": "9dfb40e42909b6c369a2a436fddd94c4ee65b00ba4be97efbfa96a7ec10dbc43"
+    },
+    {
+      "path": "previews/MOT20-06-1.jpg",
+      "byte_size": 29602,
+      "sha256": "43f88addc187681f02c1c9c14e7f4bb0a48f92a8b8829057aa2fbab46e432a30"
+    },
+    {
+      "path": "previews/MOT20-06-2.jpg",
+      "byte_size": 32175,
+      "sha256": "6fa75813de8840d10a732e42ea5d3c187fe66f39ff4b2bf70d42fe0c36744d31"
+    },
+    {
+      "path": "previews/MOT20-06-3.jpg",
+      "byte_size": 29973,
+      "sha256": "9b208e75f81719c51dafe44676841febbd0f4d2c9eaf14b09c7893ee3bc0553e"
+    },
+    {
+      "path": "previews/MOT20-06-temporal-check.jpg",
+      "byte_size": 123387,
+      "sha256": "d834db05e4a64ef8f592ce6a29a32667ce6778e5c2291a92ed138875a5fd7ef6"
+    },
+    {
+      "path": "previews/监控视角总览.jpg",
+      "byte_size": 149485,
+      "sha256": "ee03f1204957dfe63708d58612580ef388ed4857036abd814fec007dd94b1bc3"
+    }
+  ]
+}

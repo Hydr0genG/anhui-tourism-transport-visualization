@@ -1,0 +1,40 @@
+{
+  "sequence": "MOT20-01",
+  "file": "videos/01_固定高位_室内通道人流.mp4",
+  "download_url": "https://motchallenge.net/sequenceVideos/MOT20-01-raw.mp4",
+  "downloaded_at": "2026-10-17T13:04:02.581849+00:00",
+  "byte_size": 13110890,
+  "sha256": "0105c42857c50f73c6ec50d3456f9bb8a04cbe45944bf7bbc3c77dc755feeae8",
+  "source_page": "https://motchallenge.net/data/MOT20/",
+  "license": "CC BY-NC-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+  "metadata": {
+    "ffmpeg_version": "7.1 built with Apple clang version 13.1.6 (clang-1316.0.21.2.5)",
+    "codec": "mpeg4",
+    "pix_fmt": "yuv420p",
+    "fps": 25.0,
+    "source_size": [
+      960,
+      540
+    ],
+    "size": [
+      960,
+      540
+    ],
+    "rotate": 0,
+    "duration": 17.16
+  },
+  "full_decode_verified": true,
+  "sample_times_seconds": [
+    0.5,
+    8.58,
+    15.444
+  ],
+  "visual_viewpoint_check": "fixed_background_confirmed_in_start_middle_end_samples",
+  "frame_samples": [
+    "previews/MOT20-01-1.jpg",
+    "previews/MOT20-01-2.jpg",
+    "previews/MOT20-01-3.jpg"
+  ],
+  "visual_inspection_basis": "Assistant inspected actual decoded frames at all three listed times; no camera pan/zoom/cut evident in those samples"
+}

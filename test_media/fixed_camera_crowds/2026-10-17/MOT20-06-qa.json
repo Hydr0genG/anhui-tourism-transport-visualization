@@ -1,0 +1,40 @@
+{
+  "sequence": "MOT20-06",
+  "file": "videos/04_固定高位_步行街人流.mp4",
+  "download_url": "https://motchallenge.net/sequenceVideos/MOT20-06-raw.mp4",
+  "downloaded_at": "2026-10-17T13:01:44.844199+00:00",
+  "byte_size": 35381764,
+  "sha256": "fc1f0afa16c32ca9218fcaf531fe561a5a6264b0841a21102703139eb0c16ee0",
+  "source_page": "https://motchallenge.net/data/MOT20/",
+  "license": "CC BY-NC-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+  "metadata": {
+    "ffmpeg_version": "7.1 built with Apple clang version 13.1.6 (clang-1316.0.21.2.5)",
+    "codec": "mpeg4",
+    "pix_fmt": "yuv420p",
+    "fps": 25.0,
+    "source_size": [
+      960,
+      366
+    ],
+    "size": [
+      960,
+      366
+    ],
+    "rotate": 0,
+    "duration": 40.32
+  },
+  "full_decode_verified": true,
+  "sample_times_seconds": [
+    0.5,
+    20.16,
+    36.288000000000004
+  ],
+  "visual_viewpoint_check": "fixed_background_confirmed_in_start_middle_end_samples",
+  "frame_samples": [
+    "previews/MOT20-06-1.jpg",
+    "previews/MOT20-06-2.jpg",
+    "previews/MOT20-06-3.jpg"
+  ],
+  "visual_inspection_basis": "Assistant inspected actual decoded frames at all three listed times; no camera pan/zoom/cut evident in those samples"
+}

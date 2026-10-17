@@ -1,0 +1,40 @@
+{
+  "sequence": "MOT17-04-DPM",
+  "file": "videos/05_固定高位_夜间步行街人流.mp4",
+  "download_url": "https://motchallenge.net/sequenceVideos/MOT17-04-DPM-raw.mp4",
+  "downloaded_at": "2026-10-17T13:01:50.642138+00:00",
+  "byte_size": 14745062,
+  "sha256": "ab0d2fc03bce5e112abe9a173de7a2d70b39875c0af3eca49d6160c6e317e495",
+  "source_page": "https://motchallenge.net/data/MOT17/",
+  "license": "CC BY-NC-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+  "metadata": {
+    "ffmpeg_version": "7.1 built with Apple clang version 13.1.6 (clang-1316.0.21.2.5)",
+    "codec": "mpeg4",
+    "pix_fmt": "yuv420p",
+    "fps": 30.0,
+    "source_size": [
+      960,
+      540
+    ],
+    "size": [
+      960,
+      540
+    ],
+    "rotate": 0,
+    "duration": 35.0
+  },
+  "full_decode_verified": true,
+  "sample_times_seconds": [
+    0.5,
+    17.5,
+    31.5
+  ],
+  "visual_viewpoint_check": "fixed_background_confirmed_in_start_middle_end_samples",
+  "frame_samples": [
+    "previews/MOT17-04-DPM-1.jpg",
+    "previews/MOT17-04-DPM-2.jpg",
+    "previews/MOT17-04-DPM-3.jpg"
+  ],
+  "visual_inspection_basis": "Assistant inspected actual decoded frames at all three listed times; no camera pan/zoom/cut evident in those samples"
+}

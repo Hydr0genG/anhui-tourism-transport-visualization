@@ -1,0 +1,6 @@
+{
+  "status": "rejected_for_requested_camera_viewpoint",
+  "reason": "User requires fixed surveillance-style views of pedestrian flow. This batch includes news edits, moving cameras and close views and is excluded from that test selection.",
+  "replacement_directory": "test_media/fixed_camera_crowds/2026-10-17",
+  "prior_archive_preserved_for_history": true
+}
