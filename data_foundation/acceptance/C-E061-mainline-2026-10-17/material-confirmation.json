@@ -1,0 +1,16 @@
+{
+  "confirmed_at": "2026-10-17T20:28:34+08:00",
+  "source": "direct_user_reply_in_current_chat",
+  "user_reply": "暂无可用授权录像",
+  "user_authorization_reply_received": true,
+  "authorized_video_availability": "none_available_confirmed_by_user",
+  "real_video_acceptance": "pending_authorized_materials",
+  "real_video_accuracy_verified": false,
+  "MAE": null,
+  "real_continuous_forecast_verified": false,
+  "manual_annotation_materials": "not_provided_in_current_handoff",
+  "code_integration_may_continue": true,
+  "prior_record": "material-availability.json",
+  "prior_record_and_sealed_archive_preserved": true,
+  "external_message_sent": false
+}
