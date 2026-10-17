@@ -1,0 +1,41 @@
+{
+  "audit_date": "2026-10-14",
+  "status": "passed",
+  "checked_after_scope_review": true,
+  "checks": [
+    "44 core entity keys unique; all source references resolve",
+    "33 source keys unique; URLs match latest acquisition records",
+    "32 saved raw HTML snapshots validated against recorded SHA-256",
+    "Latest extracted texts validated against recorded SHA-256",
+    "41 existing airport PDFs and extracted texts validated",
+    "8 monthly airport sample rows retain raw locator and provenance",
+    "2 existing source originals validated",
+    "All automatic update/write switches disabled",
+    "Audit script syntax compilation passed"
+  ],
+  "limitations": [
+    "HTTP/body matching is not numeric or scope verification",
+    "No business database writes or scheduled updates executed"
+  ],
+  "summary": {
+    "entities": 44,
+    "sources": 33,
+    "attempted_sources": 33,
+    "fetch_status_counts": {
+      "entry_available": 4,
+      "sample_available": 20,
+      "fetch_failed": 9
+    },
+    "entity_status_counts": {
+      "sample_unavailable": 6,
+      "sample_available_scope_review": 18,
+      "entry_only": 4,
+      "monthly_sample_available": 8,
+      "existing_sample_available": 2,
+      "target_metric_not_confirmed": 6
+    },
+    "airport_assets_checked": 41,
+    "airport_errors": 0,
+    "airport_sample_count": 8
+  }
+}

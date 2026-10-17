@@ -1,0 +1,1704 @@
+{
+  "schema_version": "source-audit-v1",
+  "audit_date": "2026-10-14",
+  "scope": "Anhui",
+  "purpose": "step1_inventory_and_samples_only",
+  "core_entity_count": 44,
+  "scope_change": "依据2026年8月机场原件新增蚌埠滕湖机场，由43增至44；轨道2对象仍为后续候选。",
+  "target_window": {
+    "start": "2023-01-01",
+    "end_policy": "latest_published_period"
+  },
+  "sources": [
+    {
+      "id": "city-hefei",
+      "url": "https://www.hfyaohai.gov.cn/group1/M00/92/B2/wKgEHmhSjH-AakEtABFDSWCfbvA509.pdf",
+      "title": "合肥市2024年统计公报（政府公开附件）",
+      "kind": "pdf",
+      "native_grain": "year",
+      "expected_markers": [
+        "合肥",
+        "2024"
+      ],
+      "scope_note": "2025年公报原发布页仍待定位；先核验2024年样本。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "pdf_report",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "city-wuhu",
+      "url": "https://www.wuhu.gov.cn/mlwh/tjgb/41219509.html",
+      "title": "芜湖市2025年统计公报",
+      "kind": "html",
+      "native_grain": "year",
+      "expected_markers": [
+        "芜湖",
+        "2025"
+      ],
+      "scope_note": "交通和旅游设施背景；游客总量字段须另查。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "city-bengbu",
+      "url": "https://www.bengbu.gov.cn/",
+      "title": "蚌埠市政府入口",
+      "kind": "entry",
+      "native_grain": null,
+      "expected_markers": [
+        "蚌埠"
+      ],
+      "scope_note": "入口访问受限，公报样本待取得。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P2",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "site_discovery",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "city-huainan",
+      "url": "https://tjj.huainan.gov.cn/zxfbyjd/551865247.html",
+      "title": "淮南市2025年统计公报",
+      "kind": "html",
+      "native_grain": "year",
+      "expected_markers": [
+        "淮南",
+        "2025"
+      ],
+      "scope_note": "逐项确认旅游及交通字段。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "city-maanshan",
+      "url": "https://www.mas.gov.cn/sjkf/sjkf-zcwj/tjsj/index.html",
+      "title": "马鞍山市统计数据目录",
+      "kind": "entry",
+      "native_grain": null,
+      "expected_markers": [
+        "马鞍山",
+        "统计"
+      ],
+      "scope_note": "公报原发布页及样本待取得。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P2",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "site_discovery",
+      "discovery_url": "https://www.mas.gov.cn/",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "city-huaibei",
+      "url": "https://tj.huaibei.gov.cn/zwgk/public/76/65004912.html",
+      "title": "淮北市2025年统计公报",
+      "kind": "html",
+      "native_grain": "year",
+      "expected_markers": [
+        "淮北",
+        "2025"
+      ],
+      "scope_note": "核验旅游章节与原文统计范围。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "city-tongling",
+      "url": "https://tjj.tl.gov.cn/tlstjj/c00142/pc/content/content_2074671942385590272.html",
+      "title": "铜陵市2025年统计公报",
+      "kind": "html",
+      "native_grain": "year",
+      "expected_markers": [
+        "铜陵",
+        "2025"
+      ],
+      "scope_note": "城市铁路发送量属于市级汇总，不能替代某站。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "city-anqing",
+      "url": "https://www.anqing.gov.cn/tjsj/tjgb/2007357161.html",
+      "title": "安庆市2025年统计公报",
+      "kind": "html",
+      "native_grain": "year",
+      "expected_markers": [
+        "安庆",
+        "2025"
+      ],
+      "scope_note": "公报原发布页及样本待取得。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P2",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "discovery_url": "https://www.anqing.gov.cn/tjsj/tjgb/index.html",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "city-huangshan",
+      "url": "https://www.huangshan.gov.cn/group1/M00/1C/28/wKiM92nyzEOAXiA7AAopjvU8d3Q407.pdf",
+      "title": "黄山市2025年统计公报",
+      "kind": "pdf",
+      "native_grain": "year",
+      "expected_markers": [
+        "黄山",
+        "2025"
+      ],
+      "scope_note": "市级游客与主景区分开。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "pdf_report",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "city-chuzhou",
+      "url": "https://www.chuzhou.gov.cn/zxzx/bmdt/1112768667.html",
+      "title": "滁州2026年国庆文旅报告",
+      "kind": "html",
+      "native_grain": "holiday",
+      "expected_markers": [
+        "国庆",
+        "滁州"
+      ],
+      "scope_note": "公报原发布页及样本待取得。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P2",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "site_discovery",
+      "discovery_url": "https://www.chuzhou.gov.cn/",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "city-fuyang",
+      "url": "https://www.fy.gov.cn/Content/show/1345298.html",
+      "title": "阜阳2026年国庆消费与出行报告",
+      "kind": "html",
+      "native_grain": "holiday",
+      "expected_markers": [
+        "国庆",
+        "阜阳"
+      ],
+      "scope_note": "公报原发布页及样本待取得。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P2",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "site_discovery",
+      "discovery_url": "https://www.fy.gov.cn/",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "city-suzhou",
+      "url": "https://tjj.ahsz.gov.cn/sjsz/tjgb/196408981.html",
+      "title": "宿州市2025年统计公报",
+      "kind": "html",
+      "native_grain": "year",
+      "expected_markers": [
+        "宿州",
+        "2025"
+      ],
+      "scope_note": "核验交通、游客与设施字段。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "city-luan",
+      "url": "https://tjj.luan.gov.cn/sjla/tjgg/5480630.html",
+      "title": "六安市2025年统计公报",
+      "kind": "html",
+      "native_grain": "year",
+      "expected_markers": [
+        "六安",
+        "2025"
+      ],
+      "scope_note": "市级、县级及单景区分开。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "city-bozhou",
+      "url": "https://bozhou.gov.cn/file_bz/27/202503/20250331be2a14b6f5a24f1687def9eb932de999.pdf",
+      "title": "亳州市2024年统计公报",
+      "kind": "pdf",
+      "native_grain": "year",
+      "expected_markers": [
+        "亳州",
+        "2024"
+      ],
+      "scope_note": "2025年原发布页未定位，先核验2024年样本。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "pdf_report",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "city-chizhou",
+      "url": "https://cztjj.chizhou.gov.cn/Content/show/781353.html",
+      "title": "池州市2025年统计公报",
+      "kind": "html",
+      "native_grain": "year",
+      "expected_markers": [
+        "池州",
+        "2025"
+      ],
+      "scope_note": "已发现2023/2024公报目录，具体附件及2025年资料待定位。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P2",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "discovery_url": "https://cztjj.chizhou.gov.cn/Content/showList/545/page_1.html",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "city-xuancheng",
+      "url": "https://www.xuancheng.gov.cn/News/show/1706704.html",
+      "title": "宣城市2025年统计公报",
+      "kind": "html",
+      "native_grain": "year",
+      "expected_markers": [
+        "宣城",
+        "2025"
+      ],
+      "scope_note": "公路水运旅客量不含铁路，保留原文注释。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "caac-east-monthly",
+      "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/",
+      "title": "华东机场月度统计目录",
+      "kind": "entry",
+      "native_grain": "month",
+      "expected_markers": [
+        "机场",
+        "运输生产"
+      ],
+      "scope_note": "复用已有原件，按机场行提取本期完成；目录抓取另验证。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P2",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "site_discovery",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "scenic-huangshan-main",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-04-18/1225118314.PDF",
+      "title": "黄山旅游2025年年报",
+      "kind": "pdf",
+      "native_grain": "year",
+      "expected_markers": [
+        "进山游客",
+        "2025"
+      ],
+      "scope_note": "主景区与全域、索道人次分开。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "pdf_report",
+      "publisher": "上市公司正式披露（巨潮资讯）",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "scenic-hongcun",
+      "url": "https://www.huangshan.gov.cn/zfsj/sjjd/8392970.html",
+      "title": "2023年西递宏村接待报道",
+      "kind": "html",
+      "native_grain": "cumulative",
+      "expected_markers": [
+        "西递",
+        "宏村"
+      ],
+      "scope_note": "样本为两景区合计累计值；不能分摊成单景区客流。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "scenic-jiuhuashan",
+      "url": "https://www.jiuhuashan.gov.cn/OpennessContent/show/1645195.html",
+      "title": "九华山2025年春节报告",
+      "kind": "html",
+      "native_grain": "holiday",
+      "expected_markers": [
+        "春节",
+        "47.1"
+      ],
+      "scope_note": "接待范围与进山口径需确认。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "scenic-tianzhushan",
+      "url": "https://m.tzs.cn/site-ah-tzs/info/4873",
+      "title": "天柱山2026年工作会议",
+      "kind": "html",
+      "native_grain": "year",
+      "expected_markers": [
+        "2025",
+        "109"
+      ],
+      "scope_note": "主峰与全风景区分别登记；运营官网身份保留待复核。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "天柱山运营网站，主体待核验",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "scenic-tiantangzhai",
+      "url": "https://www.ahjinzhai.gov.cn/public/6596281/38246535.html",
+      "title": "天堂寨文旅建议办理答复",
+      "kind": "html",
+      "native_grain": "holiday",
+      "expected_markers": [
+        "天堂寨",
+        "26.16"
+      ],
+      "scope_note": "核实假期年份与统计范围。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "scenic-wanfohu",
+      "url": "https://wlj.luan.gov.cn/zwzx/xqcz/5423086.html",
+      "title": "舒城2025年五一报告",
+      "kind": "html",
+      "native_grain": "holiday",
+      "expected_markers": [
+        "万佛湖",
+        "11.19"
+      ],
+      "scope_note": "五天假期，县级合计与景区数分开。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "scenic-sanhe",
+      "url": "https://ahfx.wenming.cn/wmyw/202505/t20250507_3537912.shtml",
+      "title": "肥西2025年五一报告",
+      "kind": "html",
+      "native_grain": "holiday",
+      "expected_markers": [
+        "三河",
+        "32"
+      ],
+      "scope_note": "开放古镇接待口径需要记录；发布主体另核验。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "肥西文明网",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "scenic-langyashan",
+      "url": "https://www.lysfjq.cn/display.php?id=1247",
+      "title": "琅琊山2025年国庆假期报告",
+      "kind": "html",
+      "native_grain": "holiday",
+      "expected_markers": [
+        "琅琊山",
+        "2025"
+      ],
+      "scope_note": "目录有假期文章线索，具体原件和数值待取得。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P2",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "site_discovery",
+      "discovery_url": "https://www.lysfjq.cn/info.php?class_id=105",
+      "publisher": "琅琊山运营网站，主体待核验",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "scenic-balihe",
+      "url": "https://www.balihe.com/4g/info.asp?base_id=3",
+      "title": "八里河景区信息入口",
+      "kind": "entry",
+      "native_grain": null,
+      "expected_markers": [
+        "八里河"
+      ],
+      "scope_note": "目前是运营信息，未核实精确接待量。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P2",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "site_discovery",
+      "publisher": "八里河运营网站，主体待核验",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "scenic-longchuan",
+      "url": "https://www.cnjx.gov.cn/OpennessContent/show/3478342.html",
+      "title": "绩溪县文旅工作报告",
+      "kind": "html",
+      "native_grain": "year",
+      "expected_markers": [
+        "龙川",
+        "2024"
+      ],
+      "scope_note": "县级工作报告中的旅游活动不能替代单景区人数。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "rail_station-hefei-south",
+      "url": "https://news.cri.cn/n/20250217/fe33a8cc-283c-de32-ec94-3f3bd8eccf6b.html",
+      "title": "合肥南站2025年2月15日实绩报道",
+      "kind": "html",
+      "native_grain": "day",
+      "expected_markers": [
+        "合肥南站",
+        "134521"
+      ],
+      "scope_note": "媒体转引合肥日报，需保留原始供数与报道来源。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "国际在线，原报道来源合肥日报",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "rail_station-hefei",
+      "url": "https://www.ahjd.gov.cn/News/show/1693081.html",
+      "title": "合肥铁路发展报道",
+      "kind": "html",
+      "native_grain": "cumulative",
+      "expected_markers": [
+        "合肥",
+        "3710.2"
+      ],
+      "scope_note": "该样本只有直属站与合肥南站，不能替代合肥站。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "rail_station-wuhu",
+      "url": "https://tzcjzx.wuhu.gov.cn/zsdt/gzdt/8754081.html",
+      "title": "芜湖站2025年清明实绩报道",
+      "kind": "html",
+      "native_grain": "day",
+      "expected_markers": [
+        "芜湖站",
+        "8.76"
+      ],
+      "scope_note": "站点与车务段分开；超过5万等限定语保留。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "rail_station-fuyang-west",
+      "url": "https://paper.people.com.cn/rmrb/pc/content/202603/01/content_30142836.html",
+      "title": "阜阳西站2026年2月24日实绩",
+      "kind": "html",
+      "native_grain": "day",
+      "expected_markers": [
+        "阜阳西站",
+        "5.75"
+      ],
+      "scope_note": "保留日实绩，文内春运预计不作为实绩。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "人民日报/人民网",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "rail_station-huangshan-north",
+      "url": "https://www.huangshan.gov.cn/zfsj/sjjd/8420396.html",
+      "title": "黄山北站2026年清明实绩",
+      "kind": "html",
+      "native_grain": "day",
+      "expected_markers": [
+        "黄山北站",
+        "4.75"
+      ],
+      "scope_note": "万余近似限定需保留；既有2025年单日样本可复用。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P0",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "official_article",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    },
+    {
+      "id": "rail_station-chizhou",
+      "url": "https://www.chizhou.gov.cn/",
+      "title": "池州市政府入口",
+      "kind": "entry",
+      "native_grain": null,
+      "expected_markers": [
+        "池州"
+      ],
+      "scope_note": "近期站点实绩原件待定位，不能套用车务段合计。",
+      "authentication": "none_for_public_sample",
+      "verification_status": "candidate",
+      "enabled": false,
+      "auto_write_ready": false,
+      "priority": "P2",
+      "historical_coverage": "not_yet_audited",
+      "licence_status": "not_stated",
+      "adapter_proposal": "site_discovery",
+      "publisher": "政府公开发布主体",
+      "last_checked_date": "2026-10-14"
+    }
+  ],
+  "entities": [
+    {
+      "key": "city:hefei",
+      "name": "合肥市",
+      "type": "city",
+      "region_code": "340100",
+      "source_ids": [
+        "city-hefei"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "2025年公报原发布页仍待定位；先核验2024年样本。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true
+    },
+    {
+      "key": "city:wuhu",
+      "name": "芜湖市",
+      "type": "city",
+      "region_code": "340200",
+      "source_ids": [
+        "city-wuhu"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "交通和旅游设施背景；游客总量字段须另查。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true
+    },
+    {
+      "key": "city:bengbu",
+      "name": "蚌埠市",
+      "type": "city",
+      "region_code": "340300",
+      "source_ids": [
+        "city-bengbu"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "入口访问受限，公报样本待取得。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true
+    },
+    {
+      "key": "city:huainan",
+      "name": "淮南市",
+      "type": "city",
+      "region_code": "340400",
+      "source_ids": [
+        "city-huainan"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "逐项确认旅游及交通字段。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true
+    },
+    {
+      "key": "city:maanshan",
+      "name": "马鞍山市",
+      "type": "city",
+      "region_code": "340500",
+      "source_ids": [
+        "city-maanshan"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "公报原发布页及样本待取得。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true
+    },
+    {
+      "key": "city:huaibei",
+      "name": "淮北市",
+      "type": "city",
+      "region_code": "340600",
+      "source_ids": [
+        "city-huaibei"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "核验旅游章节与原文统计范围。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true
+    },
+    {
+      "key": "city:tongling",
+      "name": "铜陵市",
+      "type": "city",
+      "region_code": "340700",
+      "source_ids": [
+        "city-tongling"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "城市铁路发送量属于市级汇总，不能替代某站。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true
+    },
+    {
+      "key": "city:anqing",
+      "name": "安庆市",
+      "type": "city",
+      "region_code": "340800",
+      "source_ids": [
+        "city-anqing"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "公报原发布页及样本待取得。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true
+    },
+    {
+      "key": "city:huangshan",
+      "name": "黄山市",
+      "type": "city",
+      "region_code": "341000",
+      "source_ids": [
+        "city-huangshan"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "市级游客与主景区分开。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true
+    },
+    {
+      "key": "city:chuzhou",
+      "name": "滁州市",
+      "type": "city",
+      "region_code": "341100",
+      "source_ids": [
+        "city-chuzhou"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "公报原发布页及样本待取得。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true
+    },
+    {
+      "key": "city:fuyang",
+      "name": "阜阳市",
+      "type": "city",
+      "region_code": "341200",
+      "source_ids": [
+        "city-fuyang"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "公报原发布页及样本待取得。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true
+    },
+    {
+      "key": "city:suzhou",
+      "name": "宿州市",
+      "type": "city",
+      "region_code": "341300",
+      "source_ids": [
+        "city-suzhou"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "核验交通、游客与设施字段。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true
+    },
+    {
+      "key": "city:luan",
+      "name": "六安市",
+      "type": "city",
+      "region_code": "341500",
+      "source_ids": [
+        "city-luan"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "市级、县级及单景区分开。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true
+    },
+    {
+      "key": "city:bozhou",
+      "name": "亳州市",
+      "type": "city",
+      "region_code": "341600",
+      "source_ids": [
+        "city-bozhou"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "2025年原发布页未定位，先核验2024年样本。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true
+    },
+    {
+      "key": "city:chizhou",
+      "name": "池州市",
+      "type": "city",
+      "region_code": "341700",
+      "source_ids": [
+        "city-chizhou"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "已发现2023/2024公报目录，具体附件及2025年资料待定位。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true
+    },
+    {
+      "key": "city:xuancheng",
+      "name": "宣城市",
+      "type": "city",
+      "region_code": "341800",
+      "source_ids": [
+        "city-xuancheng"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "公路水运旅客量不含铁路，保留原文注释。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true
+    },
+    {
+      "key": "airport:HFE",
+      "name": "合肥新桥机场",
+      "type": "airport",
+      "region_code": "340100",
+      "source_ids": [
+        "caac-east-monthly"
+      ],
+      "aliases": [
+        "合肥/新桥"
+      ],
+      "target_metrics": [
+        "airport_throughput"
+      ],
+      "scope_note": "新增机场从首次实际发布的统计期计算覆盖。",
+      "native_grains_target": [
+        "month"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "airport:TXN",
+      "name": "黄山屯溪机场",
+      "type": "airport",
+      "region_code": "341000",
+      "source_ids": [
+        "caac-east-monthly"
+      ],
+      "aliases": [
+        "黄山/屯溪"
+      ],
+      "target_metrics": [
+        "airport_throughput"
+      ],
+      "scope_note": "新增机场从首次实际发布的统计期计算覆盖。",
+      "native_grains_target": [
+        "month"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "airport:FUG",
+      "name": "阜阳机场",
+      "type": "airport",
+      "region_code": "341200",
+      "source_ids": [
+        "caac-east-monthly"
+      ],
+      "aliases": [
+        "阜阳"
+      ],
+      "target_metrics": [
+        "airport_throughput"
+      ],
+      "scope_note": "新增机场从首次实际发布的统计期计算覆盖。",
+      "native_grains_target": [
+        "month"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "airport:WHA",
+      "name": "芜湖宣州机场",
+      "type": "airport",
+      "region_code": "340200",
+      "source_ids": [
+        "caac-east-monthly"
+      ],
+      "aliases": [
+        "芜湖/宣州"
+      ],
+      "target_metrics": [
+        "airport_throughput"
+      ],
+      "scope_note": "新增机场从首次实际发布的统计期计算覆盖。",
+      "native_grains_target": [
+        "month"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "airport:AQG",
+      "name": "安庆天柱山机场",
+      "type": "airport",
+      "region_code": "340800",
+      "source_ids": [
+        "caac-east-monthly"
+      ],
+      "aliases": [
+        "安庆/天柱山",
+        "安庆"
+      ],
+      "target_metrics": [
+        "airport_throughput"
+      ],
+      "scope_note": "新增机场从首次实际发布的统计期计算覆盖。",
+      "native_grains_target": [
+        "month"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "airport:JUH",
+      "name": "池州九华山机场",
+      "type": "airport",
+      "region_code": "341700",
+      "source_ids": [
+        "caac-east-monthly"
+      ],
+      "aliases": [
+        "池州/九华山"
+      ],
+      "target_metrics": [
+        "airport_throughput"
+      ],
+      "scope_note": "新增机场从首次实际发布的统计期计算覆盖。",
+      "native_grains_target": [
+        "month"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "airport:bozhou",
+      "name": "亳州机场",
+      "type": "airport",
+      "region_code": "341600",
+      "source_ids": [
+        "caac-east-monthly"
+      ],
+      "aliases": [
+        "亳州"
+      ],
+      "target_metrics": [
+        "airport_throughput"
+      ],
+      "scope_note": "新增机场从首次实际发布的统计期计算覆盖。",
+      "native_grains_target": [
+        "month"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "airport:bengbu-tenghu",
+      "name": "蚌埠滕湖机场",
+      "type": "airport",
+      "region_code": "340300",
+      "source_ids": [
+        "caac-east-monthly"
+      ],
+      "aliases": [
+        "蚌埠/滕湖"
+      ],
+      "target_metrics": [
+        "airport_throughput"
+      ],
+      "scope_note": "2026年8月原件有月度实绩，升为核心；不填通航前零值。",
+      "native_grains_target": [
+        "month"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "scenic:huangshan-main",
+      "name": "黄山风景区主景区",
+      "type": "scenic",
+      "region_code": "341000",
+      "source_ids": [
+        "scenic-huangshan-main"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "主景区与全域、索道人次分开。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "scenic:hongcun",
+      "name": "宏村",
+      "type": "scenic",
+      "region_code": "341000",
+      "source_ids": [
+        "scenic-hongcun"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "样本为两景区合计累计值；不能分摊成单景区客流。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "target_metric_blocker": "样本是西递宏村两景区合计，不能拆分。"
+    },
+    {
+      "key": "scenic:xidi",
+      "name": "西递",
+      "type": "scenic",
+      "region_code": "341000",
+      "source_ids": [
+        "scenic-hongcun"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "样本为两景区合计累计值；不能分摊成单景区客流。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "target_metric_blocker": "样本是西递宏村两景区合计，不能拆分。"
+    },
+    {
+      "key": "scenic:jiuhuashan",
+      "name": "九华山",
+      "type": "scenic",
+      "region_code": "341700",
+      "source_ids": [
+        "scenic-jiuhuashan"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "接待范围与进山口径需确认。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "scenic:tianzhushan",
+      "name": "天柱山",
+      "type": "scenic",
+      "region_code": "340800",
+      "source_ids": [
+        "scenic-tianzhushan"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "主峰与全风景区分别登记；运营官网身份保留待复核。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "scenic:tiantangzhai",
+      "name": "天堂寨",
+      "type": "scenic",
+      "region_code": "341500",
+      "source_ids": [
+        "scenic-tiantangzhai"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "核实假期年份与统计范围。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "scenic:wanfohu",
+      "name": "万佛湖",
+      "type": "scenic",
+      "region_code": "341500",
+      "source_ids": [
+        "scenic-wanfohu"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "五天假期，县级合计与景区数分开。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "scenic:sanhe",
+      "name": "三河古镇",
+      "type": "scenic",
+      "region_code": "340100",
+      "source_ids": [
+        "scenic-sanhe"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "开放古镇接待口径需要记录；发布主体另核验。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "scenic:langyashan",
+      "name": "琅琊山",
+      "type": "scenic",
+      "region_code": "341100",
+      "source_ids": [
+        "scenic-langyashan"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "目录有假期文章线索，具体原件和数值待取得。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "scenic:balihe",
+      "name": "八里河",
+      "type": "scenic",
+      "region_code": "341200",
+      "source_ids": [
+        "scenic-balihe"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "目前是运营信息，未核实精确接待量。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "scenic:longchuan",
+      "name": "绩溪龙川",
+      "type": "scenic",
+      "region_code": "341800",
+      "source_ids": [
+        "scenic-longchuan"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "县级工作报告中的旅游活动不能替代单景区人数。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "target_metric_blocker": "工作报告有龙川运营信息，未取得龙川单体接待值。"
+    },
+    {
+      "key": "scenic:caishiji",
+      "name": "采石矶",
+      "type": "scenic",
+      "region_code": "340500",
+      "source_ids": [
+        "city-maanshan"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "近期单景区客流样本未定位。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "target_metric_blocker": "尚未定位近期单体客流原件。"
+    },
+    {
+      "key": "rail:hefei-south",
+      "name": "合肥南站",
+      "type": "rail_station",
+      "region_code": "340100",
+      "source_ids": [
+        "rail_station-hefei-south",
+        "rail_station-hefei"
+      ],
+      "target_metrics": [
+        "rail_departures"
+      ],
+      "scope_note": "媒体转引合肥日报，需保留原始供数与报道来源。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "rail:hefei",
+      "name": "合肥站",
+      "type": "rail_station",
+      "region_code": "340100",
+      "source_ids": [
+        "rail_station-hefei"
+      ],
+      "target_metrics": [
+        "rail_departures"
+      ],
+      "scope_note": "该样本只有直属站与合肥南站，不能替代合肥站。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "target_metric_blocker": "原件统计的是合肥直属站与合肥南站，不是合肥站。"
+    },
+    {
+      "key": "rail:wuhu",
+      "name": "芜湖站",
+      "type": "rail_station",
+      "region_code": "340200",
+      "source_ids": [
+        "rail_station-wuhu"
+      ],
+      "target_metrics": [
+        "rail_departures"
+      ],
+      "scope_note": "站点与车务段分开；超过5万等限定语保留。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "rail:fuyang-west",
+      "name": "阜阳西站",
+      "type": "rail_station",
+      "region_code": "341200",
+      "source_ids": [
+        "rail_station-fuyang-west"
+      ],
+      "target_metrics": [
+        "rail_departures"
+      ],
+      "scope_note": "保留日实绩，文内春运预计不作为实绩。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "rail:bengbu-south",
+      "name": "蚌埠南站",
+      "type": "rail_station",
+      "region_code": "340300",
+      "source_ids": [
+        "city-bengbu"
+      ],
+      "target_metrics": [
+        "rail_departures"
+      ],
+      "scope_note": "检索尚未获得满足站点发送指标的实绩原件。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "rail:huangshan-north",
+      "name": "黄山北站",
+      "type": "rail_station",
+      "region_code": "341000",
+      "source_ids": [
+        "rail_station-huangshan-north"
+      ],
+      "target_metrics": [
+        "rail_departures"
+      ],
+      "scope_note": "万余近似限定需保留；既有2025年单日样本可复用。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "rail:chizhou",
+      "name": "池州站",
+      "type": "rail_station",
+      "region_code": "341700",
+      "source_ids": [
+        "rail_station-chizhou"
+      ],
+      "target_metrics": [
+        "rail_departures"
+      ],
+      "scope_note": "近期站点实绩原件待定位，不能套用车务段合计。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true
+    },
+    {
+      "key": "rail:anqing",
+      "name": "安庆站",
+      "type": "rail_station",
+      "region_code": "340800",
+      "source_ids": [
+        "city-anqing"
+      ],
+      "target_metrics": [
+        "rail_departures"
+      ],
+      "scope_note": "近期站点发送实绩原件待定位。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "target_metric_blocker": "当前取得的是安庆市统计公报，未发现安庆站发送量，不能把城市数据映射为车站。"
+    }
+  ],
+  "optional_entities": [
+    {
+      "key": "transit:hefei",
+      "name": "合肥轨道交通",
+      "type": "transit_network",
+      "region_code": "340100"
+    },
+    {
+      "key": "transit:wuhu",
+      "name": "芜湖轨道交通",
+      "type": "transit_network",
+      "region_code": "340200"
+    }
+  ],
+  "sample_limitations": "HTML内容匹配仅确认样本可解析，不证明数字、统计范围或长期许可通过；不写业务库。"
+}

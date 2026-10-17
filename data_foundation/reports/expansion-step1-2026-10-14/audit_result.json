@@ -1,0 +1,2080 @@
+{
+  "schema_version": "source-audit-result-v1",
+  "generated_at": "2026-10-14T13:09:22.954735+00:00",
+  "business_database_written": false,
+  "source_auto_update_enabled": false,
+  "summary": {
+    "entities": 44,
+    "sources": 33,
+    "attempted_sources": 33,
+    "fetch_status_counts": {
+      "entry_available": 4,
+      "sample_available": 20,
+      "fetch_failed": 9
+    },
+    "entity_status_counts": {
+      "sample_unavailable": 6,
+      "sample_available_scope_review": 18,
+      "entry_only": 4,
+      "monthly_sample_available": 8,
+      "existing_sample_available": 2,
+      "target_metric_not_confirmed": 6
+    },
+    "airport_assets_checked": 41,
+    "airport_errors": 0,
+    "airport_sample_count": 8
+  },
+  "entities": [
+    {
+      "key": "city:hefei",
+      "name": "合肥市",
+      "type": "city",
+      "region_code": "340100",
+      "source_ids": [
+        "city-hefei"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "2025年公报原发布页仍待定位；先核验2024年样本。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true,
+      "audit_outcome": "sample_unavailable",
+      "fetch_evidence": [
+        {
+          "source_id": "city-hefei",
+          "status": "fetch_failed"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "city:wuhu",
+      "name": "芜湖市",
+      "type": "city",
+      "region_code": "340200",
+      "source_ids": [
+        "city-wuhu"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "交通和旅游设施背景；游客总量字段须另查。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true,
+      "audit_outcome": "sample_available_scope_review",
+      "fetch_evidence": [
+        {
+          "source_id": "city-wuhu",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "city:bengbu",
+      "name": "蚌埠市",
+      "type": "city",
+      "region_code": "340300",
+      "source_ids": [
+        "city-bengbu"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "入口访问受限，公报样本待取得。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true,
+      "audit_outcome": "entry_only",
+      "fetch_evidence": [
+        {
+          "source_id": "city-bengbu",
+          "status": "entry_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "city:huainan",
+      "name": "淮南市",
+      "type": "city",
+      "region_code": "340400",
+      "source_ids": [
+        "city-huainan"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "逐项确认旅游及交通字段。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true,
+      "audit_outcome": "sample_available_scope_review",
+      "fetch_evidence": [
+        {
+          "source_id": "city-huainan",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "city:maanshan",
+      "name": "马鞍山市",
+      "type": "city",
+      "region_code": "340500",
+      "source_ids": [
+        "city-maanshan"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "公报原发布页及样本待取得。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true,
+      "audit_outcome": "sample_unavailable",
+      "fetch_evidence": [
+        {
+          "source_id": "city-maanshan",
+          "status": "fetch_failed"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "city:huaibei",
+      "name": "淮北市",
+      "type": "city",
+      "region_code": "340600",
+      "source_ids": [
+        "city-huaibei"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "核验旅游章节与原文统计范围。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true,
+      "audit_outcome": "sample_available_scope_review",
+      "fetch_evidence": [
+        {
+          "source_id": "city-huaibei",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "city:tongling",
+      "name": "铜陵市",
+      "type": "city",
+      "region_code": "340700",
+      "source_ids": [
+        "city-tongling"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "城市铁路发送量属于市级汇总，不能替代某站。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true,
+      "audit_outcome": "sample_available_scope_review",
+      "fetch_evidence": [
+        {
+          "source_id": "city-tongling",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "city:anqing",
+      "name": "安庆市",
+      "type": "city",
+      "region_code": "340800",
+      "source_ids": [
+        "city-anqing"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "公报原发布页及样本待取得。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true,
+      "audit_outcome": "sample_available_scope_review",
+      "fetch_evidence": [
+        {
+          "source_id": "city-anqing",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "city:huangshan",
+      "name": "黄山市",
+      "type": "city",
+      "region_code": "341000",
+      "source_ids": [
+        "city-huangshan"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "市级游客与主景区分开。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true,
+      "audit_outcome": "sample_unavailable",
+      "fetch_evidence": [
+        {
+          "source_id": "city-huangshan",
+          "status": "fetch_failed"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "city:chuzhou",
+      "name": "滁州市",
+      "type": "city",
+      "region_code": "341100",
+      "source_ids": [
+        "city-chuzhou"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "公报原发布页及样本待取得。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true,
+      "audit_outcome": "sample_available_scope_review",
+      "fetch_evidence": [
+        {
+          "source_id": "city-chuzhou",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "city:fuyang",
+      "name": "阜阳市",
+      "type": "city",
+      "region_code": "341200",
+      "source_ids": [
+        "city-fuyang"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "公报原发布页及样本待取得。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true,
+      "audit_outcome": "sample_available_scope_review",
+      "fetch_evidence": [
+        {
+          "source_id": "city-fuyang",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "city:suzhou",
+      "name": "宿州市",
+      "type": "city",
+      "region_code": "341300",
+      "source_ids": [
+        "city-suzhou"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "核验交通、游客与设施字段。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true,
+      "audit_outcome": "sample_available_scope_review",
+      "fetch_evidence": [
+        {
+          "source_id": "city-suzhou",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "city:luan",
+      "name": "六安市",
+      "type": "city",
+      "region_code": "341500",
+      "source_ids": [
+        "city-luan"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "市级、县级及单景区分开。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true,
+      "audit_outcome": "sample_available_scope_review",
+      "fetch_evidence": [
+        {
+          "source_id": "city-luan",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "city:bozhou",
+      "name": "亳州市",
+      "type": "city",
+      "region_code": "341600",
+      "source_ids": [
+        "city-bozhou"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "2025年原发布页未定位，先核验2024年样本。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true,
+      "audit_outcome": "sample_unavailable",
+      "fetch_evidence": [
+        {
+          "source_id": "city-bozhou",
+          "status": "fetch_failed"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "city:chizhou",
+      "name": "池州市",
+      "type": "city",
+      "region_code": "341700",
+      "source_ids": [
+        "city-chizhou"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "已发现2023/2024公报目录，具体附件及2025年资料待定位。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true,
+      "audit_outcome": "sample_available_scope_review",
+      "fetch_evidence": [
+        {
+          "source_id": "city-chizhou",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "city:xuancheng",
+      "name": "宣城市",
+      "type": "city",
+      "region_code": "341800",
+      "source_ids": [
+        "city-xuancheng"
+      ],
+      "target_metrics": [
+        "city_tourism_visits",
+        "city_tourism_expenditure",
+        "scenic_site_count",
+        "hotel_count",
+        "city_transport_passengers"
+      ],
+      "scope_note": "公路水运旅客量不含铁路，保留原文注释。",
+      "native_grains_target": [
+        "year",
+        "holiday"
+      ],
+      "requires_contract_extension": true,
+      "scope_review_required": true,
+      "audit_outcome": "sample_available_scope_review",
+      "fetch_evidence": [
+        {
+          "source_id": "city-xuancheng",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "airport:HFE",
+      "name": "合肥新桥机场",
+      "type": "airport",
+      "region_code": "340100",
+      "source_ids": [
+        "caac-east-monthly"
+      ],
+      "aliases": [
+        "合肥/新桥"
+      ],
+      "target_metrics": [
+        "airport_throughput"
+      ],
+      "scope_note": "新增机场从首次实际发布的统计期计算覆盖。",
+      "native_grains_target": [
+        "month"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "monthly_sample_available",
+      "fetch_evidence": [
+        {
+          "source_id": "caac-east-monthly",
+          "status": "entry_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "airport:TXN",
+      "name": "黄山屯溪机场",
+      "type": "airport",
+      "region_code": "341000",
+      "source_ids": [
+        "caac-east-monthly"
+      ],
+      "aliases": [
+        "黄山/屯溪"
+      ],
+      "target_metrics": [
+        "airport_throughput"
+      ],
+      "scope_note": "新增机场从首次实际发布的统计期计算覆盖。",
+      "native_grains_target": [
+        "month"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "monthly_sample_available",
+      "fetch_evidence": [
+        {
+          "source_id": "caac-east-monthly",
+          "status": "entry_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "airport:FUG",
+      "name": "阜阳机场",
+      "type": "airport",
+      "region_code": "341200",
+      "source_ids": [
+        "caac-east-monthly"
+      ],
+      "aliases": [
+        "阜阳"
+      ],
+      "target_metrics": [
+        "airport_throughput"
+      ],
+      "scope_note": "新增机场从首次实际发布的统计期计算覆盖。",
+      "native_grains_target": [
+        "month"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "monthly_sample_available",
+      "fetch_evidence": [
+        {
+          "source_id": "caac-east-monthly",
+          "status": "entry_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "airport:WHA",
+      "name": "芜湖宣州机场",
+      "type": "airport",
+      "region_code": "340200",
+      "source_ids": [
+        "caac-east-monthly"
+      ],
+      "aliases": [
+        "芜湖/宣州"
+      ],
+      "target_metrics": [
+        "airport_throughput"
+      ],
+      "scope_note": "新增机场从首次实际发布的统计期计算覆盖。",
+      "native_grains_target": [
+        "month"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "monthly_sample_available",
+      "fetch_evidence": [
+        {
+          "source_id": "caac-east-monthly",
+          "status": "entry_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "airport:AQG",
+      "name": "安庆天柱山机场",
+      "type": "airport",
+      "region_code": "340800",
+      "source_ids": [
+        "caac-east-monthly"
+      ],
+      "aliases": [
+        "安庆/天柱山",
+        "安庆"
+      ],
+      "target_metrics": [
+        "airport_throughput"
+      ],
+      "scope_note": "新增机场从首次实际发布的统计期计算覆盖。",
+      "native_grains_target": [
+        "month"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "monthly_sample_available",
+      "fetch_evidence": [
+        {
+          "source_id": "caac-east-monthly",
+          "status": "entry_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "airport:JUH",
+      "name": "池州九华山机场",
+      "type": "airport",
+      "region_code": "341700",
+      "source_ids": [
+        "caac-east-monthly"
+      ],
+      "aliases": [
+        "池州/九华山"
+      ],
+      "target_metrics": [
+        "airport_throughput"
+      ],
+      "scope_note": "新增机场从首次实际发布的统计期计算覆盖。",
+      "native_grains_target": [
+        "month"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "monthly_sample_available",
+      "fetch_evidence": [
+        {
+          "source_id": "caac-east-monthly",
+          "status": "entry_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "airport:bozhou",
+      "name": "亳州机场",
+      "type": "airport",
+      "region_code": "341600",
+      "source_ids": [
+        "caac-east-monthly"
+      ],
+      "aliases": [
+        "亳州"
+      ],
+      "target_metrics": [
+        "airport_throughput"
+      ],
+      "scope_note": "新增机场从首次实际发布的统计期计算覆盖。",
+      "native_grains_target": [
+        "month"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "monthly_sample_available",
+      "fetch_evidence": [
+        {
+          "source_id": "caac-east-monthly",
+          "status": "entry_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "airport:bengbu-tenghu",
+      "name": "蚌埠滕湖机场",
+      "type": "airport",
+      "region_code": "340300",
+      "source_ids": [
+        "caac-east-monthly"
+      ],
+      "aliases": [
+        "蚌埠/滕湖"
+      ],
+      "target_metrics": [
+        "airport_throughput"
+      ],
+      "scope_note": "2026年8月原件有月度实绩，升为核心；不填通航前零值。",
+      "native_grains_target": [
+        "month"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "monthly_sample_available",
+      "fetch_evidence": [
+        {
+          "source_id": "caac-east-monthly",
+          "status": "entry_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "scenic:huangshan-main",
+      "name": "黄山风景区主景区",
+      "type": "scenic",
+      "region_code": "341000",
+      "source_ids": [
+        "scenic-huangshan-main"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "主景区与全域、索道人次分开。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "existing_sample_available",
+      "fetch_evidence": [
+        {
+          "source_id": "scenic-huangshan-main",
+          "status": "fetch_failed"
+        }
+      ],
+      "existing_evidence": {
+        "entity_key": "scenic:huangshan-main",
+        "path": "real_data/2026-10-12/originals/huangshan-2025-report-f8fa6356c3e7.pdf",
+        "url": "https://static.cninfo.com.cn/finalpage/2026-04-18/1225118314.PDF",
+        "sha256": "f8fa6356c3e7808d4ea70497aa057e7be5d6fe841c9dd6145e5f6c7ec7ebc63f",
+        "checksum_valid": true,
+        "original_retrieved_at": "2026-10-12T08:18:38.282759+00:00",
+        "note": "既有资料包证据，仅证明原件留存与摘要一致；本轮网络结果另列"
+      }
+    },
+    {
+      "key": "scenic:hongcun",
+      "name": "宏村",
+      "type": "scenic",
+      "region_code": "341000",
+      "source_ids": [
+        "scenic-hongcun"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "样本为两景区合计累计值；不能分摊成单景区客流。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "target_metric_blocker": "样本是西递宏村两景区合计，不能拆分。",
+      "audit_outcome": "target_metric_not_confirmed",
+      "fetch_evidence": [
+        {
+          "source_id": "scenic-hongcun",
+          "status": "fetch_failed"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "scenic:xidi",
+      "name": "西递",
+      "type": "scenic",
+      "region_code": "341000",
+      "source_ids": [
+        "scenic-hongcun"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "样本为两景区合计累计值；不能分摊成单景区客流。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "target_metric_blocker": "样本是西递宏村两景区合计，不能拆分。",
+      "audit_outcome": "target_metric_not_confirmed",
+      "fetch_evidence": [
+        {
+          "source_id": "scenic-hongcun",
+          "status": "fetch_failed"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "scenic:jiuhuashan",
+      "name": "九华山",
+      "type": "scenic",
+      "region_code": "341700",
+      "source_ids": [
+        "scenic-jiuhuashan"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "接待范围与进山口径需确认。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "sample_available_scope_review",
+      "fetch_evidence": [
+        {
+          "source_id": "scenic-jiuhuashan",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "scenic:tianzhushan",
+      "name": "天柱山",
+      "type": "scenic",
+      "region_code": "340800",
+      "source_ids": [
+        "scenic-tianzhushan"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "主峰与全风景区分别登记；运营官网身份保留待复核。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "sample_unavailable",
+      "fetch_evidence": [
+        {
+          "source_id": "scenic-tianzhushan",
+          "status": "fetch_failed"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "scenic:tiantangzhai",
+      "name": "天堂寨",
+      "type": "scenic",
+      "region_code": "341500",
+      "source_ids": [
+        "scenic-tiantangzhai"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "核实假期年份与统计范围。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "sample_available_scope_review",
+      "fetch_evidence": [
+        {
+          "source_id": "scenic-tiantangzhai",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "scenic:wanfohu",
+      "name": "万佛湖",
+      "type": "scenic",
+      "region_code": "341500",
+      "source_ids": [
+        "scenic-wanfohu"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "五天假期，县级合计与景区数分开。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "sample_available_scope_review",
+      "fetch_evidence": [
+        {
+          "source_id": "scenic-wanfohu",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "scenic:sanhe",
+      "name": "三河古镇",
+      "type": "scenic",
+      "region_code": "340100",
+      "source_ids": [
+        "scenic-sanhe"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "开放古镇接待口径需要记录；发布主体另核验。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "sample_unavailable",
+      "fetch_evidence": [
+        {
+          "source_id": "scenic-sanhe",
+          "status": "fetch_failed"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "scenic:langyashan",
+      "name": "琅琊山",
+      "type": "scenic",
+      "region_code": "341100",
+      "source_ids": [
+        "scenic-langyashan"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "目录有假期文章线索，具体原件和数值待取得。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "sample_available_scope_review",
+      "fetch_evidence": [
+        {
+          "source_id": "scenic-langyashan",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "scenic:balihe",
+      "name": "八里河",
+      "type": "scenic",
+      "region_code": "341200",
+      "source_ids": [
+        "scenic-balihe"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "目前是运营信息，未核实精确接待量。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "entry_only",
+      "fetch_evidence": [
+        {
+          "source_id": "scenic-balihe",
+          "status": "entry_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "scenic:longchuan",
+      "name": "绩溪龙川",
+      "type": "scenic",
+      "region_code": "341800",
+      "source_ids": [
+        "scenic-longchuan"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "县级工作报告中的旅游活动不能替代单景区人数。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "target_metric_blocker": "工作报告有龙川运营信息，未取得龙川单体接待值。",
+      "audit_outcome": "target_metric_not_confirmed",
+      "fetch_evidence": [
+        {
+          "source_id": "scenic-longchuan",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "scenic:caishiji",
+      "name": "采石矶",
+      "type": "scenic",
+      "region_code": "340500",
+      "source_ids": [
+        "city-maanshan"
+      ],
+      "target_metrics": [
+        "scenic_visits"
+      ],
+      "scope_note": "近期单景区客流样本未定位。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "target_metric_blocker": "尚未定位近期单体客流原件。",
+      "audit_outcome": "target_metric_not_confirmed",
+      "fetch_evidence": [
+        {
+          "source_id": "city-maanshan",
+          "status": "fetch_failed"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "rail:hefei-south",
+      "name": "合肥南站",
+      "type": "rail_station",
+      "region_code": "340100",
+      "source_ids": [
+        "rail_station-hefei-south",
+        "rail_station-hefei"
+      ],
+      "target_metrics": [
+        "rail_departures"
+      ],
+      "scope_note": "媒体转引合肥日报，需保留原始供数与报道来源。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "sample_available_scope_review",
+      "fetch_evidence": [
+        {
+          "source_id": "rail_station-hefei-south",
+          "status": "sample_available"
+        },
+        {
+          "source_id": "rail_station-hefei",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "rail:hefei",
+      "name": "合肥站",
+      "type": "rail_station",
+      "region_code": "340100",
+      "source_ids": [
+        "rail_station-hefei"
+      ],
+      "target_metrics": [
+        "rail_departures"
+      ],
+      "scope_note": "该样本只有直属站与合肥南站，不能替代合肥站。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "target_metric_blocker": "原件统计的是合肥直属站与合肥南站，不是合肥站。",
+      "audit_outcome": "target_metric_not_confirmed",
+      "fetch_evidence": [
+        {
+          "source_id": "rail_station-hefei",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "rail:wuhu",
+      "name": "芜湖站",
+      "type": "rail_station",
+      "region_code": "340200",
+      "source_ids": [
+        "rail_station-wuhu"
+      ],
+      "target_metrics": [
+        "rail_departures"
+      ],
+      "scope_note": "站点与车务段分开；超过5万等限定语保留。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "sample_available_scope_review",
+      "fetch_evidence": [
+        {
+          "source_id": "rail_station-wuhu",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "rail:fuyang-west",
+      "name": "阜阳西站",
+      "type": "rail_station",
+      "region_code": "341200",
+      "source_ids": [
+        "rail_station-fuyang-west"
+      ],
+      "target_metrics": [
+        "rail_departures"
+      ],
+      "scope_note": "保留日实绩，文内春运预计不作为实绩。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "sample_available_scope_review",
+      "fetch_evidence": [
+        {
+          "source_id": "rail_station-fuyang-west",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "rail:bengbu-south",
+      "name": "蚌埠南站",
+      "type": "rail_station",
+      "region_code": "340300",
+      "source_ids": [
+        "city-bengbu"
+      ],
+      "target_metrics": [
+        "rail_departures"
+      ],
+      "scope_note": "检索尚未获得满足站点发送指标的实绩原件。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "entry_only",
+      "fetch_evidence": [
+        {
+          "source_id": "city-bengbu",
+          "status": "entry_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "rail:huangshan-north",
+      "name": "黄山北站",
+      "type": "rail_station",
+      "region_code": "341000",
+      "source_ids": [
+        "rail_station-huangshan-north"
+      ],
+      "target_metrics": [
+        "rail_departures"
+      ],
+      "scope_note": "万余近似限定需保留；既有2025年单日样本可复用。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "existing_sample_available",
+      "fetch_evidence": [
+        {
+          "source_id": "rail_station-huangshan-north",
+          "status": "fetch_failed"
+        }
+      ],
+      "existing_evidence": {
+        "entity_key": "rail:huangshan-north",
+        "path": "real_data/2026-10-12/originals/huangshan-north-2025-h1-4abde2424b1e.html",
+        "url": "https://szb.ahnews.com.cn/szb/content/202507/21/c1096188.html",
+        "sha256": "4abde2424b1ec9b96c2f556fded4d499dac7d7b5e9311e2ff22e86a37c8cebed",
+        "checksum_valid": true,
+        "original_retrieved_at": "2026-10-12T08:16:04.026244+00:00",
+        "note": "既有资料包证据，仅证明原件留存与摘要一致；本轮网络结果另列"
+      }
+    },
+    {
+      "key": "rail:chizhou",
+      "name": "池州站",
+      "type": "rail_station",
+      "region_code": "341700",
+      "source_ids": [
+        "rail_station-chizhou"
+      ],
+      "target_metrics": [
+        "rail_departures"
+      ],
+      "scope_note": "近期站点实绩原件待定位，不能套用车务段合计。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "audit_outcome": "entry_only",
+      "fetch_evidence": [
+        {
+          "source_id": "rail_station-chizhou",
+          "status": "entry_available"
+        }
+      ],
+      "existing_evidence": null
+    },
+    {
+      "key": "rail:anqing",
+      "name": "安庆站",
+      "type": "rail_station",
+      "region_code": "340800",
+      "source_ids": [
+        "city-anqing"
+      ],
+      "target_metrics": [
+        "rail_departures"
+      ],
+      "scope_note": "近期站点发送实绩原件待定位。",
+      "native_grains_target": [
+        "day",
+        "month",
+        "holiday"
+      ],
+      "requires_contract_extension": false,
+      "scope_review_required": true,
+      "target_metric_blocker": "当前取得的是安庆市统计公报，未发现安庆站发送量，不能把城市数据映射为车站。",
+      "audit_outcome": "target_metric_not_confirmed",
+      "fetch_evidence": [
+        {
+          "source_id": "city-anqing",
+          "status": "sample_available"
+        }
+      ],
+      "existing_evidence": null
+    }
+  ],
+  "airport_audit": {
+    "checked_assets": [
+      {
+        "period": "2023-01",
+        "path": "real_data/2026-10-12/originals/caac-2023-01-pdf-0-8044e4d78816.pdf",
+        "sha256": "8044e4d7881687d4f833ba9e5a943a8afaa1a899bdbe965b8d77d653efae4e7b",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202302/P020230221341131726336.pdf"
+      },
+      {
+        "period": "2023-02",
+        "path": "real_data/2026-10-12/originals/caac-2023-02-pdf-0-cdd819102a14.pdf",
+        "sha256": "cdd819102a14c249f07486196495e76fb8b7480ac0a31a75a9594f5ee2d82396",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202303/P020230322493420271752.pdf"
+      },
+      {
+        "period": "2023-03",
+        "path": "real_data/2026-10-12/originals/caac-2023-03-pdf-0-5f0e64ec71e8.pdf",
+        "sha256": "5f0e64ec71e87982406752765cf040e43ed0d46bab69a608e8417f8ccdef8cb1",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202304/P020230423405864706384.pdf"
+      },
+      {
+        "period": "2023-04",
+        "path": "real_data/2026-10-12/originals/caac-2023-04-pdf-0-198d81bda54e.pdf",
+        "sha256": "198d81bda54e86e48555009425578b0a524436c50b054bd3cbf03336f68eebaa",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202305/P020230522544747598027.pdf"
+      },
+      {
+        "period": "2023-05",
+        "path": "real_data/2026-10-12/originals/caac-2023-05-pdf-0-b89b8065c589.pdf",
+        "sha256": "b89b8065c58914d121b0ed314a8cb4ae671d63485c41d4c8765acfb6cf6554ea",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202306/P020230626378845155476.pdf"
+      },
+      {
+        "period": "2023-06",
+        "path": "real_data/2026-10-12/originals/caac-2023-06-pdf-0-cf176298b0d0.pdf",
+        "sha256": "cf176298b0d01eaf4a585213880dc59e0e7ec2d7de9adaeaebfb1d745ec66be6",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202307/P020230721322819035993.pdf"
+      },
+      {
+        "period": "2023-07",
+        "path": "real_data/2026-10-12/originals/caac-2023-07-pdf-0-aaebb36728d6.pdf",
+        "sha256": "aaebb36728d6a632449f34cec88483128144795a49689d4de93e365be6602b76",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202308/P020230822336968584349.pdf"
+      },
+      {
+        "period": "2023-08",
+        "path": "real_data/2026-10-12/originals/caac-2023-08-pdf-0-b8c7abe57887.pdf",
+        "sha256": "b8c7abe578879574a9df1ee46dd3e89ab63d505b0e889e3f3a6d67de5be008cd",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202309/P020230927363480473878.pdf"
+      },
+      {
+        "period": "2023-09",
+        "path": "real_data/2026-10-12/originals/caac-2023-09-pdf-0-c2b53837fdd0.pdf",
+        "sha256": "c2b53837fdd0492886317478a0efabb4cfde484ac26d0c32da065f302eb05666",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202310/P020231023371906253729.pdf"
+      },
+      {
+        "period": "2023-10",
+        "path": "real_data/2026-10-12/originals/caac-2023-10-pdf-0-68ea29d912a5.pdf",
+        "sha256": "68ea29d912a514dd27442bedf16e53641fc8ffa8c9f52a76731e3ed9eda0e564",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202311/P020231122447128265508.pdf"
+      },
+      {
+        "period": "2023-11",
+        "path": "real_data/2026-10-12/originals/caac-2023-11-pdf-0-f3511b0d03aa.pdf",
+        "sha256": "f3511b0d03aa75eaa229254fa3db069d1231e8ef07a0a2dad1cb1f51e60a893b",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202312/P020231225383968678629.pdf"
+      },
+      {
+        "period": "2024-01",
+        "path": "real_data/2026-10-12/originals/caac-2024-01-pdf-0-aec34ddb79db.pdf",
+        "sha256": "aec34ddb79dbb7d6d54772ae499787b3ac402ccc2ac07f30873f2a9fef8efe28",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202402/P020241211554572934062.pdf"
+      },
+      {
+        "period": "2024-02",
+        "path": "real_data/2026-10-12/originals/caac-2024-02-pdf-0-1872b392507a.pdf",
+        "sha256": "1872b392507a4b8c3a32b49376a2481fac924127d43137e275c9b542782499bc",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202403/P020241211556253271717.pdf"
+      },
+      {
+        "period": "2024-03",
+        "path": "real_data/2026-10-12/originals/caac-2024-03-pdf-0-80036ae4a66b.pdf",
+        "sha256": "80036ae4a66b7592baebcd9264b86a3ed5bdbe097bcbce53ae545fa241d377f3",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202404/P020241211558025619743.pdf"
+      },
+      {
+        "period": "2024-04",
+        "path": "real_data/2026-10-12/originals/caac-2024-04-pdf-0-c32f7c212f23.pdf",
+        "sha256": "c32f7c212f23e99d1199dceb314251847afb499d1da8799baed6fb6938748d6e",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202405/P020241211558569773771.pdf"
+      },
+      {
+        "period": "2024-05",
+        "path": "real_data/2026-10-12/originals/caac-2024-05-pdf-0-3c4e240297e9.pdf",
+        "sha256": "3c4e240297e9d787822b115f3cd29b5bfea55d595404e466f4f5d59a19c8be43",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202406/P020241211559273857296.pdf"
+      },
+      {
+        "period": "2024-06",
+        "path": "real_data/2026-10-12/originals/caac-2024-06-pdf-0-70d622decc02.pdf",
+        "sha256": "70d622decc02522828e319b366f80d8be7355cac4b4f1a045774bb69a35c2a72",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202407/P020241211593938672768.pdf"
+      },
+      {
+        "period": "2024-07",
+        "path": "real_data/2026-10-12/originals/caac-2024-07-pdf-0-26412f80d03a.pdf",
+        "sha256": "26412f80d03a54c5bb3772017475684327090ed6a2d9348caabb4e0bf077ef1b",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202408/P020241211595237311017.pdf"
+      },
+      {
+        "period": "2024-08",
+        "path": "real_data/2026-10-12/originals/caac-2024-08-pdf-0-1f5827317ff0.pdf",
+        "sha256": "1f5827317ff07017fb79d927100988b8d353e842a4f6907b92a2fbbafedfbb89",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202409/P020241211603175740641.pdf"
+      },
+      {
+        "period": "2024-09",
+        "path": "real_data/2026-10-12/originals/caac-2024-09-pdf-0-19b3176dc8a7.pdf",
+        "sha256": "19b3176dc8a741b44e3d18246c48a748315f9af676f530f7f5c1daf4eedca4e4",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202410/P020241211604436045155.pdf"
+      },
+      {
+        "period": "2024-10",
+        "path": "real_data/2026-10-12/originals/caac-2024-10-pdf-0-8fc9deda5a1d.pdf",
+        "sha256": "8fc9deda5a1dc3355ddae21c905bdba8ee943bdea5d103df7ecaa06af76f6047",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202411/P020241211605311487741.pdf"
+      },
+      {
+        "period": "2024-11",
+        "path": "real_data/2026-10-12/originals/caac-2024-11-pdf-0-8f1fa9fad119.pdf",
+        "sha256": "8f1fa9fad119bf61d94dbee944c4fa4a58cdc49d046b448ccaa3a024e2115654",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202412/P020241224290590780657.pdf"
+      },
+      {
+        "period": "2025-01",
+        "path": "real_data/2026-10-12/originals/caac-2025-01-pdf-0-c7302d6b9c54.pdf",
+        "sha256": "c7302d6b9c545c971d194f84e2d7d063b7e7d7c4bcb0decb5dd607e589846fd5",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202502/P020250224343413036795.pdf"
+      },
+      {
+        "period": "2025-02",
+        "path": "real_data/2026-10-12/originals/caac-2025-02-pdf-0-2bd92c0389e6.pdf",
+        "sha256": "2bd92c0389e6bc86eb3294f1f3e1a96083f4703f2501851c81a5ec169f09cf9a",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202503/P020250324365164283355.pdf"
+      },
+      {
+        "period": "2025-03",
+        "path": "real_data/2026-10-12/originals/caac-2025-03-pdf-0-a04e6f9e110e.pdf",
+        "sha256": "a04e6f9e110e59188093b65a88c04c216d27a73988b6c9d3da105def2a556d15",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202504/P020250424388745613238.pdf"
+      },
+      {
+        "period": "2025-04",
+        "path": "real_data/2026-10-12/originals/caac-2025-04-pdf-0-aa56e7fa52b2.pdf",
+        "sha256": "aa56e7fa52b2a93e145c9b17431e146de64993c69879c06645178ec60a53a669",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202505/P020250523396346793125.pdf"
+      },
+      {
+        "period": "2025-05",
+        "path": "real_data/2026-10-12/originals/caac-2025-05-pdf-0-c28c6da4d6c8.pdf",
+        "sha256": "c28c6da4d6c8cdb6798a66452cc8ad0cfd291527154eab259c47dc76aee70dfe",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202506/P020250624489135864504.pdf"
+      },
+      {
+        "period": "2025-06",
+        "path": "real_data/2026-10-12/originals/caac-2025-06-pdf-0-fa755e737125.pdf",
+        "sha256": "fa755e737125224688a315a5690bfdf5bd85c8b47cc7c25c72b4cbb3668af265",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202507/P020250725365169315525.pdf"
+      },
+      {
+        "period": "2025-07",
+        "path": "real_data/2026-10-12/originals/caac-2025-07-pdf-0-6a2e49a445e0.pdf",
+        "sha256": "6a2e49a445e07c96ab31328ca857528d5fe1bf590b2d00be707c58a3e199d0b8",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202508/P020250825386434382356.pdf"
+      },
+      {
+        "period": "2025-08",
+        "path": "real_data/2026-10-12/originals/caac-2025-08-pdf-0-5c8d488d8cc2.pdf",
+        "sha256": "5c8d488d8cc2bc6fb162645ef74a1cad463e562538ae645397b70b731725af6e",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202509/P020250924377469735037.pdf"
+      },
+      {
+        "period": "2025-09",
+        "path": "real_data/2026-10-12/originals/caac-2025-09-pdf-0-191f129b66f2.pdf",
+        "sha256": "191f129b66f2ead4d18fdeb7a1d35e115f0556918730f783e6252e0bb940e3eb",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202510/P020251024405462790164.pdf"
+      },
+      {
+        "period": "2025-10",
+        "path": "real_data/2026-10-12/originals/caac-2025-10-pdf-0-8e84a33a6a99.pdf",
+        "sha256": "8e84a33a6a991de9f1a957c5a9ddd8d9ef0ba3966117036663f5b74f164775c0",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202511/P020251125550261257219.pdf"
+      },
+      {
+        "period": "2025-11",
+        "path": "real_data/2026-10-12/originals/caac-2025-11-pdf-0-52b860e7c965.pdf",
+        "sha256": "52b860e7c9652dee8f5b5a69a7b4f86a3c6088996ab9222d03e409705909f482",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202512/P020251224339954553759.pdf"
+      },
+      {
+        "period": "2026-01",
+        "path": "real_data/2026-10-12/originals/caac-2026-01-pdf-0-00451a82bde9.pdf",
+        "sha256": "00451a82bde9359d822e437af14e6fdff32bbdb8b8d422dcb28715bf3bc9aa6b",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202602/P020260225337525826076.pdf"
+      },
+      {
+        "period": "2026-02",
+        "path": "real_data/2026-10-12/originals/caac-2026-02-pdf-0-e7abba2fcefd.pdf",
+        "sha256": "e7abba2fcefdee68e8240ac3bf3fda0fd0177b2b55a7aaaca500230bf6c6b5ee",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202603/P020260324516185298505.pdf"
+      },
+      {
+        "period": "2026-03",
+        "path": "real_data/2026-10-12/originals/caac-2026-03-pdf-0-77f94a5d89a4.pdf",
+        "sha256": "77f94a5d89a4cee5df5db1082a57b0ab842a7cbb04d2059362123e183487a1d8",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202604/P020260423497528922112.pdf"
+      },
+      {
+        "period": "2026-04",
+        "path": "real_data/2026-10-12/originals/caac-2026-04-pdf-0-1a1c9766770c.pdf",
+        "sha256": "1a1c9766770c965d4aad9e645a1fae535ae48543e6d46ce55cebdceede03d8c2",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202605/P020260525605971113121.pdf"
+      },
+      {
+        "period": "2026-05",
+        "path": "real_data/2026-10-12/originals/caac-2026-05-pdf-0-a8a628e9f907.pdf",
+        "sha256": "a8a628e9f907275312044ff3a26d84529720275601ff401fcbb2d6592d28a8fc",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202606/P020260625349637911435.pdf"
+      },
+      {
+        "period": "2026-06",
+        "path": "real_data/2026-10-12/originals/caac-2026-06-pdf-0-3285973d3e6b.pdf",
+        "sha256": "3285973d3e6b0e89d8169fd150a116efaac485db3d460a15e3a5a865362b47dc",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202607/P020260724320238229091.pdf"
+      },
+      {
+        "period": "2026-07",
+        "path": "real_data/2026-10-12/originals/caac-2026-07-pdf-0-3c3c0f1fd19d.pdf",
+        "sha256": "3c3c0f1fd19d03eff07f445cce27d39f48dc91292f9e2df55dcfa782937ed273",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202608/P020260824603500472990.pdf"
+      },
+      {
+        "period": "2026-08",
+        "path": "real_data/2026-10-12/originals/caac-2026-08-pdf-0-c42dfb423251.pdf",
+        "sha256": "c42dfb4232510256775629ba67ae2c0188902eade69be1586b2515707edd1063",
+        "url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202609/P020260924526836562690.pdf"
+      }
+    ],
+    "errors": [],
+    "row_presence": [
+      {
+        "entity_key": "airport:HFE",
+        "name": "合肥新桥机场",
+        "periods": [
+          "2023-01",
+          "2023-02",
+          "2023-03",
+          "2023-04",
+          "2023-05",
+          "2023-06",
+          "2023-07",
+          "2023-08",
+          "2023-09",
+          "2023-10",
+          "2023-11",
+          "2024-01",
+          "2024-02",
+          "2024-03",
+          "2024-04",
+          "2024-05",
+          "2024-06",
+          "2024-07",
+          "2024-08",
+          "2024-09",
+          "2024-10",
+          "2024-11",
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2026-01",
+          "2026-02",
+          "2026-03",
+          "2026-04",
+          "2026-05",
+          "2026-06",
+          "2026-07",
+          "2026-08"
+        ],
+        "period_count": 41,
+        "note": "只核验已保存报表内行的存在，不证明未取得月份已发布或所有数值通过核验"
+      },
+      {
+        "entity_key": "airport:TXN",
+        "name": "黄山屯溪机场",
+        "periods": [
+          "2023-01",
+          "2023-02",
+          "2023-03",
+          "2023-04",
+          "2023-05",
+          "2023-06",
+          "2023-07",
+          "2023-08",
+          "2023-09",
+          "2023-10",
+          "2023-11",
+          "2024-01",
+          "2024-02",
+          "2024-03",
+          "2024-04",
+          "2024-05",
+          "2024-06",
+          "2024-07",
+          "2024-08",
+          "2024-09",
+          "2024-10",
+          "2024-11",
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2026-01",
+          "2026-02",
+          "2026-03",
+          "2026-04",
+          "2026-05",
+          "2026-06",
+          "2026-07",
+          "2026-08"
+        ],
+        "period_count": 41,
+        "note": "只核验已保存报表内行的存在，不证明未取得月份已发布或所有数值通过核验"
+      },
+      {
+        "entity_key": "airport:FUG",
+        "name": "阜阳机场",
+        "periods": [
+          "2023-01",
+          "2023-02",
+          "2023-03",
+          "2023-04",
+          "2023-05",
+          "2023-06",
+          "2023-07",
+          "2023-08",
+          "2023-09",
+          "2023-10",
+          "2023-11",
+          "2024-01",
+          "2024-02",
+          "2024-03",
+          "2024-04",
+          "2024-05",
+          "2024-06",
+          "2024-07",
+          "2024-08",
+          "2024-09",
+          "2024-10",
+          "2024-11",
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2026-01",
+          "2026-02",
+          "2026-03",
+          "2026-04",
+          "2026-05",
+          "2026-06",
+          "2026-07",
+          "2026-08"
+        ],
+        "period_count": 41,
+        "note": "只核验已保存报表内行的存在，不证明未取得月份已发布或所有数值通过核验"
+      },
+      {
+        "entity_key": "airport:WHA",
+        "name": "芜湖宣州机场",
+        "periods": [
+          "2023-01",
+          "2023-02",
+          "2023-03",
+          "2023-04",
+          "2023-05",
+          "2023-06",
+          "2023-07",
+          "2023-08",
+          "2023-09",
+          "2023-10",
+          "2023-11",
+          "2024-01",
+          "2024-02",
+          "2024-03",
+          "2024-04",
+          "2024-05",
+          "2024-06",
+          "2024-07",
+          "2024-08",
+          "2024-09",
+          "2024-10",
+          "2024-11",
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2026-01",
+          "2026-02",
+          "2026-03",
+          "2026-04",
+          "2026-05",
+          "2026-06",
+          "2026-07",
+          "2026-08"
+        ],
+        "period_count": 41,
+        "note": "只核验已保存报表内行的存在，不证明未取得月份已发布或所有数值通过核验"
+      },
+      {
+        "entity_key": "airport:AQG",
+        "name": "安庆天柱山机场",
+        "periods": [
+          "2023-01",
+          "2023-02",
+          "2023-03",
+          "2023-04",
+          "2023-05",
+          "2023-06",
+          "2023-07",
+          "2023-08",
+          "2023-09",
+          "2023-10",
+          "2023-11",
+          "2024-01",
+          "2024-02",
+          "2024-03",
+          "2024-04",
+          "2024-05",
+          "2024-06",
+          "2024-07",
+          "2024-08",
+          "2024-09",
+          "2024-10",
+          "2024-11",
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2026-01",
+          "2026-02",
+          "2026-03",
+          "2026-04",
+          "2026-05",
+          "2026-06",
+          "2026-07",
+          "2026-08"
+        ],
+        "period_count": 41,
+        "note": "只核验已保存报表内行的存在，不证明未取得月份已发布或所有数值通过核验"
+      },
+      {
+        "entity_key": "airport:JUH",
+        "name": "池州九华山机场",
+        "periods": [
+          "2023-01",
+          "2023-02",
+          "2023-03",
+          "2023-04",
+          "2023-05",
+          "2023-06",
+          "2023-07",
+          "2023-08",
+          "2023-09",
+          "2023-10",
+          "2023-11",
+          "2024-01",
+          "2024-02",
+          "2024-03",
+          "2024-04",
+          "2024-05",
+          "2024-06",
+          "2024-07",
+          "2024-08",
+          "2024-09",
+          "2024-10",
+          "2024-11",
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2026-01",
+          "2026-02",
+          "2026-03",
+          "2026-04",
+          "2026-05",
+          "2026-06",
+          "2026-07",
+          "2026-08"
+        ],
+        "period_count": 41,
+        "note": "只核验已保存报表内行的存在，不证明未取得月份已发布或所有数值通过核验"
+      },
+      {
+        "entity_key": "airport:bozhou",
+        "name": "亳州机场",
+        "periods": [
+          "2025-11",
+          "2026-01",
+          "2026-02",
+          "2026-03",
+          "2026-04",
+          "2026-05",
+          "2026-06",
+          "2026-07",
+          "2026-08"
+        ],
+        "period_count": 9,
+        "note": "只核验已保存报表内行的存在，不证明未取得月份已发布或所有数值通过核验"
+      },
+      {
+        "entity_key": "airport:bengbu-tenghu",
+        "name": "蚌埠滕湖机场",
+        "periods": [
+          "2026-04",
+          "2026-05",
+          "2026-06",
+          "2026-07",
+          "2026-08"
+        ],
+        "period_count": 5,
+        "note": "只核验已保存报表内行的存在，不证明未取得月份已发布或所有数值通过核验"
+      }
+    ],
+    "samples": [
+      {
+        "entity_key": "airport:HFE",
+        "name": "合肥新桥机场",
+        "period_start": "2026-08-01",
+        "period_end": "2026-08-31",
+        "metric": "airport_throughput",
+        "grain": "month",
+        "value": 1292985,
+        "unit": "人次",
+        "raw_row": "合肥/新桥 11 1292985 -0.9 8595372 -2.1 11 10290.1 -25.9 79173.7 -2.8 10 9404 -1.7 65505 -2.4",
+        "source_locator": "原件第1页，旅客吞吐量，本期完成列",
+        "asset_path": "real_data/2026-10-12/originals/caac-2026-08-pdf-0-c42dfb423251.pdf",
+        "asset_sha256": "c42dfb4232510256775629ba67ae2c0188902eade69be1586b2515707edd1063",
+        "source_url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202609/P020260924526836562690.pdf",
+        "quality_status": "pending_review",
+        "note": "第一步抽样核对；未入普通观测库"
+      },
+      {
+        "entity_key": "airport:TXN",
+        "name": "黄山屯溪机场",
+        "period_start": "2026-08-01",
+        "period_end": "2026-08-31",
+        "metric": "airport_throughput",
+        "grain": "month",
+        "value": 35324,
+        "unit": "人次",
+        "raw_row": "黄山/屯溪 48 35324 32.2 236161 12.0 33 221.0 402.1 977.5 101.7 49 230 -47.4 3169 -59.2",
+        "source_locator": "原件第1页，旅客吞吐量，本期完成列",
+        "asset_path": "real_data/2026-10-12/originals/caac-2026-08-pdf-0-c42dfb423251.pdf",
+        "asset_sha256": "c42dfb4232510256775629ba67ae2c0188902eade69be1586b2515707edd1063",
+        "source_url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202609/P020260924526836562690.pdf",
+        "quality_status": "pending_review",
+        "note": "第一步抽样核对；未入普通观测库"
+      },
+      {
+        "entity_key": "airport:FUG",
+        "name": "阜阳机场",
+        "period_start": "2026-08-01",
+        "period_end": "2026-08-31",
+        "metric": "airport_throughput",
+        "grain": "month",
+        "value": 89720,
+        "unit": "人次",
+        "raw_row": "阜阳 35 89720 -7.9 628397 -9.1 39 58.1 -1.3 811.4 -22.5 30 1272 67.8 10405 -16.7",
+        "source_locator": "原件第1页，旅客吞吐量，本期完成列",
+        "asset_path": "real_data/2026-10-12/originals/caac-2026-08-pdf-0-c42dfb423251.pdf",
+        "asset_sha256": "c42dfb4232510256775629ba67ae2c0188902eade69be1586b2515707edd1063",
+        "source_url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202609/P020260924526836562690.pdf",
+        "quality_status": "pending_review",
+        "note": "第一步抽样核对；未入普通观测库"
+      },
+      {
+        "entity_key": "airport:WHA",
+        "name": "芜湖宣州机场",
+        "period_start": "2026-08-01",
+        "period_end": "2026-08-31",
+        "metric": "airport_throughput",
+        "grain": "month",
+        "value": 105979,
+        "unit": "人次",
+        "raw_row": "芜湖/宣州 33 105979 20.9 816728 32.3 13 8294.5 22.0 62103.0 69.1 31 1238 -12.9 11204 11.3",
+        "source_locator": "原件第1页，旅客吞吐量，本期完成列",
+        "asset_path": "real_data/2026-10-12/originals/caac-2026-08-pdf-0-c42dfb423251.pdf",
+        "asset_sha256": "c42dfb4232510256775629ba67ae2c0188902eade69be1586b2515707edd1063",
+        "source_url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202609/P020260924526836562690.pdf",
+        "quality_status": "pending_review",
+        "note": "第一步抽样核对；未入普通观测库"
+      },
+      {
+        "entity_key": "airport:AQG",
+        "name": "安庆天柱山机场",
+        "period_start": "2026-08-01",
+        "period_end": "2026-08-31",
+        "metric": "airport_throughput",
+        "grain": "month",
+        "value": 36898,
+        "unit": "人次",
+        "raw_row": "安庆/天柱山 44 36898 36.9 256415 19.5 24 756.6 786.1 1653.4 676.9 43 352 55.8 4616 112.5",
+        "source_locator": "原件第1页，旅客吞吐量，本期完成列",
+        "asset_path": "real_data/2026-10-12/originals/caac-2026-08-pdf-0-c42dfb423251.pdf",
+        "asset_sha256": "c42dfb4232510256775629ba67ae2c0188902eade69be1586b2515707edd1063",
+        "source_url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202609/P020260924526836562690.pdf",
+        "quality_status": "pending_review",
+        "note": "第一步抽样核对；未入普通观测库"
+      },
+      {
+        "entity_key": "airport:JUH",
+        "name": "池州九华山机场",
+        "period_start": "2026-08-01",
+        "period_end": "2026-08-31",
+        "metric": "airport_throughput",
+        "grain": "month",
+        "value": 36047,
+        "unit": "人次",
+        "raw_row": "池州/九华山 47 36047 20.4 318737 73.6 35 128.8 74.8 542.5 46.4 36 710 148.3 7492 319.3",
+        "source_locator": "原件第1页，旅客吞吐量，本期完成列",
+        "asset_path": "real_data/2026-10-12/originals/caac-2026-08-pdf-0-c42dfb423251.pdf",
+        "asset_sha256": "c42dfb4232510256775629ba67ae2c0188902eade69be1586b2515707edd1063",
+        "source_url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202609/P020260924526836562690.pdf",
+        "quality_status": "pending_review",
+        "note": "第一步抽样核对；未入普通观测库"
+      },
+      {
+        "entity_key": "airport:bozhou",
+        "name": "亳州机场",
+        "period_start": "2026-08-01",
+        "period_end": "2026-08-31",
+        "metric": "airport_throughput",
+        "grain": "month",
+        "value": 36140,
+        "unit": "人次",
+        "raw_row": "亳州 46 36140 0.0 250198 0.0 42 30.9 0.0 98.0 0.0 45 328 0.0 2447 0.0",
+        "source_locator": "原件第1页，旅客吞吐量，本期完成列",
+        "asset_path": "real_data/2026-10-12/originals/caac-2026-08-pdf-0-c42dfb423251.pdf",
+        "asset_sha256": "c42dfb4232510256775629ba67ae2c0188902eade69be1586b2515707edd1063",
+        "source_url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202609/P020260924526836562690.pdf",
+        "quality_status": "pending_review",
+        "note": "第一步抽样核对；未入普通观测库"
+      },
+      {
+        "entity_key": "airport:bengbu-tenghu",
+        "name": "蚌埠滕湖机场",
+        "period_start": "2026-08-01",
+        "period_end": "2026-08-31",
+        "metric": "airport_throughput",
+        "grain": "month",
+        "value": 16965,
+        "unit": "人次",
+        "raw_row": "蚌埠/滕湖 51 16965 0.0 45986 0.0 50 0.00 0.0 0.1 0.0 51 128 0.0 356 0.0",
+        "source_locator": "原件第1页，旅客吞吐量，本期完成列",
+        "asset_path": "real_data/2026-10-12/originals/caac-2026-08-pdf-0-c42dfb423251.pdf",
+        "asset_sha256": "c42dfb4232510256775629ba67ae2c0188902eade69be1586b2515707edd1063",
+        "source_url": "https://hd.caac.gov.cn/HD_XXGK/HD_TJSJ/202609/P020260924526836562690.pdf",
+        "quality_status": "pending_review",
+        "note": "第一步抽样核对；未入普通观测库"
+      }
+    ]
+  },
+  "existing_evidence": [
+    {
+      "entity_key": "scenic:huangshan-main",
+      "path": "real_data/2026-10-12/originals/huangshan-2025-report-f8fa6356c3e7.pdf",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-04-18/1225118314.PDF",
+      "sha256": "f8fa6356c3e7808d4ea70497aa057e7be5d6fe841c9dd6145e5f6c7ec7ebc63f",
+      "checksum_valid": true,
+      "original_retrieved_at": "2026-10-12T08:18:38.282759+00:00",
+      "note": "既有资料包证据，仅证明原件留存与摘要一致；本轮网络结果另列"
+    },
+    {
+      "entity_key": "rail:huangshan-north",
+      "path": "real_data/2026-10-12/originals/huangshan-north-2025-h1-4abde2424b1e.html",
+      "url": "https://szb.ahnews.com.cn/szb/content/202507/21/c1096188.html",
+      "sha256": "4abde2424b1ec9b96c2f556fded4d499dac7d7b5e9311e2ff22e86a37c8cebed",
+      "checksum_valid": true,
+      "original_retrieved_at": "2026-10-12T08:16:04.026244+00:00",
+      "note": "既有资料包证据，仅证明原件留存与摘要一致；本轮网络结果另列"
+    }
+  ]
+}

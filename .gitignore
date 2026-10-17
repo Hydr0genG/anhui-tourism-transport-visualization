@@ -42,3 +42,22 @@ coverage/
 *.log
 tmp/
 .tmp/
+
+# Standalone public-data collector: its own local repository, not a team module.
+anhui_public_data_crawler/
+
+# Downloaded test videos remain local; source/verification metadata is versioned.
+*.mp4
+*.webm
+*.avi
+*.mov
+*.mkv
+*.m4v
+*.ogv
+*.mts
+*.m2ts
+test_media/**/videos/
+test_media/**/originals/
+test_media/**/*.zip
+test_media/**/scenic_crowds_test_*/
+test_media/**/fixed_camera_crowds_*/

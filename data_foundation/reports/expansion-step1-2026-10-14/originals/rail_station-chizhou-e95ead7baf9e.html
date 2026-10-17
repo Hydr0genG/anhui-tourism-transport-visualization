@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="SiteName" content="池州市人民政府" />
+<meta name="SiteDomain" content="www.chizhou.gov.cn" />
+<meta name="SiteIDCode" content="3417000002" />
+<meta name="keywords" content="池州市人民政府网站，池州市政府网，资讯中心，政府信息公开，解读回应，政务服务，互动交流，数据发布，走遍池州" />
+<meta name="description" content="池州市人民政府网站是由池州市人民政府办公室主办、池州市数据资源管理局承办的市政府门户网站。是池州市信息公开和宣传池州的重要窗口，是政务服务的重要平台，是政府联系公众和企业的桥梁。池州市政府网站及时发布、更新各类政务信息，提供网上办事服务和便民服务查询，方便社会公众参政议政、投诉建议和互动交流。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="ColumnName" content="网站首页">
+    <meta name="ColumnType" content="网站首页">
+    <meta name="ColumnDescription" content="池州市人民政府，网站首页">
+    <meta name="ColumnKeywords" content="池州市人民政府，网站首页">
+    <title>池州市人民政府</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/dist/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="/dist/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/dist/css/hover.css">
+    <link rel="stylesheet" href="/dist/css/public.css">
+    <link rel="stylesheet" href="/dist/css/header.css">
+    <link rel="stylesheet" href="/dist/css/footer.css">
+    <script src="/dist/lib/jquery/jquery.min.js"></script>
+        <link rel="stylesheet" href="/dist/css/index.css">
+            <!--[if lt IE 9]>
+    <script src="/dist/js/html5shiv.js"></script>
+    <script src="/dist/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--节庆广告on-->
+    <!--节庆广告end-->
+    <!--头部 on-->
+    <div class="is-header el-header">
+        <!--top栏-->
+<div class="header-toolbar">
+	<div class="header-container f-clearfix">
+		<ul class="u-link f-md-dn f-clearfix ">
+			<li><a href="https://www.gov.cn" target="_blank">中国政府网</a></li>
+			<li><a href="https://www.ah.gov.cn" target="_blank">安徽省人民政府</a></li>
+			<li><a href="http://www.chzrd.gov.cn" target="_blank">池州市人大</a></li>
+			<li><a href="http://www.chzzx.gov.cn" target="_blank">池州市政协</a></li>
+		</ul>
+		<ul class="u-funs f-clearfix">
+			<li class="u-slh f-md-dn">
+				<a href="javascript:;" id="elder">
+					<img src="/dist/images/public/icon-zzb.png">
+					<span>长辈版</span>
+				</a>
+			</li>
+			<li class="u-wza f-md-dn">
+				<a href="javascript:;" onclick="top.aria.start()" id="wzwza" >
+					<img src="/dist/images/public/icon-wza.png">
+					<span>无障碍浏览</span>&nbsp;&nbsp;
+				</a>
+			</li>
+			<li class="bg-line">
+				<a href="/English/">英文版</a>
+			</li>
+			<li class="bg-line">
+				<a href="javascript:StranBody()" id="StranLink">繁体版</a>
+			</li>
+			<li id="unifyUser">
+				<a id="login">
+					<span>个人中心</span>
+				</a>
+			</li>
+			<li class="header-ipv6">网站支持IPv6</li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //动态请求统一用户
+        $('#unifyUser').load('/Account/index.do');
+    });
+</script>
+         <!--导航栏-->
+       
+        <!--banner-->
+        <div class="header-banner">
+            <div class="header-logo">
+                 <a href="/"><img src="/dist/images/public/logo.png"></a>
+             </div>
+             <div class="header-search">
+                <div class="search-main">
+                    <form method="GET" action="/Search/" class="layui-form">
+                        <div class="header-search-select">
+                            <div class="select-title">
+                                <input type="text" id="searchWebName" name="siteName" readonly="" value="站群">
+                                <i class="header-search-icon"></i>
+                            </div>
+                            <dl id="ztList">
+                                <dd data-value="1">本站</dd>
+                                <dd data-value="0" class="search-active">站群</dd>
+                            </dl>
+                        </div>
+                        <input type="hidden" id="searchWebsite" name="siteId" readonly="" value="0">
+                        <input type="text" id="searchKeyword" name="keyword" value="" placeholder="搜索您想了解的政策、资讯、服务" class="u-tpsearchtext" required="required">
+                        <div class="clearinput f-dn"></div>
+                        <div class="ugc-searchdiv">
+                            <input name="" type="submit" value="" class="ugc-searchbtn" id="submit">
+                        </div>
+                    </form>
+                   
+                </div>
+                <!--关联词-->
+                <div class="hotkey-results transition" id="searching_tips_header"></div>
+                <div class="header-search-hotkeys f-md-dn">
+                    热搜词：
+                                                            <a target="_blank" href="/Search/?keyword=“十五五”规划纲要" title="">“十五五”规划纲要&nbsp;&nbsp;</a>
+                                        <a target="_blank" href="/Search/?keyword=教师资格证" title="">教师资格证&nbsp;&nbsp;</a>
+                                        <a target="_blank" href="/Search/?keyword=社会保障" title="">社会保障&nbsp;&nbsp;</a>
+                                        <a target="_blank" href="/Search/?keyword=招商引资" title="">招商引资&nbsp;&nbsp;</a>
+                                        <a target="_blank" href="/Search/?keyword=住房公积金" title="">住房公积金&nbsp;&nbsp;</a>
+                                                        </div>
+            </div>
+            <!--办事服务仅在首页显示-->
+            <div class="header-service">
+                <div class="header-container">
+                    <div class="service-wrapper">
+                        <div class="service-item-wrapper">
+                            <a class="service-item" target="_blank" href="https://chiz.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?cityCode=341700000000&amp;cityName=%25E6%25B1%25A0%25E5%25B7%259E%25E5%25B8%2582&amp;subjecttype=P">
+                                <img src="/dist/images/index/icon-grfw.png">
+                                <p class="font18">个人服务</p>
+                            </a>
+                            <ul>
+                                <li><a target="_blank" href="https://chiz.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?cityCode=341700000000&amp;cityName=%25E6%25B1%25A0%25E5%25B7%259E%25E5%25B8%2582&amp;serviceObject=P&amp;itemType=25&amp;itemName=%E7%94%9F%E8%82%B2%E6%94%B6%E5%85%BB">生育收养</a></li>
+                                <li><a target="_blank" href="https://chiz.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?cityCode=341700000000&cityName=%25E6%25B1%25A0%25E5%25B7%259E%25E5%25B8%2582&serviceObject=P&itemType=34&itemName=%E8%AF%81%E4%BB%B6%E5%8A%9E%E7%90%86">证件办理</a></li>
+                                <li><a target="_blank" href="https://chiz.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?cityCode=341700000000&cityName=%25E6%25B1%25A0%25E5%25B7%259E%25E5%25B8%2582&serviceObject=P&itemType=22&itemName=%E6%B0%91%E6%97%8F%E5%AE%97%E6%95%99">民族宗教</a></li>
+                                <li><a target="_blank" href="https://chiz.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?cityCode=341700000000&cityName=%25E6%25B1%25A0%25E5%25B7%259E%25E5%25B8%2582&serviceObject=P&itemType=26&itemName=%E6%95%99%E8%82%B2%E7%A7%91%E7%A0%94">教育科研</a></li>
+                                <li><a target="_blank" href="https://chiz.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?cityCode=341700000000&cityName=%25E6%25B1%25A0%25E5%25B7%259E%25E5%25B8%2582&serviceObject=P&itemType=35&itemName=%E4%BA%A4%E9%80%9A%E5%87%BA%E8%A1%8C">交通出行</a></li>
+                                <li><a target="_blank" href="https://chiz.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?cityCode=341700000000&cityName=%25E6%25B1%25A0%25E5%25B7%259E%25E5%25B8%2582&serviceObject=P&itemType=28&itemName=%E5%B0%B1%E4%B8%9A%E5%88%9B%E4%B8%9A">就业创业</a></li>
+                            </ul>
+                        </div>
+                        <div class="service-item-wrapper">
+                            <a class="service-item" href="https://chiz.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?cityCode=341700000000&cityName=%25E6%25B1%25A0%25E5%25B7%259E%25E5%25B8%2582&subjecttype=C">
+                                <img src="/dist/images/index/icon-frfw.png">
+                                <p class="font18">法人服务</p>
+                            </a>
+                            <ul>
+                                <li><a target="_blank" href="https://chiz.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?cityCode=341700000000&cityName=%25E6%25B1%25A0%25E5%25B7%259E%25E5%25B8%2582&serviceObject=C&itemType=1&itemName=%E8%AE%BE%E7%AB%8B%E5%8F%98%E6%9B%B4">设立变更</a></li>
+                                <li><a target="_blank" href="https://chiz.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?cityCode=341700000000&cityName=%25E6%25B1%25A0%25E5%25B7%259E%25E5%25B8%2582&serviceObject=C&itemType=3&itemName=%E5%B9%B4%E6%A3%80%E5%B9%B4%E5%AE%A1">年检年审</a></li>
+                                <li><a target="_blank" href="https://chiz.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?cityCode=341700000000&cityName=%25E6%25B1%25A0%25E5%25B7%259E%25E5%25B8%2582&serviceObject=C&itemType=31&itemName=%E7%A8%8E%E6%94%B6%E8%B4%A2%E5%8A%A1">税收财务</a></li>
+                                <li><a target="_blank" href="https://chiz.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?cityCode=341700000000&cityName=%25E6%25B1%25A0%25E5%25B7%259E%25E5%25B8%2582&serviceObject=C&itemType=32&itemName=%E5%87%86%E8%90%A5%E5%87%86%E5%8A%9E">准营准办</a></li>
+                                <li><a target="_blank" href="https://chiz.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?cityCode=341700000000&cityName=%25E6%25B1%25A0%25E5%25B7%259E%25E5%25B8%2582&serviceObject=C&itemType=33&itemName=%E6%8A%95%E8%B5%84%E5%AE%A1%E6%89%B9">投资审批</a></li>
+                                <li><a target="_blank" href="https://chiz.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?cityCode=341700000000&cityName=%25E6%25B1%25A0%25E5%25B7%259E%25E5%25B8%2582&serviceObject=C&itemType=10&itemName=%E8%B5%84%E8%B4%A8%E8%AE%A4%E8%AF%81">资质认证</a></li>
+                            </ul>
+                        </div>
+                        <div class="service-item-wrapper service-item-wrapper2">
+                            <a class="service-item nopointer">
+                                <img src="/dist/images/index/icon-cxfw.png">
+                                <p class="font18">创新服务</p>
+                            </a>
+                            <ul>
+                                <li><a target="_blank"  href="https://www.ahzwfw.gov.cn/otd-hub-portal/index.html#/handlingInstructions?stageId=bd8b1522626347d490d5db2ebffd78b8&xzqhCode=341700000000&xzqhName=%E6%B1%A0%E5%B7%9E%E5%B8%82&eventName=%E6%B0%B4%E7%94%B5%E6%B0%94%E7%BD%91%E8%81%94%E5%90%88%E6%8A%A5%E8%A3%85%E2%80%9C%E4%B8%80%E4%BB%B6%E4%BA%8B%E2%80%9D&eventCode=d362163e69eb47b1a70361513e72a007">水电气并联审批  </a></li>
+                                <li><a target="_blank" href="https://chiz.ahzwfw.gov.cn/bog-bsdt-ds/static-ds/reservationService.html">局长陪您办</a></li>
+                                <li><a target="_blank" href="https://chiz.ahzwfw.gov.cn/bog-bsdt/static/specialService.html">特色创新服务专区 </a></li>
+                                <li><a target="_blank" href="https://chiz.ahzwfw.gov.cn/bog-bsdt-ds/static-ds/interProCommOffice.html">跨省通办专栏</a></li>
+                               
+                            </ul>
+                        </div>
+                        <div class="service-item-wrapper">
+                            <a class="service-item nopointer">
+                                <img src="/dist/images/index/icon-msly.png">
+                                <p class="font18">民生领域服务</p>
+                            </a>
+                            <ul>
+                                <li><a target="_blank" href="/SpecialTopic/msly/">教育领域</a></li>
+                                <li><a target="_blank" href="/SpecialTopic/msly/?type=social">社保领域</a></li>
+                                <li><a target="_blank" href="/SpecialTopic/msly/?type=house">住房领域</a></li>
+                                <li><a target="_blank" href="/SpecialTopic/msly/?type=medical">卫生领域 </a></li>
+                                <li><a target="_blank" href="/SpecialTopic/msly/?type=transport">交通领域</a></li>
+                                <li><a target="_blank" href="/SpecialTopic/msly/?type=work">就业创业领域</a></li>
+                            </ul>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+             <div class="m-nav">
+                <div class="header-container">
+                    <div class="nav-wrapper">
+                        <ul class="font22">
+                            <li id="nav_home"  class="u-active" ><a href="/">首页<i class="bg-line"></i></a></li>
+                            <li id="nav_leader" ><a href="/Leader/">市长之窗<i class="bg-line"></i></a></li>
+                            <li id="nav_news" ><a href="/News/">资讯<i class="bg-line"></i></a></li>
+                            <li id="nav_openness" ><a href="/OpennessContent/showList/75/0/page_1.html">公开<i class="bg-line"></i></a></li>
+                            <li id="nav_service" ><a href="https://chiz.ahzwfw.gov.cn" target="_blank">服务<i class="bg-line"></i></a></li>
+                            <li id="nav_interact" ><a href="/Interact/">互动<i class="bg-line"></i> </a></li>
+                            <li id="nav_datarelease" ><a href="/DataRelease/">数据<i class="bg-line"></i></a></li>
+                            <li id="nav_about" ><a href="/About/">走遍池州<i class="bg-line"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+    <script>
+        //头部搜索
+        $(".header-search .ugc-searchbtn").click(function () {
+            if ($("#searchKeyword").val() == "") {
+              alert("请输入搜索关键字");
+            }
+        });
+        //点击显示隐藏下拉框
+        $(".select-title").click(function (e) {
+            $(".header-search-select").toggleClass("header-search-selected");
+            e.stopPropagation();
+        });
+
+          //点击空白隐藏下拉框
+        $("body").click(function () {
+            $(".header-search-select").removeClass("header-search-selected");
+            $("#searching_tips_header").hide()
+        })
+        $('#ztList dd').click(function(){
+            var title = $(this).text();
+            var dataId = $(this).attr('data-value');
+            $('#searchWebName').val(title);
+            $('#searchWebsite').val(dataId);
+            $(this).addClass("search-active").siblings().removeClass("search-active");
+        });
+    </script>
+    <!--头部 end-->
+    <!--主体 on-->
+    <div class="is-main el-index">
+         <!--标题-->
+                    <div class="m-title">
+                <div class="container">
+                    <h1>
+                        <a  href="https://www.gov.cn/yaowen/liebiao/202610/content_7083088.htm" title="习近平出席全国卫生与健康大会并发表重要讲话" target="_blank">
+                            习近平出席全国卫生与健康大会并发表重要讲话
+                        </a>
+                    </h1>
+                    <p class="f-md-dn font18">
+                        <a href="https://www.gov.cn/yaowen/liebiao/202610/content_7083088.htm" title="习近平出席全国卫生与健康大会并发表重要讲话" target="_blank">
+                            习近平：坚定不移走中国特色卫生与健康发展道路 确保“十五五”时期健康中国建设取得决定性进展<br />
+李强讲话 赵乐际王沪宁蔡奇丁薛祥李希出席
+                        </a>
+                    </p>
+                    <a class="title-more f-md-dn" href="/Content/showList/6999/page_1.html" target="_blank" title="" class="f-fr">更多>></a>
+                </div>
+            </div>
+                <div class="container bg-f">
+             <div class="f-clearfix  f-pr">
+                                <!--轮播-->
+                <div class="m-flash f-fl">
+                    <div class="bd f-oh">
+                        <ul>
+                                                            <li>
+                                    <a href="/Content/show/788716.html" title="中国共产党池州市第六次代表大会胜利闭幕" target="_blank">
+                                        <img src="/file_cz/1/202610/202610010816270563m7qms.png">
+                                        <p class="font18">中国共产党池州市第六次代表大会胜利闭幕</p>
+                                    </a>
+                                </li>
+                                                            <li>
+                                    <a href="/Content/show/788405.html" title="中国共产党池州市第六次代表大会隆重开幕" target="_blank">
+                                        <img src="/file_cz/1/202609/20260929081823528omwbux.png">
+                                        <p class="font18">中国共产党池州市第六次代表大会隆重开幕</p>
+                                    </a>
+                                </li>
+                                                            <li>
+                                    <a href="/Content/show/788251.html" title="池州长江公铁大桥完成首次斜拉索精调" target="_blank">
+                                        <img src="/file_cz/1/202609/20260925080855843nxaffx.png">
+                                        <p class="font18">池州长江公铁大桥完成首次斜拉索精调</p>
+                                    </a>
+                                </li>
+                                                            <li>
+                                    <a href="https://www.gov.cn/hudong/" title="@国务院 我来说" target="_blank">
+                                        <img src="/file_cz/1/202503/20250311e964b85ac07a4db1b25aed5638406765.jpg">
+                                        <p class="font18">@国务院 我来说</p>
+                                    </a>
+                                </li>
+                                                    </ul>
+                    </div>
+                    <div class="hd">
+                        <ul>
+                                                            <li></li>
+                                                            <li></li>
+                                                            <li></li>
+                                                            <li></li>
+                                                    </ul>
+                    </div>
+                </div> 
+              
+                <div class="m-news f-fr">
+                    <div class="g-tab">
+                        <div class="m-tabindex tit-switch f-mb5">
+                            <ul class="f-clearfix font24">
+                                <li class="u-active"><a href="/Content/showList/7000/page_1.html" title="" target="_blank">重要转载</a></li>
+                                <li class=""><a href="/Content/showList/8/page_1.html" title="" target="_blank">政务要闻</a></li>
+                                <li class=""><a href="/Content/showList/15/page_1.html" title="" target="_blank">公示公告</a></li>
+                             </ul>
+                        </div>
+                        <div class="list-switch f-pr">
+                             <div class="g-reprint m-liststyle1 ">
+                                <ul class=" f-clearfix">
+                                                                            <li><a href="/Content/show/788781.html" title="《求是》杂志发表习近平总书记重要文章《加强普惠性、基础性、兜底性民生建设》" target="_blank">《求是》杂志发表习近平总书记重要文章《加强普惠性、基础性、兜底性民生建设》</a></li>
+                                                                            <li><a href="/Content/show/782477.html" title="中央层面整治形式主义为基层减负专项工作机制办公室 中央纪委办公厅
+公开通报3起整治形式主义为基层减负典型问题" target="_blank">中央层面整治形式主义为基层减负专项工作机制办公室 中央纪委办公厅
+公开通报3起整治形式主义为基层减负典型问题</a></li>
+                                                                            <li><a href="/Content/show/781120.html" title="庆祝中国共产党成立105周年大会在京隆重举行" target="_blank">庆祝中国共产党成立105周年大会在京隆重举行</a></li>
+                                                                    </ul>
+                            </div>
+                            <div class="g-reprint m-liststyle1 ">
+                                <ul class=" f-clearfix">
+                                                                            <li><a href="/Content/show/788779.html" title="李强主持召开国务院常务会议
+研究宏观政策发力提效、促进有效投资有关工作
+听取新污染物治理进展情况汇报
+审议通过《事业单位登记管理条例（草案）》" target="_blank">李强主持召开国务院常务会议
+研究宏观政策发力提效、促进有效投资有关工作
+听取新污染物治理进展情况汇报
+审议通过《事业单位登记管理条例（草案）》</a></li>
+                                                                            <li><a href="/Content/show/779902.html" title="李强主持召开国务院常务会议 
+研究2025年度中央预算执行和其他财政收支审计查出问题整改工作等" target="_blank">李强主持召开国务院常务会议 
+研究2025年度中央预算执行和其他财政收支审计查出问题整改工作等</a></li>
+                                                                            <li><a href="/Content/show/777475.html" title="李强主持召开国务院常务会议 研究推进全国统一大市场建设有关工作等" target="_blank">李强主持召开国务院常务会议 研究推进全国统一大市场建设有关工作等</a></li>
+                                                                    </ul>
+                            </div>
+                            <div class="f-pa u-zzbtn font18">
+                                <a href="/Content/showList/7000/page_1.html" target="_blank" class="dzy" >党中央</a>
+                                <a href="/Content/showList/7001/page_1.html" target="_blank"  >国务院</a>
+                            </div>
+                            <div class="u-nrtj f-clearfix font18">
+                                <a href="http://www.gov.cn/pushinfo/v150203/index.htm" class="dzy"  target="_blank">中央政府网站内容推荐</a>
+                                <a href="https://www.ah.gov.cn/pushinfo/" target="_blank">省政府网站内容推荐</a>
+                            </div>
+                        </div>
+                        <div class="m-liststyle1 list-switch f-dn">
+                            <ul class="f-clearfix ulhg1">
+                                                                    <li><a data-idx="0" href="/Content/show/789356.html" title="朱浩东在全市三季度基层党建和基层治理工作推进会上强调
+持续提升基层社会治理效能 为池州高质量发展提供有力支撑" target="_blank">朱浩东在全市三季度基层党建和基层治理工作推进会上强调
+持续提升基层社会治理效能 为池州高质量发展提供有力支撑</a></li>
+                                                                    <li><a data-idx="1" href="/Content/show/789355.html" title="朱浩东在全市巡察工作会议暨六届市委第一轮巡察动员部署会上强调
+把握新形势新要求发挥巡察利剑作用 以高质量巡察服务保障池州高质量发展" target="_blank">朱浩东在全市巡察工作会议暨六届市委第一轮巡察动员部署会上强调
+把握新形势新要求发挥巡察利剑作用 以高质量巡察服务保障池州高质量发展</a></li>
+                                                                    <li><a data-idx="2" href="/Content/show/789358.html" title="贺东在2026年市安全生产（防灾减灾救灾）委员会第四次全体会议上强调
+聚焦重点领域 严格安全监管 为实现“十五五”良好开局营造安全稳定环境" target="_blank">贺东在2026年市安全生产（防灾减灾救灾）委员会第四次全体会议上强调
+聚焦重点领域 严格安全监管 为实现“十五五”良好开局营造安全稳定环境</a></li>
+                                                                    <li><a data-idx="3" href="/Content/show/789354.html" title="2026池州第二届“九日齐山登高”重阳季活动即将举行" target="_blank">2026池州第二届“九日齐山登高”重阳季活动即将举行</a></li>
+                                                                    <li><a data-idx="4" href="/Content/show/789229.html" title="朱浩东在市委专题会议上强调
+以高度责任感抓紧抓实安全稳定各项工作 努力实现高水平安全和高质量发展良性互动" target="_blank">朱浩东在市委专题会议上强调
+以高度责任感抓紧抓实安全稳定各项工作 努力实现高水平安全和高质量发展良性互动</a></li>
+                                                                    <li><a data-idx="5" href="/Content/show/789227.html" title="朱浩东在调研特殊困难家庭关爱帮扶和基层治理工作时强调
+持续提升基层治理效能 坚决兜牢民生保障底线" target="_blank">朱浩东在调研特殊困难家庭关爱帮扶和基层治理工作时强调
+持续提升基层治理效能 坚决兜牢民生保障底线</a></li>
+                                                                    <li><a data-idx="6" href="/Content/show/789226.html" title="第五届城市地下管线（空间）行业产教融合研讨会在池召开" target="_blank">第五届城市地下管线（空间）行业产教融合研讨会在池召开</a></li>
+                                                                    <li><a data-idx="7" href="/Content/show/789118.html" title="朱浩东在市委理论学习中心组学习会议上强调
+树立机遇意识用足用好政策工具 以高质量项目支撑池州高质量发展" target="_blank">朱浩东在市委理论学习中心组学习会议上强调
+树立机遇意识用足用好政策工具 以高质量项目支撑池州高质量发展</a></li>
+                                                            </ul>
+                        </div>
+                      
+                        <div class="m-liststyle1 list-switch f-dn">
+                            <ul class="f-clearfix ulhg1">
+                                                                    <li><a data-idx="0" href="/Content/show/789065.html" title="池州市贯彻落实省常规统计督察反馈意见整改情况" target="_blank">池州市贯彻落实省常规统计督察反馈意见整改情况</a></li>
+                                                                    <li><a data-idx="1" href="/Content/show/788519.html" title="池州市人民政府关于在九华山风景区部分区域设置临时管制空域的通告" target="_blank">池州市人民政府关于在九华山风景区部分区域设置临时管制空域的通告</a></li>
+                                                                    <li><a data-idx="2" href="/Content/show/787446.html" title="池州市人民政府关于2026“中国皖美山水”骑行赛·青阳东九华站活动期间
+设置临时管制空域的通告" target="_blank">池州市人民政府关于2026“中国皖美山水”骑行赛·青阳东九华站活动期间
+设置临时管制空域的通告</a></li>
+                                                                    <li><a data-idx="3" href="/Content/show/786877.html" title="池州市人民政府关于防空警报试鸣的通告" target="_blank">池州市人民政府关于防空警报试鸣的通告</a></li>
+                                                                    <li><a data-idx="4" href="/Content/show/786865.html" title="池州市人民政府关于在2026国际汽联生态拉力杯（中国站）
+暨EF1安徽新能源汽车运动文化活动期间设置临时管制空域的通告" target="_blank">池州市人民政府关于在2026国际汽联生态拉力杯（中国站）
+暨EF1安徽新能源汽车运动文化活动期间设置临时管制空域的通告</a></li>
+                                                                    <li><a data-idx="5" href="/Content/show/783920.html" title="机关效能投诉建议&quot;码上办”" target="_blank">机关效能投诉建议"码上办”</a></li>
+                                                                    <li><a data-idx="6" href="/Content/show/779767.html" title="安徽省统计局2026年常规统计督察第2统计督察组向池州市反馈统计督察意见" target="_blank">安徽省统计局2026年常规统计督察第2统计督察组向池州市反馈统计督察意见</a></li>
+                                                                    <li><a data-idx="7" href="/Content/show/777955.html" title="池州市人民政府关于在2026年高考中考期间设置临时管制空域的通告" target="_blank">池州市人民政府关于在2026年高考中考期间设置临时管制空域的通告</a></li>
+                                                            </ul>
+                        </div>
+                     </div>
+                </div>
+            </div>
+            <!--政策文件-->
+            <div class="m-openesscont f-clearfix f-mt40">
+                <div class="is-col-1 f-fl bg-gray f-mr24">
+                    <div class="m-zcwjcont f-pd20">
+                         <h2 class="font24 m-tit2"><a href="/OpennessPolicy/showList/75/page_1.html?dataType=xzgfxwj">政策文件</a></h2>
+                         <div class="m-liststyle1 list-change ulheight1">
+                              <ul class=" f-clearfix ">
+                                                                        <li class="u-active">
+                                     <a data-idx="0" href="/OpennessContent/show/1756794.html" title="池州市人民政府办公室关于调整2026年重点项目清单的通知" target="_blank">池州市人民政府办公室关于调整2026年重点项目清单的通知</a>
+                                                                            </li>
+                                                                    <li >
+                                     <a data-idx="1" href="/OpennessContent/show/1752864.html" title="池州市人民政府办公室关于印发池州市具身智能产业高质量发展行动方案（2026-2028年）的通知" target="_blank">池州市人民政府办公室关于印发池州市具身智能产业高质量发展行动方案（2026-2028年）的通知</a>
+                                                                            </li>
+                                                                    <li >
+                                     <a data-idx="2" href="/OpennessContent/show/1752209.html" title="池州市人民政府办公室关于印发池州市人工智能产业发展行动方案（2026-2028年）的通知" target="_blank">池州市人民政府办公室关于印发池州市人工智能产业发展行动方案（2026-2028年）的通知</a>
+                                                                            </li>
+                                                                    <li >
+                                     <a data-idx="3" href="/OpennessContent/show/1751528.html" title="池州市人民政府办公室关于印发池州市公共资源交易工程建设招标投标领域相对集中行政处罚权工作实施方案的通知" target="_blank">池州市人民政府办公室关于印发池州市公共资源交易工程建设招标投标领域相对集中行政处罚权工作实施方案的通知</a>
+                                                                            </li>
+                                                                    <li >
+                                     <a data-idx="4" href="/OpennessContent/show/1741903.html" title="池州市人民政府办公室关于印发《池州市商业航天产业三年行动计划（2026-2028年）》的通知" target="_blank">池州市人民政府办公室关于印发《池州市商业航天产业三年行动计划（2026-2028年）》的通知</a>
+                                                                            </li>
+                                                                    <li >
+                                     <a data-idx="5" href="/OpennessContent/show/1729159.html" title="池州市人民政府关于公布市政府行政规范性文件和非行政规范性文件全面清理结果的通知" target="_blank">池州市人民政府关于公布市政府行政规范性文件和非行政规范性文件全面清理结果的通知</a>
+                                                                            </li>
+                                                                </ul>
+                         </div>
+                         <div class="wjk-cont">
+                             <h3 class="font26"><a href="/PolicyContent/" target="_blank">池州市政策文件库</a></h3>
+                             <div class="wjk-search">
+                                <form method="GET" action="/PolicyContent/showList/page_1.html">
+                                    <input type="text" id="wjk-search" name="keyword" value="" placeholder="搜索政策文件" class="wjk-searchtext">
+                                    <div class="wjk-searchdiv">
+                                        <input name="" type="submit" value=""  id="wjksubmit">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="m-liststyle-zt f-mt20">
+                               <ul class="col3 space10">
+                                    <li>
+                                        <a href="/GazetteContent/" target="_blank">
+                                            <img src="/dist/images/index/zfgb.png"> 
+                                            <p>政府公报</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/OpennessPublish/" target="_blank">
+                                            <img src="/dist/images/index/xwfbt.png"> 
+                                            <p>新闻发布厅</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/PolicyFaceToFace/" target="_blank">
+                                            <img src="/dist/images/index/zcfw.png"> 
+                                            <p>政策服务面对面</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+                <div class="is-col-1  f-fl f-ml24">
+                    <div class="f-pd20 bg-gray  ulheight2" style="padding-bottom:10px">
+                        <h2 class="font24"><a href="/OpennessContent/showList/75/7810/page_1.html" target="_blank">政策解读</a></h2>
+                        <div class="m-liststyle1 list-change">
+                            <ul class=" f-clearfix">
+                                                                    <li class="u-active">
+                                        <a data-idx="0" href="/OpennessContent/show/1753451.html" title="【池州日报】《池州市具身智能产业高质量发展行动方案（2026-2028年）》发布" target="_blank">【池州日报】《池州市具身智能产业高质量发展行动方案（2026-2028年）》发布</a>
+                                                                            </li>
+                                                                    <li >
+                                        <a data-idx="1" href="/OpennessContent/show/1753104.html" title="【池州日报】《池州市人工智能产业发展行动方案（2026-2028年）》发布" target="_blank">【池州日报】《池州市人工智能产业发展行动方案（2026-2028年）》发布</a>
+                                                                            </li>
+                                                                    <li >
+                                        <a data-idx="2" href="/OpennessContent/show/1753396.html" title="【文字解读】《池州市具身智能产业高质量发展行动方案（2026-2028年）》政策解读" target="_blank">【文字解读】《池州市具身智能产业高质量发展行动方案（2026-2028年）》政策解读</a>
+                                                                            </li>
+                                                                    <li >
+                                        <a data-idx="3" href="/OpennessContent/show/1752271.html" title="【文字解读】《池州市人工智能产业发展行动方案（2026-2028年）》政策解读" target="_blank">【文字解读】《池州市人工智能产业发展行动方案（2026-2028年）》政策解读</a>
+                                                                            </li>
+                                                                    <li >
+                                        <a data-idx="4" href="/OpennessContent/show/1751994.html" title="从“企业找政府”到“政府找企业”
+营商环境“软实力”夯实产业发展“硬支撑”" target="_blank">从“企业找政府”到“政府找企业”
+营商环境“软实力”夯实产业发展“硬支撑”</a>
+                                                                            </li>
+                                                                    <li >
+                                        <a data-idx="5" href="/OpennessContent/show/1749879.html" title="【新闻发布会解读】“启航‘十五五’ 奋力往前赶”系列主题新闻发布会" target="_blank">【新闻发布会解读】“启航‘十五五’ 奋力往前赶”系列主题新闻发布会</a>
+                                                                            </li>
+                                                                    <li >
+                                        <a data-idx="6" href="/OpennessContent/show/1748348.html" title="【新华网】池州从12个方面绘制未来五年发展“施工图”" target="_blank">【新华网】池州从12个方面绘制未来五年发展“施工图”</a>
+                                                                            </li>
+                                                            </ul>
+                        </div>
+                    </div>
+                    <div class="f-pd20 bg-gray f-mt40" style="padding-bottom:12px">
+                        <div class="zfxxgk-links f-clearfix space8 col2">
+                            <ul>
+                                <li>
+                                    <a href="/OpennessContent/showList/75/0/page_1.html" target="_blank" class="hvr-icon-bob">
+                                        <img class="hvr-icon" src="/dist/images/index/gkicon-1.png" alt="">
+                                        <span>法定主动公开内容</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/OpennessGuide/show/75.html" target="_blank" class="hvr-icon-bob">
+                                        <img class="hvr-icon" src="/dist/images/index/gkicon-2.png" alt="">
+                                        <span>政府信息公开指南</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/OpennessRequest/type/75/3.html" target="_blank" class="hvr-icon-bob">
+                                        <img class="hvr-icon" src="/dist/images/index/gkicon-3.png" alt="">
+                                        <span>依申请公开</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/OpennessAnnualReport/year/75/0.html" target="_blank" class="hvr-icon-bob">
+                                        <img class="hvr-icon" src="/dist/images/index/gkicon-4.png" alt="">
+                                        <span>政府信息公开年报</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/OpennessBranch/" target="_blank" class="hvr-icon-bob">
+                                        <img class="hvr-icon" src="/dist/images/index/gkicon-5.png" alt="">
+                                        <span>部门县区平台链接</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/OpennessContent/showList/75/7532/page_1.html" target="_blank" class="hvr-icon-bob">
+                                        <img class="hvr-icon" src="/dist/images/index/gkicon-6.png" alt="">
+                                        <span>政府工作报告</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="is-col-1  f-fr bg-blue">
+                    <div class="m-rxcont  f-clearfix">
+                         <a class="f-fl flexC" href="/S12345/showList/page_1.html" target="_blank"><img src="/dist/images/index/s12345.png"></a>
+                         <a class="f-fr flexV hvr-icon-wobble-horizontal" href="/InFeedback/showList/2/page_1.html">
+                             <img class="hvr-icon" src="/dist/images/index/xx.png">
+                             <span>我向市长建言</span>
+                         </a>
+                    </div>
+                    <div class="g-tab f-plr20">
+                        <div class="m-tabstyle1 tit-switch f-clearfix f-mb15">
+                            <ul class="font24 f-clearfix f-mt5">
+                                <li class="u-active"><a href="/InFeedback/showList/2/page_1.html" title="" target="_blank">留言选登<i></i></a></li>
+                                <li><a href="/S12345/Knowledge/showList/page_1.html" title="" target="_blank">答问知识库<i></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="list-switch m-liststyle1">
+                            <ul class=" f-clearfix">
+                                                                    <li>
+                                        <a href="/InFeedback/show/64400.html" title="档案查阅" target="_blank">档案查阅</a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/InFeedback/show/63498.html" title="技术能手" target="_blank">技术能手</a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/InFeedback/show/62785.html" title="灵活就业领取生育补助" target="_blank">灵活就业领取生育补助</a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/InFeedback/show/62275.html" title="高校毕业生来池就业生活补贴" target="_blank">高校毕业生来池就业生活补贴</a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/InFeedback/show/61777.html" title="助学金发放" target="_blank">助学金发放</a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                         <div class="list-switch m-liststyle1 f-dn">
+                            <ul class=" f-clearfix">
+                                                                    <li>
+                                        <a href="/S12345/knowledge/show/2088181417606660097.html" title="大型营业性演出审批一件事" target="_blank">大型营业性演出审批一件事</a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/S12345/knowledge/show/2088180921399525377.html" title="灵活就业人员参保一件事" target="_blank">灵活就业人员参保一件事</a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/S12345/knowledge/show/2071798216181170178.html" title="结婚落户一件事" target="_blank">结婚落户一件事</a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/S12345/knowledge/show/2071797383171424257.html" title="安徽省安全资格证书一件事" target="_blank">安徽省安全资格证书一件事</a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/S12345/knowledge/show/2071796627655639042.html" title="公民身份信息变更一件事" target="_blank">公民身份信息变更一件事</a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </div>
+                     <div class="g-tab f-plr20 f-mt10">
+                        <div class="m-tabstyle1 tit-switch f-clearfix f-mb15">
+                            <ul class="font24 f-clearfix">
+                                <li class="u-active"><a href="/InLive/showList/page_1.html" title="" target="_blank">在线访谈<i></i></a></li>
+                                <li><a href="/InCollect/showList/page_1.html" title="" target="_blank">调查征集<i></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="list-switch m-liststyle1 m-linetwo">
+                            <ul class=" f-clearfix">
+                                                                    <li>
+                                        <a href="/InLive/show/833.html" title="市住房公积金管理中心：靶向施策惠民生，助企安居稳发展" target="_blank">市住房公积金管理中心：靶向施策惠民生，助企安居稳发展</a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/InLive/show/804.html" title="市民政局：推进池州市养老服务体系建设，打造“‘池’有桑榆，‘州’到服务”品牌" target="_blank">市民政局：推进池州市养老服务体系建设，打造“‘池’有桑榆，‘州’到服务”品牌</a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                         <div class="list-switch m-liststyle1  m-linetwo f-dn">
+                            <ul class=" f-clearfix">
+                                                                    <li>
+                                        <a href="/InCollect/show/1392.html" title="关于公开征求《池州市长期护理保险制度建设实施办法（征求意见稿）》意见的公告" target="_blank">关于公开征求《池州市长期护理保险制度建设实施办法（征求意见稿）》意见的公告</a>
+                                    </li>
+                                                                    <li>
+                                        <a href="/InCollect/show/1389.html" title="关于公开征求废止《安徽升金湖国家级自然保护区管理办法》意见的公告" target="_blank">关于公开征求废止《安徽升金湖国家级自然保护区管理办法》意见的公告</a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--办事服务-->
+            <div class="m-bsfwcont f-clearfix f-mt40">
+                <div class="m-bsfw-wraper bg-blue f-pd20">
+                    <a href="https://chiz.ahzwfw.gov.cn" target="_blank">
+                        <img src="/dist/images/index/wstb.png"> 
+                    </a>
+                    <div class="m-bsfw-tit">
+                        <div class="m-tabstyle1 tit-switch f-clearfix f-mb15">
+                            <ul class="font26 f-clearfix">
+                                <li class="u-active"><a style="cursor: auto;">办件统计<i></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="m-letternum">
+                            <ul class="f-clearfix">
+                                <li>
+                                    <span class="m-timebg">本日</span>
+                                    <p>受理：<span class="c-red">154 </span>件</p>
+                                    <p>办结：<span class="c-red">114 </span>件</p>
+                                </li>
+                                <li>
+                                    <span class="m-timebg">本周</span>
+                                    <p>受理：<span class="c-red">1539 </span>件</p>
+                                    <p>办结：<span class="c-red">1254 </span>件</p>
+                                </li>
+                                <li>
+                                    <span class="m-timebg">本月</span>
+                                    <p>受理：<span class="c-red">4278 </span>件</p>
+                                    <p>办结：<span class="c-red">3581 </span>件</p>
+                                </li>
+                                <li>
+                                    <span class="m-timebg">本年</span>
+                                    <p>受理：<span class="c-red">158741 </span>件</p>
+                                    <p>办结：<span class="c-red">146651 </span>件</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                            </div>
+
+            <!--专题专栏-->
+            <div class="f-mt40">
+                <div class="m-zltitle  f-clearfix f-mb20">
+                    <a class="font32" href="/Special/0/page_1.html" title="" target="_blank">专题专栏</a>
+                </div>
+                <div class="imagelist g-ztland f-pr imgscale">
+                    <div class="bd f-oh">
+                        <ul class="f-clearfix">
+                                                            <li>
+                                                                            <a href="http://zzxszy.people.cn/GB/458759/index.html" title="整治形式主义为基层减负专栏" target="_blank">
+                                            <img src="/file_cz/1/202604/202604301145057547nn809.png" width="325" height="160">
+                                        </a>
+                                                                    </li>
+                                                            <li>
+                                                                            <a href="/gznb/" title="政府网站工作年度报表" target="_blank">
+                                            <img src="/file_cz/1/202603/202603314939817fce04a09b161b2b3f71cf4078.png" width="325" height="160">
+                                        </a>
+                                                                    </li>
+                                                            <li>
+                                                                            <a href="/Wmcj/" title="共建共享全国文明城市" target="_blank">
+                                            <img src="/file_cz/1/202603/2026033135ad433b71279b20835c9d498fb9bbef.png" width="325" height="160">
+                                        </a>
+                                                                    </li>
+                                                            <li>
+                                                                            <a href="/SpecialTopic/fzzhjs/" title="法治政府建设 专题广告" target="_blank">
+                                            <img src="/file_cz/1/202603/202603314644991d813e14e0f3df61cfbe6495f8.png" width="325" height="160">
+                                        </a>
+                                                                    </li>
+                                                            <li>
+                                                                            <a href="https://www.chizhou.gov.cn/SendService/" title="创优营商环境为企服务" target="_blank">
+                                            <img src="/file_cz/1/202605/20260525161126338ni72or.png" width="325" height="160">
+                                        </a>
+                                                                    </li>
+                                                    </ul>
+                    </div>
+                    <div class="hd">
+                        <a class="prev"></a>
+                        <a class="next"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--主体 end-->
+
+    <!--友情链接-->
+    <div class="is-linknew f-mt40">
+        <div class="container m-linknew">
+            <ul class="f-clearfix">
+                <li>
+                    <a class="is-link-one">省直部门<i class="blackrow"></i></a>
+                    <dl>
+                                                    <dd><a href="https://fzggw.ah.gov.cn/" title="省发展改革委" target="_blank">省发展改革委</a></dd>
+                                                    <dd><a href="http://jyt.ah.gov.cn/" title="省教育厅" target="_blank">省教育厅</a></dd>
+                                                    <dd><a href="http://kjt.ah.gov.cn/" title="省科技厅" target="_blank">省科技厅</a></dd>
+                                                    <dd><a href="http://mwzjj.ah.gov.cn/" title="省民委" target="_blank">省民委</a></dd>
+                                                    <dd><a href="http://jx.ah.gov.cn/" title="省工业和信息化厅" target="_blank">省工业和信息化厅</a></dd>
+                                                    <dd><a href="http://gat.ah.gov.cn/" title="省公安厅" target="_blank">省公安厅</a></dd>
+                                                    <dd><a href="http://mz.ah.gov.cn/" title="省民政厅" target="_blank">省民政厅</a></dd>
+                                                    <dd><a href="http://sft.ah.gov.cn/" title="省司法厅" target="_blank">省司法厅</a></dd>
+                                                    <dd><a href="http://czt.ah.gov.cn/" title="省财政厅" target="_blank">省财政厅</a></dd>
+                                                    <dd><a href="http://hrss.ah.gov.cn/" title="省人力资源社会保障厅" target="_blank">省人力资源社会保障厅</a></dd>
+                                                    <dd><a href="http://zrzyt.ah.gov.cn/" title="省自然资源厅" target="_blank">省自然资源厅</a></dd>
+                                                    <dd><a href="http://sthjt.ah.gov.cn/" title="省生态环境厅" target="_blank">省生态环境厅</a></dd>
+                                                    <dd><a href="http://dohurd.ah.gov.cn/" title="省住房城乡建设厅" target="_blank">省住房城乡建设厅</a></dd>
+                                                    <dd><a href="http://jtt.ah.gov.cn/" title="省交通运输厅" target="_blank">省交通运输厅</a></dd>
+                                                    <dd><a href="http://nync.ah.gov.cn/" title="省农业农村厅" target="_blank">省农业农村厅</a></dd>
+                                                    <dd><a href="http://slt.ah.gov.cn/" title="省水利厅" target="_blank">省水利厅</a></dd>
+                                                    <dd><a href="http://commerce.ah.gov.cn/" title="省商务厅" target="_blank">省商务厅</a></dd>
+                                                    <dd><a href="http://ct.ah.gov.cn/" title="省文化和旅游厅" target="_blank">省文化和旅游厅</a></dd>
+                                                    <dd><a href="http://wjw.ah.gov.cn" title="省卫生健康委" target="_blank">省卫生健康委</a></dd>
+                                                    <dd><a href="https://dva.ah.gov.cn" title="省退役军人事务厅" target="_blank">省退役军人事务厅</a></dd>
+                                                    <dd><a href="http://yjt.ah.gov.cn" title="省应急厅" target="_blank">省应急厅</a></dd>
+                                                    <dd><a href="http://sjt.ah.gov.cn" title="省审计厅" target="_blank">省审计厅</a></dd>
+                                                    <dd><a href="https://ahfao.ah.gov.cn/" title="省外办（省港澳办）" target="_blank">省外办（省港澳办）</a></dd>
+                                                    <dd><a href="http://gzw.ah.gov.cn" title="省国资委" target="_blank">省国资委</a></dd>
+                                                    <dd><a href="http://amr.ah.gov.cn/" title="省市场监管局" target="_blank">省市场监管局</a></dd>
+                                                    <dd><a href="https://tiyu.ah.gov.cn" title="省体育局" target="_blank">省体育局</a></dd>
+                                                    <dd><a href="http://tjj.ah.gov.cn/" title="省统计局" target="_blank">省统计局</a></dd>
+                                                    <dd><a href="http://lyj.ah.gov.cn" title="省林业局" target="_blank">省林业局</a></dd>
+                                                    <dd><a href="http://ybj.ah.gov.cn/" title="省医保局" target="_blank">省医保局</a></dd>
+                                                    <dd><a href="http://sgj.ah.gov.cn/" title="省管局" target="_blank">省管局</a></dd>
+                                                    <dd><a href="http://gdb.ah.gov.cn" title="省国动办" target="_blank">省国动办</a></dd>
+                                                    <dd><a href="http://xfj.ah.gov.cn/" title="省信访局" target="_blank">省信访局</a></dd>
+                                                    <dd><a href="http://sjzyj.ah.gov.cn/" title="省数据资源局" target="_blank">省数据资源局</a></dd>
+                                                    <dd><a href="http://scss.ah.gov.cn/" title="省参事室" target="_blank">省参事室</a></dd>
+                                                    <dd><a href="http://lswz.ah.gov.cn" title="省粮食和物资储备局" target="_blank">省粮食和物资储备局</a></dd>
+                                                    <dd><a href="http://fzggw.ah.gov.cn/jgsz/wgdw/snyj/index.html" title="省能源局" target="_blank">省能源局</a></dd>
+                                                    <dd><a href="http://jyj.ah.gov.cn/" title="省监狱管理局" target="_blank">省监狱管理局</a></dd>
+                                                    <dd><a href="http://mpa.ah.gov.cn/" title="省药监局" target="_blank">省药监局</a></dd>
+                                                    <dd><a href="http://dss.ah.gov.cn/" title="省发展研究中心" target="_blank">省发展研究中心</a></dd>
+                                                    <dd><a href="http://coop.ah.gov.cn/" title="省供销社" target="_blank">省供销社</a></dd>
+                                                    <dd><a href="http://dkj.ah.gov.cn" title="省地矿局" target="_blank">省地矿局</a></dd>
+                                                    <dd><a href="http://anhui.chinatax.gov.cn" title="省税务局" target="_blank">省税务局</a></dd>
+                                                    <dd><a href="http://www.ahdzj.gov.cn/" title="省地震局" target="_blank">省地震局</a></dd>
+                                                    <dd><a href="http://ah.spb.gov.cn/" title="省邮政管理局" target="_blank">省邮政管理局</a></dd>
+                                                    <dd><a href="http://hjglj.ah.gov.cn" title="省黄金管理局" target="_blank">省黄金管理局</a></dd>
+                                            </dl>
+                </li>
+                <li>
+                    <a class="is-link-one">市级政府<i class="blackrow"></i></a>
+                    <dl>
+                                                    <dd><a href="https://www.hefei.gov.cn" title="合肥" target="_blank">合肥</a></dd>
+                                                    <dd><a href="https://www.huaibei.gov.cn/" title="淮北" target="_blank">淮北</a></dd>
+                                                    <dd><a href="https://www.bozhou.gov.cn/" title="亳州" target="_blank">亳州</a></dd>
+                                                    <dd><a href="https://www.ahsz.gov.cn/" title="宿州" target="_blank">宿州</a></dd>
+                                                    <dd><a href="https://www.bengbu.gov.cn/" title="蚌埠" target="_blank">蚌埠</a></dd>
+                                                    <dd><a href="https://www.fy.gov.cn/" title="阜阳" target="_blank">阜阳</a></dd>
+                                                    <dd><a href="https://www.huainan.gov.cn" title="淮南" target="_blank">淮南</a></dd>
+                                                    <dd><a href="https://www.chuzhou.gov.cn/" title="滁州" target="_blank">滁州</a></dd>
+                                                    <dd><a href="https://www.luan.gov.cn/" title="六安" target="_blank">六安</a></dd>
+                                                    <dd><a href="https://www.mas.gov.cn/" title="马鞍山" target="_blank">马鞍山</a></dd>
+                                                    <dd><a href="https://www.wuhu.gov.cn/" title="芜湖" target="_blank">芜湖</a></dd>
+                                                    <dd><a href="https://www.xuancheng.gov.cn/" title="宣城" target="_blank">宣城</a></dd>
+                                                    <dd><a href="https://www.tl.gov.cn/" title="铜陵" target="_blank">铜陵</a></dd>
+                                                    <dd><a href="https://www.anqing.gov.cn/" title="安庆" target="_blank">安庆</a></dd>
+                                                    <dd><a href="https://www.huangshan.gov.cn/" title="黄山" target="_blank">黄山</a></dd>
+                                            </dl>
+                </li>
+                <li>
+                    <a class="is-link-one">县区政府（管委会）<i class="blackrow"></i></a>
+                    <dl>
+                                                    <dd><a href="http://www.ahgc.gov.cn/" title="贵池区" target="_blank">贵池区</a></dd>
+                                                    <dd><a href="http://www.dongzhi.gov.cn/" title="东至县" target="_blank">东至县</a></dd>
+                                                    <dd><a href="http://www.ahshitai.gov.cn/" title="石台县" target="_blank">石台县</a></dd>
+                                                    <dd><a href="http://www.ahqy.gov.cn/" title="青阳县" target="_blank">青阳县</a></dd>
+                                                    <dd><a href="http://jnjzq.chizhou.gov.cn/" title="皖江江南新兴产业集中区" target="_blank">皖江江南新兴产业集中区</a></dd>
+                                                    <dd><a href="http://www.jiuhuashan.gov.cn/" title="九华山风景区" target="_blank">九华山风景区</a></dd>
+                                                    <dd><a href="http://czkfq.chizhou.gov.cn/" title="经济技术开发区" target="_blank">经济技术开发区</a></dd>
+                                                    <dd><a href="http://pthfjq.chizhou.gov.cn/" title="平天湖风景区" target="_blank">平天湖风景区</a></dd>
+                                            </dl>
+                </li>
+                <li>
+                    <a class="is-link-one">党委部门 <i class="blackrow"></i></a>
+                    <dl>
+                                                    <dd><a href="http://www.czjjjcw.gov.cn/" title="市纪委监委" target="_blank">市纪委监委</a></dd>
+                                                    <dd><a href="http://www.czxf.gov.cn" title="市委组织部" target="_blank">市委组织部</a></dd>
+                                                    <dd><a href="http://ahcz.wenming.cn/" title="市文明办" target="_blank">市文明办</a></dd>
+                                                    <dd><a href="http://www.czswtzb.gov.cn/" title="市委统战部" target="_blank">市委统战部</a></dd>
+                                                    <dd><a href="http://www.czcaw.gov.cn/" title="市委政法委" target="_blank">市委政法委</a></dd>
+                                                    <dd><a href="http://www.czsjgbz.gov.cn" title="市委编办" target="_blank">市委编办</a></dd>
+                                                    <dd><a href="http://www.czszgw.gov.cn/" title="市直机关工委" target="_blank">市直机关工委</a></dd>
+                                                    <dd><a href="http://www.czsdx.cn/" title="市委党校" target="_blank">市委党校</a></dd>
+                                                    <dd><a href="http://www.czdsfz.org.cn/" title="市委党史和地方志研究室" target="_blank">市委党史和地方志研究室</a></dd>
+                                                    <dd><a href="http://www.czsdag.cn/" title="市档案馆" target="_blank">市档案馆</a></dd>
+                                                    <dd><a href="http://www.chizhouac.cn" title="市仲裁委" target="_blank">市仲裁委</a></dd>
+                                            </dl>
+                </li>
+                <li>
+                    <a class="is-link-one">政府部门<i class="blackrow"></i></a>
+                    <dl>
+                                                    <dd><a href="http://fgw.chizhou.gov.cn" title="市发展改革委" target="_blank">市发展改革委</a></dd>
+                                                    <dd><a href="http://czsjtj.chizhou.gov.cn" title="市教育和体育局" target="_blank">市教育和体育局</a></dd>
+                                                    <dd><a href="http://czskjj.chizhou.gov.cn" title="市科技局" target="_blank">市科技局</a></dd>
+                                                    <dd><a href="http://jxj.chizhou.gov.cn" title="市工业和信息化局" target="_blank">市工业和信息化局</a></dd>
+                                                    <dd><a href="http://gaj.chizhou.gov.cn/" title="市公安局" target="_blank">市公安局</a></dd>
+                                                    <dd><a href="http://mzj.chizhou.gov.cn" title="市民政局" target="_blank">市民政局</a></dd>
+                                                    <dd><a href="http://sfj.chizhou.gov.cn" title="市司法局" target="_blank">市司法局</a></dd>
+                                                    <dd><a href="http://czj.chizhou.gov.cn" title="市财政局（国资委）" target="_blank">市财政局（国资委）</a></dd>
+                                                    <dd><a href="http://czsrsj.chizhou.gov.cn" title="市人力资源社会保障局" target="_blank">市人力资源社会保障局</a></dd>
+                                                    <dd><a href="http://zrzyghj.chizhou.gov.cn" title="市自然资源和规划局" target="_blank">市自然资源和规划局</a></dd>
+                                                    <dd><a href="http://sthjj.chizhou.gov.cn" title="市生态环境局" target="_blank">市生态环境局</a></dd>
+                                                    <dd><a href="http://zjw.chizhou.gov.cn" title="市住房城乡建设局" target="_blank">市住房城乡建设局</a></dd>
+                                                    <dd><a href="http://jtysj.chizhou.gov.cn" title="市交通运输局" target="_blank">市交通运输局</a></dd>
+                                                    <dd><a href="http://swj.chizhou.gov.cn" title="市商务局" target="_blank">市商务局</a></dd>
+                                                    <dd><a href="http://slj.chizhou.gov.cn" title="市水利局" target="_blank">市水利局</a></dd>
+                                                    <dd><a href="http://nyncj.chizhou.gov.cn" title="市农业农村局" target="_blank">市农业农村局</a></dd>
+                                                    <dd><a href="https://whhlyj.chizhou.gov.cn" title="市文化和旅游局" target="_blank">市文化和旅游局</a></dd>
+                                                    <dd><a href="https://wjw.chizhou.gov.cn" title="市卫生健康委" target="_blank">市卫生健康委</a></dd>
+                                                    <dd><a href="https://tyjrswj.chizhou.gov.cn" title="市退役军人事务局" target="_blank">市退役军人事务局</a></dd>
+                                                    <dd><a href="https://yjglj.chizhou.gov.cn" title="市应急管理局" target="_blank">市应急管理局</a></dd>
+                                                    <dd><a href="https://sjj.chizhou.gov.cn" title="市审计局" target="_blank">市审计局</a></dd>
+                                                    <dd><a href="https://scjgj.chizhou.gov.cn" title="市市场监管局" target="_blank">市市场监管局</a></dd>
+                                                    <dd><a href="https://cztjj.chizhou.gov.cn" title="市统计局" target="_blank">市统计局</a></dd>
+                                                    <dd><a href="https://lyj.chizhou.gov.cn" title="市林业局" target="_blank">市林业局</a></dd>
+                                                    <dd><a href="https://ylbzj.chizhou.gov.cn" title="市医保局" target="_blank">市医保局</a></dd>
+                                                    <dd><a href="https://gdb.chizhou.gov.cn" title="市国防动员办" target="_blank">市国防动员办</a></dd>
+                                                    <dd><a href="https://xfj.chizhou.gov.cn" title="市信访局" target="_blank">市信访局</a></dd>
+                                                    <dd><a href="https://csglxzzfj.chizhou.gov.cn" title="市城市管理局" target="_blank">市城市管理局</a></dd>
+                                                    <dd><a href="https://sjzyj.chizhou.gov.cn" title="市数据资源局" target="_blank">市数据资源局</a></dd>
+                                                    <dd><a href="https://ggzyj.chizhou.gov.cn/" title="市公共资源交易监督管理局" target="_blank">市公共资源交易监督管理局</a></dd>
+                                                    <dd><a href="https://czsgxhzs.chizhou.gov.cn" title="市供销社" target="_blank">市供销社</a></dd>
+                                                    <dd><a href="https://gjjzx.chizhou.gov.cn" title="市住房公积金管理中心" target="_blank">市住房公积金管理中心</a></dd>
+                                            </dl>
+                </li>
+                <li>
+                    <a class="is-link-one">其他网站<i class="blackrow"></i></a>
+                    <dl>
+                                                    <dd><a href="https://xycz.chizhou.gov.cn/" title="信用池州" target="_blank">信用池州</a></dd>
+                                                    <dd><a href="https://ggj.chizhou.gov.cn/" title="池州市公共资源交易中心" target="_blank">池州市公共资源交易中心</a></dd>
+                                                    <dd><a href="http://www.czu.edu.cn/" title="池州学院" target="_blank">池州学院</a></dd>
+                                                    <dd><a href="http://www.czvtc.edu.cn/" title="池州职业技术学院" target="_blank">池州职业技术学院</a></dd>
+                                                    <dd><a href="http://www.ahwsjkxy.edu.cn" title="安徽卫生健康职业学院" target="_blank">安徽卫生健康职业学院</a></dd>
+                                                    <dd><a href="http://www.chztvu.com" title="池州开放大学" target="_blank">池州开放大学</a></dd>
+                                                    <dd><a href="http://www.chzlndx.com/" title="池州市老年大学" target="_blank">池州市老年大学</a></dd>
+                                            </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--左下角固定广告-->
+     <div class="fixed-ad">
+        
+        <div class="ad-bottom">关闭×</div>
+                <a href="https://www.chizhou.gov.cn/Content/show/783920.html" target="_blank" style="display:block">
+          <img  src="/file_cz/1/202607/20260731173117390i8swul.png" alt="" style="display:block">
+        </a>
+              </div>
+   
+    <!--footer on--> 
+    <div class="el-footer">
+        <div class="m-elfooter">
+            <div class="footer-container f-clearfix">
+                <div class="m-copyright">
+                    <p>
+                        <a href="/Sitemap/" target="_blank">站点地图</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="/Content/showList/35/page_1.html" target="_blank">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="/Content/showList/36/page_1.html" target="_blank">法律声明</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a data-url="/ContentErrorReport/Content/0.html" target="_blank" class="u-report-btn">页面纠错</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="/Content/showList/7088/page_1.html" target="_blank">隐私声明</a>
+                       
+                    </p>
+                    <p>主办：池州市人民政府办公室 &nbsp;&nbsp;承办：池州市数据资源管理局&nbsp;&nbsp;邮编：247100</p>
+                    <p> 
+                        <a href="https://beian.miit.gov.cn/" target="_blank">皖ICP备2022012329号-1</a>&nbsp;
+                        <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=4170002000042" target="_blank">
+                            <br><img src="/dist/images/public/ga.png" alt="">皖公网安备 34170002000042号 &nbsp;
+                        </a>
+                        <br>网站标识码： 3417000002
+                    </p>
+                    
+                </div>
+                <div class="div-cont">
+                    <span id="div-ideConac">
+                        <a href="https://bszs.conac.cn/sitename?method=show&amp;id=09371B2FA1103EB2E053022819AC5D69" target="_blank">
+                           <img id="imgConac" src="/dist/images/public/red.png">
+                        </a>
+                    </span>
+                    <span id="div-jiucuo">
+                        <a href="https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=3417000002&amp;url=https%3A%2F%2Fwww.chizhou.gov.cn%2F" target="_blank">
+                            <img src="/dist/images/public/pic-jiucuo.png">
+                        </a>
+                    </span>
+                     <span class="div-jb">
+                        <a href="https://www.12377.cn/" target="_blank">
+                           <img  src="/dist/images/public/pic-jb.png" >
+                        </a>
+                    </span>
+                     <span>
+                        <img src="/dist/images/public/pic-wza.png">
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>   
+
+    <!--footer end-->
+<script type="text/javascript" src="/assets/node_modules/layer/layer.js"></script>
+<script type="text/javascript" src="/dist/js/domain.js"></script>
+<script type="text/javascript" src="/dist/js/traditional.js"></script>
+<script src="/dist/js/elder.js"></script>
+<script defer async type="text/javascript" src="//gov.govwza.cn/dist/aria.js?appid=6ecc5c6dee21d58329b70b1d8bd68cf1" charset="utf-8"></script>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3H45Rx8JOjcZ5VeL",ck:"3H45Rx8JOjcZ5VeL"})</script>
+<script type="text/javascript">
+        $('.u-report-btn').on('click', function() {
+            var uri = $(this).attr('data-url');
+            if (uri) {
+                $.ajax({
+                    async: true,
+                    cache: false,
+                    dataType: "html",
+                    url: uri,
+                    beforeSend: function () {
+                        layer.load(1);
+                    },
+                    error: function () {
+                        layer.msg("网络不给力，请稍后再试！", {icon: 2});
+                        setTimeout(function(){
+                            layer.closeAll('loading');
+                        });
+                    },
+                    success: function (html) {
+                        layer.open({
+                            type: 1,
+                            title: false,
+                            closeBtn: 0,
+                            area: ['100%', 'auto'],
+                            shadeClose: true, //点击遮罩关闭
+                            content: html
+                        });
+                        $("#error_title").val($("meta[name='ArticleTitle']").attr("content"));
+                        setTimeout(function(){
+                            layer.closeAll('loading');
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+   
+    <!--右侧悬浮 on-->
+<div class="m-slider">
+    <ul>
+        <li class="sd1"><a href="/Intellect/"><p>智能问答</p></a></li>
+        <li class="sd2"><a href="javascript:void(0)"><p>微信</p><img src="/dist/images/public/pic-wxcode.png"></a></li>
+        <li class="sd3"><a href="javascript:void(0)"><p>微博</p><img src="/dist/images/public/pic-wbcode.png"></a></li>
+        <li class="sd4 f-dn" id="top"><a href="javascript:void(0)"><p>返回顶部</p></a></li>
+    </ul>
+</div>
+<!--右侧悬浮 end-->
+<script src="/dist/lib/jquerySuperSlide/jquery.SuperSlide.js"></script>
+<script src="/dist/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/dist/js/base.js"></script>
+    <script>
+        $(".m-flash").slide({mainCell:".bd ul",effect:"fold",autoPlay:true,delayTime:700,interTime:3500})
+        $(".g-ztland").slide({ titCell: ".hd ul", mainCell: ".bd ul", effect: "leftMarquee", autoPlay: true, vis: 4, interTime:50});
+
+    
+        $(".list-change li").mouseover(function () {
+            $(this).addClass("u-active").siblings().removeClass("u-active")
+        })
+        $(".list-change").mouseleave(function () {
+            $(this).find("li").removeClass("u-active");
+            $(this).find("li:first").addClass("u-active"); 
+        });
+        
+        $(".ad-bottom").click(function(){
+            $(".fixed-ad").hide()
+        })
+        // 友链切换
+        $(".m-linknew li").click(function(){
+            $(this).toggleClass("rowactive").siblings().removeClass('rowactive')
+            $(this).children("dl").slideToggle(200);
+            $(this).siblings().children("dl").slideUp(200)
+        })
+        $(document).on('click', function(e) {
+            var $target = $(e.target);
+            if (!$target.is('.m-linknew li a') &&!$target.is('.m-linknew li i') &&!$target.is('.m-linknew li dl a')) {
+                $('.m-linknew li dl').hide();
+            }
+        });
+    </script>
+<!--对联广告 on-->
+<script type="text/javascript">
+    var left_ad = right_ad='';
+
+    
+    
+    function closead(ad_id){
+        document.getElementById(ad_id).style.display = "none";
+    }
+
+    if(left_ad){
+        suspendcode12="<div id='leftad' class='hidden-md hidden-sm hidden-xs' style='left:2px;position:fixed;top:160px;z-index:99;'><div onclick='closead(\"leftad\")' id='leftclose' style='width:100%;height:20px;text-align: right; line-height: 20px;font-family: 微软雅黑;cursor: pointer; font-size: 14px;'>关闭&times;</div>"+left_ad+"</div>"
+        document.write(suspendcode12);
+    }
+
+    if(right_ad){
+        suspendcode14="<div id='rightad' style='right:2px;position:fixed;top:160px;z-index:99;'><div onclick='closead(\"rightad\")' id='righclose' style='width:100%;height:20px;text-align: right; line-height: 20px;font-family: 微软雅黑;cursor: pointer; font-size: 14px;'>关闭&times;</div>"+right_ad+"</div>"
+        document.write(suspendcode14);
+    }
+     //马拉松倒计时
+    //  $(function(){ 
+    //     var dateTime = new Date(); 
+    //     setInterval(function(){ 
+    //         var endTime = new Date("2023-10-15 00:00:00"); 
+    //         var nowTime = new Date(); 
+    //         var nMS=endTime.getTime() - nowTime.getTime(); 
+    //         var myD=Math.floor(nMS/(1000 * 60 * 60 * 24));
+    //         var myH=Math.floor(nMS/(1000*60*60)) % 24; //小时 
+    //         if(myH>= 0){ 
+    //             var str = '距离开跑还有<span class="endtime">'+ Number(myD+1) +'</span>天'; 
+    //         }else{ 
+    //             var str = '<span class="endtime">今天开幕</span>';  
+    //         } 
+    //         $(".awaytime").html(str);  
+    //     }, 100);  
+    // });
+</script>
+<!--对联广告 end-->
+<!--漂浮广告 on-->
+<script type="text/javascript" src="/dist/js/pf.js"></script>
+<script type="text/javascript">
+    var floatCode2 = '';
+        if(floatCode2){
+        ShowAd2();
+    }
+</script>
+<!--漂浮广告 end-->
+<!-- 一键置灰 -->
+
+</body>
+</html>

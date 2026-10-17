@@ -1,0 +1,178 @@
+[
+  {
+    "source_id": "city-anqing",
+    "url": "https://www.anqing.gov.cn/",
+    "checked_at": "2026-10-14T12:57:48.880904+00:00",
+    "numeric_verified": false,
+    "auto_write_ready": false,
+    "http_status": 200,
+    "effective_url": "https://www.anqing.gov.cn/",
+    "curl_exit_code": 0,
+    "path": "originals/city-anqing-19c41f04e210.html",
+    "sha256": "19c41f04e210ad03b7629a28aa3950caedd6b55a2dc848d6a18bc480283e56f2",
+    "byte_size": 141319,
+    "media_type": "text/html",
+    "text_path": "extracted/city-anqing-19c41f04e210.txt",
+    "text_sha256": "ffe0869fa962848551670ab261c3432fe43cf0d6a4a0e0eb513bb3ed0f8a8ccd",
+    "character_count": 5169,
+    "marker_matches": {
+      "安庆": true,
+      "统计公报": true
+    },
+    "status": "entry_available"
+  },
+  {
+    "source_id": "city-chizhou",
+    "url": "https://cztjj.chizhou.gov.cn/",
+    "checked_at": "2026-10-14T12:57:51.508526+00:00",
+    "numeric_verified": false,
+    "auto_write_ready": false,
+    "http_status": 200,
+    "effective_url": "https://cztjj.chizhou.gov.cn/",
+    "curl_exit_code": 0,
+    "path": "originals/city-chizhou-65c48cb12ae4.html",
+    "sha256": "65c48cb12ae4fb20c90424f0b0fe4f4d7443e15cb1677480e14c594d8c2ea3ae",
+    "byte_size": 68201,
+    "media_type": "text/html",
+    "text_path": "extracted/city-chizhou-65c48cb12ae4.txt",
+    "text_sha256": "45d45b53977d43162bc63f477831c021a7a92d14b76e7259168255352df84d72",
+    "character_count": 2645,
+    "marker_matches": {
+      "池州": true,
+      "统计公报": true
+    },
+    "status": "entry_available"
+  },
+  {
+    "source_id": "city-chuzhou",
+    "url": "https://www.chuzhou.gov.cn/",
+    "checked_at": "2026-10-14T12:57:49.506949+00:00",
+    "numeric_verified": false,
+    "auto_write_ready": false,
+    "http_status": 200,
+    "effective_url": "https://www.chuzhou.gov.cn/",
+    "curl_exit_code": 0,
+    "path": "originals/city-chuzhou-f3cfbbfd18dc.html",
+    "sha256": "f3cfbbfd18dc7011e7813441fb518f3f05b3fb3918d8b5f756f3fae93df4d76b",
+    "byte_size": 182044,
+    "media_type": "text/html",
+    "text_path": "extracted/city-chuzhou-f3cfbbfd18dc.txt",
+    "text_sha256": "7132b73d7ce1bdca6376eaaca9716add99e4651526aaf1fddeb33548ebc26341",
+    "character_count": 3135,
+    "marker_matches": {
+      "国庆": true,
+      "滁州": true
+    },
+    "status": "sample_available"
+  },
+  {
+    "source_id": "city-fuyang",
+    "url": "https://www.fy.gov.cn/",
+    "checked_at": "2026-10-14T12:57:49.798503+00:00",
+    "numeric_verified": false,
+    "auto_write_ready": false,
+    "http_status": 200,
+    "effective_url": "https://www.fy.gov.cn/",
+    "curl_exit_code": 0,
+    "path": "originals/city-fuyang-9b7e322f0337.html",
+    "sha256": "9b7e322f0337d00cac082784930dba1011561b1f5e15862fa0a21c7b19c39b07",
+    "byte_size": 152958,
+    "media_type": "text/html",
+    "text_path": "extracted/city-fuyang-9b7e322f0337.txt",
+    "text_sha256": "a2ec251e8cce0d114a47406f98fd698954acfa02dd74cf29dce19770053aadd6",
+    "character_count": 5270,
+    "marker_matches": {
+      "国庆": true,
+      "阜阳": true
+    },
+    "status": "sample_available"
+  },
+  {
+    "source_id": "city-maanshan",
+    "url": "https://www.mas.gov.cn/",
+    "checked_at": "2026-10-14T12:57:48.383272+00:00",
+    "numeric_verified": false,
+    "auto_write_ready": false,
+    "http_status": 200,
+    "effective_url": "https://www.mas.gov.cn/",
+    "curl_exit_code": 0,
+    "path": "originals/city-maanshan-ec37cb5512fe.html",
+    "sha256": "ec37cb5512fed8e0cf778b73ab585e8dfda29a7718746fc6a420816098f1c775",
+    "byte_size": 196390,
+    "media_type": "text/html",
+    "text_path": "extracted/city-maanshan-ec37cb5512fe.txt",
+    "text_sha256": "49c43cd0212d223c8ee5093c61637c3179672ad942a414360c764d841cd0bdb8",
+    "character_count": 4400,
+    "marker_matches": {
+      "马鞍山": true,
+      "统计": true
+    },
+    "status": "entry_available"
+  },
+  {
+    "source_id": "scenic-langyashan",
+    "url": "https://www.lysfjq.cn/info.php?class_id=105",
+    "checked_at": "2026-10-14T12:57:55.189751+00:00",
+    "numeric_verified": false,
+    "auto_write_ready": false,
+    "http_status": 200,
+    "effective_url": "https://www.lysfjq.cn/info.php?class_id=105",
+    "curl_exit_code": 0,
+    "path": "originals/scenic-langyashan-63c4c6738e6d.html",
+    "sha256": "63c4c6738e6d72fd0a18d1c5bb0abf442197bf42b51e4013c8f676e0e84a0668",
+    "byte_size": 32216,
+    "media_type": "text/html",
+    "text_path": "extracted/scenic-langyashan-63c4c6738e6d.txt",
+    "text_sha256": "e6360e8b3be14708b1ba0dc92f62d60baf9bb978ebc305525217656b01fbc24f",
+    "character_count": 1600,
+    "marker_matches": {
+      "琅琊山": true,
+      "2025": true
+    },
+    "status": "sample_available"
+  },
+  {
+    "source_id": "city-anqing",
+    "url": "https://www.anqing.gov.cn/tjsj/tjgb/index.html",
+    "checked_at": "2026-10-14T13:02:15.783962+00:00",
+    "numeric_verified": false,
+    "auto_write_ready": false,
+    "http_status": 200,
+    "effective_url": "https://www.anqing.gov.cn/tjsj/tjgb/index.html",
+    "curl_exit_code": 0,
+    "path": "originals/city-anqing-265e20492753.html",
+    "sha256": "265e204927531cb396803a87ad05b7f22864ac5c3481c401d2b533799077e88f",
+    "byte_size": 40668,
+    "media_type": "text/html",
+    "text_path": "extracted/city-anqing-265e20492753.txt",
+    "text_sha256": "482263f964429330cb4882e865849833c208bb5dace978df03f57727f7ff7c3f",
+    "character_count": 1230,
+    "marker_matches": {
+      "安庆": true,
+      "统计公报": true
+    },
+    "status": "entry_available"
+  },
+  {
+    "source_id": "city-chizhou",
+    "url": "https://cztjj.chizhou.gov.cn/Content/showList/545/page_1.html",
+    "checked_at": "2026-10-14T13:02:15.991372+00:00",
+    "numeric_verified": false,
+    "auto_write_ready": false,
+    "http_status": 200,
+    "effective_url": "https://cztjj.chizhou.gov.cn/Content/showList/545/page_1.html",
+    "curl_exit_code": 0,
+    "path": "originals/city-chizhou-ea20626f5b1c.html",
+    "sha256": "ea20626f5b1c2ebc1d4b06136f81a16dd6b81e56b3972040bca386b71c2e67cd",
+    "byte_size": 21113,
+    "media_type": "text/html",
+    "text_path": "extracted/city-chizhou-ea20626f5b1c.txt",
+    "text_sha256": "09c41eefff9b161acfbc6d411c300e1169bad6bf20f887734bf9a17a9b3eb620",
+    "character_count": 840,
+    "marker_matches": {
+      "池州": true,
+      "统计公报": true
+    },
+    "status": "entry_available"
+  }
+]

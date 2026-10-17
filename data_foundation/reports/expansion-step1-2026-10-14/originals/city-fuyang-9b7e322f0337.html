@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="SiteName" content="阜阳市人民政府" />
+    <meta name="SiteDomain" content="www.fy.gov.cn" />
+    <meta name="SiteIDCode" content="3412000010" />
+    <meta name="keywords" content="阜阳市人民政府网站,阜阳政府网,走进阜阳,阜阳要闻,政府信息公开,办事服务,互动交流,政府数据,解读回应,在线访谈,新闻发布会" />
+    <meta name="description" content="阜阳市人民政府网站是由阜阳市人民政府办公室主办、阜阳市政府政务公开办公室承办的市政府门户网站。是阜阳市政府信息公开和宣传阜阳的重要窗口，是政务服务的重要平台，是政府联系公众和企业的桥梁。 阜阳市政府网站及时发布、更新各类政务信息，提供网上办事服务和便民服务查询，方便社会公众参政议政、投诉建议和互动交流" />
+        <title>阜阳市人民政府</title>
+    <link rel="shortcut icon" type="/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/dist/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/dist/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="/dist/css/public.css?r=v1.2">
+    <link rel="stylesheet" href="/dist/css/hover.css">
+    <link rel="stylesheet" href="/dist/css/header.css">
+    <link rel="stylesheet" href="/dist/css/footer.css">
+   
+    <script src="/dist/js/jquery.min.js"></script>
+        <link href="/dist/css/index.css?r=v21" rel="stylesheet">
+            <!--[if lt IE 9]>
+    <script src="/dist/js/html5shiv.js"></script>
+    <script src="/dist/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--节庆广告on-->
+        <!--节庆广告end-->
+    <!--header on-->
+<div class="el-header">
+    <!--top栏-->
+    <div class="header-toolbar">
+    <div class="container f-clearfix">
+        <ul class="u-link f-fl f-md-dn f-clearfix">
+            <li><a href="http://www.gov.cn/" target="_blank">中国政府网</a></li>
+            <li><a href="http://www.ah.gov.cn/" target="_blank">安徽省人民政府</a></li>
+            <li><a href="http://www.ahfyrd.gov.cn/" target="_blank">市人大</a></li>
+            <li><a href="http://www.fyzx.gov.cn/fyzxweb/web/index.jsp" target="_blank">市政协</a></li>
+            <li class="f-nbg"><a href="http://www.fyjjjc.gov.cn/" target="_blank">市纪委监委</a></li>
+        </ul>
+        <ul class="u-funs f-fr f-clearfix">
+            <li class="f-md-dn"><a href="/SiteReport/" target="_blank">年报数据</a></li>
+            <li><a href="javascript:StranBody()" id="StranLink">繁體版</a></li>
+            <li><a href="/en/" target="_blank">English</a></li>
+            <li><a href="javascript:void(0)" id="wzalink">网站无障碍</a></li>
+            <li class="u-slh f-nbg f-md-dn">
+                <a href="javascript:;"  id="elder">
+                    <img src="/dist/images/public/icon-zzb.png">
+                    <span class="f-md-dn">长辈版</span>
+                </a>
+            </li>
+                        <span id="unifyUser">
+				<li>
+					<a id="login">
+						<img src="/dist/images/public/icon-mine.png">
+						<span class="f-md-dn">个人中心</span>
+					</a>
+				</li>
+            </span>
+
+                        <script type="text/javascript">
+                $(document).ready(function () {
+                    //动态请求统一用户
+                    $('#unifyUser').load('/Account/index.do');
+                });
+            </script>
+
+        </ul>
+    </div>
+</div>
+    <!--头部-->
+    <div class="header-main container f-clearfix">
+        <a href="/" class="header-logo f-fl f-md-dn">
+            <img src="/dist/images/public/logo.png" alt="">
+        </a>
+        <a href="/" class="mobile-logo  f-dn f-md-db">
+            <img src="/dist/images/public/logo-m.png" alt="">
+        </a>
+        
+        <div class="header-search f-fr f-pr">
+            <div class="search-main f-pr">
+                <form method="GET" action="/Search/" class="layui-form">
+                    <div class="f-pa header-search-select">
+                        <div class="select-title">
+                            <input type="text" id="searchWebName" name="siteName" readonly="" value="本站">
+                            <i class="header-search-edge"></i>
+                        </div>
+                        <dl class="search-anim search-anim-upbit" id="ztList">
+                            <dd data-value="1" class="search-this">本站</dd>
+                            <dd data-value="0" class="">市级平台</dd>
+                        </dl>
+                    </div>
+                    <input type="hidden" id="searchWebsite" name="siteId" readonly="" value="1">
+                    <input type="text" id="searchKeyword" name="keyword"  value="" placeholder="搜索您想了解的政策、资讯、服务" class="ugc-searchtext u-tpsearchtext" x-webkit-speech="">
+                    <div class="ugc-searchdiv">
+                        <input name="" type="submit" value="搜索" class="ugc-searchbtn" id="submit">
+                    </div>
+                </form>              
+            </div>
+            <div class="hotkey-results transition" id="searching_tips_header"></div>
+            <div class="header-search-hotkeys f-md-dn">
+                热搜词：
+                                                        <a target="_blank" href="/Search/?keyword=营商环境" title="">营商环境&nbsp;&nbsp;</a>
+                                        <a target="_blank" href="/Search/?keyword=公积金" title="">公积金&nbsp;&nbsp;</a>
+                                        <a target="_blank" href="/Search/?keyword=教育" title="">教育&nbsp;&nbsp;</a>
+                                        <a target="_blank" href="/Search/?keyword=医疗" title="">医疗&nbsp;&nbsp;</a>
+                                        <a target="_blank" href="/Search/?keyword=就业" title="">就业&nbsp;&nbsp;</a>
+                                        <a target="_blank" href="/Search/?keyword=社会保障" title="">社会保障&nbsp;&nbsp;</a>
+                                                </div>
+        </div>
+
+    </div>
+    <div class="m-nav">
+        <div class="container">
+            <div class="g-nav  ">
+                <ul class="f-clearfix nav-switch">
+                    <li id="nav_home" class="u-active"><a href="/">网站首页</a></li>
+                    <li id="nav_about" ><a href="/About/">走进阜阳</a></li>
+                    <li id="nav_news" ><a href="/News/">资讯中心</a></li>
+                    <li id="nav_openness" ><a href="/Openness/">政务公开</a></li>
+                    <li id="nav_service" ><a href="https://fy.ahzwfw.gov.cn/">政务服务</a></li>
+                    <li id="nav_interact" ><a href="/Interact/">互动交流 </a></li>
+                    <li id="nav_data" ><a href="/Data/">政府数据</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="search-mobile f-md-db"></div>
+    </div>
+    
+</div>
+<!--header end-->
+<script>
+    $('#ztList dd').click(function(){
+        var title = $(this).text();
+        var dataId = $(this).attr('data-value');
+        $('#searchWebName').val(title);
+        $('#searchWebsite').val(dataId);
+    });
+</script>
+        
+        
+    <div class="el-main f-mt30 el-home">
+      
+        <div class="container f-pd30 f-bgf-br index-bg">
+            <div class="m-title">
+                                    <h1>
+                        <a  href="https://www.gov.cn/yaowen/liebiao/202610/content_7083088.htm" title="习近平出席全国卫生与健康大会并发表重要讲话" target="_blank">
+                            习近平出席全国卫生与健康大会并发表重要讲话
+                        </a>
+                    </h1>
+                            </div>
+            <div class="f-mb30 f-clearfix f-pr">
+                <!--智能推荐-->
+                <div class="m-znfwtj f-pa visible-lg">
+                    <a href="javascript:void(0)"><img src="/dist/images/index/zntj.png" alt=""></a>
+                    <div class="con_tab_bg hidden-xs">
+                        <div class="con_tab_abc">
+                            <div class="bottom_news">
+                                <div class="f-clearfix bottom_newstitle">
+                                    <span class="f-fl"><img src="/dist/images/index/fire.png" alt=""></span>
+                                    <a class="hyp f-fr" href="javascript:void(0)" id="hyp">
+                                        <img src="/dist/images/index/change.png" alt="">
+                                        <span>换一批</span> 
+                                    </a>
+                                </div>
+							
+																	<ul class="">
+                                        											<li>
+												<span>政策文件</span>
+												<a href="/OpennessContent/show/2811655.html" title="阜阳市人民政府办公室关于进一步加强农房建设管理的通知" target="_blank">阜阳市人民政府办公室关于进一步加强农房建设管理的通知</a>
+											</li>
+                                        											<li>
+												<span>意见征集</span>
+												<a href="/InCollect/show/2495.html" title="关于公开征集《阜阳市二次供水管理办法 （草案送审稿）》意见建议的公告" target="_blank">关于公开征集《阜阳市二次供水管理办法 （草案送审稿）》意见建议的公告</a>
+											</li>
+                                        											<li>
+												<span>政策文件</span>
+												<a href="/OpennessContent/show/2811265.html" title="阜阳市人民政府办公室关于印发《阜阳市推进“好房子”建设实施方案》的通知" target="_blank">阜阳市人民政府办公室关于印发《阜阳市推进“好房子”建设实施方案》的通知</a>
+											</li>
+                                        											<li>
+												<span>意见征集</span>
+												<a href="/InCollect/show/2494.html" title="关于《阜阳市窨井设施管理办法（草案征求意见稿）》公开征求意见的公告" target="_blank">关于《阜阳市窨井设施管理办法（草案征求意见稿）》公开征求意见的公告</a>
+											</li>
+                                        									</ul>
+                                									<ul class="f-dn">
+                                        											<li>
+												<span>政策文件</span>
+												<a href="/OpennessContent/show/2811262.html" title="阜阳市人民政府关于印发《阜阳市政府投资基金管理办法》的通知" target="_blank">阜阳市人民政府关于印发《阜阳市政府投资基金管理办法》的通知</a>
+											</li>
+                                        											<li>
+												<span>意见征集</span>
+												<a href="/InCollect/show/2493.html" title="关于公开征求《阜阳市应急管理体系及能力全面提升 “十五五”规划（征求意见稿）》意见的公告" target="_blank">关于公开征求《阜阳市应急管理体系及能力全面提升 “十五五”规划（征求意见稿）》意见的公告</a>
+											</li>
+                                        											<li>
+												<span>政策文件</span>
+												<a href="/OpennessContent/show/2786558.html" title="阜阳市人民政府关于调整2026年城乡居民最低生活保障标准和城乡特困人员救助供养标准的通知" target="_blank">阜阳市人民政府关于调整2026年城乡居民最低生活保障标准和城乡特困人员救助供养标准的通知</a>
+											</li>
+                                        											<li>
+												<span>意见征集</span>
+												<a href="/InCollect/show/2488.html" title="关于公开征集《阜阳市交通运输发展“十五五”规划》意见建议的公告" target="_blank">关于公开征集《阜阳市交通运输发展“十五五”规划》意见建议的公告</a>
+											</li>
+                                        									</ul>
+                                                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <!--轮播-->
+                <div class="m-flash f-fl f-sm-mb15">
+                    <div class="g-flash imgscale">
+                        <div class="bd">
+                            <ul>
+                                                                    <li>
+                                        <a href="https://www.gov.cn/yaowen/liebiao/202610/content_7083088.htm" title="习近平出席全国卫生与健康大会并发表重要讲话" target="_blank">
+                                            <img src="/files/1/202610/202610131626461482dlip6.jpg" >
+                                            <p>习近平出席全国卫生与健康大会并发表重要讲话</p>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="https://www.gov.cn/home/toutu/202610/content_7083145.htm" title="习近平同博茨瓦纳总统博科会谈" target="_blank">
+                                            <img src="/files/1/202610/20261014153819524831wk4.jpg" >
+                                            <p>习近平同博茨瓦纳总统博科会谈</p>
+                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a href="https://www.gov.cn/home/toutu/202610/content_7083146.htm" title="习近平会见多哥部长会议主席福雷" target="_blank">
+                                            <img src="/files/1/202610/20261014153819509nt245h.jpg" >
+                                            <p>习近平会见多哥部长会议主席福雷</p>
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                        <div class="hd">
+                            <ul>
+                                                                    <li></li>
+                                                                    <li></li>
+                                                                    <li></li>
+                                                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--右侧列表-->
+                <div class="m-news f-fr">
+                    <div class="g-news home-g-news">
+                        <div class="m-tabstyle1  tit-switch">
+                            <ul class="f-clearfix">
+                                <li class="u-active"><a href="/Content/showList/180/page_1.html">阜阳要闻 <i></i></a></li>
+                                <li class=""><a href="/Content/showList/181/page_1.html">动态信息<i></i></a></li>
+                                <li class=""><a href="/Content/showList/8841/page_1.html">重要转载<i></i></a></li>
+                                <li class=""><a href="/Content/showList/187/page_1.html">通知公告<i></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="m-liststyle1 list-switch">
+                            <ul>
+                                                                    <li>
+                                        <span>2026-10-14</span>
+                                        <a href="/Content/show/1345939.html" title="汪华东主持召开市委常委会会议" target="_blank">汪华东主持召开市委常委会会议</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-10-14</span>
+                                        <a href="/Content/show/1345942.html" title="阜阳市巡察工作会议暨七届市委第一轮巡察动员部署会召开" target="_blank">阜阳市巡察工作会议暨七届市委第一轮巡察动员部署会召开</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-10-14</span>
+                                        <a href="/Content/show/1345842.html" title="汪华东率队赴上海、江苏昆山招商考察" target="_blank">汪华东率队赴上海、江苏昆山招商考察</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-10-13</span>
+                                        <a href="/Content/show/1345716.html" title="我市举办“颍淮大讲堂·高质量发展报告会”" target="_blank">我市举办“颍淮大讲堂·高质量发展报告会”</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-10-12</span>
+                                        <a href="/Content/show/1345565.html" title="市人大常委会党组（扩大）会议召开" target="_blank">市人大常委会党组（扩大）会议召开</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-10-12</span>
+                                        <a href="/Content/show/1345560.html" title="市六届人大常委会第130次主任会议召开" target="_blank">市六届人大常委会第130次主任会议召开</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-10-11</span>
+                                        <a href="/Content/show/1345544.html" title="市政协“持续打造满意‘阜’务一流营商环境”重点提案办理协商会召开" target="_blank">市政协“持续打造满意‘阜’务一流营商环境”重点提案办理协商会召开</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-10-10</span>
+                                        <a href="/Content/show/1345478.html" title="市政协六届常委会第二十四次会议暨“坚持以重点片区建设为抓手，推动城市更新行动见实效”资政会召开" target="_blank">市政协六届常委会第二十四次会议暨“坚持以重点片区建设为抓手，推动城市更新行动见实效”资政会召开</a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                        <div class="m-liststyle1 list-switch f-dn">
+                            <ul>
+                                                                    <li>
+                                        <span>2026-10-14</span>
+                                        <a href="/Content/show/1345873.html" title="财金联动支持中小企业成长" target="_blank">财金联动支持中小企业成长</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-10-13</span>
+                                        <a href="/Content/show/1345717.html" title="锚定蓝图 一体绘就城乡新图景" target="_blank">锚定蓝图 一体绘就城乡新图景</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-10-13</span>
+                                        <a href="/Content/show/1345714.html" title="田间秋收忙 颗粒尽归仓" target="_blank">田间秋收忙 颗粒尽归仓</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-10-12</span>
+                                        <a href="/Content/show/1345567.html" title="让针织企业不等“贷”" target="_blank">让针织企业不等“贷”</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-10-12</span>
+                                        <a href="/Content/show/1345566.html" title="高铁阜阳西站增开8列高铁" target="_blank">高铁阜阳西站增开8列高铁</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-10-09</span>
+                                        <a href="/Content/show/1345298.html" title="国庆假期我市消费出行两旺" target="_blank">国庆假期我市消费出行两旺</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-10-09</span>
+                                        <a href="/Content/show/1345297.html" title="守护“节日餐桌” 涵养节俭新风" target="_blank">守护“节日餐桌” 涵养节俭新风</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-10-08</span>
+                                        <a href="/Content/show/1345127.html" title="满城烟火 欢度国庆" target="_blank">满城烟火 欢度国庆</a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                        <div class="m-liststyle1 list-switch f-dn">
+                            <ul>
+                                                                    <li>
+                                        <span>2026-10-14</span>
+                                        <a href="https://www.gov.cn/home/toutu/202610/content_7083145.htm" title="习近平同博茨瓦纳总统博科会谈" target="_blank">习近平同博茨瓦纳总统博科会谈</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-10-14</span>
+                                        <a href="https://www.gov.cn/home/toutu/202610/content_7083146.htm" title="习近平会见多哥部长会议主席福雷" target="_blank">习近平会见多哥部长会议主席福雷</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-10-10</span>
+                                        <a href="/Content/show/1345444.html" title="以创新赢未来——习近平经济思想引领中国加快发展新质生产力" target="_blank">以创新赢未来——习近平经济思想引领中国加快发展新质生产力</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-10-01</span>
+                                        <a href="https://www.gov.cn/home/toutu/202609/content_7082512.htm" title="习近平等党和国家领导人出席庆祝中华人民共和国成立77周年招待会" target="_blank">习近平等党和国家领导人出席庆祝中华人民共和国成立77周年招待会</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-09-29</span>
+                                        <a href="/Content/show/1345224.html" title="李强主持召开国务院常务会议 研究宏观政策发力提效、促进有效投资有关工作等" target="_blank">李强主持召开国务院常务会议 研究宏观政策发力提效、促进有效投资有关工作等</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-09-26</span>
+                                        <a href="https://www.gov.cn/home/toutu/202609/content_7082125.htm" title="习近平和彭丽媛同美国总统特朗普夫妇茶叙" target="_blank">习近平和彭丽媛同美国总统特朗普夫妇茶叙</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-09-25</span>
+                                        <a href="https://www.gov.cn/home/toutu/202609/content_7082101.htm" title="习近平和彭丽媛出席特朗普总统夫妇举行的欢迎国宴" target="_blank">习近平和彭丽媛出席特朗普总统夫妇举行的欢迎国宴</a>
+                                    </li>
+                                                            </ul>
+                            <div class="zyzz-cont f-clearfix">
+                                <a class="f-fl" href="https://www.gov.cn/pushinfo/v150203/index.htm" target="_blank">国务院信息</a>
+                                <a class="f-fl" href="https://www.gov.cn/zhengce/index.htm" target="_blank">国务院政策文件</a>
+                                <a class="f-fl"href="https://www.ah.gov.cn/pushinfo/" target="_blank">省政府信息</a>
+                                <a class="f-fl"href="https://www.ah.gov.cn/public/column/1681?type=4&catId=6708461&action=list" target="_blank">省政府政策文件</a>
+                            </div>
+                        </div>
+                        <div class="m-liststyle1 list-switch f-dn">
+                            <ul>
+                                                                    <li>
+                                        <span>2026-09-20</span>
+                                        <a href="https://sfj.fy.gov.cn/Content/show/1343628.html" title="关于公开征集2027-2031年立法规划和2027年立法计划项目建议的公告" target="_blank">关于公开征集2027-2031年立法规划和2027年立法计划项目建议的公告</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-08-20</span>
+                                        <a href="https://gjj.fy.gov.cn/OpennessContent/show/2804316.html" title="关于全面支持住房公积金互认互贷的通知" target="_blank">关于全面支持住房公积金互认互贷的通知</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-08-20</span>
+                                        <a href="https://gjj.fy.gov.cn/OpennessContent/show/2804313.html" title="关于提高“好房子”住房公积金贷款额度的通知" target="_blank">关于提高“好房子”住房公积金贷款额度的通知</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-08-20</span>
+                                        <a href="https://gjj.fy.gov.cn/OpennessContent/show/2804311.html" title="关于阶段性优化住房公积金贷款政策的通知" target="_blank">关于阶段性优化住房公积金贷款政策的通知</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-08-20</span>
+                                        <a href="https://gjj.fy.gov.cn/OpennessContent/show/2804308.html" title="关于支持代际互助购房提取住房公积金的通知" target="_blank">关于支持代际互助购房提取住房公积金的通知</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-08-20</span>
+                                        <a href="https://gjj.fy.gov.cn/OpennessContent/show/2804307.html" title="关于支持购买车位（库）提取住房公积金的通知" target="_blank">关于支持购买车位（库）提取住房公积金的通知</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-08-20</span>
+                                        <a href="https://gjj.fy.gov.cn/OpennessContent/show/2804305.html" title="关于开展房屋装修提取业务的通知" target="_blank">关于开展房屋装修提取业务的通知</a>
+                                    </li>
+                                                                    <li>
+                                        <span>2026-07-04</span>
+                                        <a href="/Content/show/1331973.html" title="阜阳市教育局关于下达2026年市直省示范高中指标到校生分配计划的通知" target="_blank">阜阳市教育局关于下达2026年市直省示范高中指标到校生分配计划的通知</a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--热点推送-->
+            <div class="m-rdtscont f-clearfix " >
+                <div class="m-rdtsleft f-fl f-pr">
+                                        <div class="m-hotland">
+                        <div class="m-special bd imgscale">
+                            <ul>
+                                                                    <li>
+                                                                                    <a href="https://liuyan.www.gov.cn/2025wwzfgzbgtjy/bmdf.html?q=ah" title="@国务院 我来说" target="_blank" rel="noopener noreferrer" class="f-db">
+                                                <img src="/files/1/202503/20250312104916309a1liih.png" alt="">
+                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="/CustomTopic/cysz/" title="创优营商环境为企服务" target="_blank" rel="noopener noreferrer" class="f-db">
+                                                <img src="/files/1/202407/2024072408342428676_tLfEnR30.jpg" alt="">
+                                            </a>
+                                                                            </li>
+                                                                    <li>
+                                                                                    <a href="http://fy.wenming.cn/" title="创建文明城市 建设生态文明" target="_blank" rel="noopener noreferrer" class="f-db">
+                                                <img src="/files/1/202407/2024072408340828675_viEqlj61.png" alt="">
+                                            </a>
+                                                                            </li>
+                                                            </ul>
+                        </div>
+                        <div class="hd">
+                            <a class="prev"></a>
+                            <a class="next"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-rdtsright f-fr">
+                    <a href="/Leader/"><img src="/dist/images/index/ldzc.png"></a>
+                </div>
+            </div>
+
+            <div class="f-clearfix">
+                <!--左侧-->
+                <div class="m-leftpart f-fl">
+                    <!--政务公开-->
+                    <div class="m-openness">
+                        <div class="m-hometitle f-pr">
+                            <a href="/Openness/" target="_blank"><span class="title-blue">政务</span><span class="title-red">公开</span></a>
+                            <p>ZHENGWUGONGKAI</p>
+                        </div>
+                        <!--检索-->
+                        <div class="openess-search-cont f-pr">
+                            <a class="in-zcwjk" href="/PolicyContent/?keyword=&branchId=2&policyType=2" target="_blank">
+                                <img src="/dist/images/openness/inzcwjk.png" alt="">
+                            </a>
+                            <div class="openess-search f-clearfix">
+                                <form action="/PolicyContent/search/" class="layui-form f-clearfix">
+                                    <div class="openness-input f-fl text-input">
+                                        <input type="text" name="keyword" placeholder="请输入文件关键词">
+                                        <div class="f-clearfix f-mt20" style="padding-left:20px">
+                                            <div class="f-fl">
+                                                <input class="selectzc" type="radio" name="objectType" value="0" title="涉企政策" checked lay-filter="ct">
+                                            </div>
+                                            <div class="f-fr">
+                                                <input class="selectzc" type="radio" name="objectType" value="1" title="民生政策" lay-filter="ct">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="f-fl f-mlr15 text-input">
+                                        <div class="layui-sel-width" >
+                                            <select name="year" lay-filter="aihao" id="year">
+                                                <option value="">选择年份</option>
+                                                                                                    <option value="2026">2026年</option>
+                                                                                                    <option value="2025">2025年</option>
+                                                                                                    <option value="2024">2024年</option>
+                                                                                                    <option value="2023">2023年</option>
+                                                                                                    <option value="2022">2022年</option>
+                                                                                                    <option value="2021">2021年</option>
+                                                                                                    <option value="2020">2020年</option>
+                                                                                                    <option value="2019">2019年</option>
+                                                                                                    <option value="2018">2018年</option>
+                                                                                                    <option value="2017">2017年</option>
+                                                                                                    <option value="2016">2016年</option>
+                                                                                                    <option value="2015">2015年</option>
+                                                                                                    <option value="2014">2014年</option>
+                                                                                            </select>
+                                        </div>
+                                        <!--涉企政策-->
+                                        <div class="layui-sel-width f-mt15" id="sqzc">
+                                            <select name="sqTopicId2" lay-filter="aihao" id="sqTopicId">
+                                                <option value="">选择类型</option>
+                                                                                                    <option value="71" >企业开办</option>
+                                                                                                    <option value="72" >企业变更</option>
+                                                                                                    <option value="73" >企业经营</option>
+                                                                                                    <option value="74" >企业注销</option>
+                                                                                            </select>
+                                        </div>
+                                        <!--民生政策-->
+                                        <div class="layui-sel-width f-mt15 f-dn" id="mszc">
+                                            <select name="msTopicId2" lay-filter="aihao" id="msTopicId">
+                                                <option value="">选择类型</option>
+                                                                                                    <option value="65" >出生</option>
+                                                                                                    <option value="66" >教育</option>
+                                                                                                    <option value="67" >就业</option>
+                                                                                                    <option value="68" >婚育</option>
+                                                                                                    <option value="69" >退休养老</option>
+                                                                                                    <option value="70" >其他</option>
+                                                                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="f-fl">
+                                        <button type="submit" class="layui-btn btn_submit" id="">检索</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!--公开专栏-->
+                        <div class="f-mt15">
+                            <div class="m-tabstyle1  tit-switch f-pr f-mb20">
+                                <ul class="f-clearfix">
+                                    <li class="u-active"><a href="/OpennessBranch/">政府信息公开专栏<i></i></a></li>
+
+                                </ul>
+                                <div class="f-pa right-tabs f-dn">
+                                                                        <a href="/CustomTopic/xwfbh/">新闻发布</a>
+                                    <a href="/GazetteContent/">政府公报</a>
+                                </div>
+                            </div>
+
+                            <div class="zfxxgk-links f-clearfix space16 col3">
+                                <ul>
+                                    <li>
+                                        <a href="/OpennessGuide/show/2.html" target="_blank" class="hvr-icon-bob">
+                                            <img class="hvr-icon" src="/dist/images/index/gkicon-1.png" alt="">
+                                            <span>政府信息公开指南</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/OpennessRules/showList/2/page_1.html" target="_blank" class="hvr-icon-bob">
+                                            <img class="hvr-icon" src="/dist/images/index/gkicon-2.png" alt="">
+                                            <span>政府信息公开制度</span>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/OpennessAnnualReport/year/2/0.html" target="_blank" class="hvr-icon-bob">
+                                            <img class="hvr-icon" src="/dist/images/index/gkicon-4.png" alt="">
+                                            <span>政府信息公开年报</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/OpennessRequestDir/showList/2/page_1.html" target="_blank" class="hvr-icon-bob">
+                                            <img class="hvr-icon" src="/dist/images/index/gkicon-5.png" alt="">
+                                            <span>依申请公开</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/SiteYearReport/" target="_blank" class="hvr-icon-bob">
+                                            <img class="hvr-icon" src="/dist/images/index/gkicon-6.png" alt="">
+                                            <span>政府网站工作年报</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/GazetteContent/" target="_blank" class="hvr-icon-bob">
+                                            <img class="hvr-icon" src="/dist/images/index/zfgbicon.png" alt="">
+                                            <span>政府公报</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <!--列表1-->
+                            <div class="g-tab">
+                                <div class="m-tabstyle1  tit-switch f-mb15">
+                                    <ul class="f-clearfix">
+                                        <li class="u-active"><a href="/OpennessContent/showList/2/21/page_1.html">政府会议<i></i></a></li>
+                                        <li class=""><a href="/OpennessContent/showList/2/87/page_1.html">政府文件<i></i></a></li>
+                                        <li class=""><a href="/OpennessContent/showList/2/14/page_1.html">政策解读<i></i></a></li>
+                                        <li class=""><a href="/OpennessContent/showList/2/203/page_1.html">回应关切<i></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="liststyle-gl list-switch">
+                                    <ul>
+
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="/OpennessContent/show/2819990.html" title="【常务会议】市政府召开第116次常务会议" target="_blank">【常务会议】市政府召开第116次常务会议</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-10-09</span>
+                                            </li>
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="/OpennessContent/show/2814067.html" title="【常务会议】市政府召开第115次常务会议" target="_blank">【常务会议】市政府召开第115次常务会议</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-09-23</span>
+                                            </li>
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="/OpennessContent/show/2812268.html" title="【常务会议】市政府召开第114次常务会议" target="_blank">【常务会议】市政府召开第114次常务会议</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-09-17</span>
+                                            </li>
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="/OpennessContent/show/2809485.html" title="【全体会议】市政府召开第十二次全体会议" target="_blank">【全体会议】市政府召开第十二次全体会议</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-09-09</span>
+                                            </li>
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="/OpennessContent/show/2806382.html" title="【常务会议】市政府召开第113次常务会议" target="_blank">【常务会议】市政府召开第113次常务会议</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-08-28</span>
+                                            </li>
+                                                                            </ul>
+                                </div>
+                                <div class="liststyle-gl list-switch f-dn">
+                                    <ul>
+
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="/OpennessContent/show/2822368.html" title="2026年第三季度阜阳市政府向省政府备案规章规范性文件目录" target="_blank">2026年第三季度阜阳市政府向省政府备案规章规范性文件目录</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-10-13</span>
+                                            </li>
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="/OpennessContent/show/2818723.html" title="阜阳市高标准农田建设管护条例" target="_blank">阜阳市高标准农田建设管护条例</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-10-09</span>
+                                            </li>
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="/OpennessContent/show/2811655.html" title="阜阳市人民政府办公室关于进一步加强农房建设管理的通知" target="_blank">阜阳市人民政府办公室关于进一步加强农房建设管理的通知</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-10-09</span>
+                                            </li>
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="/OpennessContent/show/2811265.html" title="阜阳市人民政府办公室关于印发《阜阳市推进“好房子”建设实施方案》的通知" target="_blank">阜阳市人民政府办公室关于印发《阜阳市推进“好房子”建设实施方案》的通知</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-10-08</span>
+                                            </li>
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                            &nbsp;| <a class="c-red" href="/OpennessContent/show/2813302.html" target="_blank">决策过程</a>
+                                                                                                                            &nbsp;| <a class="c-red" href="/OpennessContent/show/2813220.html" target="_blank">文字解读</a>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="/OpennessContent/show/2811262.html" title="阜阳市人民政府关于印发《阜阳市政府投资基金管理办法》的通知" target="_blank">阜阳市人民政府关于印发《阜阳市政府投资基金管理办法》的通知</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-09-18</span>
+                                            </li>
+                                                                            </ul>
+                                </div>
+                                <div class="liststyle-gl list-switch f-dn">
+                                    <ul>
+
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                            &nbsp;| <a class="c-red" href="/OpennessContent/show/2811262.html" target="_blank">文件</a>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="https://czj.fy.gov.cn/OpennessContent/show/2813213.html" title="【文字解读】《阜阳市政府投资基金管理办法》政策解读" target="_blank">【文字解读】《阜阳市政府投资基金管理办法》政策解读</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-09-21</span>
+                                            </li>
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                            &nbsp;| <a class="c-red" href="/OpennessContent/show/2786558.html" target="_blank">文件</a>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="/OpennessContent/show/2793679.html" title="【图片解读】《阜阳市人民政府关于调整2026年城乡居民最低生活保障标准和城乡特困人员救助供养标准的通知》图片解读" target="_blank">【图片解读】《阜阳市人民政府关于调整2026年城乡居民最低生活保障标准和城乡特困人员救助供养标准的通知》图片解读</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-07-21</span>
+                                            </li>
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                            &nbsp;| <a class="c-red" href="/OpennessContent/show/2794036.html" target="_blank">文件</a>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="https://www.fy.gov.cn/Content/show/1333314.html" title="【新闻发布会解读】“启航‘十五五’ 奋力往前赶”系列主题新闻发布会（阜阳专场）" target="_blank">【新闻发布会解读】“启航‘十五五’ 奋力往前赶”系列主题新闻发布会（阜阳专场）</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-07-20</span>
+                                            </li>
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                            &nbsp;| <a class="c-red" href="/OpennessContent/show/2784084.html" target="_blank">文件</a>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="/OpennessContent/show/2790648.html" title="【文字解读】《阜阳市人民政府办公室关于印发阜阳市落实深入推进高素质技能人才队伍建设若干措施任务清单的通知》政策解读" target="_blank">【文字解读】《阜阳市人民政府办公室关于印发阜阳市落实深入推进高素质技能人才队伍建设若干措施任务清单的通知》政策解读</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-07-03</span>
+                                            </li>
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                            &nbsp;| <a class="c-red" href="/OpennessContent/show/2785453.html" target="_blank">文件</a>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="/OpennessContent/show/2786013.html" title="【文字解读】《阜阳市人民政府办公室关于印发落实支持企业降本增效若干措施任务清单的通知》政策解读" target="_blank">【文字解读】《阜阳市人民政府办公室关于印发落实支持企业降本增效若干措施任务清单的通知》政策解读</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-06-18</span>
+                                            </li>
+                                                                            </ul>
+                                </div>
+                                <div class="liststyle-gl list-switch f-dn">
+                                    <ul>
+
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="https://www.fy.gov.cn/Content/show/1344322.html?_=1790218672" title="【温馨提示】“双节”出行这份攻略请收好" target="_blank">【温馨提示】“双节”出行这份攻略请收好</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-09-24</span>
+                                            </li>
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="/OpennessContent/show/2800819.html" title="【公共卫生】农村“一老一小” 可免费接种流感疫苗" target="_blank">【公共卫生】农村“一老一小” 可免费接种流感疫苗</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-08-10</span>
+                                            </li>
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="/OpennessContent/show/2785816.html" title="暑假带娃不用愁 各地公益托管班“组团”上线" target="_blank">暑假带娃不用愁 各地公益托管班“组团”上线</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-07-02</span>
+                                            </li>
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="/OpennessContent/show/2783885.html" title="【教育信息】我市公布2026年普高招生计划、报考代码" target="_blank">【教育信息】我市公布2026年普高招生计划、报考代码</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-06-29</span>
+                                            </li>
+                                                                                    <li>
+
+                                                <div class="j-libox">
+                                                    <div class="j-licont">
+                                                        <p>
+                                                                                                                    </p>
+                                                        <a class="j-li-bt" href="/OpennessContent/show/2781939.html" title="【卫生健康】省级泌尿外科专家坐诊阜南多项筛查免费" target="_blank">【卫生健康】省级泌尿外科专家坐诊阜南多项筛查免费</a>
+                                                    </div>
+                                                </div>
+                                                <span>2026-06-24</span>
+                                            </li>
+                                                                            </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--互动交流-->
+                    <div class="f-mt30">
+                        <div class="m-hometitle f-pr">
+                            <a href="/Interact/" target="_blank"><span class="title-blue">互动</span><span class="title-red">交流</span></a>
+                            <p>HUDONGJIAOLIU</p>
+                        </div>
+                        <div class="m-rxcont f-clearfix f-mt30">
+                            <a href="/S12345/" class="m-rxlink f-fl">
+                                <div class="m-rxcenter ">
+                                    <h2 class="font20 c-blue">阜阳市12345政务服务便民热线服务平台</h2>
+                                </div>
+                            </a>
+                            <div class="f-fl m-xqrk f-pr">
+                                <a class="m-xqrk-one font20">
+                                    县（市、区）入口
+                                    <i class="blackrow"></i>
+                                </a>
+                                <dl class="com-box-shadow">
+                                    <dd><a href="https://www.yingzhou.gov.cn/InFeedback/write/3/0.html" title="颍州区" target="_blank">颍州区</a></dd>
+                                    <dd><a href="https://www.yd.gov.cn/InFeedback/write/1/0.html" title="颍东区" target="_blank">颍东区</a></dd>
+                                    <dd><a href="https://www.yingquan.gov.cn/InFeedback/write/3/0.html" title="颍泉区" target="_blank">颍泉区</a></dd>
+                                    <dd><a href="https://www.linquan.gov.cn/InFeedback/write/4/0.html" title="临泉县" target="_blank">临泉县</a></dd>
+                                    <dd><a href="https://www.taihe.gov.cn/InFeedback/write/4/0.html" title="太和县" target="_blank">太和县</a></dd>
+                                    <dd><a href="https://www.funan.gov.cn/InFeedback/write/4/0.html" title="阜南县" target="_blank">阜南县</a></dd>
+                                    <dd><a href="https://www.ahys.gov.cn/InFeedback/write/4/0.html" title="颍上县" target="_blank">颍上县</a></dd>
+                                    <dd><a href="https://www.ahjs.gov.cn/InFeedback/write/2/0.html" title="界首市" target="_blank">界首市</a></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <!--列表2-->
+                        <div class="g-tab f-mt10">
+                            <div class="m-tabstyle1 tit-switch f-mb15">
+                                <ul class="f-clearfix">
+                                    <li class="u-active"><a href="/S12345/showList/page_1.html">留言选登<i></i></a></li>
+                                    <li class=""><a href="/InLive/showList/page_1.html">在线访谈<i></i></a></li>
+                                    <li class=""><a href="/InKnowledgeBase/showList/page_1.html">答问知识库<i></i></a></li>
+                                    <li class="no"><a href="/NewMedia/">政务新媒体<i></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="m-liststyle1 list-switch ">
+                                <ul class="f-clearfix">
+                                                                            <li>
+                                            <span>2026-08-20</span>
+                                            <a href="/S12345/show/f96f4355-d761-42d4-8b57-ec82d18a784c.html" title="补贴" target="_blank"> 补贴</a>
+                                        </li>
+                                                                            <li>
+                                            <span>2026-08-17</span>
+                                            <a href="/S12345/show/5dc971d1-663a-4216-8f19-d53b8de67e32.html" title="公安部2023年2月《关于推出便利境外中国公民办理业务6项政策措施的通知》（公交管〔2023〕11号）现在还在执行吗？" target="_blank"> 公安部2023年2月《关于推出便利境外中国公民办理业务6项政策措施的通知》（公交管〔2023〕11号）现在还在执行吗？</a>
+                                        </li>
+                                                                            <li>
+                                            <span>2026-08-13</span>
+                                            <a href="/S12345/show/b5df20ca-8616-4cc7-98da-edfadbfc129e.html" title="咨询大学生就业补贴" target="_blank"> 咨询大学生就业补贴</a>
+                                        </li>
+                                                                            <li>
+                                            <span>2026-08-07</span>
+                                            <a href="/S12345/show/e79e538f-0302-45eb-91ec-cc417e171d33.html" title="购房组合贷款转商用贷款政策咨询" target="_blank"> 购房组合贷款转商用贷款政策咨询</a>
+                                        </li>
+                                                                            <li>
+                                            <span>2026-08-03</span>
+                                            <a href="/S12345/show/40c967dc-d9e1-4312-ad23-34af4609f910.html" title="请问有关贵市绿色食品产业集群发展的相关数据" target="_blank"> 请问有关贵市绿色食品产业集群发展的相关数据</a>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <div class="list-switch g-interviews f-dn">
+                               <div class="f-clearfix  g-views">
+                                                                          <a href="/InLive/show/1957.html" title="推进老旧营运船舶拆解，助力水运行业绿色发展" class="f-fl u-interpic">
+                                           <img src="/files/1/202609/20260910093126380011os1.jpg" alt="">
+                                       </a>
+                                    <div class="u-interviews f-fl">
+                                        <h3 class="f-toe"><a class="font18" href="/InLive/show/1957.html" title="推进老旧营运船舶拆解，助力水运行业绿色发展" target="_blank">推进老旧营运船舶拆解，助力水运行业绿色发展</a></h3>
+                                        <p class="f-toe">
+                                            <span>访谈时间：</span>2026年9月10日 9:00-10:30
+                                        </p>
+                                        <p class="elli-m">
+                                            <span>访谈嘉宾：</span>市交通运输局副局长、党组成员 张祖超
+                                        </p>
+                                        <p class="f-toe">
+                                            <span>直播地点：</span>市政府二楼应急会议室
+                                        </p>
+                                    </div>
+                                                                   </div>
+                            </div>
+                            <div class="m-liststyle1 list-switch f-dn">
+                                <ul class="f-clearfix">
+
+                                                                            <li>
+                                            <span>2026-10-13</span>
+                                            <a href="/InKnowledgeBase/show/26517.html" title="【市退役军人局】关于光荣牌相关问题解答" target="_blank">
+                                                【市退役军人局】关于光荣牌相关问题解答
+                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <span>2026-10-13</span>
+                                            <a href="/InKnowledgeBase/show/26519.html" title="【市农业农村局】宅基地申请及使用相关问答" target="_blank">
+                                                【市农业农村局】宅基地申请及使用相关问答
+                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <span>2026-10-13</span>
+                                            <a href="/InKnowledgeBase/show/26514.html" title="【市农业农村局】农药管理及农药经营许可相关问答" target="_blank">
+                                                【市农业农村局】农药管理及农药经营许可相关问答
+                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <span>2026-10-13</span>
+                                            <a href="/InKnowledgeBase/show/26520.html" title="【颍泉区】学区划分情况相关问答" target="_blank">
+                                                【颍泉区】学区划分情况相关问答
+                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <span>2026-10-13</span>
+                                            <a href="/InKnowledgeBase/show/26521.html" title="【阜南县】涉及农饮水行政处罚相关问答" target="_blank">
+                                                【阜南县】涉及农饮水行政处罚相关问答
+                                            </a>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <div class="m-liststyle1 list-switch f-dn">
+                                <ul class="f-clearfix">
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="m-tabstyle1 f-mb15">
+                            <ul class="f-clearfix">
+                                <li class="u-active"><a href="/InCollect/showList/page_1.html">征集调查<i></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="in-opinion">
+                            <div class="bd">
+                                <ul>
+                                                                            <li class="is-end">
+                                            <div class="in-opiniondiv">
+                                                <a class="elli-s" href="/InCollect/show/2495.html" title="关于公开征集《阜阳市二次供水管理办法 （草案送审稿）》意见建议的公告" target="_blank" >
+                                                                                                            <span class="c-gray">【已结束】</span>
+                                                                                                        关于公开征集《阜阳市二次供水管理办法 （草案送审稿）》意见建议的公告
+                                                </a>
+                                                <p class="f-oh f-mt10">
+                                                    <span>征集时间：2026-08-07 至 2026-09-07</span>
+                                                    <a class="in-canyu c-blue" href="/InCollect/show/2495.html" title="关于公开征集《阜阳市二次供水管理办法 （草案送审稿）》意见建议的公告" target="_blank">
+                                                                                                                    查看详情
+                                                                                                            </a>
+                                                </p>
+                                            </div>
+                                        </li>
+                                                                            <li class="is-end">
+                                            <div class="in-opiniondiv">
+                                                <a class="elli-s" href="/InCollect/show/2494.html" title="关于《阜阳市窨井设施管理办法（草案征求意见稿）》公开征求意见的公告" target="_blank" >
+                                                                                                            <span class="c-gray">【已结束】</span>
+                                                                                                        关于《阜阳市窨井设施管理办法（草案征求意见稿）》公开征求意见的公告
+                                                </a>
+                                                <p class="f-oh f-mt10">
+                                                    <span>征集时间：2026-08-07 至 2026-09-06</span>
+                                                    <a class="in-canyu c-blue" href="/InCollect/show/2494.html" title="关于《阜阳市窨井设施管理办法（草案征求意见稿）》公开征求意见的公告" target="_blank">
+                                                                                                                    查看详情
+                                                                                                            </a>
+                                                </p>
+                                            </div>
+                                        </li>
+                                                                            <li class="is-end">
+                                            <div class="in-opiniondiv">
+                                                <a class="elli-s" href="/InCollect/show/2493.html" title="关于公开征求《阜阳市应急管理体系及能力全面提升 “十五五”规划（征求意见稿）》意见的公告" target="_blank" >
+                                                                                                            <span class="c-gray">【已结束】</span>
+                                                                                                        关于公开征求《阜阳市应急管理体系及能力全面提升 “十五五”规划（征求意见稿）》意见的公告
+                                                </a>
+                                                <p class="f-oh f-mt10">
+                                                    <span>征集时间：2026-08-07 至 2026-09-07</span>
+                                                    <a class="in-canyu c-blue" href="/InCollect/show/2493.html" title="关于公开征求《阜阳市应急管理体系及能力全面提升 “十五五”规划（征求意见稿）》意见的公告" target="_blank">
+                                                                                                                    查看详情
+                                                                                                            </a>
+                                                </p>
+                                            </div>
+                                        </li>
+                                                                            <li class="is-end">
+                                            <div class="in-opiniondiv">
+                                                <a class="elli-s" href="/InCollect/show/2488.html" title="关于公开征集《阜阳市交通运输发展“十五五”规划》意见建议的公告" target="_blank" >
+                                                                                                            <span class="c-gray">【已结束】</span>
+                                                                                                        关于公开征集《阜阳市交通运输发展“十五五”规划》意见建议的公告
+                                                </a>
+                                                <p class="f-oh f-mt10">
+                                                    <span>征集时间：2026-07-24 至 2026-08-24</span>
+                                                    <a class="in-canyu c-blue" href="/InCollect/show/2488.html" title="关于公开征集《阜阳市交通运输发展“十五五”规划》意见建议的公告" target="_blank">
+                                                                                                                    查看详情
+                                                                                                            </a>
+                                                </p>
+                                            </div>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--右侧-->
+                <div class="m-rightpart f-fr">
+                    <!--政务服务-->
+                    <div class="m-hometitle f-pr">
+                        <a href="https://fy.ahzwfw.gov.cn/" target="_blank"><span class="title-blue">政务</span><span class="title-red">服务</span></a>
+                        <p>ZHENGWUFUWU</p>
+                    </div>
+                    <a class="wstbimg"href="https://fy.ahzwfw.gov.cn/" target="_blank">
+                        <img src="/dist/images/index/wstbnew.png" />
+                    </a>
+                    <div class="zwfubg f-oh">
+                        <div class="bj-aconut">
+                            <p class="font20">办件统计：</p>
+                            <ul class="col2 font18 f-clearfix">
+                                <li>今日受理<span class="c-red"> 1023</span></li>
+                                <li>今日办结<span class="c-red"> 729</span></li>
+                                <li>本周受理<span class="c-red"> 5486</span></li>
+                                <li>本周办结<span class="c-red"> 4491</span></li>
+                                <li>本月受理<span class="c-red"> 14467</span></li>
+                                <li>本月办结<span class="c-red"> 11792</span></li>
+                                <li>本年受理<span class="c-red"> 412973</span></li>
+                                <li>本年办结<span class="c-red"> 333129</span></li>
+                            </ul>
+                        </div>
+                        <!--个人服务、法人服务、部门服务-->
+                        <div class="g-tabs f-mt20 f-mb15">
+                            <div class="m-tabstyle1  tit-switch f-mb20">
+                                <ul class="f-clearfix">
+                                    <li class="u-active"><a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=P">个人服务<i></i></a></li>
+                                    <li class=""><a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=C">法人服务<i></i></a></li>
+                                    <li class=""><a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=P&deptCode=">部门服务<i></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="list-switch">
+                                <div class="m-servicelist">
+                                    <ul>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=P&itemType=25" target="_blank">
+                                                <img src="/dist/images/index/fw-icon1.png">
+                                                <span>生育收养</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=P&itemType=14" target="_blank">
+                                                <img src="/dist/images/index/fw-icon2.png">
+                                                <span>住房保障</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=P&itemType=35" target="_blank">
+                                                <img src="/dist/images/index/jtcxicon.png">
+                                                <span>交通出行</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=P&itemType=26" target="_blank">
+                                                <img src="/dist/images/index/fw-icon4.png">
+                                                <span>教育科研</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=P&itemType=34" target="_blank">
+                                                <img src="/dist/images/index/fw-icon5.png">
+                                                <span>证件办理</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=P&itemType=28" target="_blank">
+                                                <img src="/dist/images/index/fw-icon6.png">
+                                                <span>就业创业</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=P&itemType=29" target="_blank">
+                                                <img src="/dist/images/index/fw-icon7.png">
+                                                <span>设立变更</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=P&itemType=30" target="_blank">
+                                                <img src="/dist/images/index/fw-icon8.png">
+                                                <span>准营准办</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=P&itemType=31" target="_blank">
+                                                <img src="/dist/images/index/fw-icon9.png">
+                                                <span>抵押质押</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=P&itemType=32" target="_blank">
+                                                <img src="/dist/images/index/fw-icon10.png">
+                                                <span>职业资格</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=P&itemType=44" target="_blank">
+                                                <img src="/dist/images/index/fw-icon11.png">
+                                                <span>优待抚恤</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=P&itemType=45" target="_blank">
+                                                <img src="/dist/images/index/fw-icon12.png">
+                                                <span>规划建设</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="list-switch f-dn">
+                                <div class="m-servicelist">
+                                    <ul>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=C&itemType=1" target="_blank">
+                                                <img src="/dist/images/index/fw-icon7.png">
+                                                <span>设立变更</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=C&itemType=3" target="_blank">
+                                                <img src="/dist/images/index/fw-icon19.png">
+                                                <span>年检年审 </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=C&itemType=31" target="_blank">
+                                                <img src="/dist/images/index/fw-icon20.png">
+                                                <span>税收财务 </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=C&itemType=32" target="_blank">
+                                                <img src="/dist/images/index/fw-icon8.png">
+                                                <span>准营准办</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=C&itemType=33" target="_blank">
+                                                <img src="/dist/images/index/fw-icon21.png">
+                                                <span>投资审批 </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=C&itemType=10" target="_blank">
+                                                <img src="/dist/images/index/fw-icon22.png">
+                                                <span>资质认证 </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=C&itemType=35" target="_blank">
+                                                <img src="/dist/images/index/fw-icon9.png">
+                                                <span>抵押质押 </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=C&itemType=36" target="_blank">
+                                                <img src="/dist/images/index/fw-icon14.png">
+                                                <span>商务贸易</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=C&itemType=37" target="_blank">
+                                                <img src="/dist/images/index/fw-icon17.png">
+                                                <span>招标拍卖</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=C&itemType=38" target="_blank">
+                                                <img src="/dist/images/index/fw-icon13.png">
+                                                <span>社会保障 </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=C&itemType=39" target="_blank">
+                                                <img src="/dist/images/index/fw-icon24.png">
+                                                <span>人力资源</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=C&itemType=40" target="_blank">
+                                                <img src="/dist/images/index/fw-icon25.png">
+                                                <span>海关口岸</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                                                        <div class="list-switch f-dn">
+                                <div class="m-liststyle1 m-serviceliststyle">
+                                    <ul class="scrollbar-y">
+                                      										    <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34120007100000000000" title="阜阳市新闻出版局" target="_blank">阜阳市新闻出版局</a>
+                                            </li>
+                                             <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121043000000000000" title="阜阳市档案局" target="_blank">阜阳市档案局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34120023700000000000" title="中共阜阳市委统一战线工作部（民委、侨办、台办）" target="_blank">中共阜阳市委统一战线工作部（民委、侨办、台办）</a>
+                                            </li>
+                                             <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34120010560000000000" title="阜阳市档案馆" target="_blank">阜阳市档案馆</a>
+                                            </li>
+                                             <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121206000000000000" title="中共阜阳市委党史和地方志研究室" target="_blank">中共阜阳市委党史和地方志研究室</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34120012030000000000" title="阜阳市人民政府外事办公室" target="_blank">阜阳市人民政府外事办公室</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121101000000000000" title="阜阳市发展和改革委员会" target="_blank">阜阳市发展和改革委员会</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121022000000000000" title="阜阳市教育局" target="_blank">阜阳市教育局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121023000000000000" title="阜阳市科学技术局" target="_blank">阜阳市科学技术局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121024000000000000" title="阜阳市公安局" target="_blank">阜阳市公安局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121025000000000000" title="阜阳市民政局" target="_blank">阜阳市民政局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121026000000000000" title="阜阳市司法局" target="_blank">阜阳市司法局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121033000000000000" title="阜阳市人力资源和社会保障局" target="_blank">阜阳市人力资源和社会保障局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121028000000000000" title="阜阳市自然资源和规划局" target="_blank">阜阳市自然资源和规划局</a>
+                                            </li>
+                                             <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121046000000000000" title="阜阳市城市管理局" target="_blank">阜阳市城市管理局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34120010120000000000" title="阜阳市生态环境局" target="_blank">阜阳市生态环境局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121104000000000000" title="阜阳市城乡建设局" target="_blank">阜阳市城乡建设局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121030000000000000" title="阜阳市交通运输局" target="_blank">阜阳市交通运输局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121102000000000000" title="阜阳市农业农村局" target="_blank">阜阳市农业农村局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121002000000000000" title="阜阳市水利局" target="_blank">阜阳市水利局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121032000000000000" title="阜阳市商务局" target="_blank">阜阳市商务局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121037000000000000" title="阜阳市文化旅游体育局" target="_blank">阜阳市文化旅游体育局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121105000000000000" title="阜阳市卫生健康委员会" target="_blank">阜阳市卫生健康委员会</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34120023880000000000" title="阜阳市退役军人事务局" target="_blank">阜阳市退役军人事务局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34120010240000000000" title="阜阳市应急管理局" target="_blank">阜阳市应急管理局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121035000000000000" title="阜阳市市场监督管理局" target="_blank">阜阳市市场监督管理局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121008000000000000" title="阜阳市统计局" target="_blank">阜阳市统计局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121031000000000000" title="阜阳市林业局" target="_blank">阜阳市林业局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34120023980000000000" title="阜阳市医疗保障局" target="_blank">阜阳市医疗保障局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121201000000000000" title="阜阳市国防动员办公室" target="_blank">阜阳市国防动员办公室</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34120010580000000000" title="阜阳市公共资源交易监督管理局" target="_blank">阜阳市公共资源交易监督管理局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121014000000000000" title="阜阳市房屋管理局" target="_blank">阜阳市房屋管理局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121007000000000000" title="阜阳市粮食和物资储备局" target="_blank">阜阳市粮食和物资储备局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121044000000000000" title="阜阳市地震局" target="_blank">阜阳市地震局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34125006000000000000" title="阜阳市住房公积金管理中心" target="_blank">阜阳市住房公积金管理中心</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34120010390000000000" title="阜阳市国家安全局" target="_blank">阜阳市国家安全局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121020000000000000" title="国家税务总局阜阳市税务局" target="_blank">国家税务总局阜阳市税务局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121018000000000000" title="阜阳市气象局" target="_blank">阜阳市气象局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34120010590000000000" title="阜阳市邮政管理局" target="_blank">阜阳市邮政管理局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121065000000000000" title="阜阳市总工会" target="_blank">阜阳市总工会</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34125010000000000000" title="阜阳市残疾人联合会" target="_blank">阜阳市残疾人联合会</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34120050050000000000" title="阜阳市红十字会" target="_blank">阜阳市红十字会</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34120050616061000000" title="阜阳市归国华侨联合会" target="_blank">阜阳市归国华侨联合会</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121054000000000000" title="阜阳市烟草专卖局" target="_blank">阜阳市烟草专卖局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34120060980000000000" title="国网安徽省电力有限公司阜阳供电公司" target="_blank">国网安徽省电力有限公司阜阳供电公司</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34120060990000000000" title="阜阳市供水有限公司" target="_blank">阜阳市供水有限公司</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34120060950000000000" title="阜阳华润燃气有限公司" target="_blank">阜阳华润燃气有限公司</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34120060970000000000" title="阜阳国祯燃气有限公司" target="_blank">阜阳国祯燃气有限公司</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34120022990000000000" title="阜阳市消防救援局" target="_blank">阜阳市消防救援局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121103000000000000" title="阜阳市工业和信息化局" target="_blank">阜阳市工业和信息化局</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/departmentHoem.html?deptCode=34121027000000000000" title="阜阳市财政局" target="_blank">阜阳市财政局</a>
+                                            </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--民生领域-->
+                        <div class="mins-cont">
+                            <div class="m-tabstyle1   f-mb20">
+                                <ul class="f-clearfix">
+                                    <li class="u-active"><a href="/Livelihood/house/">民生领域<i></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="mins-list space16 ">
+                                <ul class="col2 f-clearfix font18">
+                                    <li>
+                                        <a href="/Livelihood/help/" target="_blank">
+                                            <img src="/dist/images/index/msicon-13.png">
+                                            <span>社会救助和福利</span>
+                                        </a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="/Livelihood/house/" target="_blank">
+                                            <img src="/dist/images/index/msicon-14.png">
+                                            <span>住房领域</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/Livelihood/transport/" target="_blank">
+                                            <img src="/dist/images/index/msicon-15.png">
+                                            <span>交通领域</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/Livelihood/qykbzx/" target="_blank">
+                                            <img src="/dist/images/index/msicon-16.png">
+                                            <span>企业开办注销</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="ml-order f-mt15">
+                                <ul class="f-clearfix font20">
+                                    <li class="f-fl">
+                                        <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/sunshine-government/powerList.html?isMoreAreas=0&contentId=ff8080816b7ee31f016b856f1c220007" target="_blank">
+                                            <img src="/dist/images/index/msicon-7.png">
+                                            <span>目录清单</span>
+                                        </a>
+                                    </li>
+                                    <li class="f-fr">
+                                        <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/sunshine-government.html" target="_blank">
+                                            <img src="/dist/images/index/msicon-8.png">
+                                            <span>阳光政务</span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <div class="fwpt">
+                                <a  href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/oneThingATime.html" target="_blank">
+                                    <img src="/dist/images/index/msly.png" />
+                                </a>
+                            </div>
+
+                        </div>
+                        <!--特色服务专栏-->
+                        <div class="m-tscont f-mt20">
+                            <div class="m-tabstyle1 f-mb30">
+                                <ul class="f-clearfix">
+                                    <li class="u-active"><a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/tszl.html" target="_blank">特色服务专栏<i></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="m-tslist imgscale f-pr">
+                                <div class="bd">
+                                    <ul class="f-clearfix">
+                                                                                    <li>
+                                                <a href="http://ahzwfw.gjzwfw.gov.cn/" target="_blank" title="国家政务服务平台">
+                                                    <img src="https://fy.ahzwfw.gov.cn/group1/M00/09/61/CiM_KWGTuH6AUNlaAAATuytGdmI842.jpg" alt="">
+                                                     <div class="m-tsword">
+                                                        <p>国家政务服务平台</p>
+                                                        <span></span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://www.ahzwfw.gov.cn/bog-bsdt/static/keyLittleThings.html" target="_blank" title="关键小事服务专区">
+                                                    <img src="https://fy.ahzwfw.gov.cn/group1/M00/13/01/CiM_KWOu6vSAKCWwAABaj-K0T68.gjxj.p" alt="">
+                                                     <div class="m-tsword">
+                                                        <p>关键小事服务专区</p>
+                                                        <span>聚焦群众办事“急难愁盼”问题，推动政务服务从“能办”到“好办”</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/bmfw.html" target="_blank" title="便民服务专区">
+                                                    <img src="https://fy.ahzwfw.gov.cn/group1/M00/09/61/CiM_KWGTt6OADml1AAAWGZgegUA236.jpg" alt="">
+                                                     <div class="m-tsword">
+                                                        <p>便民服务专区</p>
+                                                        <span>提供生活生产各类服务</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://fy.ahzwfw.gov.cn/bog-bsdt/static/szsy.html" target="_blank" title="优化营商环境">
+                                                    <img src="https://fy.ahzwfw.gov.cn/group1/M00/09/61/CiM_KWGTuSWAA7VNAAAaYCgSNX4259.jpg" alt="">
+                                                     <div class="m-tsword">
+                                                        <p>优化营商环境</p>
+                                                        <span>双招双引</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://www.ahzwfw.gov.cn/bog-bsdt/static/allDayMap.html" target="_blank" title="长三角政务服务地图">
+                                                    <img src="https://fy.ahzwfw.gov.cn/group1/M00/09/61/CiM_KWGTuaaAT0F7AAAQy7U2IWE946.jpg" alt="">
+                                                     <div class="m-tsword">
+                                                        <p>长三角政务服务地图</p>
+                                                        <span></span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://www.ahzwfw.gov.cn/data-bsdt-web/static/home" target="_blank" title="安徽省大数据产业生态专区">
+                                                    <img src="https://fy.ahzwfw.gov.cn/group1/M00/0E/20/CiM_KWLNBXqAa4nzAABOkZM6k_0409.png" alt="">
+                                                     <div class="m-tsword">
+                                                        <p>安徽省大数据产业生态专区</p>
+                                                        <span>为省内大数据企业提供一站式服务</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                                                            </ul>
+                                </div>
+                                <div class="hd">
+                                    <ul>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
+                                    <a class="prev"></a>
+                                    <a class="next"></a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--专题专栏-->
+            <div class="m-ztzl f-mt20">
+                <h2 class="f-mb10 font30"><a href="/Special/0/page_1.html">专题专栏</a></h2>
+                <div class="imagelist g-ztland f-pr imgscale">
+                    <div class="bd f-oh">
+                        <ul class="f-clearfix">
+                                                            <li>
+                                                                            <a href="https://www.fy.gov.cn/Content/showList/10821/page_1.html" title="学习贯彻党的二十届四中全会精神" target="_blank">
+                                            <img src="/files/1/202511/20251103164138045z8t9rz_l.png" alt="">
+                                        </a>
+                                                                    </li>
+                                                            <li>
+                                                                            <a href="/CustomTopic/threeservices/" title="市政府办公室“三服务”工作" target="_blank">
+                                            <img src="/files/1/202407/2024072408371028681_2lcbxeEH.jpg" alt="">
+                                        </a>
+                                                                    </li>
+                                                            <li>
+                                                                            <a href="https://www.fy.gov.cn/Content/showList/9633/page_1.html" title="经济分析" target="_blank">
+                                            <img src="/files/1/202608/20260831082724124k3injz_l.png" alt="">
+                                        </a>
+                                                                    </li>
+                                                            <li>
+                                                                            <a href="https://fgw.fy.gov.cn/Content/showList/11297/page_1.html" title="价比三家" target="_blank">
+                                            <img src="/files/1/202608/20260831082827372nmva3x_l.png" alt="">
+                                        </a>
+                                                                    </li>
+                                                                                </ul>
+                    </div>
+                    <div class="hd">
+                        <a class="prev"></a>
+                        <a class="next"></a>
+                    </div>
+                </div>
+            </div>
+
+            <!--日历-->
+            <div class="ind-datebox" id="ind-calendar">
+                <div class="Calendar">
+                    <div class="ym">
+                        <span id="idCalendarYear">2026</span><span id="idCalendarMonth">10</span>月
+                    </div>
+                    <div id="idCalendar"></div>
+                    <div class="date_ym">
+                        <div class="date-btn idCalendarPre"><a id="idCalendarPre" href="javascript:void(0)"></a></div>
+                        <div class="date-btn idCalendarNext"><a id="idCalendarNext" href="javascript:void(0)"></a></div>
+                    </div>
+                </div>
+            </div>
+            <!--日历-->
+
+            <script src="/dist/js/plugins/Calendar.min.js"></script>
+            <script src="/dist/js/plugins/datetime.js"></script>
+        </div>
+
+
+
+    </div>
+
+    <div class="is-link">
+        <div class="container m-link">
+            <ul>
+                <li>
+                    <a class="is-link-one">市级政府网站<i class="blackrow"></i></a>
+                    <dl>
+                                                    <dd><a href="http://www.hefei.gov.cn/" title="合肥市" target="_blank">合肥市</a></dd>
+                                                    <dd><a href="http://www.huaibei.gov.cn/" title="淮北市" target="_blank">淮北市</a></dd>
+                                                    <dd><a href="http://www.bozhou.gov.cn/" title="亳州市" target="_blank">亳州市</a></dd>
+                                                    <dd><a href="http://www.ahsz.gov.cn/" title="宿州市" target="_blank">宿州市</a></dd>
+                                                    <dd><a href="http://www.bengbu.gov.cn/" title="蚌埠市" target="_blank">蚌埠市</a></dd>
+                                                    <dd><a href="http://www.huainan.gov.cn/" title="淮南市" target="_blank">淮南市</a></dd>
+                                                    <dd><a href="http://www.chuzhou.gov.cn/" title="滁州市" target="_blank">滁州市</a></dd>
+                                                    <dd><a href="http://www.luan.gov.cn/" title="六安市" target="_blank">六安市</a></dd>
+                                                    <dd><a href="https://www.mas.gov.cn/" title="马鞍山市" target="_blank">马鞍山市</a></dd>
+                                                    <dd><a href="http://www.wuhu.gov.cn/" title="芜湖市" target="_blank">芜湖市</a></dd>
+                                                    <dd><a href="http://www.xuancheng.gov.cn/" title="宣城市" target="_blank">宣城市</a></dd>
+                                                    <dd><a href="http://www.tl.gov.cn/" title="铜陵市" target="_blank">铜陵市</a></dd>
+                                                    <dd><a href="http://www.chizhou.gov.cn/" title="池州市" target="_blank">池州市</a></dd>
+                                                    <dd><a href="http://www.anqing.gov.cn/" title="安庆市" target="_blank">安庆市</a></dd>
+                                                    <dd><a href="http://www.huangshan.gov.cn/" title="黄山市" target="_blank">黄山市</a></dd>
+                                            </dl>
+                </li>
+                <li>
+                    <a class="is-link-one">县级政府<i class="blackrow"></i></a>
+                    <dl>
+                                                    <dd><a href="http://www.yingzhou.gov.cn/" title="颍州区人民政府" target="_blank">颍州区人民政府</a></dd>
+                                                    <dd><a href="http://www.yd.gov.cn/" title="颍东区人民政府" target="_blank">颍东区人民政府</a></dd>
+                                                    <dd><a href="http://www.yingquan.gov.cn/" title="颍泉区人民政府" target="_blank">颍泉区人民政府</a></dd>
+                                                    <dd><a href="http://www.linquan.gov.cn" title="临泉县人民政府" target="_blank">临泉县人民政府</a></dd>
+                                                    <dd><a href="http://www.taihe.gov.cn/" title="太和县人民政府" target="_blank">太和县人民政府</a></dd>
+                                                    <dd><a href="http://www.funan.gov.cn/" title="阜南县人民政府" target="_blank">阜南县人民政府</a></dd>
+                                                    <dd><a href="http://www.ahys.gov.cn/" title="颍上县人民政府" target="_blank">颍上县人民政府</a></dd>
+                                                    <dd><a href="http://www.ahjs.gov.cn/" title="界首市人民政府" target="_blank">界首市人民政府</a></dd>
+                                            </dl>
+                </li>
+                <li>
+                    <a class="is-link-one">党群部门<i class="blackrow"></i></a>
+                    <dl>
+                                                    <dd><a href="http://www.fyxfw.gov.cn" title="市委组织部" target="_blank">市委组织部</a></dd>
+                                                    <dd><a href="http://www.fytzb.gov.cn/" title="市委统战部" target="_blank">市委统战部</a></dd>
+                                                    <dd><a href="http://www.fyszgw.gov.cn/" title="市直机关工委" target="_blank">市直机关工委</a></dd>
+                                                    <dd><a href="https://fysgh.cn/" title="市总工会" target="_blank">市总工会</a></dd>
+                                                    <dd><a href="http://www.fyyouth.org.cn/" title="团市委" target="_blank">团市委</a></dd>
+                                                    <dd><a href="https://fywomen.fy.gov.cn/" title="市妇联" target="_blank">市妇联</a></dd>
+                                                    <dd><a href="http://kx.fy.cn/" title="市科协" target="_blank">市科协</a></dd>
+                                                    <dd><a href="http://www.fygsl.org.cn" title="市工商联" target="_blank">市工商联</a></dd>
+                                                    <dd><a href="http://www.fydx.gov.cn/" title="市委党校" target="_blank">市委党校</a></dd>
+                                                    <dd><a href="https://cl.fy.gov.cn/" title="市残联" target="_blank">市残联</a></dd>
+                                            </dl>
+                </li>
+                <li>
+                    <a class="is-link-one">政府工作部门<i class="blackrow"></i></a>
+                    <dl>
+                                                    <dd><a href="http://fgw.fy.gov.cn/" title="市发展改革委" target="_blank">市发展改革委</a></dd>
+                                                    <dd><a href="http://edu.fy.gov.cn/" title="市教育局" target="_blank">市教育局</a></dd>
+                                                    <dd><a href="http://kjj.fy.gov.cn/" title="市科技局" target="_blank">市科技局</a></dd>
+                                                    <dd><a href="http://gxj.fy.gov.cn/" title="市工信局" target="_blank">市工信局</a></dd>
+                                                    <dd><a href="http://gaj.fy.gov.cn/" title="市公安局" target="_blank">市公安局</a></dd>
+                                                    <dd><a href="http://mzj.fy.gov.cn/" title="市民政局" target="_blank">市民政局</a></dd>
+                                                    <dd><a href="http://sfj.fy.gov.cn/" title="市司法局" target="_blank">市司法局</a></dd>
+                                                    <dd><a href="http://czj.fy.gov.cn/" title="市财政局" target="_blank">市财政局</a></dd>
+                                                    <dd><a href="http://rsj.fy.gov.cn/" title="市人社局" target="_blank">市人社局</a></dd>
+                                                    <dd><a href="http://zrgh.fy.gov.cn/" title="市资规局" target="_blank">市资规局</a></dd>
+                                                    <dd><a href="http://sthj.fy.gov.cn/" title="市生态环境局" target="_blank">市生态环境局</a></dd>
+                                                    <dd><a href="http://cxjsj.fy.gov.cn" title="市城乡建设局" target="_blank">市城乡建设局</a></dd>
+                                                    <dd><a href="http://jtys.fy.gov.cn" title="市交通运输局" target="_blank">市交通运输局</a></dd>
+                                                    <dd><a href="http://nync.fy.gov.cn/" title="市农业农村局" target="_blank">市农业农村局</a></dd>
+                                                    <dd><a href="http://slj.fy.gov.cn/" title="市水利局" target="_blank">市水利局</a></dd>
+                                                    <dd><a href="http://swj.fy.gov.cn/" title="市商务局" target="_blank">市商务局</a></dd>
+                                                    <dd><a href="http://wlt.fy.gov.cn/" title="市文旅体局（市广播电视局、市文物局）" target="_blank">市文旅体局（市广播电视局、市文物局）</a></dd>
+                                                    <dd><a href="http://wjw.fy.gov.cn/" title="市卫健委" target="_blank">市卫健委</a></dd>
+                                                    <dd><a href="http://tyjr.fy.gov.cn" title="市退役军人局" target="_blank">市退役军人局</a></dd>
+                                                    <dd><a href="http://safety.fy.gov.cn/" title="市应急局" target="_blank">市应急局</a></dd>
+                                                    <dd><a href="http://sjj.fy.gov.cn/" title="市审计局" target="_blank">市审计局</a></dd>
+                                                    <dd><a href="http://amr.fy.gov.cn" title="市市场监管局（市知识产权局）" target="_blank">市市场监管局（市知识产权局）</a></dd>
+                                                    <dd><a href="http://tjj.fy.gov.cn/" title="市统计局" target="_blank">市统计局</a></dd>
+                                                    <dd><a href="http://ly.fy.gov.cn/" title="市林业局" target="_blank">市林业局</a></dd>
+                                                    <dd><a href="http://ylbz.fy.gov.cn" title="市医保局" target="_blank">市医保局</a></dd>
+                                                    <dd><a href="http://gdb.fy.gov.cn" title="市国动办（市人防办）" target="_blank">市国动办（市人防办）</a></dd>
+                                                    <dd><a href="http://xfj.fy.gov.cn/" title="市信访局" target="_blank">市信访局</a></dd>
+                                                    <dd><a href="http://sgj.fy.gov.cn" title="市数据资源局（市政务服务局）" target="_blank">市数据资源局（市政务服务局）</a></dd>
+                                                    <dd><a href="https://jyzx.fy.gov.cn/" title="市公管局" target="_blank">市公管局</a></dd>
+                                                    <dd><a href="http://fgj.fy.gov.cn/" title="市房管局" target="_blank">市房管局</a></dd>
+                                                    <dd><a href="http://scgj.fy.gov.cn/" title="市城管局" target="_blank">市城管局</a></dd>
+                                                    <dd><a href="http://lswz.fy.gov.cn/" title="市粮食和储备局 " target="_blank">市粮食和储备局 </a></dd>
+                                            </dl>
+                </li>
+                <li>
+                    <a class="is-link-one">市直事业单位<i class="blackrow"></i></a>
+                    <dl>
+                                                    <dd><a href="http://invest.fy.gov.cn/" title="阜阳经开区管委会" target="_blank">阜阳经开区管委会</a></dd>
+                                                    <dd><a href="http://fhip.fy.gov.cn/" title="阜合园区管委会" target="_blank">阜合园区管委会</a></dd>
+                                                    <dd><a href="http://www.zgyzxh.com/" title="市西湖管委会" target="_blank">市西湖管委会</a></dd>
+                                                    <dd><a href="http://www.fysjgswglc.cn/" title="市机关事务管理处" target="_blank">市机关事务管理处</a></dd>
+                                                    <dd><a href="http://zszx.fy.gov.cn/" title="市招商投资中心" target="_blank">市招商投资中心</a></dd>
+                                                    <dd><a href="http://eq.fy.gov.cn/" title="市地震局" target="_blank">市地震局</a></dd>
+                                                    <dd><a href="https://szdgcc.fy.gov.cn/" title="市重点工程处" target="_blank">市重点工程处</a></dd>
+                                                    <dd><a href="https://mhj.fy.gov.cn" title="阜阳民航中心" target="_blank">阜阳民航中心</a></dd>
+                                                    <dd><a href="http://gxs.fy.gov.cn/" title="市供销社" target="_blank">市供销社</a></dd>
+                                                    <dd><a href="http://gjj.fy.gov.cn/" title="市公积金中心" target="_blank">市公积金中心</a></dd>
+                                            </dl>
+                </li>
+                <li>
+                    <a class="is-link-one">其他网站<i class="blackrow"></i></a>
+                    <dl>
+                                                    <dd><a href="http://fypec.edu.cn/index.htm" title="阜阳幼专" target="_blank">阜阳幼专</a></dd>
+                                                    <dd><a href="http://www.fyvtc.edu.cn/" title="阜阳职业技术学院" target="_blank">阜阳职业技术学院</a></dd>
+                                                    <dd><a href="http://www.fytv.com.cn/" title="阜阳广播电视台" target="_blank">阜阳广播电视台</a></dd>
+                                                    <dd><a href="http://www.fyjsxy.com" title="阜阳技师学院" target="_blank">阜阳技师学院</a></dd>
+                                                    <dd><a href="http://www.fyzls.com/" title="市供水有限公司" target="_blank">市供水有限公司</a></dd>
+                                                    <dd><a href="http://www.fysyy.com/" title="市人民医院" target="_blank">市人民医院</a></dd>
+                                                    <dd><a href="http://anhui.chinatax.gov.cn/col/col6761/index.html" title="市税务局" target="_blank">市税务局</a></dd>
+                                                    <dd><a href="http://ah.spb.gov.cn/ahsyzglj/c102902/indexshi.shtml" title="市邮政管理局" target="_blank">市邮政管理局</a></dd>
+                                                    <dd><a href="http://www.ah.sgcc.com.cn/html/ahfy/gb/index.shtml" title="阜阳供电公司" target="_blank">阜阳供电公司</a></dd>
+                                                    <dd><a href="https://www.fyxw.com.cn/" title="阜阳新闻网" target="_blank">阜阳新闻网</a></dd>
+                                                    <dd><a href="http://fy.wenming.cn/" title="市文明网" target="_blank">市文明网</a></dd>
+                                                    <dd><a href="https://xyfy.fy.gov.cn/" title="信用阜阳" target="_blank">信用阜阳</a></dd>
+                                                    <dd><a href="http://www.fytfjt.com/" title="市建投集团" target="_blank">市建投集团</a></dd>
+                                            </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+        <!--footer on-->
+<div class="el-footer">
+    <div class="container ml-footer f-clearfix f-plr30">
+        <div class="footer-list f-fl">
+            <ul class="f-clearfix">
+                <li>
+                    <a href="/Sitemap/" title="" target="">站点地图</a>
+                </li>
+                <li>
+                    <a href="/Content/showList/288/page_1.html" title="" target="">联系我们</a>
+                </li>
+                <li>
+                    <a href="/Member/" title="" target="">用户中心</a>
+                </li>
+                <li>
+                    <a href="/Content/show/149617.html" title="" target="">OA登录</a>
+                </li>
+                <li>
+                    <a href="/Content/showList/284/page_1.html" title="" target="">使用帮助</a>
+                </li>
+                <li>
+                    <a href="/Content/showList/8484/page_1.html" title="" target="">隐私声明</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-msg f-fl">
+            <div class="f-fl">
+                <p>主办：阜阳市人民政府办公室</p>
+                <p>承办：阜阳市政务公开办公室 </p>
+                <p>地址：阜阳市颍州区清河西路123号 </p>
+            </div>
+            <div class="f-fr">
+                <p>网站运维电话：0558-2267096</p>
+                <p>电子邮箱：szwgkb@fy.gov.cn</p>
+                <p>邮编：236000</p>
+            </div>
+        </div>
+        <div class="footer-pic f-fr">
+            <div id="div_ideConac" class="f-fl">
+                <a href="https://bszs.conac.cn/sitename?method=show&id=26EAEA69A68801F3E053012819AC238C" target="_blank">
+                    <img src="/dist/images/public/dzjg.png" alt="">
+                </a>
+            </div>
+            <div id="div_jiucuonew" class="f-fl"  data-setting="{sitecode:3412000010}">
+                <a href="https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=3412000010&url=https%3A%2F%2Fwww.fy.gov.cn%2F" target="_blank">
+                    <img src="/dist/images/public/pic-jiucuo.png" alt="">
+                </a>
+            </div>
+            <div id="div_wza" class="f-fl">
+                <img src="/dist/images/public/pic-wza.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="footer-btm">
+        <p>
+            <a href="https://beian.miit.gov.cn/" target="_blank">皖ICP备05015512号-1&nbsp;&nbsp;</a>
+            <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34120002001529" target="_blank"><img src="/dist/images/public/ga.png" alt="">&nbsp;皖公网安备 34120002001529号&nbsp;&nbsp;</a>   网站标识码：3412000010</br class="f-sm-db">（建议您使用IE9及以上版本浏览器访问本网站）&emsp;&emsp;&emsp;&emsp;
+            </br class="f-sm-db">本站已支持IPv6访问
+        </p>
+    </div>
+</div>
+<div class="mobil-wza">
+  <a href="javascript:;" onclick="aria.start()">
+    <img src="/dist/images/public/mobile-wza.png">
+  </a>
+</div>
+<!--footer end-->
+<script src="/dist/js/old.js"></script>
+<script src="/dist/js/change.js"></script>
+<script src="/dist/WXA11Y/WXA11yInit.js" id="WXA11Y" c="/dist/WXA11Y/" u="" y="www.fy.gov.cn" f="left" w="1200" b="wzalink"></script>
+
+
+<script>
+   //百度统计
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?47f0853208dd4de1ee348e52899781d0";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript">
+    //网站纠错
+    $(function(){
+        if($('#div_jiucuonew').length>0){
+            var jiucuoData = $('#div_jiucuonew').attr('data-setting');
+            var jiucuoDataObj = eval('(' + jiucuoData + ')');
+            var url = 'https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=' + jiucuoDataObj.sitecode + '&url=' + encodeURIComponent(window.location.href);
+            $('#div_jiucuonew').find('a').attr({'href':url,'target':'_blank'});
+        }
+    });
+</script>
+         
+   
+    <!--右侧悬浮 on-->
+    <div class="m-slider visible-lg">
+        <ul>
+            <li class="sd1"><a href="/Intellect/"><p>智能问答</p></a></li>
+            <li class="sd2"><a href="javascript:void(0)"><p>微信</p><img src="/dist/images/public/wxcode.png"></a></li>
+            <li class="sd3"><a href="javascript:void(0)"><p>微博</p><img src="/dist/images/public/wbcode.png"></a></li>
+            <li class="sd4"><a href="/InFeedback/write/2/0.html" target="_blank"><p>在线留言</p></a></li>
+            <li class="sd5 f-dn" id="top"><a href="javascript:void(0)"><p>返回顶部</p></a></li>
+        </ul>
+    </div>
+
+<script src="/dist/js/base.js"></script>
+<script src="/dist/js/searchcom.js"></script>
+<script src="/dist/js/jquery.SuperSlide.js"></script>
+<script src="/dist/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/dist/lib/layui/layui.js"></script>
+<script  src="/dist/js/domain.js"></script>
+     
+    <script>
+        $(".m-flash").slide({mainCell:".bd ul",effect:"fold",autoPlay:true,delayTime:700,interTime:3500})
+        $(".m-hotland").slide({titCell: ".hd ul",mainCell:".bd ul",autoPlay:true,autoPage: true,effect:"leftLoop",vis:3,interTime:3500,trigger:"click"});
+        $(".in-opinion").slide({mainCell:".bd ul",autoPlay:true,effect:"topLoop",vis:3,autoPage:true,trigger:"click"});
+        $(".m-tslist").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"leftLoop",autoPlay:true,vis:localStorage.getItem("isElder")?5:2,interTime:3000});
+        $(".g-ztland").slide({ titCell: ".hd ul", mainCell: ".bd ul", autoPage: true, effect: "leftLoop", autoPlay: true, vis:4, });
+        /**县区入口**/
+        $(".m-xqrk-one").click(function(){
+            $(this).toggleClass("rowactive")
+            $(this).siblings("dl").slideToggle(200);
+        })
+        $(".m-link li").click(function(){
+            $(this).toggleClass("rowactive").siblings().removeClass('rowactive')
+            $(this).children("dl").slideToggle(200);
+            $(this).siblings().children("dl").slideUp(200)
+
+        })
+         
+        $(document).on('click', function(e) {
+        var $target = $(e.target);
+        if (!$target.is('.m-link li a') &&!$target.is('.m-link li i') &&!$target.is('.m-link li dl a')) {
+            $('.m-link li dl').hide();
+        }
+        });
+        //智能推荐
+        $(".m-znfwtj").hover(function () {
+            $(this).find(".con_tab_bg").stop().animate({ "width": "550px" }, 500, function () {
+                $(".bottom_news").show();
+            });
+        }, function () {
+            $(this).find(".con_tab_bg").stop().animate({ "width": "0" }, 500, function () {
+                $(".bottom_news").show();
+            });
+        });
+        //换一批
+        var _i=0;
+        $('#hyp').click(function(){
+            if((_i + 1) * 4 < 8) _i=_i + 1
+            else _i =0
+            $('.bottom_news ul').eq(_i).show().siblings('.bottom_news ul').hide();
+        })
+        //涉企政策民生政策切换
+        layui.use('form', function () {
+            var form = layui.form;
+            form.on('radio(ct)', function (data) {
+                if ($('.selectzc:checked ').val() == 0) {
+                    $("#sqzc").show();
+                    $("#mszc").hide();
+                }
+                else {
+                    $("#sqzc").hide();
+                    $("#mszc").show();
+                }
+                form.render();
+            });
+        });
+        </script>
+    <!--广告位——【漂浮广告】——开始-->
+    <script type="text/javascript" src="/dist/js/pf.js"></script>
+    <script type="text/javascript">
+        var floatCode2='';
+                if(floatCode2){
+            ShowAd2();
+        }
+    </script>
+    <!--广告位——【对联广告】——开始-->
+    <script language="javascript">
+        var left_ad = '';
+        var right_ad = '';
+        
+        
+        function closead(ad_id) {
+            document.getElementById(ad_id).style.display = "none";
+        }
+        if (left_ad) {
+            suspendcode12 = "<DIV id='leftad' style='left:2px;POSITION:fixed;bottom:10px;z-index:9999;'>" + left_ad + "<div onclick='closead(\"leftad\")' id='leftclose' style='width:100%;height:20px;color:#333;text-align: left; line-height: 20px;font-family: 微软雅黑;cursor: pointer;'>关闭</div></div>"
+            document.write(suspendcode12);
+        }
+        if (right_ad) {
+            suspendcode14 = "<DIV id='rightad' style='right:2px;POSITION:fixed;bottom:10px;z-index:9999;'>" + right_ad + "<div onclick='closead(\"rightad\")' id='rightclose' style='width:100%;height:20px;color:#333;text-align: right; line-height: 20px;font-family: 微软雅黑;cursor: pointer;'>关闭</div></div>"
+            document.write(suspendcode14);
+        }
+    </script>
+    <!--广告位——【对联广告】——结束-->
+
+
+
+<style>
+.ariabodytopfiexed{background-position: 50% 0 !important;}
+.WXA11Y a#tts-single,.WXA11Y a#tts-screenread{display: none;}
+</style>
+</body>
+</html>
