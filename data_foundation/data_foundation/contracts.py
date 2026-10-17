@@ -6,6 +6,17 @@ from decimal import Decimal
 from typing import Any
 
 
+HOLIDAY_KINDS = frozenset({
+    "new_year", "spring_festival", "qingming", "may_day", "dragon_boat",
+    "mid_autumn", "national_day", "summer", "winter",
+})
+EVENT_KINDS = frozenset({
+    "weather", "scenic_closure", "closure", "rail_adjustment", "flight_adjustment", "other",
+})
+EVENT_STATUSES = frozenset({"active", "resolved", "expired"})
+EVENT_SEVERITIES = frozenset({"info", "notice", "warning", "critical"})
+
+
 @dataclass(frozen=True)
 class Page:
     page: int = 1

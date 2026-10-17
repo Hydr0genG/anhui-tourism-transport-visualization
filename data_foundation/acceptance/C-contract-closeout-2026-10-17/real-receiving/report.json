@@ -1,0 +1,464 @@
+{
+  "status": "passed",
+  "scope": "C_E_official_wheels_not_D_HTTP_or_real_video",
+  "packages": {
+    "C": {
+      "version": "0.2.1a2",
+      "wheel_sha256": "17c2c60045d4153507e66282a3f35d1583ed81332fb29654c8e0b86882c91c5b",
+      "matching_package_files": 19,
+      "origin": "isolated_site_packages"
+    },
+    "E": {
+      "version": "0.6.0",
+      "wheel_sha256": "cf55fcb4f4dbb8ca6257e07a2dd7faaec720a26a8800ab0d2fc4ba21126b4a4c",
+      "matching_package_files": 31,
+      "origin": "isolated_site_packages"
+    }
+  },
+  "python": "3.13.16",
+  "mysql_version": "8.4.11",
+  "migration_head": "0007",
+  "business_tables": 34,
+  "checks": [
+    {
+      "name": "0006_to_0007_all_31_existing_tables_and_rows_unchanged",
+      "status": "passed",
+      "tables": {
+        "camera_counts": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "video_analyses": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "jobs": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "users": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "videos": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "source_assets": {
+          "rows": 106,
+          "sha256": "e6abb9a4ed8f386f304ce2c6f18ed53e21b70ed7ca3076821715759199a5a147"
+        },
+        "sources": {
+          "rows": 21,
+          "sha256": "85b4e91cee0eb673d86969154285c297cdec3555d3fbd855afe6e28364ed8f42"
+        },
+        "entities": {
+          "rows": 4,
+          "sha256": "7d1686fe11f8e89288698c665f136bd8f63c08b51dd0f0205ff33b8e5f60a29d"
+        },
+        "permission_records": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "document_entities": {
+          "rows": 14,
+          "sha256": "01d699e3ac1b904ddef08ce0d6547071f96afeaf39201bd3234d71b1bd8a0e31"
+        },
+        "knowledge_documents": {
+          "rows": 16,
+          "sha256": "073c08a5a3558991dab8cb7e5d7d59d4de3f8b576fa5dcb63919efc7fa96f4c0"
+        },
+        "event_entities": {
+          "rows": 1,
+          "sha256": "2b35bb0833178409bf5ff235a8b5b3e963b7b505986a18eba89c3cf65e49e5d1"
+        },
+        "events": {
+          "rows": 1,
+          "sha256": "8b877c1fb2097c54d2f2cad3bc6ed8c37345c7a21f489d56f7593428331b46be"
+        },
+        "event_history": {
+          "rows": 1,
+          "sha256": "ec8c8dcc1ea8dd72539211438b882e8f16affd3bc762dd495c1b1e1b9d0ee7dc"
+        },
+        "forecast_points": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "forecast_runs": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "metrics": {
+          "rows": 5,
+          "sha256": "ed58c837e59a4cb32d42d4a7bc5211c1262b6c0d60352b8e615ce74c0d9fd4ae"
+        },
+        "holidays": {
+          "rows": 26,
+          "sha256": "13f0415dd8d4cf051e4cdf220f87b96564107eb8a285286ab477bf30e487ffcb"
+        },
+        "ingestion_runs": {
+          "rows": 42,
+          "sha256": "22da7a3bf368284978d0b1c27c9fb57e20d8fdd83cb867fdcf9590a532ea6426"
+        },
+        "job_attempts": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "job_retries": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "knowledge_chunks": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "knowledge_indexes": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "manual_annotations": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "observation_revisions": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "observations": {
+          "rows": 83,
+          "sha256": "3bcd5e905445d12c5280bd144d3161f25fdf72b5426c5ba8b6f4c259cc8d8a41"
+        },
+        "quality_issues": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "series_policies": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "sessions": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "short_forecast_points": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "short_forecast_runs": {
+          "rows": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      }
+    },
+    {
+      "name": "real_C_dataset_idempotent",
+      "status": "passed",
+      "first": {
+        "processed": 83,
+        "imported": 83,
+        "revised": 0,
+        "skipped": 0,
+        "quarantined": 0
+      },
+      "repeat": {
+        "processed": 83,
+        "imported": 0,
+        "revised": 0,
+        "skipped": 83,
+        "quarantined": 0
+      }
+    },
+    {
+      "name": "16_registered_original_documents_verified",
+      "status": "passed",
+      "documents": [
+        {
+          "document_id": "c962ee5f-53f6-5007-98eb-77bf1436963a",
+          "document_version": "sha256:c7302d6b9c545c971d194f84e2d7d063",
+          "asset_id": "504f5f71-fbcc-49a8-b141-17433e85ad91",
+          "source_id": "fe47bf03-2cd2-5c89-a944-4cbcf5d38cd7",
+          "sha256": "c7302d6b9c545c971d194f84e2d7d063b7e7d7c4bcb0decb5dd607e589846fd5",
+          "byte_size": 73289
+        },
+        {
+          "document_id": "e4953b67-515f-55d5-964b-96bb155a3f62",
+          "document_version": "sha256:c42dfb4232510256775629ba67ae2c01",
+          "asset_id": "61683a1a-0a9e-4566-86f6-c515c3bc048b",
+          "source_id": "fe47bf03-2cd2-5c89-a944-4cbcf5d38cd7",
+          "sha256": "c42dfb4232510256775629ba67ae2c0188902eade69be1586b2515707edd1063",
+          "byte_size": 87376
+        },
+        {
+          "document_id": "58b613f3-36f5-5428-9dd7-5a9e6ba147a6",
+          "document_version": "sha256:bd8718ade629321daf826b298afef01a",
+          "asset_id": "31315ed0-34c8-4e1b-a560-d1fe05ef1a6c",
+          "source_id": "63e641e3-a964-591d-8a09-6eb6d9dd8986",
+          "sha256": "bd8718ade629321daf826b298afef01ac4dacfe4696469a2c0c928d2fc41870c",
+          "byte_size": 640708
+        },
+        {
+          "document_id": "1284ab90-96ea-5542-865e-f598314cbbde",
+          "document_version": "sha256:de18ec78de963b664a395a91f3a47dfe",
+          "asset_id": "d59c9524-534d-4c9d-b40e-67a9254efe45",
+          "source_id": "fba90e23-e200-5930-8a86-1b13130f4667",
+          "sha256": "de18ec78de963b664a395a91f3a47dfe1bb66acbb78b0ad8fe6a63908766534d",
+          "byte_size": 170073
+        },
+        {
+          "document_id": "c83be9de-8af1-5a26-aae8-8f30dd8eca09",
+          "document_version": "sha256:f8fa6356c3e7808d4ea70497aa057e7b",
+          "asset_id": "dd71c864-6c6f-4879-a790-fdc461bc5781",
+          "source_id": "9144cb69-e404-5f03-84d0-6d5d976926de",
+          "sha256": "f8fa6356c3e7808d4ea70497aa057e7be5d6fe841c9dd6145e5f6c7ec7ebc63f",
+          "byte_size": 1315647
+        },
+        {
+          "document_id": "6f3bd8f1-fe1b-5982-9154-d21e03305c69",
+          "document_version": "sha256:4abde2424b1ec9b96c2f556fded4d499",
+          "asset_id": "e13d3b9d-dc84-497f-8edc-27860d7f3f61",
+          "source_id": "264e6f29-8b65-5d0e-b285-10411b6b6073",
+          "sha256": "4abde2424b1ec9b96c2f556fded4d499dac7d7b5e9311e2ff22e86a37c8cebed",
+          "byte_size": 17852
+        },
+        {
+          "document_id": "a5a68f13-b713-5fe8-9838-8fd4321fd388",
+          "document_version": "sha256:325388067694704305b9afb31536a172",
+          "asset_id": "b9299720-e63b-4007-81a2-1c64cd3e8867",
+          "source_id": "d5f97e63-85d5-525e-842b-eaf218e816bc",
+          "sha256": "325388067694704305b9afb31536a172a3f1fbcb832f8b72a5e4d96e6055174b",
+          "byte_size": 664
+        },
+        {
+          "document_id": "e0fd0916-7b2a-5b6f-8b11-0c2c56e7c0bf",
+          "document_version": "sha256:7e73cf30bfdd02a241682ff73083d851",
+          "asset_id": "13cc753c-0056-4a17-ad23-c694bcd8e91e",
+          "source_id": "b2380236-cca8-5d8d-9e4e-e67678dcfc36",
+          "sha256": "7e73cf30bfdd02a241682ff73083d8510665aa201e3750bd6a5c46121b56f259",
+          "byte_size": 996
+        },
+        {
+          "document_id": "3ea765c6-e5be-5b2d-a15d-8a19a7fc6d2b",
+          "document_version": "sha256:8bfa6739a4da7c4ff064927b5859e158",
+          "asset_id": "2b07fa59-08fe-4f94-8d19-4bfa036c5cc7",
+          "source_id": "803dcb47-36de-57bb-bd12-da1146f1ad9c",
+          "sha256": "8bfa6739a4da7c4ff064927b5859e158f6bfbfc349215baead3f8c8e51f59f2a",
+          "byte_size": 564
+        },
+        {
+          "document_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+          "document_version": "sha256:29aa803a0fa3e009feed5ce3aa07330e",
+          "asset_id": "ab64b351-5ea2-4549-ad13-0726ad0635de",
+          "source_id": "e4628668-ec52-5d6e-be17-7682c3cdbc2e",
+          "sha256": "29aa803a0fa3e009feed5ce3aa07330e086def1b8f61490b0025c22afcfcb404",
+          "byte_size": 2187
+        },
+        {
+          "document_id": "5461c502-9273-54c3-a430-80918c414369",
+          "document_version": "sha256:bf29960ce722fc0c7c52a69c59186000",
+          "asset_id": "c3e013ce-a9ab-436b-9f78-455bd741b6a6",
+          "source_id": "da00d2b9-c379-5029-a5f7-d802604c74bf",
+          "sha256": "bf29960ce722fc0c7c52a69c59186000fb5de44a2dd5d19c41712cc6a236e332",
+          "byte_size": 2637
+        },
+        {
+          "document_id": "6d0f8793-e764-504a-b50e-93208d264f76",
+          "document_version": "sha256:1e0d63309187bd8d6867328d2d4a79e3",
+          "asset_id": "d0610481-a2a8-4b89-887a-69bd326539a6",
+          "source_id": "6c924f36-74a8-56f5-93eb-573fa7cd9d34",
+          "sha256": "1e0d63309187bd8d6867328d2d4a79e32d593d0fa370fab5c19858881fd06eab",
+          "byte_size": 10786
+        },
+        {
+          "document_id": "9ac14d22-c95f-51d6-bccf-90872ecdb0dc",
+          "document_version": "sha256:07c413835443b958c5bf40b94dd47a02",
+          "asset_id": "a15bdb41-8a7b-47e3-bc4b-7c490e1c9214",
+          "source_id": "d2d38e8b-2552-5ae0-ad6e-db2ebbfdd969",
+          "sha256": "07c413835443b958c5bf40b94dd47a027bc8b27707c7dd720e5a7d5903807c99",
+          "byte_size": 27378
+        },
+        {
+          "document_id": "187ee5be-f5a8-5cce-af27-5f1763436578",
+          "document_version": "sha256:2ce246e9776a9b2102e96ac9d438804a",
+          "asset_id": "08ab2d5e-1684-4085-99e8-fa63093274b4",
+          "source_id": "474ca1af-2702-55c8-8662-0f74ac2cf70e",
+          "sha256": "2ce246e9776a9b2102e96ac9d438804a869a541c530c62c9db5a54aedc9e7b13",
+          "byte_size": 29117
+        },
+        {
+          "document_id": "4ea6a5a1-6a4e-5f5e-8682-0b2d506a6e46",
+          "document_version": "sha256:0b9d4b2b07360bc0915ff929709a738f",
+          "asset_id": "5b17fab3-739f-45d7-978a-206782d806e1",
+          "source_id": "ac3be639-f4dd-565e-b0e1-93eacb8dbbb3",
+          "sha256": "0b9d4b2b07360bc0915ff929709a738f1297abf3d11d3a606861faee7e9be535",
+          "byte_size": 27692
+        },
+        {
+          "document_id": "8965d8e0-4c1c-5d5f-b2ef-716d076b6d12",
+          "document_version": "sha256:42292084bcd8561b9782bbb5b4a4d494",
+          "asset_id": "850a8dba-1e9c-48f9-b65e-4df30edc6faa",
+          "source_id": "1f1e4044-94a7-5436-a7c3-b9a3a861735d",
+          "sha256": "42292084bcd8561b9782bbb5b4a4d49471c9725387f90a3d3ce6f42094038889",
+          "byte_size": 924806
+        }
+      ]
+    },
+    {
+      "name": "real_historical_airport_metric_E_service_and_missing_periods",
+      "status": "passed",
+      "answer": {
+        "conversation_id": "f93646f0-55cd-4a4f-8602-9eab8b578def",
+        "status": "answered",
+        "answer": "airport_throughput：1111644.0000（2025-01-01T00:00:00+08:00—2025-02-01T00:00:00+08:00）。",
+        "citations": [
+          {
+            "type": "metric",
+            "id": "fe47bf03-2cd2-5c89-a944-4cbcf5d38cd7",
+            "title": "airport_throughput",
+            "url": null,
+            "date": null,
+            "chunk_id": null
+          }
+        ],
+        "used_metric_queries": [
+          "{'metric': 'airport_throughput', 'entity_type': 'station', 'entity_ids': ['28380b0b-e209-5ced-8d09-58854248f26e'], 'grain': 'month', 'period_start': '2025-01-01T00:00:00+08:00', 'period_end': '2025-02-01T00:00:00+08:00'}"
+        ],
+        "metric_result": {
+          "status": "answered",
+          "metric": "airport_throughput",
+          "value": "1111644.0000",
+          "unit": "人次",
+          "entity_type": "airport",
+          "entity_ids": [
+            "28380b0b-e209-5ced-8d09-58854248f26e"
+          ],
+          "grain": "month",
+          "period_start": "2025-01-01T00:00:00+08:00",
+          "period_end": "2025-02-01T00:00:00+08:00",
+          "queried_at": "2026-10-17T04:19:08.352274+00:00",
+          "source_ids": [
+            "fe47bf03-2cd2-5c89-a944-4cbcf5d38cd7"
+          ],
+          "aggregation_rule": "sum_complete_non_overlapping_native_periods_single_entity",
+          "sample_count": 1
+        },
+        "limitations": []
+      },
+      "HTTP_executed": false
+    },
+    {
+      "name": "new_store_connection_reads_same_historical_value",
+      "status": "passed"
+    },
+    {
+      "name": "correct_sha_rejects_wrong_text",
+      "status": "passed"
+    },
+    {
+      "name": "correct_sha_rejects_wrong_locator",
+      "status": "passed"
+    },
+    {
+      "name": "correct_sha_rejects_wrong_document_version",
+      "status": "passed"
+    },
+    {
+      "name": "correct_sha_rejects_wrong_index_version",
+      "status": "passed"
+    },
+    {
+      "name": "correct_sha_rejects_wrong_metadata",
+      "status": "passed"
+    },
+    {
+      "name": "C_knowledge_activation_and_post_completion_failure_rollback",
+      "status": "passed"
+    },
+    {
+      "name": "historical_and_current_notice_service_answers",
+      "status": "passed",
+      "historical": {
+        "conversation_id": "cc56d898-9293-4298-a302-68f65560e651",
+        "answer": "根据带日期的来源资料，可参考以下信息：\n- 标题：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告\n来源：黄山风景区管理委员会\n网址：https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html\n发布时间：2025-01-24T10:21:00+08:00\n采录范围：公告正文全文\n- 尊敬的游客朋友：\n非遗贺新春——就在黄山过大年！为提高旅游舒适度与体验感，方便您合理安排行程，现将黄山风景区春节黄金周期间（1月28日—2月4日）开放运营时间公告如下：\n一、黄山风景区开放时间\n1.1月28日、29日，2月4日：7:00—16:30；\n2.1月30日—2月3日：6:30—17:30。 春节期间，徒步登山入园处门票检票口关闭时间为15：00。15：00后，各登山步道门票检票口实行“只出不进”措施，不再安排徒步登山游客检票入园，敬请广大游客合理安排行程。 二、交通股份公司换乘车辆运营时间\n1.1月28日、29日，2月4日：6:40—16:00（上行），7:10—17:10（下行）；\n2.1月30日—2月3日：6:10—17:00（上行），6:40—18:00（下行）。 三、云谷索道、玉屏索道、太平索道运营时间\n1.1月28日、29日，2月4日：7:00—16:30；\n2.1月30日—2月3日：6:30—17:30。\n- 黄山风景区继续执行“限量、预约、错峰”要求，实行强实名分时分方向预约、核验入园制度。先预约、再出行，建议您至少提前一天在黄山旅游官方平台预约景区门票，保持预约门票的身份信息与入园人身份信息一致，并按照预约时段和进山方向入园。未预约成功的游客，请择期预约进山或前往周边景点游览。为保障您的合法权益，请勿在非官方渠道预约景区票务，以免无法检票、影响出行而造成损失。 山岳景区天气多变，请您密切关注黄山风景区天气等情况，配合景区管理，文明出行、错峰游览，共同营造安全和谐美好的旅游环境。欢迎使用景区提供的免费智慧导览系统（微信搜索“智游黄山”小程序），祝您旅途轻松愉快！ 咨询服务热线：0559-2590999。 黄山风景区管理委员会\n2025年1月22日",
+        "status": "answered",
+        "citations": [
+          {
+            "type": "document",
+            "id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+            "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+            "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+            "date": "2025-01-24T02:21:00Z",
+            "chunk_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095-0"
+          },
+          {
+            "type": "document",
+            "id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+            "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+            "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+            "date": "2025-01-24T02:21:00Z",
+            "chunk_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095-1"
+          },
+          {
+            "type": "document",
+            "id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+            "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+            "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+            "date": "2025-01-24T02:21:00Z",
+            "chunk_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095-2"
+          }
+        ],
+        "used_metric_queries": [],
+        "limitations": [
+          "This answer is based only on retrieved authorized documents."
+        ]
+      },
+      "current": {
+        "conversation_id": "8e7b2e4a-abfb-455c-adf1-1f90ab6684cb",
+        "answer": "资料时效与适用范围提示：历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。；历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。；历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。\n根据带日期的来源资料，可参考以下信息：\n- 尊敬的游客朋友：\n非遗贺新春——就在黄山过大年！为提高旅游舒适度与体验感，方便您合理安排行程，现将黄山风景区春节黄金周期间（1月28日—2月4日）开放运营时间公告如下：\n一、黄山风景区开放时间\n1.1月28日、29日，2月4日：7:00—16:30；\n2.1月30日—2月3日：6:30—17:30。 春节期间，徒步登山入园处门票检票口关闭时间为15：00。15：00后，各登山步道门票检票口实行“只出不进”措施，不再安排徒步登山游客检票入园，敬请广大游客合理安排行程。 二、交通股份公司换乘车辆运营时间\n1.1月28日、29日，2月4日：6:40—16:00（上行），7:10—17:10（下行）；\n2.1月30日—2月3日：6:10—17:00（上行），6:40—18:00（下行）。 三、云谷索道、玉屏索道、太平索道运营时间\n1.1月28日、29日，2月4日：7:00—16:30；\n2.1月30日—2月3日：6:30—17:30。\n- 标题：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告\n来源：黄山风景区管理委员会\n网址：https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html\n发布时间：2025-01-24T10:21:00+08:00\n采录范围：公告正文全文\n- 黄山风景区继续执行“限量、预约、错峰”要求，实行强实名分时分方向预约、核验入园制度。先预约、再出行，建议您至少提前一天在黄山旅游官方平台预约景区门票，保持预约门票的身份信息与入园人身份信息一致，并按照预约时段和进山方向入园。未预约成功的游客，请择期预约进山或前往周边景点游览。为保障您的合法权益，请勿在非官方渠道预约景区票务，以免无法检票、影响出行而造成损失。 山岳景区天气多变，请您密切关注黄山风景区天气等情况，配合景区管理，文明出行、错峰游览，共同营造安全和谐美好的旅游环境。欢迎使用景区提供的免费智慧导览系统（微信搜索“智游黄山”小程序），祝您旅途轻松愉快！ 咨询服务热线：0559-2590999。 黄山风景区管理委员会\n2025年1月22日",
+        "status": "answered",
+        "citations": [
+          {
+            "type": "document",
+            "id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+            "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+            "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+            "date": "2025-01-24T02:21:00Z",
+            "chunk_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095-1"
+          },
+          {
+            "type": "document",
+            "id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+            "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+            "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+            "date": "2025-01-24T02:21:00Z",
+            "chunk_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095-0"
+          },
+          {
+            "type": "document",
+            "id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+            "title": "关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告",
+            "url": "https://www.huangshan.gov.cn/zxzx/tzgg/8409577.html",
+            "date": "2025-01-24T02:21:00Z",
+            "chunk_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095-2"
+          }
+        ],
+        "used_metric_queries": [],
+        "limitations": [
+          "This answer is based only on retrieved authorized documents.",
+          "历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。",
+          "历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。",
+          "历史资料：关于黄山风景区2025年春节黄金周开放时间、交通换乘和索道运营时间的公告，适用期已结束，不能作为当前运营事实。"
+        ]
+      }
+    }
+  ],
+  "real_document_id": "0c8e2020-2e0a-5842-bce9-d9193cf81095",
+  "final_index_id": "3e5191fa-e11c-4509-b5a3-a90b3691f7e0",
+  "final_index_version": "c021-acceptance-7",
+  "final_job_id": "9a6defce-caf6-489c-80cf-a2685e59fb26",
+  "D_runtime_executed": false,
+  "HTTP_executed": false,
+  "Windows_executed": false,
+  "real_video_inference": false,
+  "crawler_touched": false,
+  "production_database_touched": false
+}

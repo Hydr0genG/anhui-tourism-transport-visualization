@@ -1,6 +1,10 @@
 """C 部分的稳定公开入口。"""
 
 from .contracts import (
+    EVENT_KINDS,
+    EVENT_SEVERITIES,
+    EVENT_STATUSES,
+    HOLIDAY_KINDS,
     AssetCreate,
     CountInput,
     EntityCreate,
@@ -29,6 +33,10 @@ from .errors import (
 from .store import DataStore, create_store
 
 __all__ = [
+    "EVENT_KINDS",
+    "EVENT_SEVERITIES",
+    "EVENT_STATUSES",
+    "HOLIDAY_KINDS",
     "AnalysisNotReady",
     "AssetCreate",
     "Conflict",
@@ -55,4 +63,4 @@ __all__ = [
     "create_store",
 ]
 
-__version__ = "0.2.1a1"
+__version__ = "0.2.1a2"

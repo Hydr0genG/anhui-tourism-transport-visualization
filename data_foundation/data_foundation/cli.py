@@ -9,7 +9,7 @@ from typing import Any
 from sqlalchemy import func, select
 
 from .db.models import IngestionRun, Observation, QualityIssue, Source
-from .ingestion import import_standard_csv
+from .ingestion import import_standard_csv, run_ingestion_once
 from .seed import seed_catalog
 from .store import create_store
 
@@ -40,6 +40,10 @@ def build_parser() -> argparse.ArgumentParser:
     ingest.add_argument("--apply", action="store_true")
     ingest.add_argument("--reason", default="标准 CSV 导入")
     sub.add_parser("quality-report", help="输出当前覆盖和质量摘要 JSON")
+    worker = sub.add_parser("run-ingestion-once", help="仅消费一个C导入作业；使用已登记的本地CSV，不联网采集")
+    worker.add_argument("--job-id")
+    worker.add_argument("--worker-id", default="c-ingestion-worker")
+    worker.add_argument("--lease-seconds", type=int, default=600)
     return parser
 
 
@@ -56,6 +60,9 @@ def main(argv: list[str] | None = None) -> int:
                 store, args.path, source_id=args.source_id, asset_id=args.asset_id,
                 dry_run=not args.apply, reason=args.reason,
             )
+        elif args.command == "run-ingestion-once":
+            result = run_ingestion_once(store, worker_id=args.worker_id,
+                job_id=args.job_id, lease_seconds=args.lease_seconds)
         else:
             with store.read() as uow:
                 result = {
@@ -68,7 +75,7 @@ def main(argv: list[str] | None = None) -> int:
                     "ingestion_runs": uow.session.scalar(select(func.count()).select_from(IngestionRun)) or 0,
                 }
         print(json.dumps(result, ensure_ascii=False, indent=2, default=_json_default))
-        return 0
+        return 1 if args.command == "run-ingestion-once" and result and result["status"] == "failed" else 0
     finally:
         store.dispose()
 

@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "scope": "synthetic_two_connection_MySQL_concurrency",
+  "outcomes": [
+    {
+      "status": "conflict",
+      "current_version": 2
+    },
+    {
+      "status": "succeeded",
+      "version": 2
+    }
+  ],
+  "final_row_version": 2,
+  "history_rows": 2,
+  "business_db_touched": false,
+  "real_event_created": false
+}

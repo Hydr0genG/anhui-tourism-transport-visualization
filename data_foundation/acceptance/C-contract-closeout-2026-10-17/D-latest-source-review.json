@@ -1,0 +1,84 @@
+{
+  "status": "reviewed_not_runtime_accepted",
+  "reviewed_at": "2026-10-17T04:19:48.149393+00:00",
+  "D_commit": "ee8b9f202a3a0f8e702c735cc1e28c5224c9f68e",
+  "source": "https://gitee.com/kokoski/dpart",
+  "findings": [
+    {
+      "path": "app/services/c_store.py",
+      "line": 658,
+      "file_sha256": "0ab09acdeb53a4548ca2cf63dd6eea71f2ddf40cd4ea5a2c2932cf555d014dd1",
+      "code": "D_private_count_writes_without_C_lease",
+      "required_action": "Switch new results to C visible.write_points; do not delete and replace prior points",
+      "excerpt": "    def write_count_points(self, analysis_id: str, points: list[dict[str, Any]],\n                            *, recorded_start_at: str | None = None,\n                            recorded_end_at: str | None = None,\n                            roi: dict[str, Any] | None = None) -> int:\n        \"\"\"写一次分析的计数点（先清同 analysis_id 旧点，幂等重跑）。\n\n        顺带回填录制起止与 ROI（roi 用 **E 形状** 存 ``roi_json``）。\n        返回写入点数。\n        \"\"\"\n        import json as _json\n        from sqlalchemy import text\n\n        if not analysis_id:\n            return 0\n        try:\n            self._ensure_d_video_analyses()\n        except Exception:\n            return 0\n        with self.write() as uow:\n            uow.session.execute(\n                text(\"DELETE FROM d_video_count_points WHERE analysis_id = :aid\"),"
+    },
+    {
+      "path": "app/services/c_store.py",
+      "line": 721,
+      "file_sha256": "0ab09acdeb53a4548ca2cf63dd6eea71f2ddf40cd4ea5a2c2932cf555d014dd1",
+      "code": "D_private_analysis_publication",
+      "required_action": "Publish and complete job atomically using C visible.complete_analysis",
+      "excerpt": "    def complete_video_analysis(self, analysis_id: str, *,\n                                 recorded_start_at: str | None = None,\n                                 recorded_end_at: str | None = None,\n                                 roi: dict[str, Any] | None = None,\n                                 manual_validation: dict[str, Any] | None = None) -> None:\n        \"\"\"把分析置 ``succeeded`` 并回填录制起止 / ROI / 人工校验（E 返回值）。\"\"\"\n        import json as _json\n        from sqlalchemy import text\n\n        try:\n            self._ensure_d_video_analyses()\n        except Exception:\n            return None\n        with self.write() as uow:\n            uow.session.execute(\n                text(\n                    \"UPDATE d_video_analyses SET status = 'succeeded',\""
+    },
+    {
+      "path": "app/services/e_bindings.py",
+      "line": 224,
+      "file_sha256": "c1d119408b9647e31c8f7497e7723b70ba01f81f6234f58aee4bce1be21c644d",
+      "code": "loader_dependency_failure_allows_loose_snapshot",
+      "required_action": "Use explicit dependency failure instead of snapshot fallback",
+      "excerpt": "        except ImportError:\n            # E < 0.5.1：没有正式校验器，退回宽松形状（不静默放行旧内存，\n            # 只是老 E 版本根本没这套语义校验，D 无法补）。\n            from data_foundation import DataFoundationError\n\n            try:\n                return cstore.snapshot_for_e_publisher()\n            except DataFoundationError as exc:\n                raise e_errors().DependencyUnavailable(\n                    \"活动知识索引产物缺失或校验失败，请重建索引\"\n                ) from exc\n\n        # 授权边界由 D 定：只把 C 侧活动索引已就绪的文档交给 E。\n        # load_verified_knowledge_snapshot 内部已把 DataFoundationError /"
+    },
+    {
+      "path": "app/services/metrics_query.py",
+      "line": 170,
+      "file_sha256": "006bde1d91ad9d9fe869d240a540b46216f7699705588a9ca62360c42c4816f7",
+      "code": "metric_resolver_still_unavailable",
+      "required_action": "Bind C authorized query_series adapter and verify a real historical metric answer",
+      "excerpt": "def metric_tool(query: dict[str, Any]) -> dict[str, Any]:\n    \"\"\"注入 E 的 ``metric_tool``：``dict -> dict``。\n\n    成功时必须返回 ``metric`` / ``value`` / ``source_ids`` /\n    ``period_start`` / ``period_end`` / ``queried_at`` 六键且 ``source_ids``\n    非空（E 会据此生成 citation 与 ``metric_result``）；**当前所有指标的数据\n    源都还没接通（卡 C 的观测/视频接口），因此一律走「不足」分支**——\n    宁可让 E 说「无法核实数值」，也不拿历史资料或旧快照顶替当前值。\n\n    等 C 的 08/09/23 落地后，只需在本函数内按 metric 分支补 resolver，\n    返回形状不变，E 侧零改动。\n    \"\"\"\n    if not isinstance(query, dict):\n        return _unavailable(REASON_INVALID_ENTITY, detail=\"查询体必须是对象\")"
+    },
+    {
+      "path": "app/api/v1/holidays.py",
+      "line": 199,
+      "file_sha256": "44ee52d865e6dda2ab2bd2d65d3a5bf1ad3e610207376e1b5b86b77960781566",
+      "code": "partial_daily_average_fallback",
+      "required_action": "Use exact_total or complete daily_sum divided by holiday days; never average a partial set",
+      "excerpt": "    if mode == \"daily_average\":\n        # C 的日均 = 假期总量 / 假期天数（总量是真实观测，不是缺失日补零）。\n        # 我自己按「sum / 有数据天数」算会在缺天时高估，所以这里不自己算。\n        average = row.get(\"daily_average\")\n        if average is not None:\n            return [round(float(average), 2)]\n        values = _daily_values(row.get(\"daily_points\"))\n        if not values:\n            return []\n        return [round(sum(values) / len(values), 2)]\n\n    # day_index\n    if not row.get(\"day_index_supported\"):\n        return []\n    values = _daily_values(row.get(\"daily_points\"))\n    if not values or values[0] == 0:\n        return []\n    base = values[0]\n    return [round(v / base * 100.0, 2) for v in values]"
+    },
+    {
+      "path": "app/api/v1/holidays.py",
+      "line": 149,
+      "file_sha256": "44ee52d865e6dda2ab2bd2d65d3a5bf1ad3e610207376e1b5b86b77960781566",
+      "code": "holiday_total_sources_omitted",
+      "required_action": "Include exact_total.source_ids when total/average uses holiday aggregate",
+      "excerpt": "                source_ids=_source_ids(row.get(\"daily_points\"))))\n"
+    },
+    {
+      "path": "app/api/v1/events.py",
+      "line": 240,
+      "file_sha256": "75416d5518d0dd667fbf0844cc677dafbb637fb312e87afe80f2e9f6ac45b73c",
+      "code": "missing_version_automatically_filled",
+      "required_action": "Require explicit expected_version and return row_version",
+      "excerpt": "    expected = body.expected_version\n    if expected is None:\n        expected = int(current.get(\"row_version\") or 1)\n\n    now = datetime.now(timezone.utc)"
+    },
+    {
+      "path": "app/worker.py",
+      "line": 73,
+      "file_sha256": "3e22d5481c7bb6a2422e10f682b3ec7b390b828d2c9b9683748489cc73da6b53",
+      "code": "worker_can_claim_unsupported_C_ingestion",
+      "required_action": "Filter D job types; C run-ingestion-once owns registered local CSV jobs",
+      "excerpt": "        claimed = self.store.claim_job(worker_id=\"d-worker\", now=datetime.now(UTC),\n                                        lease_seconds=self._settings().worker_lease_seconds)\n        if claimed is None:\n            return None\n        job = claimed[\"job\"]\n        lease = claimed[\"lease\"]\n        job_type = job[\"type\"]"
+    },
+    {
+      "path": "app/worker.py",
+      "line": 458,
+      "file_sha256": "3e22d5481c7bb6a2422e10f682b3ec7b390b828d2c9b9683748489cc73da6b53",
+      "code": "reindex_file_not_bound_to_registered_original",
+      "required_action": "Use C get_document_file_ref or equally verified immutable bytes",
+      "excerpt": "    def _locate_staging_file(self, document_id: str) -> Path | None:\n        \"\"\"定位上传时留下的 staging 原文件（重建立即可复用的输入源）。\n\n        与 ``e_bridge.stage_and_accept_document`` 的落盘约定一致：优先\n        ``settings.data_dir/knowledge_staging/{document_id}.*``，其次\n        ``%TEMP%/dpart_knowledge_staging/{document_id}.*``。\n        \"\"\"\n        import tempfile\n\n        candidates: list[Path] = []\n        base = Path(self._settings().data_dir) / \"knowledge_staging\"\n        if base.exists():\n            candidates.extend(sorted(base.glob(f\"{document_id}.*\")))\n        tmp = Path(tempfile.gettempdir()) / \"dpart_knowledge_staging\""
+    }
+  ],
+  "D_source_modified": false,
+  "E_source_modified": false,
+  "HTTP_executed": false,
+  "D_original_JSON_evidence_received": false
+}

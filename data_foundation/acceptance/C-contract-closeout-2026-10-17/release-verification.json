@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "C_version": "0.2.1a2",
+  "migration_head": "0007",
+  "business_tables": 34,
+  "test_runs": {
+    "source-tests.xml": {
+      "tests": 479,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "installed-wheel-tests.xml": {
+      "tests": 479,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "mysql-tests.xml": {
+      "tests": 99,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    }
+  },
+  "real_C_E_checks": 12,
+  "installed_matching_files": 19,
+  "source_shadowing": false,
+  "old_C_a1_delivery_unchanged": true,
+  "mysql_two_connection_concurrency": "passed",
+  "D_commit_reviewed": "ee8b9f202a3a0f8e702c735cc1e28c5224c9f68e",
+  "D_source_modified": false,
+  "E_source_modified": false,
+  "D_HTTP_executed": false,
+  "Windows_executed": false,
+  "real_video_inference": false,
+  "crawler_modified_by_this_work": false,
+  "production_database_touched": false,
+  "pending": [
+    "D/E a2 receiving and adapter changes",
+    "D original JSON evidence and formal HTTP",
+    "Windows installation",
+    "Authorized real recording",
+    "Real manual accuracy and continuous-recording prediction"
+  ]
+}

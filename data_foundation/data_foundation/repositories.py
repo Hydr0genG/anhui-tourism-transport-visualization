@@ -17,6 +17,10 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from .contracts import (
+    EVENT_KINDS,
+    EVENT_SEVERITIES,
+    EVENT_STATUSES,
+    HOLIDAY_KINDS,
     AssetCreate,
     CountInput,
     EntityCreate,
@@ -81,6 +85,24 @@ from .errors import (
 ALLOWED_ENTITY_TYPES = {"scenic", "rail_station", "airport", "camera"}
 ALLOWED_GRAINS = {"day", "week", "month", "holiday"}
 ALLOWED_QUALITY = {"verified", "pending_review", "rejected"}
+
+
+def region_prefix(value: str) -> str:
+    """Normalize an administrative code, never an arbitrary SQL LIKE pattern."""
+    if not isinstance(value, str) or not re.fullmatch(r"[0-9]{2}(?:[0-9]{2})?(?:[0-9]{2})?", value):
+        raise InvalidArgument("地区码必须为2、4或6位数字", field="region_code")
+    if value == "000000":
+        return ""
+    if len(value) == 6 and value.endswith("0000"):
+        return value[:2]
+    if len(value) == 6 and value.endswith("00"):
+        return value[:4]
+    return value
+
+
+def require_enum(value: Any, choices: frozenset[str], field: str) -> None:
+    if not isinstance(value, str) or value not in choices:
+        raise InvalidArgument("未知枚举值", field=field, allowed=sorted(choices))
 
 
 def utc_naive(value: datetime) -> datetime:
@@ -237,8 +259,9 @@ class CatalogRepository(Repository):
             conditions.append(Entity.type == type)
         elif not include_cameras:
             conditions.append(Entity.type != "camera")
-        if region_code:
-            conditions.append(Entity.region_code == region_code)
+        if region_code is not None:
+            prefix = region_prefix(region_code)
+            conditions.append(Entity.region_code == prefix if len(prefix) == 6 else Entity.region_code.startswith(prefix))
         if q:
             conditions.append(Entity.name.like(f"%{q[:50]}%"))
         total = self.session.scalar(select(func.count()).select_from(Entity).where(*conditions)) or 0
@@ -722,11 +745,7 @@ class ObservationRepository(Repository):
         definition = self.get_or_404(Metric,metric,"指标")
         if entity.type not in definition.supported_entity_types:
             raise MetricEntityMismatch("指标不适用于该实体")
-        region = holiday.region_code
-        if len(region)==6 and region.endswith("0000"):
-            region = region[:2]
-        elif len(region)==6 and region.endswith("00"):
-            region = region[:4]
+        region = region_prefix(holiday.region_code)
         if holiday.region_code!="000000" and not entity.region_code.startswith(region):
             raise InvalidArgument("假期地区不覆盖该实体")
         if holiday.days_count>366:
@@ -968,6 +987,7 @@ class JobRepository(Repository):
 class HolidayRepository(Repository):
     def create_holiday(self, data: dict[str, Any]) -> dict[str, Any]:
         self.require_write()
+        require_enum(data.get("kind"), HOLIDAY_KINDS, "kind")
         source = self.get_or_404(Source, data["definition_source_id"], "定义来源")
         asset = self.get_or_404(SourceAsset, data["definition_asset_id"], "定义原件")
         if asset.source_id != source.id:
@@ -991,6 +1011,7 @@ class HolidayRepository(Repository):
         if year is not None:
             conditions.append(Holiday.year == year)
         if kind:
+            require_enum(kind, HOLIDAY_KINDS, "kind")
             conditions.append(Holiday.kind == kind)
         if region_code:
             conditions.append(Holiday.region_code == region_code)
@@ -1002,6 +1023,14 @@ class HolidayRepository(Repository):
 
 
 class EventRepository(Repository):
+    def _entity_ids(self, value: Any) -> list[str]:
+        if not isinstance(value, list) or any(not isinstance(item, str) or not item for item in value):
+            raise InvalidArgument("affected_entity_ids必须为对象ID数组", field="affected_entity_ids")
+        entity_ids = list(dict.fromkeys(value))
+        for entity_id in entity_ids:
+            self.get_or_404(Entity, entity_id, "影响对象")
+        return entity_ids
+
     def _snapshot(self, event: Event, entity_ids: list[str]) -> dict[str, Any]:
         snapshot = public_columns(event)
         snapshot["affected_entity_ids"] = sorted(entity_ids)
@@ -1014,19 +1043,31 @@ class EventRepository(Repository):
     def create_event(self, data: dict[str, Any], *, operator_id: str | None, now: datetime) -> dict[str, Any]:
         self.require_write()
         values = dict(data)
-        entity_ids = list(values.pop("affected_entity_ids", []))
+        entity_ids = self._entity_ids(values.pop("affected_entity_ids", []))
+        for field in ("title", "description", "kind", "authority", "severity", "region_code", "starts_at", "source_id", "asset_id"):
+            if values.get(field) is None or values.get(field) == "":
+                raise InvalidArgument("缺少事件必填字段", field=field)
+        if not isinstance(values["title"], str) or not 1 <= len(values["title"].strip()) <= 120:
+            raise InvalidArgument("事件标题必须为1—120字符", field="title")
+        if not isinstance(values["description"], str) or not values["description"].strip():
+            raise InvalidArgument("事件说明不能为空", field="description")
+        require_enum(values["kind"], EVENT_KINDS, "kind")
+        require_enum(values["severity"], EVENT_SEVERITIES, "severity")
+        values.setdefault("status", "active")
+        require_enum(values["status"], EVENT_STATUSES, "status")
         source = self.get_or_404(Source, values["source_id"], "事件来源")
         asset = self.get_or_404(SourceAsset, values["asset_id"], "事件原件")
         if asset.source_id != source.id or values.get("authority") != "official":
             raise InvalidArgument("官方事件必须关联一致且可核验的来源与原件")
         for key in ("starts_at", "ends_at", "published_at", "last_verified_at"):
-            if values.get(key):
+            if values.get(key) is not None:
                 values[key] = utc_naive(values[key])
+        if values.get("ends_at") is not None and values["ends_at"] < values["starts_at"]:
+            raise InvalidArgument("事件结束时间不能早于开始时间", field="ends_at")
         event = Event(**values)
         self.session.add(event)
         self.session.flush()
         for entity_id in entity_ids:
-            self.get_or_404(Entity, entity_id, "影响对象")
             self.session.add(EventEntity(event_id=event.id, entity_id=entity_id))
         history = EventHistory(
             event_id=event.id, version=1, snapshot=self._snapshot(event, entity_ids),
@@ -1041,30 +1082,52 @@ class EventRepository(Repository):
         operator_id: str | None, now: datetime,
     ) -> dict[str, Any]:
         self.require_write()
-        event = self.get_or_404(Event, event_id, "事件")
+        if isinstance(expected_version, bool) or not isinstance(expected_version, int) or expected_version < 1:
+            raise InvalidArgument("expected_version必须为正整数", field="expected_version")
+        event = self.session.scalar(select(Event).where(Event.id == event_id).with_for_update()
+            .execution_options(populate_existing=True))
+        if event is None:
+            raise NotFound("事件不存在", id=event_id)
         if event.row_version != expected_version:
             raise Conflict("事件版本已变化，请刷新后重试", current_version=event.row_version)
         values = dict(patch)
-        change_note = values.pop("change_note", "").strip()
-        if not change_note:
+        change_note = values.pop("change_note", "")
+        if not isinstance(change_note, str) or not change_note.strip():
             raise InvalidArgument("更新事件必须填写 change_note")
+        change_note = change_note.strip()
         entity_ids = values.pop("affected_entity_ids", None)
-        if "asset_id" in values:
-            asset = self.get_or_404(SourceAsset, values["asset_id"], "事件原件")
-            source_id = values.get("source_id", event.source_id)
-            if asset.source_id != source_id:
-                raise InvalidArgument("事件来源与原件不一致")
         allowed = {"description", "severity", "ends_at", "status", "source_id", "asset_id", "operator_note", "last_verified_at"}
         for key, value in values.items():
             if key not in allowed:
                 raise InvalidArgument("不允许修改事件字段", field=key)
-            if key in {"ends_at", "last_verified_at"} and value:
-                value = utc_naive(value)
+            if key in {"ends_at", "last_verified_at"} and value is not None:
+                values[key] = utc_naive(value)
+        if "status" in values:
+            require_enum(values["status"], EVENT_STATUSES, "status")
+        if "severity" in values:
+            require_enum(values["severity"], EVENT_SEVERITIES, "severity")
+        if "description" in values and (not isinstance(values["description"], str) or not values["description"].strip()):
+            raise InvalidArgument("事件说明不能为空", field="description")
+        if "source_id" in values and values["source_id"] != event.source_id and "asset_id" not in values:
+            raise InvalidArgument("变更来源必须同时提供原件", field="asset_id")
+        if "source_id" in values or "asset_id" in values:
+            source_id = values.get("source_id", event.source_id)
+            self.get_or_404(Source, source_id, "事件来源")
+            asset = self.get_or_404(SourceAsset, values.get("asset_id", event.asset_id), "事件原件")
+            if asset.source_id != source_id:
+                raise InvalidArgument("事件来源与原件不一致")
+        if values.get("status") == "active" and event.status in {"resolved", "expired"}:
+            if not {"source_id", "asset_id"} <= values.keys() or values["asset_id"] == event.asset_id:
+                raise InvalidArgument("重新激活事件必须提供新来源原件", field="asset_id")
+        if values.get("ends_at", event.ends_at) is not None and values.get("ends_at", event.ends_at) < event.starts_at:
+            raise InvalidArgument("事件结束时间不能早于开始时间", field="ends_at")
+        if entity_ids is not None:
+            entity_ids = self._entity_ids(entity_ids)
+        for key, value in values.items():
             setattr(event, key, value)
         if entity_ids is not None:
             self.session.query(EventEntity).filter(EventEntity.event_id == event_id).delete()
             for entity_id in entity_ids:
-                self.get_or_404(Entity, entity_id, "影响对象")
                 self.session.add(EventEntity(event_id=event_id, entity_id=entity_id))
         else:
             entity_ids = list(self.session.scalars(select(EventEntity.entity_id).where(EventEntity.event_id == event_id)).all())
@@ -1092,6 +1155,7 @@ class EventRepository(Repository):
         if region_code:
             conditions.append(Event.region_code == region_code)
         if status:
+            require_enum(status, EVENT_STATUSES, "status")
             conditions.append(Event.status == status)
         if status == "active" and now:
             current = utc_naive(now)

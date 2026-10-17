@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "anhui-data-foundation"
-version = "0.2.1a1"
+version = "0.2.1a2"
 description = "安徽文旅交通客流平台的数据基础包"
 readme = "README.md"
 requires-python = ">=3.11"

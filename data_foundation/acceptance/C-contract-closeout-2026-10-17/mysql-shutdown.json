@@ -1,0 +1,8 @@
+{
+  "shutdown_confirmed": true,
+  "network_listener_enabled": false,
+  "temporary_instance_only": true,
+  "database_files_retained": true,
+  "data_deleted": false,
+  "client_disconnect_after_shutdown": true
+}

@@ -61,6 +61,7 @@ def main():
     parser.add_argument("--manifest",type=Path,required=True)
     parser.add_argument("--migration-config",type=Path,required=True)
     parser.add_argument("--c-wheel",type=Path,required=True)
+    parser.add_argument("--c-version",default="0.2.1a1",help="Expected C wheel version; old receiving commands remain compatible")
     parser.add_argument("--e-wheel",type=Path,required=True)
     parser.add_argument("--output",type=Path,required=True)
     args=parser.parse_args()
@@ -73,7 +74,7 @@ def main():
     try:
         assert not inspect(engine).get_table_names() and not inspect(engine).get_view_names(),"Schema must be empty; nothing is removed"
     finally: engine.dispose()
-    packages={"C":check_wheel(args.c_wheel,"data_foundation","0.2.1a1"),"E":check_wheel(args.e_wheel,"intelligent_analysis","0.6.0")}
+    packages={"C":check_wheel(args.c_wheel,"data_foundation",args.c_version),"E":check_wheel(args.e_wheel,"intelligent_analysis","0.6.0")}
     args.output.mkdir(parents=True)
     def migrate(target):
         result=subprocess.run([sys.executable,"-I","-m","alembic","-c",str(args.migration_config.resolve()),"upgrade",target],
